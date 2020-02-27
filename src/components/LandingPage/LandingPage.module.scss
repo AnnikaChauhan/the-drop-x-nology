@@ -1,0 +1,53 @@
+$primary-color: #ff007e;
+$secondary-color: #222528;
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    
+}
+
+.left {
+    height: 100%;
+    width: 50%;
+    background-color: $secondary-color;
+    transition: width 1s;
+
+    &:hover {
+        width: 90%;
+        transition: width 1s ease-out;
+
+    }
+}
+
+.right {
+    height: 100%;
+    width: 50%;
+    background-color: $primary-color;
+    transition: width 1s;
+
+    &:hover {
+        width: 90%;
+        transition: width 1s;
+    }
+}
+// .left-is-active {
+//     & .left {
+//       width: 70%;
+//     }
+    
+//     & .right {
+//       width: 30%;
+//     }
+//   }
