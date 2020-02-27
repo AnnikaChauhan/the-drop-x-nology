@@ -1,0 +1,33 @@
+@import "../../variables";
+
+nav {
+  width: 250px;
+  background-color: $secondary-color;
+  padding: 30px;
+  height: 100vh;
+  position: fixed;
+  font-size: 1.3em;
+
+  a {
+    text-decoration: none;
+    transition: 0.25s;
+    color: $primary-color;
+
+    &:hover {
+        color: white;
+    }
+  }
+
+  img {
+      max-width: 100%;
+      padding-bottom: 20px;
+  }
+
+  ul {
+    list-style-type: none;
+
+    li {
+        padding: 10px 0;
+    }
+  }
+}
