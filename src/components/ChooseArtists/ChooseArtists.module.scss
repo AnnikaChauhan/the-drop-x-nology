@@ -1,0 +1,27 @@
+h2 {
+    font-weight: bold;
+    text-align: center;
+}
+
+.ChooseArtists {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border: 2px solid black;
+    height: 400px;
+    width: 800px;
+}
+
+.Artist {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border: 2px solid black;
+    width: 30vw;
+    // margin: auto;
+    padding: 10px;
+
+}
+.followAll {
+    font-weight: bold;
+}
