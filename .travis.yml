@@ -1,11 +1,24 @@
-sudo: true
 language: node_js
 node_js:
-- node
-git:
-  quiet: true
-cache: npm
+  - stable
+cache:
+  directories:
+    - node_modules
+install:
+  - yarn global add firebase-tools
+  - yarn install
+script:
+  - yarn lint
+  - yarn test
+  - yarn build
+before_deploy:
+  - yarn build
+branches:
+  only:
+    - master
 deploy:
   provider: firebase
+  skip_cleanup: true
+  local_dir: build
   token: 
     secure: JiqXf8TyqqJm8HCxtZaZtfkxGEoM1zqJD2Q5PcdUQrNqllunDF1unKOazEvSYfTbsV61syw/NTh1Jd7yPF3Nv2RjzS/nrFUwdgyCdN3eISsB10C3o4xk1LYwSAWUpGhmzxj21uXm0WxkkGbHMZgmV+pMjj6K9sZP//KogfWXUGEvEyptO8RC0JX+In/2qhwGkl2mkhE/wvZi1zvhCMY1Qa6KcV4VBgzmicJve3m80XdBWzPE3H0ovP1Y50GAZ5cGAUBYnchx2isFfybBD2I4VyFLRpf7QcJ2hDwHkAcvggIpBShoKjKTfO8Hm/4Dcx7KXXmjR2i4EMTBwTCxS0bZDZGeEalOFYOtIHyoYBQJwskr1aaeGjXsYomCr4K0x1AdezUORH+pBIdn8EcQSOId3tyZPb0Ggh8DeadAroK77DMchEvfG6pTOOojEM8fOHJMndBG0xAK4bUWFj3L48aNPrT2PwTyPnWFZALZBEBid5k79Zy/aoezi/062etZe7F35s+XRKHogyPMoJ6zBiiEzhMWSOgiTCWi36cFejNGLEK749NqJgRxXSKBJ4qML06ey59IyEpMv8F5o8D5rPCMLUiG2q7eSx1WeVGmNhD7zHQOktX20raFd1uomOOfCVupdb9XK2WxrfkmrAr09ndBFp2YOyAt3hKw90PUHJbUrhI=
