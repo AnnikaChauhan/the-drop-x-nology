@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.module.scss';
+import LandingPage from '../../components/LandingPage';
 
 function App() {
   return (
     <main>
-        <h1>The Drop</h1>
+       <LandingPage />
     </main>
   );
 }
