@@ -4,12 +4,12 @@ import LandingPage from '../../components/LandingPage';
 import Navbar from '../../components/Navbar';
 
 function App() {
-  return (
-    <main>
-       {/* <LandingPage /> */}
-        <Navbar />
-    </main>
-  );
+    return (
+        <main>
+            <LandingPage />
+
+        </main>
+    );
 }
 
 export default App;
