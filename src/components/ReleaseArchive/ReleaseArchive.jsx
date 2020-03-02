@@ -1,17 +1,21 @@
-import React, { Component } from "./node_modules/react";
+import React, { Component } from "react";
 import styles from "./ReleaseArchive.module.scss";
-import ReleaseArchive from "./ReleaseArchive";
 
 
-class ReleaseArchiveComponent extends Component {
+
+export default class ReleaseArchive extends Component {
     render() {
         return (
-            <section className={styles.container}>
-                <ReleaseArchive />
-            
+            <section className={styles.wrapper}>
+                <div className={styles.container}>
+                    <div className={styles.archiveData}>Release title</div>
+                    <div className={`${styles.archiveData} ${styles.green}`}>active</div>
+                </div>
+                <div className={styles.container}>
+                    <div className={styles.archiveData}>Release title</div>
+                    <div className={styles.archiveData}>draft</div>
+                </div>
             </section>
         )
     }
 }
-
-export default ReleaseArchiveComponent;
