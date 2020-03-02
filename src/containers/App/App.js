@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./App.module.scss";
-import LandingPage from "../../components/LandingPage";
+import LandingPage from "../LandingPage";
 import Navbar from "../../components/Navbar";
 import Main from "../Main";
 
