@@ -1,19 +1,17 @@
 import React from 'react';
 import './App.module.scss';
-import LandingPage from '../../components/LandingPage';
-import Navbar from '../../components/Navbar';
-import ReleaseArchive  from "../../components/ReleaseArchive/ReleaseArchive";
+import styles from "./App.module.scss";
+import LandingPage from "../../components/LandingPage";
+import Navbar from "../../components/Navbar";
+import Main from "../Main";
+import ReleaseArchive from "../../components/ReleaseArchive/ReleaseArchive"
 
 function App() {
     return (
-        <main>
+        <div className={styles.App}>
             <LandingPage />
 
-            
-
-            
-
-        </main>
+        </div>
     );
 }
 
