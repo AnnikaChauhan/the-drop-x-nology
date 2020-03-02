@@ -1,0 +1,9 @@
+@import "../../../variables";
+*{
+    font-family: $font-stack;
+}
+
+.fanDashboardHeader {
+    background-color: lightgrey;
+    padding: 20px;
+}
