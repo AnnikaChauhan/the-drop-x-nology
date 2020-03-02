@@ -9,45 +9,101 @@ $secondary-color: #222528;
     justify-content: center;
     align-items: center;
 
+    .logoimg {
+        width: 100px;
+        height: 130px;
+        background-image: url("../../static/images/logos/logo1.png");
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin-bottom: 40px;
+    }
+
+    h2 {
+        // color: $primary-color;
+        filter: grayscale(0);
+        font-size: 28px;
+        width: 100%;
+        text-align: center;
+        letter-spacing: 3px;
+    }
+
     div{
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-        
-    }
-    
+        // cursor: pointer;
+    }    
 }
 
 .left {
     height: 100%;
     width: 50%;
     background-color: $secondary-color;
-    transition: width 1s;
+    transition: 1s;
+    // background-image: url("../../static/images/backgrounds/tune1.gif");
+    background-image: url("../../static/images/backgrounds/artist-bg1.jpeg");
+    // background-image: url("../../static/images/backgrounds/artist-bg2.jpg");
+    background-position: center;
+    // background-size: cover;
+    filter: grayscale(100%);
+
+    .logoimg {
+        opacity: 0;
+        transition: opacity 0.5s;
+    }
 
     &:hover {
-        width: 90%;
-        transition: width 1s ease-out;
+        width: 80%;
+        filter: grayscale(0%);
+        transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+        box-shadow: 10px 0px 40px grey;
+        z-index: 1;
 
+        .logoimg {
+            opacity: 1;
+            transition: opacity 0.5s ease-out;
+        }
+
+        h2 {
+            transition: 1s ease-out;
+            color: $primary-color;
+        }
     }
 }
 
 .right {
     height: 100%;
     width: 50%;
-    background-color: $primary-color;
-    transition: width 1s;
+    background-image: url("../../static/images/backgrounds/fan-bg1edit.jpg");
+    // background-image: url("../../static/images/backgrounds/fan-bg2.jpg");
+    background-position: center;
+    background-size: cover;
+    transition: 1s;
+    filter: grayscale(100%);
+    
+    .logoimg {
+        opacity: 0;
+        transition: opacity 0.5s;
+    }
 
     &:hover {
-        width: 90%;
-        transition: width 1s;
+        width: 80%;
+        filter: grayscale(0%);
+        transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+        filter: grayscale(0%);
+        box-shadow: -10px 0px 40px grey;
+
+        .logoimg {
+            opacity: 1;
+            transition: opacity 0.5s ease-out;
+        }
+        
+        h2 {
+            color: $primary-color;
+            transition: 1s ease-out;
+        }
     }
 }
-// .left-is-active {
-//     & .left {
-//       width: 70%;
-//     }
-    
-//     & .right {
-//       width: 30%;
-//     }
-//   }
