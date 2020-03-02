@@ -1,4 +1,4 @@
-import bigconspiracy from "../images/bigconspiracy";
+import bigconspiracy from "../images/BigConspiracy.jpg";
 
 
 const releaseCards = [
