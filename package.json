@@ -11,11 +11,8 @@
     "global": "^4.4.0",
     "node-sass": "^4.13.1",
     "react": "^16.13.0",
-<<<<<<< HEAD
     "react-burger-menu": "^2.6.13",
-=======
     "react-bootstrap": "^1.0.0-beta.17",
->>>>>>> cde508a726f8f7dce31ab59793ffbf24f350dd4b
     "react-dom": "^16.13.0",
     "react-scripts": "3.4.0"
   },

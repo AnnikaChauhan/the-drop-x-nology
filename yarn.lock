@@ -10232,18 +10232,6 @@ react-app-polyfill@^1.0.6:
     regenerator-runtime "^0.13.3"
     whatwg-fetch "^3.0.0"
 
-<<<<<<< HEAD
-react-burger-menu@^2.6.13:
-  version "2.6.13"
-  resolved "https://registry.yarnpkg.com/react-burger-menu/-/react-burger-menu-2.6.13.tgz#51b86eb35076c5fbe80027e2ce4c58bd6708f724"
-  integrity sha512-tloQs8F2+YHR/FYfQpu4z+OQzgGHzUZYZXBxGmb6/6eckjQ1GvzeNpHp4IZigpe0ovamg1HgDRK3qNlOPezjlA==
-  dependencies:
-    browserify-optional "^1.0.0"
-    classnames "^2.2.6"
-    eve "~0.5.1"
-    prop-types "^15.7.2"
-    snapsvg-cjs "0.0.6"
-=======
 react-bootstrap@^1.0.0-beta.17:
   version "1.0.0-beta.17"
   resolved "https://registry.yarnpkg.com/react-bootstrap/-/react-bootstrap-1.0.0-beta.17.tgz#09d4789633b2fb24d408fa493b4a80a496e87c82"
@@ -10263,7 +10251,17 @@ react-bootstrap@^1.0.0-beta.17:
     react-transition-group "^4.0.0"
     uncontrollable "^7.0.0"
     warning "^4.0.3"
->>>>>>> cde508a726f8f7dce31ab59793ffbf24f350dd4b
+
+react-burger-menu@^2.6.13:
+  version "2.6.13"
+  resolved "https://registry.yarnpkg.com/react-burger-menu/-/react-burger-menu-2.6.13.tgz#51b86eb35076c5fbe80027e2ce4c58bd6708f724"
+  integrity sha512-tloQs8F2+YHR/FYfQpu4z+OQzgGHzUZYZXBxGmb6/6eckjQ1GvzeNpHp4IZigpe0ovamg1HgDRK3qNlOPezjlA==
+  dependencies:
+    browserify-optional "^1.0.0"
+    classnames "^2.2.6"
+    eve "~0.5.1"
+    prop-types "^15.7.2"
+    snapsvg-cjs "0.0.6"
 
 react-dev-utils@^10.2.0:
   version "10.2.0"
