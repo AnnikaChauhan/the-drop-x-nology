@@ -1,22 +1,24 @@
 import React, { Component } from "react";
 import styles from "./ChooseArtists.module.scss";
+import comet from "../../static/images/comet.png";
+
 class ChooseArtists extends Component {
     render() {
         return (
           <section className={styles.ChooseArtists}>
-              <div>LOGO</div>
+              <img className={styles.comet} src={comet}/>
               <h2>We found these artists in your music library!</h2>
               <button className={styles.followAll}>FOLLOW ALL</button>
                 <div className={styles.Artist}>
-                    <div>Artist 1</div>
+                    <div className={styles.EachArtist}>Artist 1</div>
+                    <button className={styles.follow}>FOLLOW</button>
+                </div>
+                <div className={styles.Artist1}>
+                    <div className={styles.EachArtist}>Artist 2</div>
                     <button className={styles.follow}>FOLLOW</button>
                 </div>
                 <div className={styles.Artist}>
-                    <div>Artist 2</div>
-                    <button className={styles.follow}>FOLLOW</button>
-                </div>
-                <div className={styles.Artist}>
-                    <div>Artist 3</div>
+                    <div className={styles.EachArtist}>Artist 3</div>
                     <button className={styles.follow}>FOLLOW</button>
                 </div>
             </section>
