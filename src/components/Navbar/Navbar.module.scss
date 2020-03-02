@@ -1,35 +1,44 @@
 @import "../../variables";
 
-nav {
-  position: fixed;
-  background-color: $secondary-color;
-  width: 225px;
-  height: 100vh;
-  padding: 30px;
-  border-right: 1px solid grey;
+$navbar-width: 225px;
 
-  a {
-    color: $primary-color;
-    font-size: 1.2em;
-    font-weight: 400;
-    text-decoration: none;
-    transition: 0.25s;
+.Nav {
+    nav {
+        position: fixed;
+        background-color: $secondary-color;
+        width: $navbar-width;
+        height: 100vh;
+        padding: 30px;
+        border-right: 1px solid grey;
 
-    &:hover {
-      color: white;
+        a {
+            color: $primary-color;
+            font-size: 1.2em;
+            font-weight: 400;
+            text-decoration: none;
+            transition: 0.25s;
+
+            &:hover {
+                color: white;
+            }
+        }
+
+        img {
+            max-width: 100%;
+            padding-bottom: 40px;
+        }
+
+        ul {
+            list-style-type: none;
+
+            li {
+                padding: 10px 0;
+            }
+        }
     }
-  }
 
-  img {
-    max-width: 100%;
-    padding-bottom: 40px;
-  }
-
-  ul {
-    list-style-type: none;
-
-    li {
-      padding: 10px 0;
+    .overlay {
+        width: $navbar-width;
+        height: 100vh;
     }
-  }
 }
