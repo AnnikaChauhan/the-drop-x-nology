@@ -1,0 +1,17 @@
+.SearchBar {
+    input {
+        width: 500px;
+        margin: 10px 50px 10px 20px;
+        border-radius: 25px;
+        padding: 5px;
+        outline: none;
+    }
+
+    button {
+        background-color: lightgray;
+        color: white;
+        width: 150px;
+        padding: 5px;
+        border-radius: 5px;
+    }
+}

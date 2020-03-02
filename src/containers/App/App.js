@@ -1,15 +1,16 @@
-import React from 'react';
-import './App.module.scss';
-import LandingPage from '../../components/LandingPage';
+import React from "react";
+import styles from "./App.module.scss";
+import LandingPage from "../LandingPage";
+import Navbar from "../../components/Navbar";
+import Main from "../Main";
 import ChooseArtists from '../../components/ChooseArtists';
 
 function App() {
-  return (
-    <main>
-       {/* <LandingPage /> */}
-       <ChooseArtists />
-    </main>
-  );
+    return (
+        <div className={styles.App}>
+            <ChooseArtists />
+        </div>
+    );
 }
 
 export default App;

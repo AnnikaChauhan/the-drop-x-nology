@@ -1,5 +1,7 @@
+@import '../../variables';
+
 * {
-    font-family: font-stack;
+    font-family: $font-stack;
     margin: 0;
 
     .ChooseArtists {
@@ -23,23 +25,29 @@
         .Artist {
             display: flex;
             flex-direction: row;
-            justify-content: center;
+            justify-content: space-around;
             border: 1px solid lightgrey;
+            align-items: center;
             width: 30vw;
             padding: 10px;
             font-weight: bold;
+
+            // .Artist:nth-child(2) {
+            //     border: 2px solid red;
+            //     color: red;
+            // }
         }
 
-        .Artist1 {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            border-left: 1px solid lightgrey;
-            border-right: 1px solid lightgrey;
-            width: 30vw;
-            padding: 10px;
-            font-weight: bold;
-        }
+        // .Artist1 {
+        //     display: flex;
+        //     flex-direction: row;
+        //     justify-content: center;
+        //     border-left: 1px solid lightgrey;
+        //     border-right: 1px solid lightgrey;
+        //     width: 30vw;
+        //     padding: 10px;
+        //     font-weight: bold;
+        // }
 
         .followAll {
             font-weight: bold;
@@ -63,13 +71,20 @@
             padding: 5px ;
             border-radius: 5px;
             width: 100px;
-            margin-left: 170px;
+            margin-left: 20%;
         }
         
-        .EachArtist {
-            margin: auto;
-        }
+        // .EachArtist {
+        //     // margin: 20%;
+        // }
     } 
+    
+
+    @media screen and (max-width: 768px) {
+        .Artist {
+            min-width: 70vh;
+        }
+    }
 }
 
 
