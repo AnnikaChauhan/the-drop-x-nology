@@ -13,7 +13,7 @@ class ChooseArtists extends Component {
                     <div className={styles.EachArtist}>Artist 1</div>
                     <button className={styles.follow}>FOLLOW</button>
                 </div>
-                <div className={styles.Artist}>
+                <div className={`${styles.Artist} ${styles.RemoveBorder}`}>
                     <div className={styles.EachArtist}>Artist 2</div>
                     <button className={styles.follow}>FOLLOW</button>
                 </div>
