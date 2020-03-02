@@ -10,17 +10,16 @@ $secondary-color: #222528;
     align-items: center;
 
     .logoimg {
-        width: 100px;
-        height: 130px;
+        width: 50px;
+        height: 80px;
         background-image: url("../../static/images/logos/logo1.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
-        margin-bottom: 40px;
+        margin-bottom: 20px;
     }
 
     h2 {
-        // color: $primary-color;
         filter: grayscale(0);
         font-size: 28px;
         width: 100%;
@@ -33,41 +32,42 @@ $secondary-color: #222528;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        // cursor: pointer;
     }    
+
+    .wrapper {
+        height: 100%;
+        width: 100%;
+        background-color:rgba(0,0,0,0.7);        
+        background-repeat: no-repeat;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
 }
 
 .left {
     height: 100%;
     width: 50%;
-    background-color: $secondary-color;
-    transition: 1s;
-    // background-image: url("../../static/images/backgrounds/tune1.gif");
+    transition: 0.3s;
     background-image: url("../../static/images/backgrounds/artist-bg1.jpeg");
-    // background-image: url("../../static/images/backgrounds/artist-bg2.jpg");
     background-position: center;
-    // background-size: cover;
+    background-size: cover;
     filter: grayscale(100%);
 
-    .logoimg {
-        opacity: 0;
-        transition: opacity 0.5s;
-    }
-
+    
     &:hover {
         width: 80%;
         filter: grayscale(0%);
-        transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+        transition: 0.3s;
         box-shadow: 10px 0px 40px grey;
         z-index: 1;
 
-        .logoimg {
+        .wrapper {
             opacity: 1;
-            transition: opacity 0.5s ease-out;
+            transition: opacity 0.3s ease-out;
         }
 
         h2 {
-            transition: 1s ease-out;
+            transition: 0.3s ease-out;
             color: $primary-color;
         }
     }
@@ -76,34 +76,26 @@ $secondary-color: #222528;
 .right {
     height: 100%;
     width: 50%;
-    background-image: url("../../static/images/backgrounds/fan-bg1edit.jpg");
-    // background-image: url("../../static/images/backgrounds/fan-bg2.jpg");
+    background-image: url("../../static/images/backgrounds/fan-bg3.jpg");
     background-position: center;
     background-size: cover;
-    transition: 1s;
+    transition: 0.3s;
     filter: grayscale(100%);
-    
-    .logoimg {
-        opacity: 0;
-        transition: opacity 0.5s;
-    }
 
     &:hover {
         width: 80%;
         filter: grayscale(0%);
-        transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-
-        filter: grayscale(0%);
+        transition: 0.3s;
         box-shadow: -10px 0px 40px grey;
 
-        .logoimg {
+        .wrapper {
             opacity: 1;
-            transition: opacity 0.5s ease-out;
+            transition: opacity 0.3s ease-out;
         }
         
         h2 {
             color: $primary-color;
-            transition: 1s ease-out;
+            transition: 0.3s ease-out;
         }
     }
 }
