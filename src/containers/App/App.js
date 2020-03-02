@@ -4,12 +4,14 @@ import styles from "./App.module.scss";
 import LandingPage from "../../components/LandingPage";
 import Navbar from "../../components/Navbar";
 import Main from "../Main";
-import ReleaseArchive from "../../components/ReleaseArchive/ReleaseArchive"
+
 
 function App() {
     return (
         <div className={styles.App}>
-            <LandingPage />
+            {/* <LandingPage /> */}
+            <Navbar />
+            <Main />
 
         </div>
     );
