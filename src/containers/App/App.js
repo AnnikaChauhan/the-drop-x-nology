@@ -1,16 +1,16 @@
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.module.scss';
-// import LandingPage from '../../components/LandingPage';
-import ReleaseCardList from '../../components/ReleaseCardList';
+import React from "react";
+import styles from "./App.module.scss";
+import LandingPage from "../../components/LandingPage";
+import Navbar from "../../components/Navbar";
+import Main from "../Main";
 
 function App() {
-  return (
-    <main>
-       {/* <LandingPage /> */}
-       <ReleaseCardList />
-    </main>
-  );
+    return (
+        <div className={styles.App}>
+            <Navbar />
+            <Main />
+        </div>
+    );
 }
 
 export default App;
