@@ -1,5 +1,4 @@
-$primary-color: #ff007e;
-$secondary-color: #222528;
+@import "../../../../variables";
 
 .cardWrapper {
     text-align: center;
@@ -11,5 +10,4 @@ $secondary-color: #222528;
         font-weight: bold;
         font-size: 40px;
     }
-
 }

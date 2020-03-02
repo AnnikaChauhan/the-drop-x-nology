@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import styles from "./ReleaseCardList.module.scss";
-import data from "../../static/data/data";
-import ReleaseCard from "../ReleaseCard/ReleaseCard";
-
-
+import data from "../../../static/data/data";
+import ReleaseCard from "./ReleaseCard";
 
 class ReleaseCardList extends Component {
     render() {
@@ -13,10 +11,8 @@ class ReleaseCardList extends Component {
                     <ReleaseCard cardData={person} key={index} />
                 ))}
             </section>
-        )
+        );
     }
 }
 
-{/* <ReleaseCard /> */}
-               
 export default ReleaseCardList;
