@@ -1,13 +1,14 @@
-import React from 'react';
-import './App.module.scss';
-import LandingPage from '../LandingPage';
-import Navbar from '../../components/Navbar';
+import React from "react";
+import styles from "./App.module.scss";
+import LandingPage from "../LandingPage";
+import Navbar from "../../components/Navbar";
+import Main from "../Main";
 
 function App() {
     return (
-        <main>
+        <div className={styles.App}>
             <LandingPage />
-        </main>
+        </div>
     );
 }
 
