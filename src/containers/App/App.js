@@ -4,7 +4,7 @@ import styles from "./App.module.scss";
 import LandingPage from "../LandingPage";
 import Navbar from "../../components/Navbar";
 import Main from "../Main";
-import ChooseArtists from '../../components/ChooseArtists';
+import ChooseArtists from "../../components/ChooseArtists";
 
 function App() {
     return (

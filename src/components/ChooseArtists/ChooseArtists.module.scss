@@ -1,80 +1,67 @@
-@import '../../variables';
+@import "../../variables";
 
-* {
-    font-family: $font-stack;
-    margin: 0;
+.ChooseArtists {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 550px;
+    width: 100%;
 
-    .ChooseArtists {
+    .comet {
+        margin-top: 20px;
+    }
+
+    h2 {
+        font-weight: bold;
+        text-align: center;
+        font-size: 30px;
+        margin: 40px;
+    }
+
+    .Artist {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: space-around;
+        border: 1px solid lightgrey;
         align-items: center;
-        height: 550px;
-        width: 100%;
-    
-        .comet {
-            margin-top: 20px;
-        }
+        width: 30vw;
+        padding: 10px;
+        font-weight: bold;
 
-        h2 {
-            font-weight: bold;
-            text-align: center;
-            font-size: 30px;
-            margin: 40px;
-        }
-
-        .Artist {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-            border: 1px solid lightgrey;
-            align-items: center;
-            width: 30vw;
-            padding: 10px;
-            font-weight: bold;
-        }
-
-        .RemoveBorder {
-            border-bottom: none;
-            border-top: none;
-        }
-
-        .followAll {
+        button {
             font-weight: bold;
             background-color: grey;
             color: white;
             padding: 5px;
             border-radius: 5px;
-            width: 150px;
-            margin-bottom: 40px;
-        }
-        
-        .comet {
-            height: 80px;
-            width: 45px;
-        }
-        
-        .follow {
-            font-weight: bold;
-            background-color: grey;
-            color: white;
-            padding: 5px ;
-            border-radius: 5px;
             width: 100px;
             margin-left: 20%;
         }
-        
-    } 
-    
+    }
 
-    @media screen and (max-width: 768px) {
-        .Artist {
-            min-width: 70vh;
-        }
+    .RemoveBorder {
+        border-bottom: none;
+        border-top: none;
+    }
+
+    .followAll {
+        font-weight: bold;
+        background-color: grey;
+        color: white;
+        padding: 5px;
+        border-radius: 5px;
+        width: 150px;
+        margin-bottom: 40px;
+    }
+
+    .comet {
+        height: 80px;
+        width: 45px;
     }
 }
 
-
-
-
-   
-    
+@media screen and (max-width: 768px) {
+    .Artist {
+        min-width: 70vh;
+    }
+}
