@@ -1,0 +1,83 @@
+@import '../../../variables';
+
+.SignInContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    background-image: url("../../../static/images/backgrounds/artist-bg2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    .wrapper {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: rgba(0,0,0,0.7);
+    }
+
+    .comet1 {
+        height: 115px;
+        width: 175px;
+        background-image: url("../../../static/images/logos/logo2.png");
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin: 20px;
+    }
+
+    form {
+        width: 30%;
+        height: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        color: white;
+    }
+
+    .buttons {
+        background-color: black;
+        color: rgb(240,240,240);
+
+        &:hover {
+            background-color: $primary-color;
+        }
+    }
+
+    .textlink {
+        color: $primary-color;
+    }
+   
+    .textfieldcolor {
+        #standard-basic{
+        color: white;
+        }
+        // background-color: white;
+    }
+}
+
+// .textfieldcolor {
+//     border-radius: 7px;
+//     background-color: rgba(255,255,255, 0.5);
+//     color: white;
+//     // height: 50px;
+
+//     &::placeholder {
+//         border-radius: 10px;
+//         background-color: rgba(0,0,0, 0.7);
+//     }
+
+//     // secondary {
+//     //     color: red;
+//     // }
+// }
+
+// #standard-basic {
+//     input:
+// }
