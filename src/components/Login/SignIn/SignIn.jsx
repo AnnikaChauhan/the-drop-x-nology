@@ -1,11 +1,8 @@
 import React, { Component } from "react";
 import styles from "./SignIn.module.scss";
-import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Button from "@material-ui/core/Button";
-import Grid from "@material-ui/core/Grid";
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+
 
 const style = {
     style: {
@@ -22,40 +19,29 @@ class SignIn extends Component {
                 <div className={styles.wrapper}>
                     <div className={styles.comet1}></div>
                     <form className={styles.loginform}>
-                        <TextField id="standard-basic" label="Username" color="secondary" className={styles.textfieldcolor} 
-                        InputProps={style}
-                        InputLabelProps={style}
-                        />
-                        <TextField id="standard-basic" label="Password" color="secondary" className={styles.textfieldcolor} 
-                        InputProps={style}
-                        InputLabelProps={style}
-                        />
-                        <FormControlLabel
-                            control={<Checkbox value="remember" color="primary" />}
-                            label="Remember me"
-                        />
-                        <Button
-                        type="submit"
-                        fullWidth
-                        variant="contained"
-                        color="#e91e63 pink"
-                        className={styles.buttons}        
-                        >
-                            Sign In
-                        </Button>
-                        <Grid container>
-                            <Grid item xs>
-                                <Link href="#" variant="body2" className={styles.textlink}>
-                                    Forgot password?
-                                </Link>
-                            </Grid>
-                            <Grid item>
-                                <Link href="#" variant="body2" className={styles.textlink}>
-                                    {"Don't have an account? Sign Up"}
-                                </Link>
-                            </Grid>
-                        </Grid>
+                        <Form>
+                            <Form.Group controlId="formBasicEmail">
+                                <Form.Control className={styles.formcontain} type="email" placeholder="Enter email" />
+                            </Form.Group>
+
+                            <Form.Group controlId="formBasicPassword">
+                                <Form.Control className={styles.formcontain} type="password" placeholder="Password" />
+                            </Form.Group>
+                            <Form.Group controlId="formBasicCheckbox">
+                                <Form.Check className={styles.radiostyle} type="checkbox" label="Remember me?" />
+                            </Form.Group>
+                            <Button variant="primary" type="submit" className={styles.loginBtn}>
+                                SIGN IN
+                            </Button>
+                        </Form>
                     </form>
+                    <div className={styles.extra}>
+                        <div className={styles.link1}>Forgot Password</div>
+                        <div className={styles.link2}>New to The Drop?</div>
+                    </div>
+                </div>
+                <div className={styles.footercontainer}>
+                    Learn more about The Drop.
                 </div>
             </section>
         )
