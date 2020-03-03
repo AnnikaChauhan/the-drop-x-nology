@@ -5,6 +5,19 @@ import navStyleData from "../../static/data/navStyleData.js";
 import { slide as Menu } from "react-burger-menu";
 
 class Navbar extends Component {
+  constructor() {
+    super();
+    window.addEventListener("resize", this.handleResize.bind(this));
+  }
+
+  state = {
+    width: window.innerWidth
+  };
+
+  handleResize() {
+    this.setState({ width: window.innerWidth });
+  }
+
   showSettings(event) {
     event.preventDefault();
   }
@@ -57,7 +70,7 @@ class Navbar extends Component {
   }
 
   render() {
-    if (window.innerWidth <= 768) {
+    if (this.state.width <= 768) {
       return (
         <Menu
           noOverlay
