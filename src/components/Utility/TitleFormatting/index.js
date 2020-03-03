@@ -1,3 +1,3 @@
-import DashboardTitle from "./DashboardTitle";
+import TitleFormatting from "./TitleFormatting";
 
-export default DashboardTitle;
+export default TitleFormatting;

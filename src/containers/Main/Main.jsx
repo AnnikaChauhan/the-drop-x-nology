@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Main.module.scss";
 import ReleaseArchive from "../../components/Main/ReleaseArchive";
-import FanDashboard from "../FanDashboard";
+import FanDashboard from "../../containers/FanDashboard/FanDashboard";
 
 function Main() {
     return (

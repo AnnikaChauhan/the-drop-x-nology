@@ -1,14 +1,14 @@
 import React, { Component } from "react";
-import styles from "./DashboardTitle.module.scss";
+import styles from "../TitleFormatting/TitleFormatting.module.scss";
 
-class DashboardTitle extends Component {
+class TitleFormatting extends Component {
     render() {
         return (
             <div className={styles.DashboardTitle}>
-                <h1>Fan Dashboard</h1>
+                
             </div>
         );
     }
 }
 
-export default DashboardTitle;
+export default TitleFormatting;
