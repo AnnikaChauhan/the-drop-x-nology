@@ -3,15 +3,6 @@ import styles from "./SignIn.module.scss";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-
-const style = {
-    style: {
-        color: "white",
-        opacity: 0.7
-    }
-}
-
-
 class SignIn extends Component {
     render() {
         return (
@@ -40,9 +31,7 @@ class SignIn extends Component {
                         <div className={styles.link2}>New to The Drop?</div>
                     </div>
                 </div>
-                <div className={styles.footercontainer}>
-                    Learn more about The Drop.
-                </div>
+                
             </section>
         )
     }
