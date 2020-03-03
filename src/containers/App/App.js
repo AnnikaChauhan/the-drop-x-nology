@@ -9,7 +9,8 @@ import ChooseArtists from "../../components/ChooseArtists";
 function App() {
     return (
         <div className={styles.App}>
-            <ChooseArtists />
+            <Navbar />
+            <Main />
         </div>
     );
 }

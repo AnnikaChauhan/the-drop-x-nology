@@ -7,6 +7,7 @@ function Main() {
     return (
         <section className={styles.Main}>
             {/* Components to go in here */}
+            <FanDashboard />
         </section>
     );
 }
