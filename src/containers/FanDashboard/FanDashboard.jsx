@@ -8,8 +8,8 @@ import ReleaseCardList from "../../components/Main/FanDashboard/ReleaseCardList"
 function FanDashboard() {
     return (
         <section className={styles.FanDashboard}>
-            <TitleFormatting  />
-            <SearchBar />
+            <TitleFormatting title={"Fan Dashboard"} />
+            <SearchBar placeholder={"Search Artists..."} />
             <ReleaseCardList />
         </section>
     );

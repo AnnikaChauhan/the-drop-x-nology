@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styles from "./ReleaseCardList.module.scss";
 import data from "../../../../static/data/data";
-import CardComponent from "../../../Utility/CardTemplates/Card";
+import ReleaseCard from "./ReleaseCard";
 
 class ReleaseCardList extends Component {
     render() {
@@ -10,7 +10,7 @@ class ReleaseCardList extends Component {
                 <h2>Upcoming Releases</h2>
                 <section className={styles.cardListWrapper}>
                     {data.map((person, index) => (
-                        <CardComponent cardData={person} key={index} />
+                        <ReleaseCard cardData={person} key={index} />
                     ))}
                 </section>
             </div>

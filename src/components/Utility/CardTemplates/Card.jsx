@@ -3,11 +3,12 @@ import styles from "./Card.module.scss";
 import Card from "react-bootstrap/Card";
 
 class CardComponent extends Component {
+    
     render() {
         return (
-            <Card className={styles.cardWrapper}>
+            <section className={styles.cardWrapper}>
                 
-            </Card>
+            </section>
         );
     }
 }

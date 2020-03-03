@@ -5,7 +5,7 @@ class SearchBar extends Component {
     render() {
         return (
             <section className={styles.SearchBar}>
-                <input type="text" placeholder="search artists..."></input>
+                <input type="text" placeholder={this.props.placeholder}></input>
                 <button>Search</button>
             </section>
         );
