@@ -39,7 +39,22 @@ class DraftRelease extends Component {
                         <input type="text"/>
                     </form>
                 </article>
+                <h4>Announcement</h4>
                 <ReleaseTimer />
+                <form className={styles.wysiwyg}>
+                    <input type="text" placeholder="extra info to be added here by artist if required (WYSIWYG)"/>
+                </form>
+                <h4>Release</h4>
+                <ReleaseTimer />
+                <hr/>
+                <h3>Pre-save URI's</h3>
+                <div className={styles.URI}>
+                    <h4>Spotify</h4>
+                    <form action=""><input type="url" /></form>
+                </div>
+                <div></div>
+                <div></div>
+                <div></div>
             </section>
                     )
                 }

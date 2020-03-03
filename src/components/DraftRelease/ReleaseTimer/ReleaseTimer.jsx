@@ -5,7 +5,6 @@ class ReleaseTimer extends Component {
     render() {
         return (
             <div className={styles.announcementDate}>
-                    <h4>Announcement</h4>
                     <div>
                         <input type="text" id="day1" placeholder="D"/>
                         <input type="text" id="day2" placeholder="D"/>
