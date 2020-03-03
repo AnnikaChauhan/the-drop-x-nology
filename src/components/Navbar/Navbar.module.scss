@@ -18,6 +18,7 @@ nav {
 
         &:hover {
             color: white;
+            text-decoration: none;
         }
     }
 
@@ -39,4 +40,6 @@ nav {
     width: $navbar-width;
     height: 100vh;
 }
+
+
 

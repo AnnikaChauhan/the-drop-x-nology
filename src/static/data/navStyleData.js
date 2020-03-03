@@ -25,12 +25,9 @@ export default {
     },
     bmMenu: {
       background: '#222528',
-      padding: '2.5em 1.5em 0',
-      fontSize: '1.15em'
     },
     bmItemList: {
       color: '#b8b7ad',
-      padding: '0.8em'
     },
     bmItem: {
       display: 'inline-block'

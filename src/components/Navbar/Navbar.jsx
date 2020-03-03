@@ -5,14 +5,13 @@ import navStyleData from "../../static/data/navStyleData.js";
 import { slide as Menu } from "react-burger-menu";
 
 class Navbar extends Component {
-  constructor() {
-    super();
-    window.addEventListener("resize", this.handleResize.bind(this));
-  }
-
   state = {
     width: window.innerWidth
   };
+
+  componentDidMount() {
+    window.addEventListener("resize", () => this.handleResize());
+  }
 
   handleResize() {
     this.setState({ width: window.innerWidth });
@@ -28,34 +27,22 @@ class Navbar extends Component {
         <img src={logo} />
         <ul>
           <li>
-            <a id="dashboard" className="menu-item" href="">
-              Dashboard
-            </a>
+            <a href="">Dashboard</a>
           </li>
           <li>
-            <a id="user" className="menu-item" href="">
-              User Profile
-            </a>
+            <a href="">User Profile</a>
           </li>
           <li>
-            <a id="help" className="menu-item" href="">
-              Help and Contact
-            </a>
+            <a href="">Help and Contact</a>
           </li>
           <li>
-            <a id="legal" className="menu-item" href="">
-              Legal
-            </a>
+            <a href="">Legal</a>
           </li>
           <li>
-            <a id="feedback" className="menu-item" href="">
-              Feedback
-            </a>
+            <a href="">Feedback</a>
           </li>
           <li>
-            <a id="logout" className="menu-item" href="">
-              Logout
-            </a>
+            <a href="">Logout</a>
           </li>
           <li>
             <a
@@ -77,7 +64,7 @@ class Navbar extends Component {
           disableOverlayClick
           disableAutoFocus
           styles={navStyleData}
-          width={"100%"}
+          width={"60%"}
         >
           {this.links}
         </Menu>
