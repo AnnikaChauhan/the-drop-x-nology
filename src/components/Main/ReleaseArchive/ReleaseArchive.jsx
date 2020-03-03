@@ -8,9 +8,7 @@ export default class ReleaseArchive extends Component {
                 <h2>Release Archive</h2>
                 <div className={styles.container}>
                     <div className={styles.archiveData}>Release title</div>
-                    <div className={`${styles.archiveData} ${styles.active}`}>
-                        active
-                    </div>
+                    <div className={`${styles.archiveData} ${styles.active}`}>active</div>
                 </div>
                 <div className={styles.container}>
                     <div className={styles.archiveData}>Release title</div>
