@@ -4,6 +4,7 @@ import LandingPage from "../LandingPage";
 import LoginPage from "../LoginPage";
 import Navbar from "../../components/Navbar";
 import Main from "../Main";
+import ChooseArtists from "../../components/ChooseArtists";
 
 function App() {
     return (
