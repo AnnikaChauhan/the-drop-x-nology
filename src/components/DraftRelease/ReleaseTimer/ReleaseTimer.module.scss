@@ -1,0 +1,22 @@
+.announcementDate {
+    margin: 10px;
+
+    input {
+        width: 25px;
+        text-align: center;
+        // background-color: blue;
+
+        &:nth-child(2), &:nth-child(4), &:nth-child(9), &:nth-child(11) {
+            // background-color: red;
+            margin-right: 10px;
+        }
+
+        &:nth-child(8) {
+            margin-right: 30px;
+        }
+
+        &:nth-child(12), &:nth-child(13) {
+            width: 35px;;
+        }
+    }
+}

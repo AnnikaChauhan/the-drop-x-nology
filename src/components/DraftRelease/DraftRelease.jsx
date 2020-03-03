@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ReleaseTimer from "./ReleaseTimer/ReleaseTimer";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from "./DraftRelease.module.scss";
 
@@ -18,7 +19,7 @@ class DraftRelease extends Component {
                 </article>
                 <article className={styles.initialDescription}>
                     <h4>Type</h4>
-                    <div>
+                    <div className={styles.Dropdown}>
                         <Dropdown>
                             <Dropdown.Toggle variant="success" id="dropdown-basic">
                                 select type from below list...
@@ -38,22 +39,7 @@ class DraftRelease extends Component {
                         <input type="text"/>
                     </form>
                 </article>
-                <div>
-                    <h4>Announcement</h4>
-                    <div>
-                        <input type="text" id="day1" placeholder="D"/>
-                        <input type="text" id="day2" placeholder="D"/>
-                        <input type="text" id="day3" placeholder="M"/>
-                        <input type="text" id="day4" placeholder="M"/>
-                        <input type="text" id="day5" placeholder="Y"/>
-                        <input type="text" id="day6" placeholder="Y"/>
-                        <input type="text" id="day7" placeholder="Y"/>
-                        <input type="text" id="day8" placeholder="Y"/>
-                        <input type="text" id="day9" placeholder="0"/>
-                        <input type="text" id="day10" placeholder="0"/>
-                        <input type="text" id="day11" placeholder="0"/>
-                    </div>
-                </div>
+                <ReleaseTimer />
             </section>
                     )
                 }
