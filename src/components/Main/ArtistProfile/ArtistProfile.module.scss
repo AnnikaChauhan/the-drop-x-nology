@@ -1,0 +1,68 @@
+@import "../../../variables";
+
+.artistProfileWrapper {
+    border: 2px solid blue;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;;
+    text-align: center;
+    font-weight: bold;
+
+    .imageProfileWrapper {
+        display: flex;
+        justify-content: center;
+        height: 100px;
+        // border: 2px solid red;
+        margin-right: 40px;
+        div {
+            display: flex;
+            align-items: center;
+            // border: 2px solid yellow;
+            width: 200px;
+            height: 100px;
+            justify-content: center;
+            
+
+             img {
+                margin-left: 50px;
+                border-radius: 100%;
+                width: 50%;
+                height: 100%;
+             }
+
+             h2 {
+                width: 200px;
+            }
+        }   
+    }
+
+    .addRelease {
+        width: 200px;
+        height: 50px;
+        background-color: #222528;
+        color: #ff007e;
+        font-weight: bold;
+        // border: 2px solid green;
+    }
+
+    .buttonsWrapper {
+        // border: 2px solid pink;
+        display: flex;
+        height: 200px;
+        flex-direction: column;
+        justify-content: space-evenly;
+        // font-weight: bold;
+
+        .buttonBar {
+            height: 50px;
+            width: 200px;
+            // border: 2px solid orange;
+            justify-items: center;
+            font-weight: bold;
+            background-color: #222528;
+            color: #ff007e;
+        }
+    } 
+}
