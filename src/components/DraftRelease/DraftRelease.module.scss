@@ -11,7 +11,7 @@
 
     div {
         // border: 2px solid green;
-        width: 700px;
+        width: 500px;
         display: flex;
         justify-content: space-evenly;
 
@@ -19,7 +19,7 @@
         button {
             border-radius: 5px;
             height: 40px;
-            width: 200px;
+            width: 150px;
         }
     }  
 }
@@ -27,47 +27,6 @@
 h4, h3, form {
     padding-top: 20px;
     margin-left: 10px;
-}
-
-.initialDescription {
-    padding: 20px 0;
-
-    form input {
-        width: 100%;
-
-        &:last-child{
-            height: 100px;
-        }
-        
-    }
-}
-
-.announcementDate {
-
-    input {
-        width: 25px;
-        text-align: center;
-        // background-color: blue;
-
-        &:nth-child(2), &:nth-child(4), &:nth-child(9), &:nth-child(11) {
-            // background-color: red;
-            margin-right: 10px;
-        }
-
-        &:nth-child(8) {
-            margin-right: 30px;
-        }
-
-        &:nth-child(12), &:nth-child(13) {
-            width: 35px;;
-        }
-    }
-}
-
-.wysiwyg input {
-    width: 100%;
-    height: 200px;
-    margin: 20px 0px;
 }
 
 hr {
@@ -78,6 +37,16 @@ hr {
     margin-right: auto;
 }
 
-.URI {
-    display: inline;
+@media screen and (max-width: 768px){
+    .topPart{
+        flex-direction: column;
+
+        div {
+            width: 100%;
+
+            button {
+                width: 30%;
+            }
+        }
+    }
 }

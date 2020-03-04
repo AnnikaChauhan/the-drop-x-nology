@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import ReleaseTimer from "./ReleaseTimer/ReleaseTimer";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from "./DraftRelease.module.scss";
-
 import Dropdown from 'react-bootstrap/Dropdown';
+import ReleaseDetails from "./ReleaseDetails/ReleaseDetails";
+import PreSaveURIs from "./PreSaveURIs/PreSaveURIs";
+import PhysicalURLs from "./PhysicalURLs/PhysicalURLs";
+import ArtworkMedia from "./ArtworkMedia/ArtworkMedia";
 
 class DraftRelease extends Component {
     render() {
@@ -16,46 +17,16 @@ class DraftRelease extends Component {
                         <button>PREVIEW</button>
                         <button>PUBLISH</button>
                     </div>
+                    {/* progress bar */}
                 </article>
-                <article className={styles.initialDescription}>
-                    <h4>Type</h4>
-                    <div className={styles.Dropdown}>
-                        <Dropdown>
-                            <Dropdown.Toggle variant="success" id="dropdown-basic">
-                                select type from below list...
-                            </Dropdown.Toggle>
-
-                            <Dropdown.Menu>
-                                <Dropdown.Item href="#/action-1">Single</Dropdown.Item>
-                                <Dropdown.Item href="#/action-2">EP</Dropdown.Item>
-                                <Dropdown.Item href="#/action-3">Album</Dropdown.Item>
-                            </Dropdown.Menu>
-                        </Dropdown>
-                    </div>
-                    <form>
-                        <h4>Title</h4>
-                        <input type="text"/>
-                        <h4>Description</h4>
-                        <input type="text"/>
-                    </form>
-                </article>
-                <h4>Announcement</h4>
-                <ReleaseTimer />
-                <form className={styles.wysiwyg}>
-                    <input type="text" placeholder="extra info to be added here by artist if required (WYSIWYG)"/>
-                </form>
-                <h4>Release</h4>
-                <ReleaseTimer />
-                <hr/>
-                <h3>Pre-save URI's</h3>
-                <div className={styles.URI}>
-                    <h4>Spotify</h4>
-                    <form action=""><input type="url" /></form>
-                </div>
-                <div></div>
-                <div></div>
-                <div></div>
+                <ReleaseDetails />
+                <PreSaveURIs />
+                <PhysicalURLs />
+                <ArtworkMedia />
+                {/* Add continue buttons to each component */}
+                {/* Add a back to top button, put the save etc buttons back */}
             </section>
+
                     )
                 }
             }
