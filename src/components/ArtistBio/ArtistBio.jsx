@@ -8,6 +8,7 @@ export default class ArtistBio extends Component {
         return (
             <section className={styles.Bio}>
                 <TextEditor />
+                
             </section>
         )
     }

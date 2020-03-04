@@ -8,12 +8,16 @@ import styles from "./TextEditor.module.scss";
 export default class TextEditor extends Component {
     render() {
         return(
-            <Editor 
-                // editorState={editorState}
-                toolbarClassName="toolbarClassName"
-                wrapperClassName="wrapperClassName"
-                editorClassName={styles.editor}
-                onEditorStateChange={this.onEditorStateChange}/>
+            <section>
+                <Editor 
+                    // editorState={editorState}
+                    toolbarClassName="toolbarClassName"
+                    wrapperClassName="wrapperClassName"
+                    editorClassName={styles.editor}
+                    onEditorStateChange={this.onEditorStateChange}/>
+                <button>Save</button>
+                <button>Cancel</button>
+            </section>
         )
     }
 }
