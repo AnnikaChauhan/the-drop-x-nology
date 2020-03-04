@@ -4,8 +4,6 @@ import styles from "./FanDashboard.module.scss";
 import SearchBar from "../../components/Utility/SearchBar";
 import TitleFormatting from "../../components/Utility/TitleFormatting";
 import ReleaseCardList from "../../components/Main/FanDashboard/ReleaseCardList";
-import LargeButton from "../../components/Utility/Button/LargeButton";
-
 
 class FanDashboard extends Component {
     render() {
@@ -13,7 +11,6 @@ class FanDashboard extends Component {
             <section className={styles.FanDashboard}>
                 <TitleFormatting title={"Fan Dashboard"} />
                 <SearchBar placeHolder={"Search Artists..."} /> 
-                <LargeButton text={"button"} />
                 <ReleaseCardList />
             </section>
         );
