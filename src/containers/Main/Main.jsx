@@ -6,10 +6,8 @@ import FanDashboard from "../../containers/FanDashboard";
 function Main() {
     return (
         <section className={styles.Main}>
-            {/* <ReleaseArchive /> */}
             {/* Components to go in here */}
             <FanDashboard />
-            {/* <ReleaseArchive /> */}
         </section>
     );
 }

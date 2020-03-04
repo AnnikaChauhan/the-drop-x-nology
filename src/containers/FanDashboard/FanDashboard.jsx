@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "./FanDashboard.module.scss";
 import SearchBar from "../../components/Utility/SearchBar";
 import TitleFormatting from "../../components/Utility/TitleFormatting";

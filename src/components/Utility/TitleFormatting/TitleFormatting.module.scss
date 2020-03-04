@@ -1,4 +1,8 @@
+@import '../../../variables';
+
 .DashboardTitle {
-    background-color: lightgrey;
+    background-color: $primary-color;
+    color: $secondary-color;
     padding: 20px;
+    font-weight: bolder;
 }
