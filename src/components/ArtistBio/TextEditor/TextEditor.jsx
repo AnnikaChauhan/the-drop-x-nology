@@ -1,18 +1,21 @@
 import React, { Component } from "react";
-import styles from "./TextEditor.module.scss";
+
 import { Editor } from 'react-draft-wysiwyg';
 import '../../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import styles from "./TextEditor.module.scss";
 
 
 export default class TextEditor extends Component {
     render() {
         return(
-            <Editor
+            <Editor 
                 // editorState={editorState}
                 toolbarClassName="toolbarClassName"
                 wrapperClassName="wrapperClassName"
-                editorClassName="editorClassName"
+                editorClassName={styles.editor}
                 onEditorStateChange={this.onEditorStateChange}/>
         )
     }
 }
+
+// "editorClassName"
