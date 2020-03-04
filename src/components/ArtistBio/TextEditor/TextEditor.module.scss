@@ -1,5 +1,5 @@
-
 @import "../../../variables";
+
 .editor {
     border: 1px solid lightgrey;
     min-height: 200px;
@@ -13,14 +13,12 @@ button {
     width: 80px;
     border: none;
     background-color: $secondary-color;
-    
-    // display: flex;
-    // justify-items: flex-end;
 
     &:hover {
-        // background-color: lighten($color: gray, $amount: 20);
         color: white;
-        
     }
 
+    &:focus {
+        outline: 0;
+    }
 }
