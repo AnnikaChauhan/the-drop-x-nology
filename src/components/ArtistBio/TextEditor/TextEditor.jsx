@@ -30,7 +30,7 @@ export default class TextEditor extends Component {
         editorState: EditorState.createEmpty()
     }
 
-        onEditorStateChange: Function = (editorState) => { this.setState({editorState})};
+        onEditorStateChange = (editorState) => { this.setState({editorState})};
      
     
     render() {
