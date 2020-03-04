@@ -11,6 +11,9 @@ function App() {
     return (
         <div className={styles.App}>
             {/* <ChooseArtists /> */}
+            
+            {/* <Navbar /> */}
+            {/* <Main /> */}
             <ArtistProfile />
         </div>
     );
