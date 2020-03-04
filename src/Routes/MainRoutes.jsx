@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Router, Redirect } from "@reach/router";
 import FanDashboard from "../containers/Main/FanDashboard";
-
-const NotFound = () => <h2>404: Page not Found</h2>;
+import NotFound from "../components/Navbar/NotFound";
 
 export default class MainRoutes extends Component {
     render() {

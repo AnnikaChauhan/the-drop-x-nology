@@ -1,0 +1,30 @@
+@import '../../../variables';
+
+.SearchBar {
+    input {
+        width: 500px;
+        margin: 10px 50px 10px 20px;
+        border-radius: 25px;
+        padding: 5px;
+        outline: none;
+    }
+
+    button {
+        display: inline-flex;
+        height: 40px;
+        width: 200px;
+        margin: 5px 5px 5px 5px;
+        color: $primary-color;
+        background-color: $secondary-color;
+        text-decoration: none;
+        font-size: .8em;
+        letter-spacing: 1.5px;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        border-radius: .25rem;
+        position: relative;
+        cursor: pointer;
+        outline: none !important;
+    } 
+}
