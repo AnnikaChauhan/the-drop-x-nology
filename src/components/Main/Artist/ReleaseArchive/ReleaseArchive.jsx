@@ -7,8 +7,11 @@ export default class ReleaseArchive extends Component {
         return (
             <section className={styles.wrapper}>
                 <h2>Release Archive</h2>
-                <StatusBar title={"Release Title"} status={"active"} />
-                <StatusBar title={"Release Title"} status={"draft"} />
+                <StatusBar
+                    title={"Release TitleFormatting"}
+                    status={"active"}
+                />
+                <StatusBar title={"Release TitleFormatting"} status={"draft"} />
             </section>
         );
     }
