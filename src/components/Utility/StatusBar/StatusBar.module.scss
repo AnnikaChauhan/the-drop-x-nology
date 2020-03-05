@@ -1,0 +1,16 @@
+@import "../../../variables";
+
+.StatusBar {
+    border: 0.5px solid gray;
+    color: $secondary-color;
+    display: flex;
+    justify-content: space-between;
+
+    .archiveData {
+        padding: 10px;
+    }
+
+    .active {
+        color: green;
+    }
+}
