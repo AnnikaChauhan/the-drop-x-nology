@@ -1,16 +1,17 @@
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.module.scss';
-import LandingPage from '../../components/LandingPage';
-import DraftRelease from "../../components/DraftRelease/DraftRelease";
+import React from "react";
+import "./App.module.scss";
+import styles from "./App.module.scss";
+import LandingPage from "../LandingPage";
+import Navbar from "../../components/Navbar";
+import Main from "../Main";
 
 function App() {
-  return (
-    <main>
-      <LandingPage />
-      <DraftRelease />
-    </main>
-  );
+    return (
+        <div className={styles.App}>
+            <Navbar />
+            <Main />
+        </div>
+    );
 }
 
 export default App;
