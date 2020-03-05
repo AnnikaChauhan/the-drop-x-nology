@@ -1,4 +1,4 @@
-@import "../../../../../../src/variables";
+@import "../../../../variables";
 
 .navigation {
     width: 1055px;
@@ -22,9 +22,8 @@
         left: 50%;
     }
     .title {
-    padding: 5px 0  0 15px;
-    
-    
+        padding: 5px 0 0 15px;
+
         h4 {
             font-weight: bold;
         }
@@ -32,9 +31,6 @@
         p {
             font-size: 15px;
         }
-
-    
-        
     }
 }
 
@@ -60,7 +56,7 @@
 
 h4 {
     font-weight: bold;
-    }
+}
 
 .descriptionsection {
     margin-top: 25px;
@@ -80,4 +76,3 @@ h4 {
         width: 100px;
     }
 }
-
