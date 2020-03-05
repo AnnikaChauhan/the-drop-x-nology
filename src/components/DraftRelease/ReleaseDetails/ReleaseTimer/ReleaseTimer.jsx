@@ -18,9 +18,8 @@ class ReleaseTimer extends Component {
                     <input type="text" id="day9" placeholder="0"/>
                     <input type="text" id="day10" placeholder="0"/>
                     <input type="text" id="day11" placeholder="0"/>
-                    <input type="text" id="am" placeholder="am"/>
-                    <input type="text" id="pm" placeholder="pm"/>
                 </div>
+                <p>AM</p>
                 <Toggle />
             </div>
         )

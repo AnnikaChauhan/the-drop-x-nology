@@ -1,2 +1,2 @@
-import Toggle from "./Toggle";
-export default Toggle;
+import ToggleButton from "./Toggle";
+export default ToggleButton;

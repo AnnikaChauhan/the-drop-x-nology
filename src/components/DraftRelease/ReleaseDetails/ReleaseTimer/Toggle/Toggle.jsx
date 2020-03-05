@@ -1,27 +1,26 @@
-import React, { Component } from "react";
-import { MDBSwitch } from "mdbreact";
+import React, { Component } from 'react';
+import "./Toggle.module.scss";
 
-class Toggle extends Component {
-state = {
-  switch1: true,
-  switch2: false
-}
-
-handleSwitchChange = nr => () => {
-  let switchNumber = `switch${nr}`;
-  this.setState({
-    [switchNumber]: !this.state[switchNumber]
-  });
-}
-
-render() {
-  return (
-    <>
-      <MDBSwitch checked={this.state.switch1} onChange={this.handleSwitchChange(1)} />
-      <MDBSwitch checked={this.state.switch2} onChange={this.handleSwitchChange(2)} />
-    </>
+class ToggleButton extends Component {
+  render() {
+    return (
+      <>
+        <div className='custom-control custom-switch toggle'>
+          <input
+            type='checkbox'
+            className='custom-control-input'
+            id='customSwitches'
+            readOnly
+          />
+          <label className='custom-control-label' htmlFor='customSwitches'>
+            PM
+          </label>
+        </div>
+      </>
     );
   }
 }
 
-export default Toggle;
+
+
+export default ToggleButton;

@@ -5,7 +5,7 @@ export default class ArtworkMedia extends Component {
         return(
             <>
                 <h3>Artwork</h3>
-                {/* button */}
+                
                 <h3>Media</h3>
                 {/* button */}
             </>
