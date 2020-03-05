@@ -7,11 +7,12 @@ import FanDashboard from "../../containers/FanDashboard";
 import ManageReleases from "../../components/Main/ManageReleases/ManageReleases";
 import PreviewReleases from "../../components/Main/ManageReleases/PreviewReleases";
 import ArtistProfile from "../../components/Main/ArtistProfile";
+import DraftRelease from "../../components/DraftRelease";
 
 function Main() {
     return (
         <section className={styles.Main}>
-            {/* Components to go in here */}
+            <DraftRelease />
         </section>
     );
 }

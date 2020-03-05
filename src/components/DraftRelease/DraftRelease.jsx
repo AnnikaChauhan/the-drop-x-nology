@@ -5,7 +5,7 @@ import ReleaseDetails from "./ReleaseDetails/ReleaseDetails";
 import PreSaveURIs from "./PreSaveURIs/PreSaveURIs";
 import PhysicalURLs from "./PhysicalURLs/PhysicalURLs";
 import ArtworkMedia from "./ArtworkMedia/ArtworkMedia";
-import SmallButton from "../Utility/Button/SmallButton/SmallButton";
+import SmallButton from "../Utility/Buttons/SmallButton/SmallButton";
 
 
 class DraftRelease extends Component {

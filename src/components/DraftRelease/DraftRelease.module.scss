@@ -1,13 +1,11 @@
 .topPart {
     display: flex;
     justify-content: space-between;
-    // border: 2px solid black;
-    align-items: baseline;
     padding-top: 20px;
-    margin-right: 50px;
+    padding-right: 10px;
     width: 100%;
     margin-bottom: 50px;
-    margin-left: 10px;
+    padding-left: 10px;
 
     div {
         display: flex;

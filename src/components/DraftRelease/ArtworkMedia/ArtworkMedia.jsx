@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import SmallButton from "../../Utility/Button/SmallButton/SmallButton";
+import SmallButton from "../../Utility/Buttons/SmallButton/SmallButton";
 
 export default class ArtworkMedia extends Component {
     render(){

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styles from "./SignIn.module.scss";
-import LargeButton from '../../Utility/Button/LargeButton';
+import LargeButton from '../../Utility/Buttons/LargeButton';
 
 
 

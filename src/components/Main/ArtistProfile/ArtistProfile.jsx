@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styles from "./ArtistProfile.module.scss";
 import image from "../../../static/images/sampleimage.jfif";
-import LargeButton from "../../Utility/Button/LargeButton";
+import LargeButton from "../../Utility/Buttons/LargeButton";
 
 export default class ArtistProfile extends Component {
     render() {

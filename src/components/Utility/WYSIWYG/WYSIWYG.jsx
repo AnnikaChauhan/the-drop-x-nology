@@ -4,7 +4,7 @@ import { Editor } from 'react-draft-wysiwyg';
 import { EditorState } from "draft-js";
 import '../../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
-import SmallButton from "../Button/SmallButton";
+import SmallButton from "../Buttons/SmallButton";
 import styles from "./WYSIWYG.module.scss";
 
 
