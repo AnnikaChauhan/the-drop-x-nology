@@ -11,6 +11,7 @@ function App() {
         <div className={styles.App}>
             <Navbar />
             <Main />
+            
         </div>
     );
 }
