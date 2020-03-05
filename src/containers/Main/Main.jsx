@@ -12,7 +12,7 @@ import DraftRelease from "../../components/DraftRelease";
 function Main() {
     return (
         <section className={styles.Main}>
-            <DraftRelease />
+            
         </section>
     );
 }
