@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styles from "./ManageReleases.module.scss";
-import StatusBar from "../../Utility/StatusBar";
+import StatusBar from "../../../Utility/StatusBar";
 
 export default class ReleaseArchive extends Component {
     render() {

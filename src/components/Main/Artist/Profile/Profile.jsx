@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styles from "./Profile.module.scss";
 import image from "../../../../static/images/sampleimage.jfif";
 import LargeButton from "../../../Utility/Buttons/LargeButton";
+import { Link } from "@reach/router";
 
 export default class Profile extends Component {
     render() {
@@ -24,19 +25,23 @@ export default class Profile extends Component {
                         <p>Dashboard > Artist Name</p>
                     </div>
                     <div>
-                        <button className={styles.addRelease}>
-                            Add Release
-                        </button>
+                        <Link to="add-release">
+                            <LargeButton text={"Add Release"} />
+                        </Link>
                     </div>
                 </div>
                 <div className={styles.buttonsWrapper}>
-                    <button className={styles.buttonBar}>Releases</button>
+                    <Link to="releases">
+                        <LargeButton text={"Manage Releases"} />
+                    </Link>
 
-                    <button className={styles.buttonBar}>Artist Bio</button>
+                    <Link to="/artist/profile">
+                        <LargeButton text={"Artist Bio"} />
+                    </Link>
 
-                    <button className={styles.buttonBar}>
-                        Release Archive
-                    </button>
+                    <Link to="archive">
+                        <LargeButton text={"Release Archive"} />
+                    </Link>
                 </div>
             </section>
         );
