@@ -1,0 +1,36 @@
+@import "../../variables";
+
+nav {
+    position: fixed;
+    background-color: $secondary-color;
+    width: $navbar-width;
+    height: 100vh;
+    padding: 30px;
+
+    a {
+        color: $primary-color;
+        font-size: 1.2em;
+        font-weight: 400;
+        text-decoration: none;
+        transition: 0.25s;
+
+        &:hover {
+            color: white;
+            text-decoration: none;
+        }
+    }
+
+    img {
+        max-width: 100%;
+        padding-bottom: 40px;
+    }
+
+    ul {
+        list-style-type: none;
+    }
+}
+
+.overlay {
+    width: $navbar-width;
+    height: 100vh;
+}

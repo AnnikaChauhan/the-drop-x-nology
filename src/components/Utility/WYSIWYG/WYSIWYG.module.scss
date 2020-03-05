@@ -1,0 +1,15 @@
+@import "../../../variables";
+
+.editor {
+    border: 1px solid lightgrey;
+    min-height: 200px;
+}
+
+
+.wysiWrapper {
+    
+        display: flex;
+        flex-direction: row;
+        margin: 10px 15px 0 0;
+        padding: 5px;
+}
