@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Router, Redirect } from "@reach/router";
 import LandingPage from "../containers/LandingPage";
-import Main from "../containers/Main";
+import Fan from "../containers/Main/Fan";
+import Artist from "../containers/Main/Artist";
 import NotFound from "../components/Navbar/NotFound";
 
 export default class Routes extends Component {
@@ -10,7 +11,8 @@ export default class Routes extends Component {
             <Router>
                 <Redirect noThrow from="/" to="index" />
                 <LandingPage path="index" />
-                <Main path="main/*" />
+                <Fan path="fan/*" />
+                <Artist path="artist/*" />
                 <NotFound default />
             </Router>
         );

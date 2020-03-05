@@ -1,18 +1,19 @@
+@import "../../../variables";
+
 .NotFound {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: calc(100vw - #{$navbar-width});
     height: 100vh;
     justify-content: center;
     align-items: center;
+    text-align: center;
 
     img {
         max-width: 300px;
-        text-align: center;
     }
 
     p {
         font-size: 20px;
-        text-align: center;
     }
 }

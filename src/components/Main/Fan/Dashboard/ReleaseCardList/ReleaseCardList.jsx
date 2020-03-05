@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styles from "./ReleaseCardList.module.scss";
-import data from "../../../../static/data/data";
+import data from "../../../../../static/data/data";
 import ReleaseCard from "./ReleaseCard";
 
 class ReleaseCardList extends Component {

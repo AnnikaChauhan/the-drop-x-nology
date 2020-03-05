@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import { Router, Redirect } from "@reach/router";
-import FanDashboard from "../containers/Main/FanDashboard";
+import Dashboard from "../containers/Main/Artist/Dashboard";
 import NotFound from "../components/Navbar/NotFound";
 
-export default class MainRoutes extends Component {
+export default class FanRoutes extends Component {
     render() {
         return (
             <Router>
-                <Redirect noThrow from="/" to="fan-dashboard" />
-                <FanDashboard path="fan-dashboard" />
+                <Redirect noThrow from="/" to="dashboard" />
+                <Dashboard path="dashboard" />
                 <NotFound default />
             </Router>
         );

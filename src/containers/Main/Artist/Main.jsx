@@ -1,13 +1,13 @@
 import React from "react";
 import styles from "./Main.module.scss";
-import MainRoutes from "../../Routes/MainRoutes";
-import Navbar from "../../components/Navbar";
+import ArtistRoutes from "../../../Routes/ArtistRoutes";
+import Navbar from "../../../components/Navbar";
 
 function Main() {
     return (
         <div className={styles.Main}>
             <Navbar />
-            <MainRoutes />
+            <ArtistRoutes />
         </div>
     );
 }
