@@ -5,6 +5,7 @@ import ReleaseDetails from "./ReleaseDetails/ReleaseDetails";
 import PreSaveURIs from "./PreSaveURIs/PreSaveURIs";
 import PhysicalURLs from "./PhysicalURLs/PhysicalURLs";
 import ArtworkMedia from "./ArtworkMedia/ArtworkMedia";
+import SmallButton from "../Utility/Button/SmallButton/SmallButton";
 
 
 class DraftRelease extends Component {
@@ -12,11 +13,12 @@ class DraftRelease extends Component {
         return (
             <section>
                 <article className={styles.topPart}>
+                    {/* add asterisk to boxes which are required to create a release */}
                     <h2>Manage Release</h2>
                     <div>
-                        <button>SAVE</button>
-                        <button>PREVIEW</button>
-                        <button>PUBLISH</button>
+                        <SmallButton text="SAVE" />
+                        <SmallButton text="PREVIEW" />
+                        <SmallButton text="PUBLISH" />
                     </div>
                     {/* progress bar */}
                 </article>
