@@ -1,10 +1,10 @@
-.App {
+.artistProfile {
     display: flex;
     height: 100vh;
 }
 
 @media screen and (min-width: 768px) {
-    .App {
+    .artistProfile {
         height: 40vh;
     }
 }
