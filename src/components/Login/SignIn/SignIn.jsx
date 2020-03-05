@@ -2,9 +2,14 @@ import React, { Component } from "react";
 import styles from "./SignIn.module.scss";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+// import LargeButton from '../../Utility/Button/LargeButton';
+
+
+
 
 class SignIn extends Component {
     render() {
+        const gText = (<span>Google</span>)
         return (
             <section className={styles.SignInContainer}>
                 <div className={styles.wrapper}>
@@ -30,8 +35,11 @@ class SignIn extends Component {
                         <div className={styles.link1}>Forgot Password</div>
                         <div className={styles.link2}>New to The Drop?</div>
                     </div>
+                    {/* <div className={styles.buttonStyle}>
+                        <LargeButton text={`Sign up with Google`} />
+                    </div> */}
                 </div>
-                
+
             </section>
         )
     }

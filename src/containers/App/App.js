@@ -8,8 +8,8 @@ import Main from "../Main";
 function App() {
     return (
         <div className={styles.App}>
-            <LandingPage />
-            {/* <LoginPage /> */}
+            {/* <LandingPage /> */}
+            <LoginPage />
         </div>
     );
 }
