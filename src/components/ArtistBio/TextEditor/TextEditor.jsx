@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import { Editor } from 'react-draft-wysiwyg';
 import { EditorState } from "draft-js";
 import '../../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+
+import SmallButton from "../../Utility/Button/SmallButton";
 import styles from "./TextEditor.module.scss";
 
 
@@ -46,11 +48,11 @@ export default class TextEditor extends Component {
                     wrapperClassName="wrapperClassName"
                     editorClassName={styles.editor}
                     onEditorStateChange={this.onEditorStateChange}/>
-                <button>Save</button>
-                <button>Cancel</button>
+                    <div className={styles.wysiWrapper}>
+                    <SmallButton className={styles.wysiButton} text="Save" />
+                    <SmallButton className={styles.wysiButton} text="Cancel"/>
+                    </div>
             </section>
         )
     }
 }
-
-// "editorClassName"
