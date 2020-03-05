@@ -31,11 +31,15 @@
         align-items: center;
         flex-direction: column;
         background-color: rgba(0,0,0,0.7);
+
+        .buttonStyle {
+            margin-top: 40px;
+        }
     }
 
     .comet1 {
-        height: 115px;
-        width: 175px;
+        height: 150px;
+        width: 20%;
         background-image: url("../../../static/images/logos/logo2.png");
         background-size: contain;
         background-position: center;
