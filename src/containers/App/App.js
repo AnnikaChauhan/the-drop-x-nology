@@ -7,12 +7,13 @@ import Main from "../Main";
 import ChooseArtists from "../../components/ChooseArtists";
 import ReleaseArchive from "../../components/Main/ReleaseArchive";
 import ManageReleases from "../../components/Main/ReleaseArchive/ManageReleases/ManageReleases";
+import PreviewReleases from "../../components/Main/ReleaseArchive/ManageReleases/PreviewReleases";
 
 function App() {
     return (
         <div className={styles.App}>
             <Navbar />
-            <ManageReleases />
+            <PreviewReleases />
         </div>
     );
 }
