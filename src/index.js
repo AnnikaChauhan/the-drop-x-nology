@@ -1,6 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import "bootstrap/dist/css/bootstrap.min.css";
 import './index.scss';
+<<<<<<< HEAD
+=======
+import App from './containers/App';
+import Login from './containers/LoginPage';
+>>>>>>> 69f983d0dbdc2ef1663a4f68ae30ca9acc3bfb79
 import * as serviceWorker from './serviceWorker';
 
 import '@fortawesome/fontawesome-free/css/all.min.css';

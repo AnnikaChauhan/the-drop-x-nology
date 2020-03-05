@@ -1,5 +1,4 @@
-@import "../../../../../src/variables";
-
+@import "../../../variables";
 
 .wrapper {
     width: 100%;
@@ -16,12 +15,9 @@
         .releaseData {
             padding: 10px;
         }
-
-        
     }
 
     .container1 {
-
         border: 0.5px solid gray;
         color: $secondary-color;
         display: flex;
@@ -34,6 +30,5 @@
         .active {
             color: green;
         }
-
     }
 }

@@ -6,12 +6,13 @@ import Navbar from "../../components/Navbar";
 import Main from "../Main";
 import DraftRelease from "../../components/DraftRelease/DraftRelease";
 
+
 function App() {
     return (
         <div className={styles.App}>
             <Navbar />
-            <DraftRelease />
-            {/* <Main /> */}
+            <Main />
+            
         </div>
     );
 }

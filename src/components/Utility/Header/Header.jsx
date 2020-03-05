@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import styles from "../TitleFormatting/TitleFormatting.module.scss";
+import styles from "../Header/Header.module.scss";
 
-class TitleFormatting extends Component {
+
+
+class Header extends Component {
     render() {
         return (
             <div className={styles.DashboardTitle}>
@@ -12,4 +14,4 @@ class TitleFormatting extends Component {
     }
 }
 
-export default TitleFormatting;
+export default Header;

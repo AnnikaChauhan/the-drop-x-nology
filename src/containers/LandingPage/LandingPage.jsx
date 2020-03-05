@@ -2,26 +2,30 @@ import React from "react";
 import styles from "./LandingPage.module.scss";
 
 function LandingPage() {
-        return (
-            <section className={styles.container}>
-                <div className={styles.mainlogo}></div>
-                <div className={styles.left}>
-                    <div className={styles.wrapper}>
-                        {/* <div className={styles.logoimg}></div> */}
-                        <p>I'm an:</p>
-                        <h2>Artist</h2>
-                    </div>
+    return (
+        <section className={styles.container}>
+            <div className={styles.mainlogo}>
+                <div className={styles.logoimg1}></div>
+                <div className={styles.logotext}>Choose your account type</div>
+            </div>
+            <div className={styles.leftArtistWrapper}>
+                <div className={styles.infoWrapper}>
+                    <h2>Artists</h2>
+                    <h1>Plan your next release.</h1>
+                    <h3>Build anticipation. Timing is everything.</h3>
+                    <p className={styles.mobileText}>Tap here if you're an Artist</p>
                 </div>
-                
-                <div className={styles.right}>
-                    <div className={styles.wrapper}>
-                        {/* <div className={styles.logoimg}></div> */}
-                        <p>I'm a:</p>
-                        <h2>Fan</h2>
-                    </div>
+            </div>
+            <div className={styles.right}>
+                <div className={styles.infoWrapper}>
+                    <h2>Fans</h2>
+                    <h1>Be the first to know.</h1>
+                    <h3>Get excited. Share experiences.</h3>
+                    <p className={styles.mobileText}>Tap here if you're a fan</p>
                 </div>
-            </section>
-        )
+            </div>
+        </section>
+    )
 }
 
 export default LandingPage;
