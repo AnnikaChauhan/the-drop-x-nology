@@ -1,6 +1,10 @@
 @import '../../../variables';
 
 .SearchBar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
     input {
         width: 500px;
         margin: 10px 50px 10px 20px;
