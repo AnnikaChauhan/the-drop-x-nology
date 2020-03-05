@@ -14,6 +14,7 @@ function App() {
         <div className={styles.App}>
             <Navbar />
             <PreviewReleases />
+            <Main />
         </div>
     );
 }
