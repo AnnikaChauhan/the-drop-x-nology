@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import React from "react";
 import "./App.module.scss";
 import styles from "./App.module.scss";
@@ -18,4 +16,3 @@ function App() {
 }
 
 export default App;
->>>>>>> development
