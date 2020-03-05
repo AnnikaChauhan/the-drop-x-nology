@@ -1,18 +1,12 @@
 import React from "react";
 import "./App.module.scss";
 import styles from "./App.module.scss";
-import LandingPage from "../LandingPage";
-import Navbar from "../../components/Navbar";
-import Main from "../Main";
-import DraftRelease from "../../components/DraftRelease/DraftRelease";
-
+import Routes from "../../Routes/Routes";
 
 function App() {
     return (
         <div className={styles.App}>
-            <Navbar />
-            <Main />
-            
+            <Routes />
         </div>
     );
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./LoginPage.module.scss";
-import ReactFullpage from '@fullpage/react-fullpage';
+import ReactFullpage from "@fullpage/react-fullpage";
 import SignIn from "../../components/Login/SignIn";
 import Details from "../../components/Login/Details";
 
@@ -14,7 +14,12 @@ export default function LoginPage() {
                         <div className="section">
                             <section className={styles.pagewrapper}>
                                 <SignIn />
-                                <div className={styles.footercontainer} onClick={() => fullpageApi.moveSectionDown()}>
+                                <div
+                                    className={styles.footercontainer}
+                                    onClick={() =>
+                                        fullpageApi.moveSectionDown()
+                                    }
+                                >
                                     Learn more about The Drop.
                                 </div>
                             </section>
