@@ -7,7 +7,7 @@ import Main from "../Main";
 function App() {
     return (
         <div className={styles.App}>
-            <Navbar />
+            {/* <Navbar /> */}
             <Main />
         </div>
     );
