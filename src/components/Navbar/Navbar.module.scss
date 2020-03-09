@@ -1,13 +1,16 @@
 @import "../../variables";
 
-$navbar-width: 225px;
-
 nav {
     position: fixed;
     background-color: $secondary-color;
     width: $navbar-width;
     height: 100vh;
     padding: 30px;
+
+    @media only screen and (max-width: 768px) {
+        position: relative; 
+        overflow: hidden;
+    }
 
     a {
         color: $primary-color;
@@ -29,10 +32,6 @@ nav {
 
     ul {
         list-style-type: none;
-
-        li {
-            padding: 10px 0;
-        }
     }
 }
 
@@ -40,6 +39,4 @@ nav {
     width: $navbar-width;
     height: 100vh;
 }
-
-
 

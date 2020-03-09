@@ -8,8 +8,7 @@ install:
   - yarn global add firebase-tools
   - yarn install
 script:
-  - yarn lint
-  - yarn test
+  # - yarn test
   - yarn build
 before_deploy:
   - yarn build
