@@ -32,3 +32,13 @@
         outline: none !important;
     } 
 }
+
+@media screen and (max-width: 768px) {
+    .SearchBar {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 75vw;
+    }
+        
+}
