@@ -15,7 +15,7 @@ nav {
         transition: 0.25s;
 
         &:hover {
-            color: $primary-color;
+            color: $primary-color !important;
             text-decoration: none;
         }
     }
