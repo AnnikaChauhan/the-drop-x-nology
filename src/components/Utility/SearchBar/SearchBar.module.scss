@@ -6,7 +6,7 @@
     align-items: center;
     
     input {
-        width: 500px;
+        width: 75%;
         margin: 10px 50px 10px 20px;
         border-radius: 25px;
         padding: 5px;
@@ -31,4 +31,14 @@
         cursor: pointer;
         outline: none !important;
     } 
+}
+
+@media screen and (max-width: 768px) {
+    .SearchBar {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 75vw;
+    }
+        
 }
