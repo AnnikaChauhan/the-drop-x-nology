@@ -18,13 +18,17 @@
         margin: 40px;
     }
 
+    .wrapperLargeButton {
+        margin: 30px;
+    }
+
     .Artist {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
         border: 1px solid lightgrey;
         align-items: center;
-        width: 30vw;
+        width: 40vw;
         padding: 10px;
         font-weight: bold;
 
@@ -36,9 +40,10 @@
             border-radius: 5px;
             width: 100px;
             margin-left: 20%;
+
         }
     }
-
+    
     .RemoveBorder {
         border-bottom: none;
         border-top: none;
@@ -52,6 +57,10 @@
         border-radius: 5px;
         width: 150px;
         margin-bottom: 40px;
+    
+        .signUpButton{
+            margin: 30px;
+        }
     }
 
     .comet {
