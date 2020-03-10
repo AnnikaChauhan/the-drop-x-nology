@@ -54,7 +54,7 @@ class Navbar extends Component {
                     disableOverlayClick
                     disableAutoFocus
                     styles={navStyleData}
-                    width={"60%"}
+                    width={"100%"}
                 >
                     {this.links}
                 </Menu>
