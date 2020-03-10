@@ -1,3 +1,3 @@
 import ReleaseCard from "./ReleaseCard";
 
-export default ReleaseCard
+export default ReleaseCard;
