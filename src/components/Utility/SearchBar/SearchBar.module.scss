@@ -1,54 +1,9 @@
-@import '../../../variables';
-
-// .SearchBar {
-//     display: flex;
-//     flex-direction: row;
-//     align-items: center;
-    
-//     input {
-//         width: 75%;
-//         margin: 10px 50px 10px 20px;
-//         border-radius: 25px;
-//         padding: 5px;
-//         outline: none;
-//     }
-
-//     button {
-//         display: inline-flex;
-//         height: 40px;
-//         width: 200px;
-//         margin: 5px 5px 5px 5px;
-//         color: $primary-color;
-//         background-color: $secondary-color;
-//         text-decoration: none;
-//         font-size: .8em;
-//         letter-spacing: 1.5px;
-//         align-items: center;
-//         justify-content: center;
-//         overflow: hidden;
-//         border-radius: .25rem;
-//         position: relative;
-//         cursor: pointer;
-//         outline: none !important;
-//     } 
-// }
-
-// @media screen and (max-width: 768px) {
-//     .SearchBar {
-//         display: flex;
-//         flex-direction: row;
-//         align-items: center;
-//         width: 75vw;
-//     }
-        
-// }
+@import "../../../variables";
 
 .searchBox {
-
-    // transform:  translate(-50%,50%);
     background: $secondary-color;
     height: 50px;
-    border-radius: .25rem;
+    border-radius: 0.25rem;
     padding: 10px;
     margin: 20px auto;
     width: 92%;
@@ -71,45 +26,17 @@
 
     .searchInput {
         width: 95%;
-        border:none;
+        border: none;
         background: none;
-        outline:none;
-        float:left;
+        outline: none;
+        float: left;
         padding: 0 6px;
         color: white;
         font-size: 16px;
         transition: 0.4s;
-        // line-height: 40px;
     }
 }
 
 .searchBox:hover > .searchInput {
     padding: 0 10px;
 }
-
-// .searchBox:hover > .searchButton {
-//   background: white;
-//   color : #2f3640;
-// }
-
-// .searchButton {
-//     color: white;
-//     float: right;
-//     width: 40px;
-//     height: 40px;
-//     border-radius: 50%;
-//     background: #2f3640;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     transition: 0.4s;
-// }
-
-
-
-// @media screen and (max-width: 620px) {
-// .searchBox:hover > .searchInput {
-//     width: 150px;
-//     padding: 0 6px;
-// }
-// }
