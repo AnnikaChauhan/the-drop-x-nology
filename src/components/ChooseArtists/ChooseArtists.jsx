@@ -29,7 +29,6 @@ class ChooseArtists extends Component {
                 <div className= {styles.wrapperLargeButton}>
                     <LargeButton text = {"Sign Up"} />
                 </div>
-                
             </section>
         );
     }
