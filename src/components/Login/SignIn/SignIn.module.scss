@@ -1,0 +1,94 @@
+@import '../../../variables';
+.SignInContainer{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100vw;
+    background-image: url("../../../static/images/backgrounds/artist-bg2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    .wrapper {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: rgba(0,0,0,0.7);
+        .buttonStyle {
+            margin-top: 40px;
+            opacity: 0;
+        }
+    }
+    .comet1 {
+        height: 180px;
+        width: 20%;
+        background-image: url("../../../static/images/logos/logo2.png");
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin: 20px;
+        opacity: 0;
+    }
+    .loginform {
+        width: 30%;
+        font-family: Arial, Helvetica, sans-serif;
+        label {
+            color: rgba(255,255,255,0.7);
+        }
+        button {
+            width: 100%;
+            font-size: 0.9rem;
+            background-color: black;
+            border: none;
+            &:hover {
+                background-color: $primary-color;
+                transition: 0.3s;
+            }
+            &:active {
+                background-color: $primary-color
+            }
+        }
+        .formcontain {
+            width: 100%;
+            background: none;
+            border: none;
+            color: white;
+            border-bottom: 1px solid rgba(255,255,255,0.7);
+            border-radius: 0;
+            padding: .375rem 0;
+            height: 1.8rem;
+            transition: 0.2s;
+            margin-bottom: 20px;
+            &:hover {
+                border-bottom: 1px solid black;
+                transition: 0.2s;
+            }
+            &::placeholder {
+                color: rgba(255,255,255,0.7);
+            }
+            &:focus {
+                outline: none;
+                outline-offset: none;
+                box-shadow: none;
+            }
+        }
+    }   
+    .extra {
+        display: flex;
+        justify-content: space-between;
+        width: 30%;
+        color: rgba(255,255,255,0.7);
+        margin: 10px 0;
+        .link1, .link2{ 
+            &:hover{
+                color: $primary-color;
+                opacity: 1;
+                text-decoration: underline;
+                cursor: pointer;
+            }
+        }
+    }
+}

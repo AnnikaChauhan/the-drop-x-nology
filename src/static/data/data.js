@@ -1,6 +1,6 @@
 import bigconspiracy from "../images/BigConspiracy.jpg";
 
-const releaseCards = [
+const cardData = [
     {
         artistName: "J HUS",
         picture: bigconspiracy,
@@ -60,4 +60,4 @@ const releaseCards = [
     }
 ]
 
-export default releaseCards;
+export default cardData;
