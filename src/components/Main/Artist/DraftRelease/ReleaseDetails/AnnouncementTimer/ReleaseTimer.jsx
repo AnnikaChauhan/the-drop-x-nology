@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styles from "./ReleaseTimer.module.scss";
-import ToggleButtonB from "../ReleaseTimer/Toggle/Toggle";
+import ToggleButtonA from "./ToggleA";
 
 class ReleaseTimer extends Component {
     render() {
@@ -19,7 +19,8 @@ class ReleaseTimer extends Component {
                     <input type="text" id="day10" placeholder="0"/>
                     <input type="text" id="day11" placeholder="0"/>
                 </div>
-                <ToggleButtonB />
+                <p>AM</p>
+                <ToggleButtonA />
             </div>
         )
     }
