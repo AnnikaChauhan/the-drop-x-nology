@@ -3,8 +3,6 @@ import styles from "./ReleaseCardList.module.scss";
 import data from "../../static/data/data";
 import ReleaseCard from "../ReleaseCard/ReleaseCard";
 
-
-
 class ReleaseCardList extends Component {
     render() {
         return (
@@ -16,7 +14,5 @@ class ReleaseCardList extends Component {
         )
     }
 }
-
-{/* <ReleaseCard /> */}
                
 export default ReleaseCardList;

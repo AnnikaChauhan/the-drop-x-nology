@@ -1,6 +1,5 @@
 import bigconspiracy from "../images/BigConspiracy.jpg";
 
-
 const releaseCards = [
     {
         artistName: "J HUS",

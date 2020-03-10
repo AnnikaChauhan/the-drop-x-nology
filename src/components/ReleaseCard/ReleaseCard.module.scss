@@ -1,14 +1,8 @@
-$primary-color: #ff007e;
-$secondary-color: #222528;
-
-
     .cardWrapper {
         display: flex;
         text-align: right;
-  
         font-weight: 500;
         font-size: 30px;
-        // border: 1px solid $secondary-color;
         transition: 0.5s;
 
         &:hover {
@@ -21,10 +15,8 @@ $secondary-color: #222528;
             align-items: center;
             margin: 0;
             height: 35px;
-            // justify-content: center;
             padding-left: 10px;
             font-size: 20px;
-
         }
 
         .cardBody {

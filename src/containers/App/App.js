@@ -8,7 +8,7 @@ function App() {
     return (
         <div className={styles.App}>
             {/* <Navbar /> */}
-            <Main />
+            {/* <Main /> */}
         </div>
     );
 }
