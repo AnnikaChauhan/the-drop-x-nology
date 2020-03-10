@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import styles from "./ReleaseCard.module.scss";
 import Card from 'react-bootstrap/Card';
 
-class ReleaseCardComponent extends Component {
+class ReleaseCard extends Component {
     render() {
         return (
             <Card className={styles.cardWrapper}>
@@ -17,4 +17,4 @@ class ReleaseCardComponent extends Component {
     }
 }
 
-export default ReleaseCardComponent;
+export default ReleaseCard;
