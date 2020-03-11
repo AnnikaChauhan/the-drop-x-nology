@@ -22,6 +22,8 @@
   .cardBody {
     padding: 0;
     padding-right: 10px;
+    background-color: black;
+    color: white;
   }
 
   .albumName {
@@ -36,5 +38,7 @@
 
   .countDown {
     font-size: 25px;
+    text-align: left;
+    padding: 0 10px;
   }
 }

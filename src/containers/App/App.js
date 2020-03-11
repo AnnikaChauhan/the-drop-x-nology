@@ -7,7 +7,6 @@ import ChooseArtists from "../../components/ChooseArtists/ChooseArtists";
 function App() {
     return (
         <div className={styles.App}>
-            <ChooseArtists />
             <Routes />
         </div>
     );
