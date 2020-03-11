@@ -2,13 +2,13 @@
 
 nav {
     position: fixed;
-    background-color: $secondary-color;
+    background-color: $navbar-color;
     width: $navbar-width;
     height: 100vh;
     padding: 30px;
 
     @media only screen and (max-width: 768px) {
-        position: relative; 
+        position: relative;
         overflow: hidden;
     }
 
@@ -39,4 +39,3 @@ nav {
     width: $navbar-width;
     height: 100vh;
 }
-

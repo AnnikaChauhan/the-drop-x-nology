@@ -5,4 +5,14 @@
     padding: 0;
     box-sizing: border-box;
     font-family: $font-stack;
+    color: $font-color;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Montserrat Black";
 }
