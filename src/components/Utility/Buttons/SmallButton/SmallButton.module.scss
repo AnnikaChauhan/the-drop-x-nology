@@ -1,6 +1,6 @@
 @import "../../../../variables";
 
-.smallbutton {
+.SmallButton {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -16,7 +16,7 @@
     position: relative;
     cursor: pointer;
 
-    .Btntext {
+    .text {
         transition: 0.4s;
         color: black;
         z-index: 2;
@@ -24,7 +24,7 @@
     }
 
     &:hover {
-        .Btntext {
+        .text {
             color: white;
         }
     }
@@ -42,7 +42,7 @@
     }
 }
 
-.smallbutton:hover > .translate {
+.SmallButton:hover > .translate {
     left: -8px;
 }
 
