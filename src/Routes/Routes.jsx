@@ -5,7 +5,7 @@ import LoginPage from "../containers/LoginPage";
 import Fan from "../containers/Main/Fan";
 import Artist from "../containers/Main/Artist";
 import NotFound from "../components/Navbar/NotFound";
-import ReleaseCardList from "../components/Main/Fan/Dashboard/ReleaseCardList"
+
 export default class Routes extends Component {
     render() {
         return (
@@ -15,7 +15,6 @@ export default class Routes extends Component {
                 <LandingPage path="initial-login" />
                 <Fan path="fan/*" />
                 <Artist path="artist/*" />
-                <ReleaseCardList path = "hello" />
                 <NotFound default />
             </Router>
         );

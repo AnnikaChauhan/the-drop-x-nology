@@ -1,54 +1,64 @@
 import bigconspiracy from "../images/BigConspiracy.jpg";
+import bts from "../images/bts.jpg";
+
 
 const cardData = [
     {
         artistName: "J HUS",
-        picture: bigconspiracy,
-        countDown: "4am",
+        album: "Map of Soul 7",
+        picture: bts,
+        countDown: "04:23:58",
     },
 
     {
         artistName: "J HUS",
-        picture: bigconspiracy,
-        countDown: "10pm",
-    },
-
-    {
-        artistName: "J HUS",
-        picture: bigconspiracy,
+        album: "Map of Soul 7",
+        picture: bts,
         countDown: "1 Day",
     },
 
     {
         artistName: "J HUS",
-        picture: bigconspiracy,
-        countDown: "3 Days",
+        album: "Map of Soul 7",
+        picture: bts,
+        countDown: "23 Days",
+    },
+
+    {
+        artistName: "J HUS",
+        album: "Map of Soul 7",
+        picture: bts,
+        countDown: "07:24:31",
     },
 
     {
         artistName: "J HUSTLER",
-        picture: bigconspiracy,
-        countDown: "9 Days",
+        album: "Map of Soul 7",
+        picture: bts,
+        countDown: "05:42:23",
     },
 
     {
         artistName: "B HUSSIZZLE",
-        picture: bigconspiracy,
+        album: "Map of Soul 7",
+        picture: bts,
+        countDown: "3 Days",
+    },
+
+    
+    {
+        artistName: "B HUSSIZZLE",
+        album: "Map of Soul 7",
+        picture: bts,
         countDown: "28 Days",
     },
 
     
     {
         artistName: "B HUSSIZZLE",
-        picture: bigconspiracy,
-        countDown: "4am",
-    },
-
-    
-    {
-        artistName: "B HUSSIZZLE",
-        picture: bigconspiracy,
-        countDown: "10pm",
+        album: "Map of Soul 7",
+        picture: bts,
+        countDown: "00:00:08",
     }
 ]
 

@@ -14,32 +14,26 @@
     padding-left: 10px;
     font-size: 15px;
     background-color: black;
-    color: white;
   }
 
   .cardBody {
     padding: 0;
-  
     background-color: black;
-    color: white;
   }
 
   .albumName {
+    opacity: 0.8;
     margin: 0;
     font-size: 18px;
     font-weight: 100;
     padding-left: 10px;
     display: flex;
     align-items: center;
-    color: white;
-    background-color: black;
-   
+    background-color: black;  
   }
 
   .countDown {
     font-size: 30px;
-    font-weight: bold;
-    margin-left: 10px;
-   
+    padding-left: 10px;
   }
 }
