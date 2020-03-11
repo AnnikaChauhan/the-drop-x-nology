@@ -16,7 +16,7 @@ export default class PreSaveURLs extends Component {
                     <h4>Tidal</h4>
                     <input type="url" />
                 </div>
-                <hr/>
+                <hr />
             </div>
         );
     }
