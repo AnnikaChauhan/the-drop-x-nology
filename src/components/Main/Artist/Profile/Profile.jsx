@@ -6,36 +6,46 @@ import LargeButton from "../../../Utility/Buttons/LargeButton";
 import { Link } from "@reach/router";
 import StatusBar from "../../../Utility/StatusBar";
 
+import Tabs from "react-bootstrap/Tabs";
+import Tab from "react-bootstrap/Tab";
+
 export default class Profile extends Component {
     render() {
         return (
             <section className={styles.artistProfileWrapper}>
+
                 <div className={styles.imageProfileWrapper}>
-                    <div className={styles.imgWrapper}>
-                        <img src={image} alt="Artist"></img>
+                    <div className={styles.profileWrapper}>
+                        <div className={styles.imgWrapper}>
+                            <img src={image} alt="Artist"></img>
+                        </div>
+                        <div className={styles.editBio}>
+                            <p>Edit Bio</p>
+                        </div>
+                        <div className={styles.artistWrapper}>
+                            RICKY CHURCHES
                     </div>
-                    <div className={styles.editBio}>
-                        <p>Edit Bio</p>
-                    </div>
-                    <div className={styles.artistWrapper}>
-                        <h2>RICKY CHURCH</h2>
                     </div>
                 </div>
                 <div className={styles.textAndRelease}>
-                    <div>
-                        {/* <Link to="add-release">
-                            <LargeButton text={"Add Release"} />
-                        </Link> */}
-                    </div>
                     <div className={styles.manageContain}>
                         <p>Manage Releases</p>
                     </div>
                     <div className={styles.releaseContain}>
-                        <StatusBar title={"Release Title"} status={"released"} className={styles.boxx} />
-                        <StatusBar title={"Release Title"} status={"released"} className={styles.boxx} />
-                        <StatusBar title={"Release Title"} status={"released"} className={styles.boxx} />
-                        <StatusBar title={"Release Title"} status={"released"} className={styles.boxx} />
-                        <StatusBar title={"Release Title"} status={"released"} className={styles.boxx} />
+                        {/* <StatusBar title={"Release Title"} status={"released"} className={styles.boxx} /> */}
+                        <Tabs defaultActiveKey="profile" id="profile" className={styles.tabsss}>
+                            <Tab eventKey="profile" title="Upcoming">
+                                <StatusBar />
+                                <StatusBar />
+                                <StatusBar />
+                                <StatusBar />
+                            </Tab>
+                            <Tab eventKey="home" title="Archive" className={styles.tab1}>
+
+                                <StatusBar />
+                                <StatusBar />
+                            </Tab>
+                        </Tabs>
                         {/* <div> </ReleaseArchive /> </div>\ */}
                     </div>
                 </div>
@@ -56,3 +66,6 @@ export default class Profile extends Component {
         );
     }
 }
+
+
+// add followers and latest releases on upper for more content as suggested

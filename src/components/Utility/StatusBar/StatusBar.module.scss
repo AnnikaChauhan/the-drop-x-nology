@@ -1,13 +1,33 @@
 @import "../../../variables";
 
 .StatusBar {
-    border: 0.5px solid gray;
-    color: $secondary-color;
+    border-bottom: 0.5px solid white;
+    // color: $secondary-color;
+    color: grey;
     display: flex;
     justify-content: space-between;
+    height: 70px;
+    padding: 0 15px;
+    align-items: center;
 
-    .archiveData {
-        padding: 10px;
+    .wrap1 {
+        // border: 2px solid red;
+        display: flex;
+        width: 100%;
+
+        .albumImg {
+            // border:2px solid red;
+            height: 50px;
+            width: 50px;
+            background-image: url(../../../static/images/album1.png);
+            background-size: contain;
+        }
+
+        .archiveData {
+            padding: 10px;
+            font-size: 20px;
+            margin-left: 70px;
+        }
     }
 
     .active {
