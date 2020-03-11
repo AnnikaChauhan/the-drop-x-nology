@@ -6,12 +6,31 @@ import Fan from "../containers/Main/Fan";
 import Artist from "../containers/Main/Artist";
 import NotFound from "../components/Navbar/NotFound";
 
+import firebase, {providers} from "../firebase";
+
 export default class Routes extends Component {
+    state = {
+        user: null
+    }
+
+    signIn = () => {
+        firebase
+            .auth()
+            .signInWithPopUp(providers.google)
+            .then( result => {
+                this.setState({user: result.user})
+                console.log(this.state.user);
+            })
+
+    }
+
+    signOut = () => {}
+
     render() {
         return (
             <Router>
-                <Redirect noThrow from="/" to="index" />
-                <LoginPage path="index" />
+                <Redirect noThrow from="/" to="/" />
+                <LoginPage path="/" />
                 <LandingPage path="initial-login" />
                 <Fan path="fan/*" />
                 <Artist path="artist/*" />
