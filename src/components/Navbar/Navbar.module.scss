@@ -2,20 +2,25 @@
 
 nav {
     position: fixed;
-    background-color: $secondary-color;
+    background-color: $navbar-color;
     width: $navbar-width;
     height: 100vh;
     padding: 30px;
 
+    @media only screen and (max-width: 768px) {
+        position: relative;
+        overflow: hidden;
+    }
+
     a {
-        color: $primary-color;
+        color: white;
         font-size: 1.2em;
         font-weight: 400;
         text-decoration: none;
         transition: 0.25s;
 
         &:hover {
-            color: white;
+            color: $primary-color !important;
             text-decoration: none;
         }
     }

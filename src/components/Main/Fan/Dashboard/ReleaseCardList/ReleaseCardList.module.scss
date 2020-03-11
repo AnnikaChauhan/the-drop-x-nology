@@ -1,20 +1,17 @@
-.ReleaseCardList {
-    h2 {
-        padding: 20px;
+.cardListWrapper {
+    width: 100%;
+    margin: 0;
+    height: 100%;
+    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 25% 25% 25%;
+    grid-gap: 40px;
+
+    @media screen and (max-width: 960px) {
+        grid-template-columns: 1fr 1fr;
     }
 
-    .cardListWrapper {
-        width: 100%;
-        height: 100%;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-gap: 30px;
-        padding: 30px;
-
-        @media screen and (max-width: 768px) {
-            display: grid;
-            grid-template-columns: 1fr;
-            flex-direction: column;
-        }
+    @media screen and (max-width: 480px) {
+        grid-template-columns: 1fr;
     }
 }

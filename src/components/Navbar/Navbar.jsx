@@ -5,9 +5,19 @@ import navStyleData from "../../static/data/navStyleData.js";
 import { slide as Menu } from "react-burger-menu";
 import NavItem from "./NavItem";
 
+const navItems = {
+    "Dashboard": "dashboard",
+    "User Profile": "profile",
+    "Help and Contact": "contact",
+    "Legal": "legal",
+    "Feedback": "feedback",
+    "Logout": "/"
+}
+
 class Navbar extends Component {
     state = {
-        width: window.innerWidth
+        width: window.innerWidth,
+        navItems
     };
 
     componentDidMount() {
@@ -27,12 +37,10 @@ class Navbar extends Component {
             <nav>
                 <img src={logo} alt="The Drop" />
                 <ul>
-                    <NavItem path={""} name={"Dashboard"} />
-                    <NavItem path={"profile"} name={"User Profile"} />
-                    <NavItem path={"contact"} name={"Help and Contact"} />
-                    <NavItem path={"legal"} name={"Legal"} />
-                    <NavItem path={"feedback"} name={"Feedback"} />
-                    <NavItem path={"/"} name={"Logout"} />
+                    {/* Ollie mapped this you lazy blighters */}
+                    {Object.entries(this.state.navItems).map((item, index) => {
+                        return (<NavItem onClick={this.highlightNavItem} path={item[1]} name={item[0]} />);
+                    })}
                 </ul>
             </nav>
         );
@@ -46,7 +54,7 @@ class Navbar extends Component {
                     disableOverlayClick
                     disableAutoFocus
                     styles={navStyleData}
-                    width={"60%"}
+                    width={"100%"}
                 >
                     {this.links}
                 </Menu>
@@ -57,9 +65,11 @@ class Navbar extends Component {
                     {this.links}
                     <div className={styles.overlay} />
                 </div>
+                
             );
         }
     }
 }
 
 export default Navbar;
+
