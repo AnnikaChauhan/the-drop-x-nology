@@ -5,7 +5,7 @@ import ToggleButton from 'react-bootstrap/ToggleButton';
 
 import "./Toggle.module.scss";
 
-class ToggleButtonB extends Component {
+class ToggleButtonA extends Component {
   render() {
     return (
       <>
@@ -20,4 +20,6 @@ class ToggleButtonB extends Component {
   }
 }
 
-export default ToggleButtonB;
+
+
+export default ToggleButtonA;

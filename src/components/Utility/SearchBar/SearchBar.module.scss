@@ -1,44 +1,41 @@
-@import '../../../variables';
+@import "../../../variables";
 
-.SearchBar {
+.searchBox {
+    background: $secondary-color;
+    height: 50px;
+    border-radius: 0.25rem;
+    padding: 10px;
+    margin: 20px auto;
+    width: 92%;
     display: flex;
-    flex-direction: row;
     align-items: center;
-    
-    input {
-        width: 75%;
-        margin: 10px 50px 10px 20px;
-        border-radius: 25px;
-        padding: 5px;
-        outline: none;
+
+    &:hover {
+        .icon {
+            color: $primary-color;
+            transition: 0.4s;
+        }
     }
 
-    button {
-        display: inline-flex;
-        height: 40px;
-        width: 200px;
-        margin: 5px 5px 5px 5px;
-        color: $primary-color;
-        background-color: $secondary-color;
-        text-decoration: none;
-        font-size: .8em;
-        letter-spacing: 1.5px;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        border-radius: .25rem;
-        position: relative;
+    .icon {
+        color: white;
         cursor: pointer;
-        outline: none !important;
-    } 
+        font-size: 1.15rem;
+        transition: 0.4s;
+    }
+
+    .searchInput {
+        width: 95%;
+        border: none;
+        background: none;
+        outline: none;
+        float: left;
+        padding: 0 6px;
+        font-size: 16px;
+        transition: 0.4s;
+    }
 }
 
-@media screen and (max-width: 768px) {
-    .SearchBar {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        width: 75vw;
-    }
-        
+.searchBox:hover > .searchInput {
+    padding: 0 10px;
 }
