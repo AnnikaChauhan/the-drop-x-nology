@@ -1,20 +1,19 @@
 import React, { Component } from "react";
 import styles from "./DraftRelease.module.scss";
-import Dropdown from "react-bootstrap/Dropdown";
 import ReleaseDetails from "./ReleaseDetails/ReleaseDetails";
 import PreSaveURIs from "./PreSaveURIs/PreSaveURIs";
 import PhysicalURLs from "./PhysicalURLs/PhysicalURLs";
 import ArtworkMedia from "./ArtworkMedia/ArtworkMedia";
-import SmallButton from "../../../Utility/Buttons/SmallButton/SmallButton";
+import SmallButton from "../../../Utility/Buttons/SmallButton";
+import Header from "../../../Utility/Header";
 import { Link } from "@reach/router";
 
 class DraftRelease extends Component {
     render() {
         return (
-            <section>
+            <section className={styles.DraftRelease}>
                 <article className={styles.topPart}>
-                    {/* add asterisk to boxes which are required to create a release */}
-                    <h2>Manage Release</h2>
+                    <Header title={"Edit Release"} />
                     <div>
                         <SmallButton text="SAVE" />
                         <Link to="/artist/preview">
@@ -22,8 +21,9 @@ class DraftRelease extends Component {
                         </Link>
                         <SmallButton text="PUBLISH" />
                     </div>
-                    {/* progress bar */}
                 </article>
+                {/* progress bar */}
+                {/* add asterisk to boxes which are required to create a release */}
                 <ReleaseDetails />
                 <PreSaveURIs />
                 <PhysicalURLs />
