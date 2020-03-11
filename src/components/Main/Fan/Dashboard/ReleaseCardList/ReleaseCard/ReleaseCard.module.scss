@@ -1,27 +1,27 @@
+@import "../../../../../../variables";
+
 .cardWrapper {
   display: flex;
-  text-align: right;
+  // text-align: right;
   font-weight: 500;
   font-size: 30px;
-  transition: 0.5s;
-
-  &:hover {
-    transition: 0.5s;
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
-  }
-
+ 
   .artistName {
     display: flex;
     align-items: center;
     margin: 0;
     height: 35px;
     padding-left: 10px;
-    font-size: 20px;
+    font-size: 15px;
+    background-color: black;
+    color: white;
   }
 
   .cardBody {
     padding: 0;
-    padding-right: 10px;
+  
+    background-color: black;
+    color: white;
   }
 
   .albumName {
@@ -31,10 +31,15 @@
     padding-left: 10px;
     display: flex;
     align-items: center;
-    color: grey;
+    color: white;
+    background-color: black;
+   
   }
 
   .countDown {
-    font-size: 25px;
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 10px;
+   
   }
 }

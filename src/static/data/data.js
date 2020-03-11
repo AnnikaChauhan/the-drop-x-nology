@@ -4,59 +4,51 @@ const cardData = [
     {
         artistName: "J HUS",
         picture: bigconspiracy,
-        album: "Big Conspiracy",
-        countDown: "00:00:01",
+        countDown: "4am",
     },
 
     {
         artistName: "J HUS",
         picture: bigconspiracy,
-        album: "Big Conspiracy",
-        countDown: "00:00:02",
+        countDown: "10pm",
     },
 
     {
         artistName: "J HUS",
         picture: bigconspiracy,
-        album: "Big Conspiracy",
-        countDown: "00:00:03",
+        countDown: "1 Day",
     },
 
     {
         artistName: "J HUS",
         picture: bigconspiracy,
-        album: "Big Conspiracy",
-        countDown: "00:00:04",
+        countDown: "3 Days",
     },
 
     {
         artistName: "J HUSTLER",
         picture: bigconspiracy,
-        album: "Big Conspiracy",
-        countDown: "00:00:05",
+        countDown: "9 Days",
     },
 
     {
         artistName: "B HUSSIZZLE",
         picture: bigconspiracy,
-        album: "Big Conspiracy",
-        countDown: "00:00:06",
-    },
-
-    
-    {
-        artistName: "B HUSSIZZLE",
-        picture: bigconspiracy,
-        album: "Big Conspiracy",
-        countDown: "00:00:06",
+        countDown: "28 Days",
     },
 
     
     {
         artistName: "B HUSSIZZLE",
         picture: bigconspiracy,
-        album: "Big Conspiracy",
-        countDown: "00:00:06",
+        countDown: "4am",
+    },
+
+    
+    {
+        artistName: "B HUSSIZZLE",
+        picture: bigconspiracy,
+        countDown: "10pm",
     }
 ]
 
