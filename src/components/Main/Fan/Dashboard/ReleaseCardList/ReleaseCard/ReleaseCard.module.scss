@@ -1,6 +1,12 @@
 @import "../../../../../../variables";
 
 .cardWrapper {
+    // For flex-based system (+ ReleaseCardList SCSS)
+    // margin: 25px;
+    // width: 300px;
+
+    margin: 25px 0;
+
     .cardBody {
         padding: 15px;
         background-color: black;
