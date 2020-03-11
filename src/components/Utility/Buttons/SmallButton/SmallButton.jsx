@@ -7,7 +7,9 @@ class SmallButton extends Component {
             <section>
                 <div className={styles.smallbutton}>
                     <div className={styles.translate}></div>
-                    <a href={this.props.link} className={styles.Btntext}>{this.props.text}</a>
+                    <a href={this.props.link} className={styles.Btntext}>
+                        {this.props.text.toUpperCase()}
+                    </a>
                 </div>
             </section>
         );

@@ -1,39 +1,40 @@
 @import "../../../../../../variables";
 
 .cardWrapper {
-  display: flex;
-  // text-align: right;
-  font-weight: 500;
-  font-size: 30px;
-  
-  .artistName {
     display: flex;
-    align-items: center;
-    margin: 0;
-    height: 35px;
-    padding-left: 10px;
-    font-size: 15px;
-    background-color: black;
-  }
-
-  .cardBody {
-    padding: 0;
-    background-color: black;
-  }
-
-  .albumName {
-    opacity: 0.8;
-    margin: 0;
-    font-size: 18px;
-    font-weight: 100;
-    padding-left: 10px;
-    display: flex;
-    align-items: center;
-    background-color: black;  
-  }
-
-  .countDown {
+    // text-align: right;
+    font-weight: 500;
     font-size: 30px;
-    padding-left: 10px;
-  }
+
+    .artistName {
+        display: flex;
+        align-items: center;
+        margin: 0;
+        height: 35px;
+        padding-left: 10px;
+        font-size: 20px;
+        background-color: black;
+    }
+
+    .cardBody {
+        padding: 5px;
+        background-color: black;
+    }
+
+    .albumName {
+        opacity: 0.8;
+        margin: 0;
+        font-size: 18px;
+        font-weight: 100;
+        padding-left: 10px;
+        display: flex;
+        align-items: center;
+        background-color: black;
+    }
+
+    .countDown {
+        font-size: 30px;
+        padding-left: 10px;
+        font-family: "Montserrat Black";
+    }
 }
