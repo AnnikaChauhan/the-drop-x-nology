@@ -1,33 +1,35 @@
-@import '../../../../variables';
-.smallbutton {
+@import "../../../../variables";
+.TickButton {
     display: inline-flex;
     height: 30px;
     width: 150px;
     margin: 5px 5px 5px 5px;
     background-color: $secondary-color;
     text-decoration: none;
-    font-size: .8em;
+    font-size: 0.8em;
     letter-spacing: 1.5px;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    border-radius: .25rem;
+    border-radius: 0.25rem;
     position: relative;
     cursor: pointer;
-    color: white;
-    .Btntext {
-        opacity: 0.8;
-        color: white !important;
-        z-index: 2;
-        text-decoration: none;
-    }
+
     &:hover {
         color: white;
     }
+
+    .text {
+        opacity: 0.8;
+        z-index: 2;
+        text-decoration: none;
+    }
+
     i {
         z-index: 2;
-        opacity: 0.8
+        opacity: 0.8;
     }
+
     .translate {
         width: 50%;
         height: 300%;
@@ -36,7 +38,7 @@
         top: -30px;
         background: $primary-color;
         position: absolute;
-        transition: all .3s ease-Out;
+        transition: all 0.3s ease-Out;
         z-index: 1;
     }
 }
