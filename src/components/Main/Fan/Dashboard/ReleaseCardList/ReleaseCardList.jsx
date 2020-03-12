@@ -1,14 +1,33 @@
 import React, { Component } from "react";
 import styles from "./ReleaseCardList.module.scss";
-import data from "../../../../../static/data/data";
 import ReleaseCard from "./ReleaseCard";
+import { firestore } from "../../../../../firebase";
+
 
 class ReleaseCardList extends Component {
+    state = {
+        Releases: []
+    }
+
+    componentDidMount() {
+        firestore
+          .collection("Releases")
+          .get()
+          .then(query => {
+            const Releases = query.docs.map(doc => doc.data());
+            this.setState({
+              Releases: Releases
+            });
+          });
+      }
+
+
+
     render() {
         return (
             <section className={styles.cardListWrapper}>
-                {data.map((person, index) => (
-                    <ReleaseCard cardData={person} key={index} />
+                {this.state.Releases.map((Release, index) => (
+                    <ReleaseCard Release={Release} key={index} />
                 ))}
             </section>
         )
