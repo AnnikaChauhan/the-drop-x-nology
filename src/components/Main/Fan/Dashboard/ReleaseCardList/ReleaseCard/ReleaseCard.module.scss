@@ -1,13 +1,38 @@
 @import "../../../../../../variables";
 
 .cardWrapper {
-    text-align: center;
-    background-color: $primary-color;
-    font-weight: bold;
-    font-size: 30px;
-}
+    // For flex-based system (+ ReleaseCardList SCSS)
+    // margin: 25px;
+    // width: 300px;
 
-.artistName {
-    font-weight: bold;
-    font-size: 40px;
+    margin: 25px 0;
+    transition: 0.4s;
+
+    &:hover {
+        transition: 0.4s;
+        box-shadow: 5px 5px 5px #444444;
+    }
+
+    .cardBody {
+        padding: 15px;
+        background-color: black;
+        border-top: 2px solid #999999;
+
+        .artistName {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .albumName {
+            margin: 0;
+            font-size: 18px;
+            font-family: "Montserrat Light";
+            color: #999999;
+        }
+
+        .countDown {
+            font-size: 30px;
+            font-family: "Montserrat Black";
+        }
+    }
 }

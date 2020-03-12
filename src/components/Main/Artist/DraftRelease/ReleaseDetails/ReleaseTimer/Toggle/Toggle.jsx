@@ -1,26 +1,23 @@
 import React, { Component } from 'react';
+import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
+import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
+import ToggleButton from 'react-bootstrap/ToggleButton';
+
 import "./Toggle.module.scss";
 
-class ToggleButton extends Component {
+class ToggleButtonB extends Component {
   render() {
     return (
       <>
-        <div className='custom-control custom-switch toggle'>
-          <input
-            type='checkbox'
-            className='custom-control-input'
-            id='customSwitches'
-            readOnly
-          />
-          <label className='custom-control-label' htmlFor='customSwitches'>
-            PM
-          </label>
-        </div>
+        <ButtonToolbar>
+          <ToggleButtonGroup type="radio" name="options" defaultValue={1}>
+            <ToggleButton value={1}>AM</ToggleButton>
+            <ToggleButton value={2}>PM</ToggleButton>
+          </ToggleButtonGroup>
+        </ButtonToolbar>
       </>
     );
   }
 }
 
-
-
-export default ToggleButton;
+export default ToggleButtonB;

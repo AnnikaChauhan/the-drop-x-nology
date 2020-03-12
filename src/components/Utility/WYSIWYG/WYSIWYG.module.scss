@@ -1,15 +1,43 @@
 @import "../../../variables";
 
-.editor {
-    border: 1px solid lightgrey;
-    min-height: 200px;
+// .editor {
+//     min-height: 200px;
+//     background-color: $secondary-color;
+//     padding: 0 10px;
+// }
+
+// .editor {
+//   background-color: white !important;
+    
+// }
+
+div.ce-inline-toolbar.ce-inline-toolbar--left-oriented.ce-inline-toolbar--showed,
+div.ce-inline-toolbar__buttons {
+    background-color: $background-color !important;
 }
 
+// #editor-js {
+//     * {
+//         background-color: $background-color !important;
+//     }
+
+//     div.ce-settings__default-zone {
+//         background-color: $background-color !important;
+//     }
+// }
+
+// .ceInlineTool {
+//     background-color: red !important;
+//     color: black;
+// }
+
+// .ce-inline-toolbar__buttons {
+//     background-color: yellowgreen !important;
+// }
 
 .wysiWrapper {
-    
-        display: flex;
-        flex-direction: row;
-        margin: 10px 15px 0 0;
-        padding: 5px;
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0;
+    padding: 5px;
 }

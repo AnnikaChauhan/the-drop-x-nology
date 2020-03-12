@@ -1,9 +1,8 @@
-@import '../../variables';
+@import "../../variables";
 
 .container {
     height: 100vh;
     width: 100vw;
-    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,17 +54,17 @@
         letter-spacing: 3px;
     }
 
-    div{
+    div {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-    }    
+    }
 
     .infoWrapper {
         height: 100%;
         width: 100%;
-        background-color:rgba(0,0,0,0.7);        
+        background-color: rgba(0, 0, 0, 0.7);
         background-repeat: no-repeat;
         opacity: 0;
         transition: opacity 0.3s;
@@ -75,7 +74,7 @@
         h3 {
             letter-spacing: 0;
             font-size: 19px;
-        }        
+        }
 
         button {
             background: none;
@@ -90,7 +89,7 @@
             &:hover {
                 background-color: $primary-color;
                 transition: 0.3s;
-                opacity: 1;                
+                opacity: 1;
             }
 
             .loginButton {
@@ -118,7 +117,7 @@
     background-position: center;
     background-size: cover;
     filter: grayscale(100%);
-    
+
     &:hover {
         width: 80%;
         filter: grayscale(0%);
@@ -157,7 +156,7 @@
             opacity: 1;
             transition: opacity 0.3s ease-out;
         }
-        
+
         h2 {
             color: $primary-color;
             transition: 0.3s ease-out;

@@ -1,20 +1,29 @@
-.ReleaseCardList {
-    h2 {
-        padding: 20px;
+// For flex-based system (+ ReleaseCard SCSS)
+// .cardListWrapper {
+//     display: flex;
+//     flex-wrap: wrap;
+//     justify-content: space-evenly;
+//     margin: 0 -25px;
+// }
+
+.cardListWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 0 50px;
+
+    @media screen and (max-width: 1200px) {
+        grid-template-columns: 1fr 1fr;
     }
 
-    .cardListWrapper {
-        width: 100%;
-        height: 100%;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-gap: 30px;
-        padding: 30px;
+    @media screen and (max-width: 900px) {
+        grid-template-columns: 1fr;
+    }
 
-        @media screen and (max-width: 768px) {
-            display: grid;
-            grid-template-columns: 1fr;
-            flex-direction: column;
-        }
+    @media screen and (max-width: 768px) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @media screen and (max-width: 600px) {
+        grid-template-columns: 1fr;
     }
 }
