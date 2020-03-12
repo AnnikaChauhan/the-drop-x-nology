@@ -1,0 +1,19 @@
+@import "../../../variables";
+
+.NotFound {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    img {
+        max-width: 300px;
+    }
+
+    p {
+        font-size: 20px;
+    }
+}

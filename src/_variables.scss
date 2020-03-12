@@ -1,12 +1,14 @@
-$font-stack: Avenir, sans-serif;
+@import "./fonts";
+
+$font-stack: "Montserrat Medium", sans-serif;
 
 $primary-color: #ff007e;
 $secondary-color: #222528;
+$background-color: #1a1c1f;
+$navbar-color: #121417;
+$font-color: white;
 
-@font-face {
-    font-family: Avenir;
-    src: url("./static/fonts/Avenir-Medium.ttf");
-}
+$navbar-width: 250px;
 
 // Colour Chart:
 //      - Purple    #b400ff

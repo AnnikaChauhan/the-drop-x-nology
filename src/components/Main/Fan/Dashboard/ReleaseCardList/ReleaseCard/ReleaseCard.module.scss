@@ -1,0 +1,31 @@
+@import "../../../../../../variables";
+
+.cardWrapper {
+    // For flex-based system (+ ReleaseCardList SCSS)
+    // margin: 25px;
+    // width: 300px;
+
+    margin: 25px 0;
+
+    .cardBody {
+        padding: 15px;
+        background-color: black;
+
+        .artistName {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .albumName {
+            margin: 0;
+            font-size: 18px;
+            font-family: "Montserrat Light";
+            color: #999999;
+        }
+
+        .countDown {
+            font-size: 30px;
+            font-family: "Montserrat Black";
+        }
+    }
+}

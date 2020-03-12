@@ -1,0 +1,49 @@
+@import "../../../../variables";
+
+.LargeButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 40px;
+    border-radius: 20px;
+    margin: 5px;
+    background-color: $primary-color;
+    text-decoration: none;
+    font-size: 0.8em;
+    letter-spacing: 1px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+
+    .text {
+        color: black;
+        transition: 0.4s;
+        z-index: 2;
+        text-decoration: none;
+    }
+
+    &:hover {
+        .text {
+            color: white;
+        }
+    }
+
+    .translate {
+        width: 100%;
+        height: 250%;
+        transform: rotate(50deg);
+        left: -200px;
+        top: -30px;
+        background: $secondary-color;
+        position: absolute;
+        transition: all 0.3s ease-Out;
+        z-index: 1;
+    }
+}
+
+.LargeButton:hover > .translate {
+    left: 0;
+}
+
+//Add this classname to your button to create a small styled button

@@ -1,8 +1,25 @@
-@import './variables';
+@import "./variables";
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: $font-stack;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $font-stack;
+    color: $font-color;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Montserrat Black";
+}
+
+input,
+textarea {
+    background-color: $secondary-color;
+    border: none;
+    padding: 10px;
 }
