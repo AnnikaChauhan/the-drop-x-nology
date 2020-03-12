@@ -5,6 +5,7 @@ import LoginPage from "../containers/LoginPage";
 import Fan from "../containers/Main/Fan";
 import Artist from "../containers/Main/Artist";
 import NotFound from "../components/Navbar/NotFound";
+import StreamingLogin from "../containers/StreamingLogin/StreamingLogin";
 
 import firebase, { providers } from "../firebase";
 
@@ -32,6 +33,7 @@ export default class Routes extends Component {
                 <LandingPage path="initial-login" />
                 <Fan path="fan/*" />
                 <Artist path="artist/*" />
+                <StreamingLogin path="stream-login" />
                 <NotFound default />
             </Router>
         );
