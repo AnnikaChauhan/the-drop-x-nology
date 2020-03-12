@@ -6,7 +6,6 @@ import Routes from "../../Routes/Routes";
 function App() {
     return (
         <div className={styles.App}>
-
             <Routes />
         </div>
     );

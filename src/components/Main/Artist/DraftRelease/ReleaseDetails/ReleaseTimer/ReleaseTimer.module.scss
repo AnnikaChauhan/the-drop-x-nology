@@ -1,15 +1,16 @@
 .announcementDate {
-    margin:10px 0;
+    margin: 10px 0;
     display: flex;
 
     input {
-        width: 25px;
+        width: 35px;
         height: 100%;
         text-align: center;
-        // background-color: blue;
 
-        &:nth-child(2), &:nth-child(4), &:nth-child(9), &:nth-child(11) {
-            // background-color: red;
+        &:nth-child(2),
+        &:nth-child(4),
+        &:nth-child(9),
+        &:nth-child(11) {
             margin-right: 10px;
         }
 
@@ -17,12 +18,13 @@
             margin-right: 30px;
         }
 
-        &:nth-child(12), &:nth-child(13) {
-            width: 35px;;
+        &:nth-child(12),
+        &:nth-child(13) {
+            width: 35px;
         }
     }
 
     p {
-      margin-right: 8px;
+        margin-right: 8px;
     }
 }

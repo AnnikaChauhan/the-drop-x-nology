@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styles from "./ReleaseCard.module.scss";
-import Card from 'react-bootstrap/Card';
+import Card from "react-bootstrap/Card";
 
 class ReleaseCard extends Component {
     render() {
@@ -12,7 +12,7 @@ class ReleaseCard extends Component {
                     <Card.Text className={styles.albumName}>{this.props.cardData.album}</Card.Text>
                     <Card.Text className={styles.countDown}>{this.props.cardData.countDown}</Card.Text>
                 </Card.Body>
-            </Card>            
+            </Card>
         );
     }
 }

@@ -16,3 +16,10 @@ h5,
 h6 {
     font-family: "Montserrat Black";
 }
+
+input,
+textarea {
+    background-color: $secondary-color;
+    border: none;
+    padding: 10px;
+}
