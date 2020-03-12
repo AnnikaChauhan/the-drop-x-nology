@@ -1,16 +1,18 @@
 @import "../../variables";
 
-nav {
+.Nav {
     position: fixed;
+    display: flex;
+    flex-direction: column;
     background-color: $navbar-color;
     width: $navbar-width;
     height: 100vh;
-    padding: 30px;
+    padding: 25px;
 
     @media only screen and (max-width: 768px) {
         position: relative;
         overflow: hidden;
-        width: unset;
+        width: 100%;
     }
 
     a {
@@ -38,6 +40,16 @@ nav {
 
     ul {
         list-style-type: none;
+        flex-grow: 1;
+    }
+
+    .footer {
+        p,
+        span,
+        a {
+            color: grey;
+            font-size: 10px;
+        }
     }
 }
 
