@@ -6,13 +6,13 @@ import { slide as Menu } from "react-burger-menu";
 import NavItem from "./NavItem";
 
 const navItems = {
-    "Dashboard": "dashboard",
+    Dashboard: "dashboard",
     "User Profile": "profile",
     "Help and Contact": "contact",
-    "Legal": "legal",
-    "Feedback": "feedback",
-    "Logout": "/"
-}
+    Legal: "legal",
+    Feedback: "feedback",
+    Logout: "/"
+};
 
 class Navbar extends Component {
     state = {
@@ -37,9 +37,15 @@ class Navbar extends Component {
             <nav>
                 <img src={logo} alt="The Drop" />
                 <ul>
-                    {/* Ollie mapped this you lazy blighters */}
                     {Object.entries(this.state.navItems).map((item, index) => {
-                        return (<NavItem onClick={this.highlightNavItem} path={item[1]} name={item[0]} />);
+                        return (
+                            <NavItem
+                                onClick={this.highlightNavItem}
+                                path={item[1]}
+                                name={item[0]}
+                                key={index}
+                            />
+                        );
                     })}
                 </ul>
             </nav>
@@ -65,11 +71,9 @@ class Navbar extends Component {
                     {this.links}
                     <div className={styles.overlay} />
                 </div>
-                
             );
         }
     }
 }
 
 export default Navbar;
-

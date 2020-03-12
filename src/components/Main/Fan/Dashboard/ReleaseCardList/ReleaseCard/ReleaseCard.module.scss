@@ -1,39 +1,31 @@
 @import "../../../../../../variables";
 
 .cardWrapper {
-  display: flex;
-  // text-align: right;
-  font-weight: 500;
-  font-size: 30px;
-  
-  .artistName {
-    display: flex;
-    align-items: center;
-    margin: 0;
-    height: 35px;
-    padding-left: 10px;
-    font-size: 15px;
-    background-color: black;
-  }
+    // For flex-based system (+ ReleaseCardList SCSS)
+    // margin: 25px;
+    // width: 300px;
 
-  .cardBody {
-    padding: 0;
-    background-color: black;
-  }
+    margin: 25px 0;
 
-  .albumName {
-    opacity: 0.8;
-    margin: 0;
-    font-size: 18px;
-    font-weight: 100;
-    padding-left: 10px;
-    display: flex;
-    align-items: center;
-    background-color: black;  
-  }
+    .cardBody {
+        padding: 15px;
+        background-color: black;
 
-  .countDown {
-    font-size: 30px;
-    padding-left: 10px;
-  }
+        .artistName {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .albumName {
+            margin: 0;
+            font-size: 18px;
+            font-family: "Montserrat Light";
+            color: #999999;
+        }
+
+        .countDown {
+            font-size: 30px;
+            font-family: "Montserrat Black";
+        }
+    }
 }
