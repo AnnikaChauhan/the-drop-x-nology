@@ -29,7 +29,6 @@ export default class Routes extends Component {
     render() {
         return (
             <Router>
-                <Redirect noThrow from="/" to="/" />
                 <LoginPage path="/" />
                 <LandingPage path="initial-login" />
                 <Fan path="fan/*" />
