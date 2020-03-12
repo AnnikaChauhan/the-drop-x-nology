@@ -11,7 +11,8 @@ class SearchBar extends Component {
                     className={styles.searchInput}
                     type="text"
                     name=""
-                    placeholder="Search"
+                    placeholder={this.props.placeHolder}
+                    value={this.props.searchText}
                     onFocus={this.props.onFocus}
                     onBlur={this.props.onBlur}
                     onChange={this.props.onChange} 

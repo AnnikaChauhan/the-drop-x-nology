@@ -3,26 +3,71 @@ import styles from "./Dashboard.module.scss";
 import SearchBar from "../../../../components/Utility/SearchBar";
 import Header from "../../../../components/Utility/Header";
 import ReleaseCardList from "../../../../components/Main/Fan/Dashboard/ReleaseCardList";
+import SearchList from "../../../../components/Main/Fan/Dashboard/SearchList";
+import { firestore } from "../../../../firebase";
 
 class Dashboard extends Component {
-
-    searchFocus() {
-        console.log("Fuck you bloody")
+    state = {
+        searchFocused: false,
+        searchText: "",
+        Releases: [],
+        Artists: [],
+        filteredArtists: []
     }
 
-    searchBlur() {
+    componentDidMount() {
+        firestore
+          .collection("Releases")
+          .get()
+          .then(query => {
+            const Releases = query.docs.map(doc => doc.data());
+            this.setState({
+              Releases: Releases,
+              Artists: Releases
+            });
+          });
+    }
+
+    setSearchText = (event) => {
+        const searchText = event.target.value;
+        this.setState({ searchText }, this.filteredArtists)
+    }
+
+    filteredArtists = () => {
+        let filteredArtists = this.state.Artists.filter(artist => {
+            return artist.Artist.toUpperCase().includes(this.state.searchText.toUpperCase())
+        })
+        this.setState({ filteredArtists })
+    }
+
+    searchFocus = () => {
+        this.setState({searchFocused : true })
+        console.log("ok hello")
+    }
+
+    searchBlur = () => {
+        this.setState({searchFocused : false})
         console.log("ok bye")
     }
 
     render() {
-        return (
-            <section className={styles.Dashboard}>
-                <Header title={"Dashboard"} />
-                <SearchBar onFocus={this.searchFocus} onBlur={this.searchBlur} placeHolder={"Search Artists..."} />
-                <ReleaseCardList />
-                {/* <SearchList /> */}
-            </section>
-        );
+        if (this.state.searchFocused) {
+            return (
+                <section className={styles.Dashboard}>
+                    <Header title={"Search Results"} />
+                    <SearchBar onFocus={this.searchFocus} onBlur={this.searchBlur} searchText={this.state.searchText} onChange={this.setSearchText} placeHolder={"Search Artists..."} />
+                    <SearchList Releases={this.state.filteredArtists} />
+                </section>
+            )
+        } else {
+            return (
+                <section className={styles.Dashboard}>
+                    <Header title={"Dashboard"} />
+                    <SearchBar onFocus={this.searchFocus} onBlur={this.searchBlur} placeHolder={"Search Artists..."} />
+                    <ReleaseCardList Releases={this.state.Releases} />
+                </section>
+            );
+        }
     }
 }
 
