@@ -4,12 +4,12 @@ import logo from "../../static/images/logo-white.png";
 import navStyleData from "../../static/data/navStyleData.js";
 import { slide as Menu } from "react-burger-menu";
 import NavItem from "./NavItem";
+import { Link } from "@reach/router";
 
 const navItems = {
     Dashboard: "dashboard",
     "User Profile": "profile",
     "Help and Contact": "contact",
-    Legal: "legal",
     Feedback: "feedback",
     Logout: "/"
 };
@@ -34,7 +34,7 @@ class Navbar extends Component {
 
     get links() {
         return (
-            <nav>
+            <nav className={styles.Nav}>
                 <img src={logo} alt="The Drop" />
                 <ul>
                     {Object.entries(this.state.navItems).map((item, index) => {
@@ -48,7 +48,19 @@ class Navbar extends Component {
                         );
                     })}
                 </ul>
+                {this.footer}
             </nav>
+        );
+    }
+
+    get footer() {
+        return (
+            <div className={styles.footer}>
+                <Link to="legal">Legal</Link>
+                <span> | </span>
+                <Link to="policy">Privacy Policy</Link>
+                <p>&copy; Copyright 2020 | The Drop Music Ltd.</p>
+            </div>
         );
     }
 
@@ -67,7 +79,7 @@ class Navbar extends Component {
             );
         } else {
             return (
-                <div className={styles.Nav}>
+                <div>
                     {this.links}
                     <div className={styles.overlay} />
                 </div>
