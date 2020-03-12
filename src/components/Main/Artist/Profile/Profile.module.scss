@@ -167,60 +167,61 @@
     }
 
     @media screen and (min-width: 768px) {
-        .imageProfileWrapper {
-            display: flex;
-            justify-content: left;
-            align-content: center;
+    //     .imageProfileWrapper {
+    //         display: flex;
+    //         justify-content: left;
+    //         align-content: center;
 
-            div {
-                padding-bottom: 0;
-            }
+    //         div {
+    //             padding-bottom: 0;
+    //         }
 
-            .imgWrapper {
-                height: 100px;
-                width: 100px;
+    //         .imgWrapper {
+    //             height: 100px;
+    //             width: 100px;
 
-                img {
-                    height: 50%;
-                    width: 50%;
-                    margin-left: 0;
-                }
-            }
-            .artistWrapper {
-                height: 100px;
-                width: 200px;
-            }
-        }
+    //             img {
+    //                 height: 50%;
+    //                 width: 50%;
+    //                 margin-left: 0;
+    //             }
+    //         }
+    //         .artistWrapper {
+    //             height: 100px;
+    //             width: 200px;
+    //         }
+    //     }
 
-        .textAndRelease {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
+    //     .textAndRelease {
+    //         display: flex;
+    //         justify-content: space-between;
+    //         align-items: center;
+    //         width: 100%;
 
-            .releaseContain {
-                width: 100%;
-                height: 100%;
+    //         .releaseContain {
+    //             width: 100%;
+    //             height: 100%;
 
-                nav {
-                    position: unset;
-                    width: unset;
-                    height: unset;
-                    padding: unset;
-                }
-            }
-        }
+    //             nav {
+    //                 position: unset;
+    //                 width: unset;
+    //                 height: unset;
+    //                 padding: unset;
+    //             }
+    //         }
+    //     }
 
-        .buttonsWrapper {
-            display: flex;
-            height: auto;
-            width: 100%;
-            align-content: center;
-            flex-direction: row;
+    //     .buttonsWrapper {
+    //         display: flex;
+    //         height: auto;
+    //         width: 100%;
+    //         align-content: center;
+    //         flex-direction: row;
 
-            .buttonBar {
-                width: 33.3%;
-            }
-        }
-    }
+    //         .buttonBar {
+    //             width: 33.3%;
+    //         }
+    //     }
+    // }
+}
 }
