@@ -27,7 +27,7 @@ class ReleaseCardList extends Component {
         return (
             <section className={styles.cardListWrapper}>
                 {this.state.Releases.map((Release, index) => (
-                    <ReleaseCard Release={Release} key={index} />
+                    <ReleaseCard Releases={Release} key={index} />
                 ))}
             </section>
         )
