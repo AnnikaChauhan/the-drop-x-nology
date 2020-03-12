@@ -14,7 +14,7 @@ class DraftRelease extends Component {
             <section className={styles.DraftRelease}>
                 <article className={styles.topPart}>
                     <Header title={"Edit Release"} />
-                    <div>
+                    <div className={styles.links}>
                         <SmallButton text="SAVE" />
                         <Link to="/artist/preview">
                             <SmallButton text="PREVIEW" />

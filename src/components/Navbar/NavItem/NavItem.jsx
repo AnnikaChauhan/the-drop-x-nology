@@ -6,15 +6,13 @@ export default class NavItem extends Component {
     render() {
         return (
             <p className={styles.NavItem}>
-                <Link 
+                <Link
                     to={this.props.path}
                     getProps={({ isCurrent }) => {
                         return {
                             style: {
                                 color: isCurrent ? "#ff007e" : "white"
-                                
                             }
-        
                         };
                     }}
                 >

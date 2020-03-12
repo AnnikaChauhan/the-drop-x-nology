@@ -29,6 +29,10 @@
         margin-top: 20px;
         background-color: #777777;
     }
+
+    .links {
+        flex-wrap: wrap;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -36,8 +40,6 @@
         flex-direction: column;
 
         div {
-            width: 100%;
-
             button {
                 width: 30%;
             }
