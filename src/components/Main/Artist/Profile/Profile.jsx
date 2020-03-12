@@ -33,7 +33,7 @@ export default class Profile extends Component {
                         </div>
                         <div className={styles.nameContain}>
                             <div>
-                                JAVASCRIPT NINJA MASTER
+                                JONNY 'JAVASCRIPT' JI
                             </div>
                         </div>
                     </div>
