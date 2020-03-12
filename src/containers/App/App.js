@@ -9,7 +9,7 @@ import LoginPage from "../LoginPage";
 function App() {
     return (
         <div className={styles.App}>
-            <LoginPage />
+            {/* <LoginPage /> */}
             <Routes />
         </div>
     );

@@ -19,7 +19,7 @@
         background-color: rgba(0,0,0,0.7);
         .buttonStyle {
             margin-top: 40px;
-            opacity: 0;
+            // opacity: 0;
         }
     }
     .comet1 {
@@ -30,7 +30,8 @@
         background-position: center;
         background-repeat: no-repeat;
         margin: 20px;
-        opacity: 0;
+        // opacity: 0;
+        // commented out by Ollie when removing animation
 
         @media screen and (max-width: 1000px) {
             width: 40%

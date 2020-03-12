@@ -23,11 +23,9 @@ class SignIn extends Component {
                         className={styles.comet1}
                         ref={div => this.myElement.push(div)}
                     ></div>
-                    <div className={styles.buttonStyle}
+                    <div className={styles.buttonStyle} onClick={this.props.signIn}
                          ref={div => this.myElement.push(div)}>
-                        <Link to="/initial-login">
-                            <LargeButton text={`Sign up with Google`} />
-                        </Link>
+                            <LargeButton text={`Sign up with Google`}  />
                     </div>
                 </div>
             </section>
