@@ -11,7 +11,7 @@ class StreamingLogin extends Component {
                     <img className={styles.dropLogo} src={logo} alt="The Drop" />
                 </div>
                 <section className={styles.streamWrapper}>
-                    <h2>Email confirmed</h2>
+                    <h2>Log in successful</h2>
                     <p>Connect your streaming account</p>
                     <div className={styles.buttonsWrapper}>
                         <LargeButton text={"CONNECT SPOTIFY"} />
