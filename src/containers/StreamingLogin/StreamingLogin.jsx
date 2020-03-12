@@ -7,7 +7,7 @@ class StreamingLogin extends Component {
     render() {
         return (
             <section className={styles.mainWrapper}>
-                <div >
+                <div className = {styles.imageWrapper}>
                     <img className={styles.dropLogo} src={logo} alt="The Drop" />
                 </div>
                 <section className={styles.streamWrapper}>
