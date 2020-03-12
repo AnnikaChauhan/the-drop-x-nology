@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import styles from "./Profile.module.scss";
 // import image from "../../../../static/images/sampleimage.jfif";
-import image from "../../../../static/images/ei.jpg";
+import image from "../../../../static/images/jiji.PNG";
 import LargeButton from "../../../Utility/Buttons/LargeButton";
 import { Link } from "@reach/router";
 import StatusBar from "../../../Utility/StatusBar";
+import Header from "../../../Utility/Header";
+import SmallButton from "../../../Utility/Buttons/SmallButton/SmallButton";
 
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
@@ -13,55 +15,50 @@ export default class Profile extends Component {
     render() {
         return (
             <section className={styles.artistProfileWrapper}>
+                <div className={styles.topContain}>
+                    <div className={styles.header}>
+                        <Header title={"Dashboard"} className={styles.title} />
+                    </div>
+                    <div className={styles.manageContain}>
+                        <div><p>Manage Bio</p></div>
+                        <div><p>Manage Users</p></div>
+                    </div>
+                </div>
 
-                <div className={styles.imageProfileWrapper}>
+
+                <div className={styles.midContain}>
                     <div className={styles.profileWrapper}>
-                        <div className={styles.imgWrapper}>
+                        <div className={styles.imgContain}>
                             <img src={image} alt="Artist"></img>
                         </div>
-                        <div className={styles.editBio}>
-                            <p>Edit Bio</p>
+                        <div className={styles.nameContain}>
+                            <div>
+                                JAVASCRIPT NINJA MASTER
+                            </div>
                         </div>
-                        <div className={styles.artistWrapper}>
-                            RICKY CHURCHES
                     </div>
-                    </div>
-                </div>
-                <div className={styles.textAndRelease}>
-                    <div className={styles.manageContain}>
-                        <p>Manage Releases</p>
-                    </div>
-                    <div className={styles.releaseContain}>
-                        {/* <StatusBar title={"Release Title"} status={"released"} className={styles.boxx} /> */}
-                        <Tabs defaultActiveKey="profile" id="profile" className={styles.tabsss}>
-                            <Tab eventKey="profile" title="Upcoming">
-                                <StatusBar />
-                                <StatusBar />
-                                <StatusBar />
-                                <StatusBar />
-                            </Tab>
-                            <Tab eventKey="home" title="Archive" className={styles.tab1}>
-
-                                <StatusBar />
-                                <StatusBar />
-                            </Tab>
-                        </Tabs>
-                        {/* <div> </ReleaseArchive /> </div>\ */}
+                    <div className={styles.createRelease}>
+                        <div>
+                            <SmallButton text={"Create Release"} />
+                        </div>
                     </div>
                 </div>
-                <div className={styles.buttonsWrapper}>
-                    {/* <Link to="releases">
-                        <LargeButton text={"Manage Releases"} />
-                    </Link>
 
-                    <Link to="/artist/profile">
-                        <LargeButton text={"Artist Bio"} />
-                    </Link>
-
-                    <Link to="archive">
-                        <LargeButton text={"Release Archive"} />
-                    </Link> */}
+                <div className={styles.tabContain}>
+                    <Tabs defaultActiveKey="profile" id="profile" className={styles.tabsss}>
+                        <Tab eventKey="profile" title="Releases">
+                            <StatusBar />
+                            <StatusBar />
+                            <StatusBar />
+                            <StatusBar />
+                        </Tab>
+                        <Tab eventKey="home" title="Past Releases" className={styles.tab1}>
+                            <StatusBar />
+                            <StatusBar />
+                        </Tab>
+                    </Tabs>
                 </div>
+
             </section>
         );
     }

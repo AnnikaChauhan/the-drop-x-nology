@@ -2,19 +2,21 @@
 
 nav {
     position: fixed;
-    background-color: $secondary-color;
+    background-color: $navbar-color;
     width: $navbar-width;
     height: 100vh;
     padding: 30px;
 
     @media only screen and (max-width: 768px) {
-        position: relative; 
+        position: relative;
         overflow: hidden;
+        width: unset;
     }
 
     a {
         color: white;
-        font-size: 1.2em;
+        font-size: 1.15em;
+        font-family: "Montserrat Bold";
         font-weight: 400;
         text-decoration: none;
         transition: 0.25s;
@@ -28,6 +30,10 @@ nav {
     img {
         max-width: 100%;
         padding-bottom: 40px;
+
+        @media only screen and (max-width: 768px) {
+            max-width: $navbar-width;
+        }
     }
 
     ul {
@@ -39,4 +45,3 @@ nav {
     width: $navbar-width;
     height: 100vh;
 }
-

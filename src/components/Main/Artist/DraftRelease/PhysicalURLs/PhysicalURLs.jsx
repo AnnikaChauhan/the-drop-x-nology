@@ -12,7 +12,7 @@ export default class PhysicalURLs extends Component {
                     <h4>Merchandise</h4>
                     <input type="url" />
                 </div>
-                <hr/>
+                <hr />
             </div>
         );
     }

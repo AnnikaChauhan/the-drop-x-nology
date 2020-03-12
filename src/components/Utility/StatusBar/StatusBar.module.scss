@@ -1,33 +1,44 @@
 @import "../../../variables";
 
 .StatusBar {
-    border-bottom: 0.5px solid white;
+    border-bottom: 0.5px solid rgba(255,255,255, 0.4);
     // color: $secondary-color;
     color: grey;
     display: flex;
     justify-content: space-between;
-    height: 70px;
+    height: 50px;
     padding: 0 15px;
     align-items: center;
 
-    .wrap1 {
+    .columnOne {
         // border: 2px solid red;
         display: flex;
-        width: 100%;
-
-        .albumImg {
-            // border:2px solid red;
-            height: 50px;
-            width: 50px;
-            background-image: url(../../../static/images/album1.png);
-            background-size: contain;
-        }
+        width: 70%;
+        height: 90%;
+        font-size: 12px;
+        padding: 10px 0;
 
         .archiveData {
-            padding: 10px;
-            font-size: 20px;
-            margin-left: 70px;
+            font-size: 14px;
         }
+    }
+
+    .columnTwo {
+        // border: 2px solid blue;
+        width: 15%;
+        height: 90%;
+        font-size: 12px;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    .columnThree {
+        // border: 2px solid yellow;
+        width: 15%;
+        height: 90%;
+        font-size: 12px;
+        padding: 10px 0;
+        text-align: center;
     }
 
     .active {
