@@ -12,6 +12,9 @@ class SearchBar extends Component {
                     type="text"
                     name=""
                     placeholder="Search"
+                    onFocus={this.props.onFocus}
+                    onBlur={this.props.onBlur}
+                    onChange={this.props.onChange} 
                 />
                 <FontAwesomeIcon icon={faSearch} className={styles.icon} />
             </div>
