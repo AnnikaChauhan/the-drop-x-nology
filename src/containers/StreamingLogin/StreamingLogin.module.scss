@@ -1,0 +1,43 @@
+@import "../../variables";
+
+.mainWrapper {
+    height: 100vh;
+    width: 100vw;
+   
+    background-color: $background-color;
+
+
+    .dropLogo {
+        border: 2px solid white;
+        width: $navbar-width;
+        width: 250px;
+        height: 200px;
+
+      }
+
+  .streamWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+
+  
+
+    h2,
+    p {
+      border: 2px solid white;
+      text-align: center;
+    }
+
+    .buttonsWrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      border: 2px solid white;
+      width: 280px;
+      height: 280px;
+    }
+  }
+}
