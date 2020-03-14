@@ -1,15 +1,13 @@
 import React, { Component } from "react";
 import styles from "./Navbar.module.scss";
 import logo from "../../static/images/logo-white.png";
-import navStyleData from "../../static/data/navStyleData.js";
-import { slide as Menu } from "react-burger-menu";
 import NavItem from "./NavItem";
 import { Link } from "@reach/router";
 
 const navItems = {
-    Dashboard: "dashboard",
-    "User Profile": "profile",
-    "Help and Contact": "contact",
+    Home: "home",
+    Account: "account",
+    Help: "help",
     Feedback: "feedback",
     Logout: "/"
 };
@@ -17,7 +15,8 @@ const navItems = {
 class Navbar extends Component {
     state = {
         width: window.innerWidth,
-        navItems
+        navItems,
+        menuOpen: false
     };
 
     componentDidMount() {
@@ -28,29 +27,25 @@ class Navbar extends Component {
         this.setState({ width: window.innerWidth });
     }
 
-    showSettings(event) {
+    showSettings = event => {
         event.preventDefault();
-    }
+    };
+
+    toggleMenu = event => {
+        this.setState({ menuOpen: !this.state.menuOpen });
+    };
 
     get links() {
-        return (
-            <nav className={styles.Nav}>
-                <img src={logo} alt="The Drop" />
-                <ul>
-                    {Object.entries(this.state.navItems).map((item, index) => {
-                        return (
-                            <NavItem
-                                onClick={this.highlightNavItem}
-                                path={item[1]}
-                                name={item[0]}
-                                key={index}
-                            />
-                        );
-                    })}
-                </ul>
-                {this.footer}
-            </nav>
-        );
+        return Object.entries(this.state.navItems).map((item, index) => {
+            return (
+                <NavItem
+                    onClick={this.highlightNavItem}
+                    name={item[0]}
+                    path={item[1]}
+                    key={index}
+                />
+            );
+        });
     }
 
     get footer() {
@@ -65,26 +60,33 @@ class Navbar extends Component {
     }
 
     render() {
-        if (this.state.width <= 768) {
-            return (
-                <Menu
-                    noOverlay
-                    disableOverlayClick
-                    disableAutoFocus
-                    styles={navStyleData}
-                    width={"100%"}
-                >
-                    {this.links}
-                </Menu>
-            );
-        } else {
-            return (
-                <div>
-                    {this.links}
-                    <div className={styles.overlay} />
-                </div>
-            );
-        }
+        return (
+            <div>
+                <nav className={styles.Nav}>
+                    <a
+                        href="#"
+                        className={
+                            this.state.menuOpen
+                                ? `${styles.icon} ${styles.cross}`
+                                : `${styles.icon}`
+                        }
+                        onClick={this.toggleMenu}
+                    ></a>
+                    <img src={logo} alt="The Drop" />
+                    <div
+                        className={
+                            this.state.menuOpen
+                                ? `${styles.menu} ${styles.open}`
+                                : `${styles.menu}`
+                        }
+                    >
+                        <ul className={styles.links}>{this.links}</ul>
+                        {this.footer}
+                    </div>
+                </nav>
+                <div className={styles.overlay} />
+            </div>
+        );
     }
 }
 

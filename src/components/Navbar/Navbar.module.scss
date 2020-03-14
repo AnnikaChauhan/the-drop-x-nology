@@ -1,23 +1,27 @@
 @import "../../variables";
 
+$width: 225px;
+$height: 150px;
+$padding: 25px;
+
 .Nav {
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    background-color: $navbar-color;
-    width: $navbar-width;
     height: 100vh;
-    padding: 25px;
+    width: $width;
+    background-color: $navbar-color;
+    padding: $padding;
+    position: fixed;
+    overflow: hidden;
+    z-index: 1;
 
     @media only screen and (max-width: 768px) {
-        position: relative;
-        overflow: hidden;
         width: 100%;
+        height: $height;
+        text-align: center;
     }
 
     a {
         color: white;
-        font-size: 1.15em;
+        font-size: 16px;
         font-family: "Montserrat Bold";
         font-weight: 400;
         text-decoration: none;
@@ -31,29 +35,83 @@
 
     img {
         max-width: 100%;
-        padding-bottom: 40px;
+        max-height: 100%;
+    }
+
+    .menu {
+        padding-top: $padding * 2;
+        height: calc(
+            100vh - #{($width - $padding * 2) * 0.6325} - #{$padding * 2}
+        );
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        z-index: 2;
+
+        ul {
+            list-style-type: none;
+        }
+
+        .footer {
+            p,
+            span,
+            a {
+                color: grey;
+                font-size: 9px;
+                margin-bottom: 0;
+            }
+        }
 
         @media only screen and (max-width: 768px) {
-            max-width: $navbar-width;
+            max-height: 0;
+            transition: max-height 0.2s ease-out;
         }
     }
 
-    ul {
-        list-style-type: none;
-        flex-grow: 1;
-    }
-
-    .footer {
-        p,
-        span,
-        a {
-            color: grey;
-            font-size: 10px;
+    .open {
+        @media only screen and (max-width: 768px) {
+            max-height: 500px;
         }
     }
 }
 
 .overlay {
-    width: $navbar-width;
     height: 100vh;
+    width: $width;
+
+    @media only screen and (max-width: 768px) {
+        width: 100%;
+        height: $height;
+    }
+}
+
+.icon {
+    position: fixed;
+    display: block;
+    width: 36px;
+    z-index: 2;
+
+    &:before,
+    &:after {
+        background-color: $primary-color;
+        content: "";
+        display: block;
+        height: 3px;
+        border-radius: 3px;
+        transition: all 0.2s ease-in-out;
+    }
+    &:before {
+        box-shadow: 0 10px 0 $primary-color;
+        margin-bottom: 17px;
+    }
+}
+
+.cross {
+    &:before {
+        box-shadow: 0 0 0 $primary-color;
+        transform: translateY(10px) rotate(45deg);
+    }
+    &:after {
+        transform: translateY(-10px) rotate(-45deg);
+    }
 }
