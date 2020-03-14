@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Router, Redirect } from "@reach/router";
+import { Router } from "@reach/router";
 import LandingPage from "../containers/LandingPage";
 import LoginPage from "../containers/LoginPage";
 import Fan from "../containers/Main/Fan";

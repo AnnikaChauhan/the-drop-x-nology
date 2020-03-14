@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./LandingPage.module.scss";
-import { Link } from "@reach/router";
 
 function LandingPage() {
     return (
