@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styles from "./ReleaseCard.module.scss";
 import Card from "react-bootstrap/Card";
+import FollowButton from "../../../../../Utility/Buttons/FollowButton/FollowButton";
 
 class ReleaseCard extends Component {
     render() {
@@ -22,6 +23,7 @@ class ReleaseCard extends Component {
                     <Card.Text className={styles.countDown}>
                         {"12 Days"}
                     </Card.Text>
+                    <FollowButton />
                 </Card.Body>
             </Card>
         );
