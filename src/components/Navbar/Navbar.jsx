@@ -62,24 +62,22 @@ class Navbar extends Component {
     render() {
         return (
             <div>
-                <nav className={styles.Nav}>
-                    <a
-                        href="#"
-                        className={
-                            this.state.menuOpen
-                                ? `${styles.icon} ${styles.cross}`
-                                : `${styles.icon}`
-                        }
-                        onClick={this.toggleMenu}
-                    ></a>
-                    <img src={logo} alt="The Drop" />
+                <nav
+                    className={
+                        this.state.menuOpen
+                            ? `${styles.Nav} ${styles.open}`
+                            : `${styles.Nav}`
+                    }
+                >
                     <div
-                        className={
-                            this.state.menuOpen
-                                ? `${styles.menu} ${styles.open}`
-                                : `${styles.menu}`
-                        }
-                    >
+                        href="#"
+                        className={styles.icon}
+                        onClick={this.toggleMenu}
+                    />
+                    <div>
+                        <img src={logo} alt="The Drop" />
+                    </div>
+                    <div className={styles.menu}>
                         <ul className={styles.links}>{this.links}</ul>
                         {this.footer}
                     </div>

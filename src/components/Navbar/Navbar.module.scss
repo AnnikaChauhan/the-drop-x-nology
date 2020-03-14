@@ -1,21 +1,24 @@
 @import "../../variables";
 
-$width: 225px;
-$height: 150px;
+$navbar-width: 225px;
+$mobile-height: 150px;
 $padding: 25px;
 
 .Nav {
     height: 100vh;
-    width: $width;
+    width: $navbar-width;
     background-color: $navbar-color;
     padding: $padding;
+    display: flex;
+    flex-direction: column;
     position: fixed;
     overflow: hidden;
     z-index: 1;
 
     @media only screen and (max-width: 768px) {
         width: 100%;
-        height: $height;
+        max-height: $mobile-height;
+        transition: max-height 0.5s ease-out;
         text-align: center;
     }
 
@@ -23,7 +26,6 @@ $padding: 25px;
         color: white;
         font-size: 16px;
         font-family: "Montserrat Bold";
-        font-weight: 400;
         text-decoration: none;
         transition: 0.25s;
 
@@ -31,18 +33,23 @@ $padding: 25px;
             color: $primary-color !important;
             text-decoration: none;
         }
+
+        @media only screen and (max-width: 768px) {
+            font-size: 22px;
+        }
     }
 
     img {
         max-width: 100%;
-        max-height: 100%;
+
+        @media only screen and (max-width: 768px) {
+            max-height: $mobile-height - $padding * 2;
+        }
     }
 
     .menu {
         padding-top: $padding * 2;
-        height: calc(
-            100vh - #{($width - $padding * 2) * 0.6325} - #{$padding * 2}
-        );
+        height: 100%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -63,55 +70,59 @@ $padding: 25px;
         }
 
         @media only screen and (max-width: 768px) {
-            max-height: 0;
-            transition: max-height 0.2s ease-out;
-        }
-    }
-
-    .open {
-        @media only screen and (max-width: 768px) {
-            max-height: 500px;
+            font-size: 12px;
         }
     }
 }
 
 .overlay {
     height: 100vh;
-    width: $width;
+    width: $navbar-width;
 
     @media only screen and (max-width: 768px) {
         width: 100%;
-        height: $height;
+        height: $mobile-height;
     }
 }
 
 .icon {
-    position: fixed;
-    display: block;
-    width: 36px;
-    z-index: 2;
+    display: none;
 
-    &:before,
-    &:after {
-        background-color: $primary-color;
-        content: "";
+    @media only screen and (max-width: 768px) {
+        cursor: pointer;
+        position: fixed;
         display: block;
-        height: 3px;
-        border-radius: 3px;
-        transition: all 0.2s ease-in-out;
-    }
-    &:before {
-        box-shadow: 0 10px 0 $primary-color;
-        margin-bottom: 17px;
+        width: 36px;
+        z-index: 2;
+
+        &:before,
+        &:after {
+            background-color: $primary-color;
+            content: "";
+            display: block;
+            height: 3px;
+            border-radius: 3px;
+            transition: all 0.2s ease-in-out;
+        }
+        &:before {
+            box-shadow: 0 10px 0 $primary-color;
+            margin-bottom: 17px;
+        }
     }
 }
 
-.cross {
-    &:before {
-        box-shadow: 0 0 0 $primary-color;
-        transform: translateY(10px) rotate(45deg);
+.open {
+    @media only screen and (max-width: 768px) {
+        max-height: 100vh;
     }
-    &:after {
-        transform: translateY(-10px) rotate(-45deg);
+
+    .icon {
+        &:before {
+            box-shadow: 0 0 0 $primary-color;
+            transform: translateY(10px) rotate(45deg);
+        }
+        &:after {
+            transform: translateY(-10px) rotate(-45deg);
+        }
     }
 }
