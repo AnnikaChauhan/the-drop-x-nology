@@ -2,23 +2,18 @@ import React, { Component } from "react";
 import styles from "./StatusBar.module.scss";
 
 export default class StatusBar extends Component {
-    get activeClass() {
-        return this.props.status === "active" ? `${styles.active}` : ``;
-    }
-
     render() {
         return (
             <article className={styles.StatusBar}>
-                <div className={styles.columnOne}>
-                    {/* <div className={styles.archiveData}>{this.props.title}</div> */}
-                    <div className={styles.archiveData}>ALBUM NAME</div>
+                <div className={styles.title}>{this.props.title}</div>
+                <div className={styles.type}>{this.props.type}</div>
+                <div
+                    className={`${styles.status} ${
+                        this.props.status === "Live" ? `${styles.live}` : null
+                    }`}
+                >
+                    {this.props.status}
                 </div>
-
-                <div className={`${styles.columnTwo} ${this.activeClass}`}>
-                    {this.props.status}RELEASE
-                </div>
-
-                <div className={styles.columnThree}>DRAFT</div>
             </article>
         );
     }

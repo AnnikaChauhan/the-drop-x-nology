@@ -6,9 +6,6 @@ import SmallButton from "../../../Utility/Buttons/SmallButton";
 import Tabs from "../../../Utility/Tabs";
 import StatusBar from "../../../Utility/StatusBar";
 
-// import Tabs from "react-bootstrap/Tabs";
-// import Tab from "react-bootstrap/Tab";
-
 export default class Profile extends Component {
     render() {
         return (
@@ -47,13 +44,43 @@ export default class Profile extends Component {
                     tabs={["Releases", "Past Releases"]}
                     content={[
                         <>
-                            <StatusBar />
-                            <StatusBar />
-                            <StatusBar />
+                            <StatusBar
+                                title={"Release Title 1"}
+                                type={"Single"}
+                                status={"Draft"}
+                            />
+                            <StatusBar
+                                title={"Release Title 2"}
+                                type={"EP"}
+                                status={"Live"}
+                            />
+                            <StatusBar
+                                title={"Release Title 3"}
+                                type={"Album"}
+                                status={"Live"}
+                            />
                         </>,
                         <>
-                            <StatusBar />
-                            <StatusBar />
+                            <StatusBar
+                                title={"Release Title 4"}
+                                type={"Album"}
+                                status={"Released"}
+                            />
+                            <StatusBar
+                                title={"Release Title 5"}
+                                type={"Merch"}
+                                status={"Released"}
+                            />
+                            <StatusBar
+                                title={"Release Title 6"}
+                                type={"EP"}
+                                status={"Released"}
+                            />
+                            <StatusBar
+                                title={"Release Title 7"}
+                                type={"Single"}
+                                status={"Released"}
+                            />
                         </>
                     ]}
                 />

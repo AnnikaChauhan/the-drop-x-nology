@@ -1,43 +1,73 @@
 @import "../../../variables";
 
 .tab {
-    // overflow: hidden;
-    // border: 1px solid #ccc;
+    overflow: hidden;
 
     button {
+        position: relative;
         background-color: $secondary-color;
-        // float: left;
         border: none;
         outline: none;
         cursor: pointer;
-        padding: 10px 25px;
-        border-radius: 10px 10px 0 0;
+        padding: 10px 50px;
+        border-radius: 25px 25px 0 0;
         transition: 0.4s;
 
-        font-family: "Montserrat Black";
-        font-size: 22px;
-
-        &:hover {
-            background-color: $navbar-color;
-        }
+        font-family: "Montserrat Bold";
+        font-size: 20px;
 
         &.active {
             background-color: $navbar-color;
+            outline: none;
+
+            &::before,
+            &::after {
+                box-shadow: 0 25px 0 0 $navbar-color;
+                z-index: 1;
+            }
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+
+            background-color: none;
+            z-index: 0;
+            height: 50px;
+            right: -25px;
+            bottom: 0;
+            width: 25px;
+            border-bottom-left-radius: 25px;
+            box-shadow: 0 25px 0 0 $secondary-color;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+
+            background-color: none;
+            z-index: -1;
+            height: 50px;
+            left: -25px;
+            bottom: 0;
+            width: 25px;
+            border-bottom-right-radius: 25px;
+            box-shadow: 0 25px 0 0 $secondary-color;
         }
     }
 }
 
 .tabcontent {
     display: none;
-    padding: 25px;
+    padding: 35px 50px;
     background-color: $navbar-color;
-    border-radius: 0 10px 10px;
+    border-radius: 0 25px 0 0;
 
     &.open {
         display: block;
     }
 
     article:not(:last-child) {
-        border-bottom: 1px solid $secondary-color;
+        border-bottom: 1px solid #333333;
     }
 }

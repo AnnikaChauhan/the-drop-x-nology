@@ -1,46 +1,35 @@
 @import "../../../variables";
 
 .StatusBar {
-    // color: $secondary-color;
-    color: grey;
     display: flex;
-    justify-content: space-between;
-    height: 50px;
-    padding: 0 15px;
     align-items: center;
+    height: 60px;
 
-    .columnOne {
-        // border: 2px solid red;
-        display: flex;
-        width: 70%;
-        height: 90%;
-        font-size: 12px;
-        padding: 10px 0;
+    .title {
+        width: 80%;
+    }
 
-        .archiveData {
-            font-size: 14px;
+    .type {
+        width: 10%;
+        padding-left: 20px;
+    }
+
+    .status {
+        width: 10%;
+        text-align: right;
+
+        &.live {
+            color: #00ff00;
         }
     }
 
-    .columnTwo {
-        // border: 2px solid blue;
-        width: 15%;
-        height: 90%;
-        font-size: 12px;
-        padding: 10px 0;
-        text-align: center;
-    }
+    div {
+        height: 100%;
+        line-height: 60px;
+        font-family: "Montserrat Light";
 
-    .columnThree {
-        // border: 2px solid yellow;
-        width: 15%;
-        height: 90%;
-        font-size: 12px;
-        padding: 10px 0;
-        text-align: center;
-    }
-
-    .active {
-        color: green;
+        &:not(:last-child) {
+            border-right: 1px solid #333333;
+        }
     }
 }
