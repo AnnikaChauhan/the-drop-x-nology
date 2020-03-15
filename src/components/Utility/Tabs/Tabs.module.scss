@@ -1,6 +1,7 @@
 @import "../../../variables";
 
 .tab {
+    margin-top: 25px;
     overflow: hidden;
 
     button {
@@ -16,6 +17,16 @@
         font-family: "Montserrat Bold";
         font-size: 20px;
 
+        &:hover {
+            background-color: #333333;
+            // outline: none;
+
+            &::before,
+            &::after {
+                box-shadow: 0 25px 0 0 #333333;
+            }
+        }
+
         &.active {
             background-color: $navbar-color;
             outline: none;
@@ -27,32 +38,29 @@
             }
         }
 
-        &::before {
-            content: "";
-            position: absolute;
-
-            background-color: none;
-            z-index: 0;
-            height: 50px;
-            right: -25px;
-            bottom: 0;
-            width: 25px;
-            border-bottom-left-radius: 25px;
-            box-shadow: 0 25px 0 0 $secondary-color;
-        }
-
+        &::before,
         &::after {
             content: "";
             position: absolute;
+            transition: inherit;
 
             background-color: none;
-            z-index: -1;
             height: 50px;
-            left: -25px;
             bottom: 0;
             width: 25px;
-            border-bottom-right-radius: 25px;
             box-shadow: 0 25px 0 0 $secondary-color;
+        }
+
+        &::before {
+            z-index: 0;
+            right: -25px;
+            border-bottom-left-radius: 25px;
+        }
+
+        &::after {
+            z-index: -1;
+            left: -25px;
+            border-bottom-right-radius: 25px;
         }
     }
 }
