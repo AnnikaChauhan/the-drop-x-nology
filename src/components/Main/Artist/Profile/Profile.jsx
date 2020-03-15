@@ -1,49 +1,28 @@
 import React, { Component } from "react";
 import styles from "./Profile.module.scss";
-import image from "../../../../static/images/jiji.PNG";
 import Header from "../../../Utility/Header";
-import SmallButton from "../../../Utility/Buttons/SmallButton";
 import Tabs from "../../../Utility/Tabs";
 import StatusBar from "../../../Utility/StatusBar";
+import { Link } from "@reach/router";
 
 export default class Profile extends Component {
     render() {
         return (
-            <section className={styles.artistProfileWrapper}>
-                <div className={styles.topContain}>
-                    <div className={styles.header}>
-                        <Header title={"Dashboard"} className={styles.title} />
-                    </div>
-                    <div className={styles.manageContain}>
-                        <div>
-                            <p>Manage Bio</p>
-                        </div>
-                        <div>
-                            <p>Manage Users</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div className={styles.midContain}>
-                    <div className={styles.profileWrapper}>
-                        <div className={styles.imgContain}>
-                            <img src={image} alt="Artist"></img>
-                        </div>
-                        <div className={styles.nameContain}>
-                            <div>JONNY 'JAVASCRIPT' JI</div>
-                        </div>
-                    </div>
-                    <div className={styles.createRelease}>
-                        <div>
-                            <SmallButton text={"Create Release"} />
-                        </div>
-                    </div>
+            <section className={styles.Profile}>
+                <Header title={"Dashboard"} className={styles.title} />
+                <div className={styles.header}>
+                    <img
+                        src="https://i.scdn.co/image/07731d62846074c691f9dad6edaf09c271c39fbc"
+                        alt="Artist Profile"
+                    />
+                    <h2>Archie Hamilton</h2>
                 </div>
 
                 <Tabs
                     tabs={["Releases", "Past Releases"]}
                     content={[
                         <>
+                            <Link to={"add-release"}>+ Create New Release</Link>
                             <StatusBar
                                 title={"Release Title 1"}
                                 type={"Single"}
@@ -84,29 +63,6 @@ export default class Profile extends Component {
                         </>
                     ]}
                 />
-
-                {/* <div className={styles.tabContain}>
-                    <Tabs
-                        defaultActiveKey="profile"
-                        id="profile"
-                        className={styles.tabsss}
-                    >
-                        <Tab eventKey="profile" title="Releases">
-                            <StatusBar />
-                            <StatusBar />
-                            <StatusBar />
-                            <StatusBar />
-                        </Tab>
-                        <Tab
-                            eventKey="home"
-                            title="Past Releases"
-                            className={styles.tab1}
-                        >
-                            <StatusBar />
-                            <StatusBar />
-                        </Tab>
-                    </Tabs>
-                </div> */}
             </section>
         );
     }

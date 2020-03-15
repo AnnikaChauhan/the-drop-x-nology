@@ -1,7 +1,6 @@
 @import "../../../variables";
 
 .tab {
-    margin-top: 25px;
     overflow: hidden;
 
     button {
@@ -16,6 +15,11 @@
 
         font-family: "Montserrat Bold";
         font-size: 20px;
+
+        &:active,
+        &:focus {
+            outline: none;
+        }
 
         &:hover {
             background-color: #333333;
@@ -70,6 +74,20 @@
     padding: 35px 50px;
     background-color: $navbar-color;
     border-radius: 0 25px 0 0;
+
+    a {
+        text-decoration: none;
+        font-family: "Montserrat Light";
+        font-size: 19px;
+        line-height: 36px;
+        color: $primary-color;
+        transition: 0.4s;
+
+        &:hover {
+            text-decoration: none;
+            color: #888888;
+        }
+    }
 
     &.open {
         display: block;
