@@ -42,6 +42,7 @@ class Navbar extends Component {
                     onClick={this.highlightNavItem}
                     name={item[0]}
                     path={item[1]}
+                    toggleMenu={this.toggleMenu}
                     key={index}
                 />
             );
