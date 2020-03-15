@@ -68,7 +68,7 @@ class Dashboard extends Component {
         } else {
             return (
                 <section className={styles.Dashboard}>
-                    <Header title={"Dashboard"} />
+                    <Header title={"Feed"} />
                     <SearchBar
                         onFocus={this.searchFocus}
                         onBlur={this.searchBlur}

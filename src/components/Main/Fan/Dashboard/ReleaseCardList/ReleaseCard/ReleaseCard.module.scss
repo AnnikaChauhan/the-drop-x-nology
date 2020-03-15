@@ -5,8 +5,10 @@
     // margin: 25px;
     // width: 300px;
 
-    margin: 25px 0;
+    margin: 15px 0;
     transition: 0.4s;
+    display: flex;
+    flex-direction: column;
 
     img {
         max-width: 100%;
@@ -27,13 +29,14 @@
 
     .cardBody {
         padding: 20px;
+        height: 100%;
         background-color: black;
         border-top: 2px solid #666666;
 
         .banner {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
             margin-bottom: 10px;
 
             h3 {
@@ -43,7 +46,7 @@
         }
 
         .albumName {
-            font-size: 20px;
+            font-size: 18px;
             color: #aaaaaa;
         }
 
