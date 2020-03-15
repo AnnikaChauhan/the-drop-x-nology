@@ -18,10 +18,7 @@ export default class StatusBar extends Component {
                     {this.props.status}RELEASE
                 </div>
 
-                <div className={styles.columnThree}>
-                    DRAFT
-                </div>
-
+                <div className={styles.columnThree}>DRAFT</div>
             </article>
         );
     }

@@ -1,0 +1,43 @@
+@import "../../../variables";
+
+.tab {
+    // overflow: hidden;
+    // border: 1px solid #ccc;
+
+    button {
+        background-color: $secondary-color;
+        // float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 10px 25px;
+        border-radius: 10px 10px 0 0;
+        transition: 0.4s;
+
+        font-family: "Montserrat Black";
+        font-size: 22px;
+
+        &:hover {
+            background-color: $navbar-color;
+        }
+
+        &.active {
+            background-color: $navbar-color;
+        }
+    }
+}
+
+.tabcontent {
+    display: none;
+    padding: 25px;
+    background-color: $navbar-color;
+    border-radius: 0 10px 10px;
+
+    &.open {
+        display: block;
+    }
+
+    article:not(:last-child) {
+        border-bottom: 1px solid $secondary-color;
+    }
+}
