@@ -6,16 +6,17 @@
     height: 60px;
 
     .title {
-        width: 80%;
+        flex-grow: 1;
+        overflow: hidden;
     }
 
     .type {
-        width: 10%;
+        width: 120px;
         padding-left: 20px;
     }
 
     .status {
-        width: 10%;
+        width: 100px;
         text-align: right;
 
         &.live {

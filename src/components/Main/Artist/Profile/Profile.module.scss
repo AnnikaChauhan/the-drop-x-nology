@@ -11,10 +11,20 @@
             border-radius: 50%;
         }
 
-        h2 {
-            font-family: "Montserrat Light";
-            font-size: 28px;
-            padding: 0 25px;
+        .details {
+            margin-left: 60px;
+            text-align: right;
+
+            h2 {
+                font-size: 36px;
+                font-family: "Montserrat Light";
+            }
+
+            p {
+                font-family: "Montserrat Bold";
+                font-size: 20px;
+                color: #888888;
+            }
         }
     }
 }
