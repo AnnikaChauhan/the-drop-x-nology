@@ -1,7 +1,7 @@
 @import "../../../../variables";
 
 .FollowButton {
-    width: 36px;
+    width: 30px;
 
     .inner {
         transition: all 0.9s cubic-bezier(0.96, 0.01, 0.4, 0.98);
@@ -41,14 +41,15 @@
             .outer {
                 stroke-dasharray: 83, 250;
                 stroke-dashoffset: 0;
-                stroke: #00ff00; //#339933;
+                stroke: #00ff00;
             }
         }
     }
 
-    p {
-        font-family: "Montserrat Light";
+    p.label {
         font-size: 10px;
         text-align: center;
+        font-family: "Montserrat Light";
+        margin: 0;
     }
 }

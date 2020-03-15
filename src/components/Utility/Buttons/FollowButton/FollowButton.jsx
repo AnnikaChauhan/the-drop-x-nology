@@ -31,7 +31,9 @@ export default class FollowButton extends Component {
                         </g>
                     </svg>
                 </div>
-                <p>Follow</p>
+                <p className={styles.label}>
+                    {this.state.active ? "Added" : "Follow"}
+                </p>
             </div>
         );
     }
