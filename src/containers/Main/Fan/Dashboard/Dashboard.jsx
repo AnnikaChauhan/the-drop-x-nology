@@ -34,12 +34,17 @@ class Dashboard extends Component {
     };
 
     filteredArtists = () => {
-        let filteredArtists = this.state.Artists.filter(artist => {
-            return artist.Artist.toUpperCase().includes(
-                this.state.searchText.toUpperCase()
-            );
-        });
-        this.setState({ filteredArtists });
+        if (this.state.searchText.length === 0) {
+            let filteredArtists = [];
+            this.setState({ filteredArtists })
+        } else {
+            let filteredArtists = this.state.Artists.filter(artist => {
+                return artist.Artist.toUpperCase().includes(
+                    this.state.searchText.toUpperCase()
+                );
+            });
+            this.setState({ filteredArtists });
+        }
     };
 
     searchFocus = () => {
@@ -47,7 +52,10 @@ class Dashboard extends Component {
     };
 
     searchBlur = () => {
-        this.setState({ searchFocused: false });
+        if (this.state.searchText.length === 0) {
+            this.setState({ searchFocused: false });
+        }
+        
     };
 
     render() {
