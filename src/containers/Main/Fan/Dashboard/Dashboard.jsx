@@ -20,7 +20,12 @@ class Dashboard extends Component {
             .collection("Releases")
             .get()
             .then(query => {
-                const Releases = query.docs.map(doc => doc.data());
+                const Releases = query.docs.map(doc => {
+                    const release = Object.assign(doc.data(), {
+                        releaseId: doc.id
+                    });
+                    return release;
+                });
                 this.setState({
                     Releases: Releases,
                     Artists: Releases

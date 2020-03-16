@@ -1,8 +1,13 @@
 import React, { Component } from "react";
 import styles from "./ReleaseCard.module.scss";
-import FollowButton from "../../../../../Utility/Buttons/FollowButton/FollowButton";
+import FollowButton from "../../../../../Utility/Buttons/FollowButton";
+import { globalHistory } from "@reach/router";
 
 class ReleaseCard extends Component {
+    preview = () => {
+        globalHistory.navigate("/release");
+    };
+
     render() {
         return (
             <article className={styles.cardWrapper}>

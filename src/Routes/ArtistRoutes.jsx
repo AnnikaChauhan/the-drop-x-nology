@@ -18,7 +18,7 @@ export default class FanRoutes extends Component {
                 <DraftRelease path="dashboard/add-release" />
                 <ManageReleases path="dashboard/releases" />
                 <ReleaseArchive path="dashboard/archive" />
-                <PreviewRelease path="preview" />
+                <PreviewRelease path="/release" />
                 <ArtistBio path="profile" />
                 <NotFound default />
             </Router>

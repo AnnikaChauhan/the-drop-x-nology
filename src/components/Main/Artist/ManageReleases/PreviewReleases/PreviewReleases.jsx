@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import styles from "./PreviewReleases.module.scss";
+import Header from "../../../../Utility/Header";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faSave,
@@ -13,26 +15,27 @@ export default class PreviewReleases extends Component {
     render() {
         return (
             <section className={styles.wrapper}>
-                <div className={styles.navigation}>
-                    <div>Manage Release</div>
-                    <div>Preview</div>
-                </div>
+                <Header title={"Preview Release"} />
                 <div className={styles.video}>
                     <FontAwesomeIcon
                         className={styles.play}
                         icon={faPlay}
                         size="2x"
                     />
+                    <img src={this.props.Release.Artwork} alt="Artwork" />
                     <div className={styles.title}>
-                        <h4>Release Title</h4>
-                        <p>Type by Artist Name</p>
+                        <h4>{this.props.Release.ReleaseName}</h4>
+                        <p>
+                            {this.props.Release.ReleaseType} by{" "}
+                            {this.props.Release.Artist}
+                        </p>
                     </div>
                 </div>
                 <div className={styles.information}>
                     <div className={styles.links}>
                         <div>
                             <h4>Drops in</h4>
-                            <h1>X Days</h1>
+                            <h1>12 Days</h1>
                         </div>
                         <div className={styles.buttons}>
                             <div className={styles.icon}>
@@ -56,11 +59,7 @@ export default class PreviewReleases extends Component {
                     <div className={styles.descriptionsection}>
                         <h4>Description</h4>
                         <p className={styles.description}>
-                            Lorem ipsum dolor sit, amet consectetur adipisicing
-                            elit. Porro, consectetur nulla maiores, vitae
-                            quisquam dolore minus impedit possimus voluptates id
-                            natus consequatur quibusdam quasi dolor. Qui vel
-                            deserunt obcaecati eaque.
+                            {this.props.Release.Description}
                         </p>
                     </div>
                 </div>
