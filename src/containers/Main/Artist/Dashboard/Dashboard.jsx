@@ -7,7 +7,6 @@ class Dashboard extends Component {
     render() {
         return (
             <section className={styles.Dashboard}>
-                <Header title={"Dashboard"} />
                 <Profile />
             </section>
         );

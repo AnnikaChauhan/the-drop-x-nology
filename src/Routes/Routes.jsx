@@ -5,6 +5,7 @@ import LoginPage from "../containers/LoginPage/LoginPage";
 import Fan from "../containers/Main/Fan";
 import Artist from "../containers/Main/Artist";
 import NotFound from "../components/Navbar/NotFound";
+import StreamingLogin from "../containers/StreamingLogin/StreamingLogin";
 
 import firebase, { providers } from "../firebase";
 import PrivateRoutes from "./PrivateRoutes.jsx";
