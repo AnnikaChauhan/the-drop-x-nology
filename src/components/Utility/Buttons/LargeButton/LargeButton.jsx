@@ -5,7 +5,6 @@ class LargeButton extends Component {
     render() {
         return (
             <div className={styles.LargeButton}>
-                <div className={styles.translate}></div>
                 <a href={this.props.link} className={styles.text}>
                     {this.props.text.toUpperCase()}
                 </a>
