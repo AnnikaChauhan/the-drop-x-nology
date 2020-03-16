@@ -89,21 +89,40 @@
   }
 
   .tabContain {
-    //border: 2px solid aqua;
+    // border: 2px solid aqua;
     height: 60%;
     margin-top: 20px;
     background-color: #121417;
-    border-radius: 10px;
+    border-radius: 30px;
+    overflow: hidden;
 
     nav {
       // border: 2px solid purple;
       height: unset;
       width: unset;
-      color: unset;
+      // color: unset;
       background-color: unset;
       position: unset;
       font-size: unset;
       border: unset;
+      text-decoration: unset;
+    }
+
+    .tabsss {
+      text-decoration: none;
+      color: pink;
+      // border: 2px solid orange;
+      border-radius: 30px;
+      overflow: hidden;
+    }
+
+    .tabs1 {
+      color: unset;
+      // border: 2px solid yellow;
+      text-decoration: unset;
+      border-radius: 30px;
+      // overflow: hidden;
+
     }
   }
 }

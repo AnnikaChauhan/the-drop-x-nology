@@ -46,7 +46,7 @@ export default class Profile extends Component {
 
                 <div className={styles.tabContain}>
                     <Tabs defaultActiveKey="profile" id="profile" className={styles.tabsss}>
-                        <Tab eventKey="profile" title="Releases">
+                        <Tab eventKey="profile" title="Releases" className={styles.tabs1}>
                             <StatusBar />
                             <StatusBar />
                             <StatusBar />
