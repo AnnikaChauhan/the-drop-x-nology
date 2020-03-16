@@ -1,15 +1,19 @@
 import React, { Component } from "react";
-import { Router, Redirect } from "@reach/router";
+import { Router, Redirect, globalHistory } from "@reach/router";
 import LandingPage from "../containers/LandingPage";
-import LoginPage from "../containers/LoginPage";
+import LoginPage from "../containers/LoginPage/LoginPage";
 import Fan from "../containers/Main/Fan";
 import Artist from "../containers/Main/Artist";
 import NotFound from "../components/Navbar/NotFound";
 import StreamingLogin from "../containers/StreamingLogin/StreamingLogin";
 
 import firebase, { providers } from "../firebase";
+import PrivateRoutes from "./PrivateRoutes.jsx";
 
 export default class Routes extends Component {
+    constructor(props){
+        super(props);
+    } 
     state = {
         user: null
     };
@@ -17,23 +21,25 @@ export default class Routes extends Component {
     signIn = () => {
         firebase
             .auth()
-            .signInWithPopUp(providers.google)
+            .signInWithPopup(providers.google)
             .then(result => {
-                this.setState({ user: result.user });
+                this.setState({user: result.user});
                 console.log(this.state.user);
-            });
-    };
+                globalHistory.navigate("/private/initial-login");
+            })
+    }
 
-    signOut = () => {};
+    //signOut = () => {};
 
     render() {
         return (
             <Router>
-                <LoginPage path="/" />
-                <LandingPage path="initial-login" />
-                <Fan path="fan/*" />
-                <Artist path="artist/*" />
-                <StreamingLogin path="stream-login" />
+                <LoginPage path="/" signIn={this.signIn} />
+                <PrivateRoutes path="private" user={this.state.user}>
+                    <LandingPage path="initial-login" />
+                    <Fan path="fan/*" />
+                    <Artist path="artist/*" />
+                </PrivateRoutes>
                 <NotFound default />
             </Router>
         );

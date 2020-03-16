@@ -1,0 +1,99 @@
+@import "../../../variables";
+
+.tab {
+    overflow: hidden;
+
+    button {
+        position: relative;
+        background-color: $secondary-color;
+        border: none;
+        // overflow: hidden;
+        outline: none;
+        cursor: pointer;
+        padding: 10px 50px;
+        border-radius: 25px 25px 0 0;
+        transition: 0.4s;
+
+        font-family: "Montserrat Bold";
+        font-size: 20px;
+
+        &:active,
+        &:focus {
+            outline: none;
+        }
+
+        &:hover {
+            background-color: #333333;
+            // outline: none;
+
+            &::before,
+            &::after {
+                box-shadow: 0 25px 0 0 #333333;
+            }
+        }
+
+        &.active {
+            background-color: $navbar-color;
+            outline: none;
+
+            &::before,
+            &::after {
+                box-shadow: 0 25px 0 0 $navbar-color;
+                z-index: 0; // 1 is better aesthetic but breaks when collapsing at small widths
+            }
+        }
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            transition: inherit;
+
+            background-color: none;
+            height: 50px;
+            bottom: 0;
+            width: 25px;
+            box-shadow: 0 25px 0 0 $secondary-color;
+        }
+
+        &::before {
+            z-index: 0;
+            right: -25px;
+            border-bottom-left-radius: 25px;
+        }
+
+        &::after {
+            z-index: -1;
+            left: -25px;
+            border-bottom-right-radius: 25px;
+        }
+    }
+}
+
+.tabcontent {
+    display: none;
+    padding: 35px 50px;
+    background-color: $navbar-color;
+    border-radius: 0 25px 0 0;
+
+    a {
+        text-decoration: none;
+        font-family: "Montserrat Light";
+        line-height: 45px;
+        color: $primary-color;
+        transition: 0.4s;
+
+        &:hover {
+            text-decoration: none;
+            color: #888888;
+        }
+    }
+
+    &.open {
+        display: block;
+    }
+
+    article:not(:last-child) {
+        border-bottom: 1px solid #333333;
+    }
+}
