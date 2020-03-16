@@ -10,12 +10,12 @@ class ReleaseCard extends Component {
 
     render() {
         return (
-            <article className={styles.cardWrapper} onClick={this.preview}>
+            <article className={styles.Card} onClick={this.preview}>
                 <img
                     src={this.props.Releases.Artwork}
                     alt={`${this.props.Releases.Artist}'s artwork`}
                 />
-                <div className={styles.cardBody}>
+                <div className={styles.details}>
                     <div className={styles.banner}>
                         <div>
                             <h3>{this.props.Releases.Artist}</h3>

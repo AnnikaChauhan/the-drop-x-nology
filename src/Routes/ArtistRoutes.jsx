@@ -7,7 +7,7 @@ import ArtistBio from "../components/Main/Artist/ArtistBio";
 import DraftRelease from "../components/Main/Artist/DraftRelease";
 import ReleaseArchive from "../components/Main/Artist/ReleaseArchive";
 import ManageReleases from "../components/Main/Artist/ManageReleases";
-import PreviewRelease from "../components/Main/Artist/ManageReleases/PreviewReleases";
+import PreviewRelease from "../components/Main/Artist/ManageReleases/PreviewRelease";
 
 export default class FanRoutes extends Component {
     render() {
