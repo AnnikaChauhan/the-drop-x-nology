@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 import styles from "./ReleaseCard.module.scss";
-import FollowButton from "../../../../../Utility/Buttons/FollowButton";
+import FollowButton from "../../../../../Utility/Buttons/FollowButton/FollowButton";
 import { globalHistory } from "@reach/router";
 
 class ReleaseCard extends Component {
     preview = () => {
-        globalHistory.navigate("/release");
+        globalHistory.navigate(`release/${this.props.Releases.releaseId}`);
     };
 
     render() {
         return (
-            <article className={styles.cardWrapper}>
+            <article className={styles.cardWrapper} onClick={this.preview}>
                 <img
                     src={this.props.Releases.Artwork}
                     alt={`${this.props.Releases.Artist}'s artwork`}

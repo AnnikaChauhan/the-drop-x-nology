@@ -11,7 +11,7 @@ export default class FanRoutes extends Component {
             <Router className={styles.Router}>
                 <Redirect noThrow from="/" to="dashboard" />
                 <Dashboard path="dashboard" />
-                <PreviewRelease path="/release" />
+                <PreviewRelease path="release/*" />
                 <NotFound default />
             </Router>
         );

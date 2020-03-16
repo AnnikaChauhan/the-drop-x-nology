@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styles from "./PreviewReleases.module.scss";
 import Header from "../../../../Utility/Header";
+import { firestore } from "../../../../../firebase";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -12,7 +13,25 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 export default class PreviewReleases extends Component {
+    state = {
+        data: null
+    };
+
+    componentDidMount() {
+        const id = window.location.pathname.substring(
+            window.location.pathname.lastIndexOf("/") + 1
+        );
+        firestore
+            .collection("Releases")
+            .doc(id)
+            .get()
+            .then(info => {
+                this.setState({ data: info.data() });
+            });
+    }
+
     render() {
+        if (!this.state.data) return <div>I'm searching!</div>;
         return (
             <section className={styles.wrapper}>
                 <Header title={"Preview Release"} />
@@ -22,12 +41,12 @@ export default class PreviewReleases extends Component {
                         icon={faPlay}
                         size="2x"
                     />
-                    <img src={this.props.Release.Artwork} alt="Artwork" />
+                    <img src={this.state.data.Artwork} alt="Artwork" />
                     <div className={styles.title}>
-                        <h4>{this.props.Release.ReleaseName}</h4>
+                        <h4>{this.state.data.ReleaseName}</h4>
                         <p>
-                            {this.props.Release.ReleaseType} by{" "}
-                            {this.props.Release.Artist}
+                            {this.state.data.ReleaseType} by{" "}
+                            {this.state.data.Artist}
                         </p>
                     </div>
                 </div>
@@ -59,7 +78,7 @@ export default class PreviewReleases extends Component {
                     <div className={styles.descriptionsection}>
                         <h4>Description</h4>
                         <p className={styles.description}>
-                            {this.props.Release.Description}
+                            {this.state.data.Description}
                         </p>
                     </div>
                 </div>
