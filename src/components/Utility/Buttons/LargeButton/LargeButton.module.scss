@@ -1,29 +1,32 @@
 @import "../../../../variables";
 
-.smallbutton {
+.LargeButton {
     display: inline-flex;
-    height: 40px;
-    width: 200px;
-    margin: 5px 5px 5px 5px;
-    background-color: $secondary-color;
-    text-decoration: none;
-    font-size: 0.8em;
-    letter-spacing: 1.5px;
     align-items: center;
     justify-content: center;
+    width: 200px;
+    height: 40px;
+    border-radius: 20px;
+    margin: 5px;
+    background-color: $primary-color;
+    text-decoration: none;
+    font-size: 0.8em;
+    letter-spacing: 1px;
     overflow: hidden;
-    border-radius: 0.25rem;
     position: relative;
     cursor: pointer;
 
-    .Btntext {
-        opacity: 0.8;
+    .text {
+        color: black;
+        transition: 0.4s;
         z-index: 2;
         text-decoration: none;
     }
 
     &:hover {
-        color: white;
+        .text {
+            color: white;
+        }
     }
 
     .translate {
@@ -32,14 +35,14 @@
         transform: rotate(50deg);
         left: -200px;
         top: -30px;
-        background: $primary-color;
+        background: $secondary-color;
         position: absolute;
         transition: all 0.3s ease-Out;
         z-index: 1;
     }
 }
 
-.smallbutton:hover > .translate {
+.LargeButton:hover > .translate {
     left: 0;
 }
 

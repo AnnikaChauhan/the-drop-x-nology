@@ -1,17 +1,21 @@
-.cardListWrapper {
-    width: 100%;
-    margin: 0;
-    height: 100%;
-    justify-content: space-between;
-    display: grid;
-    grid-template-columns: 25% 25% 25%;
-    grid-gap: 40px;
+// For flex-based system (+ ReleaseCard SCSS)
+// .cardListWrapper {
+//     display: flex;
+//     flex-wrap: wrap;
+//     justify-content: space-evenly;
+//     margin: 0 -25px;
+// }
 
-    @media screen and (max-width: 960px) {
+.cardListWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 0 50px;
+
+    @media screen and (max-width: 1200px) {
         grid-template-columns: 1fr 1fr;
     }
 
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: 600px) {
         grid-template-columns: 1fr;
     }
 }

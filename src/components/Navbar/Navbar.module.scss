@@ -1,20 +1,24 @@
 @import "../../variables";
 
-nav {
+.Nav {
     position: fixed;
+    display: flex;
+    flex-direction: column;
     background-color: $navbar-color;
     width: $navbar-width;
     height: 100vh;
-    padding: 30px;
+    padding: 25px;
 
     @media only screen and (max-width: 768px) {
         position: relative;
         overflow: hidden;
+        width: 100%;
     }
 
     a {
         color: white;
-        font-size: 1.2em;
+        font-size: 1.15em;
+        font-family: "Montserrat Bold";
         font-weight: 400;
         text-decoration: none;
         transition: 0.25s;
@@ -28,10 +32,24 @@ nav {
     img {
         max-width: 100%;
         padding-bottom: 40px;
+
+        @media only screen and (max-width: 768px) {
+            max-width: $navbar-width;
+        }
     }
 
     ul {
         list-style-type: none;
+        flex-grow: 1;
+    }
+
+    .footer {
+        p,
+        span,
+        a {
+            color: grey;
+            font-size: 10px;
+        }
     }
 }
 

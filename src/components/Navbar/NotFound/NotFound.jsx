@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styles from "./NotFound.module.scss";
-import errorLogo from "../../../static/images/404.png";
+import errorLogo from "../../../static/images/404-white.png";
 
 export default class NotFound extends Component {
     render() {
