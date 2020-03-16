@@ -62,7 +62,7 @@ class Dashboard extends Component {
         if (this.state.searchFocused) {
             return (
                 <section className={styles.Dashboard}>
-                    <Header title={"Search Results"} />
+                    <Header title={"Search Results"} subtitle={"Search for Artists to follow"}/>
                     <SearchBar
                         onFocus={this.searchFocus}
                         onBlur={this.searchBlur}
@@ -76,7 +76,11 @@ class Dashboard extends Component {
         } else {
             return (
                 <section className={styles.Dashboard}>
+<<<<<<< HEAD
+                    <Header title={"Releases"} subtitle={"Below is a list of upcoming releases"} />
+=======
                     <Header title={"Feed"} />
+>>>>>>> c3057455126eb00c2f2d024e2c838ae23098d7a5
                     <SearchBar
                         onFocus={this.searchFocus}
                         onBlur={this.searchBlur}
