@@ -5,7 +5,7 @@ import SmallButton from "../../../../../Utility/Buttons/SmallButton";
 export default class SearchCard extends Component {
     render() {
         return (
-            <section className={styles.searchWrapper}>
+            <article className={styles.searchWrapper}>
                 <div className={styles.artistIMG}>
                     <img
                         src={this.props.Releases.ArtistProfileImage}
@@ -22,7 +22,7 @@ export default class SearchCard extends Component {
                     </div>
                     <SmallButton text={"Follow"} />
                 </div>
-            </section>
+            </article>
         );
     }
 }
