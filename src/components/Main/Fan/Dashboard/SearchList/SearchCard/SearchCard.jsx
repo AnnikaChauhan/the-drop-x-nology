@@ -9,7 +9,7 @@ export default class SearchCard extends Component {
     
     render() {
         return (
-            <section className={styles.searchWrapper}>
+            <article className={styles.searchWrapper}>
                 <div className={styles.artistIMG}>
                     <img
                         src={this.props.Releases.ArtistProfileImage}
@@ -26,7 +26,7 @@ export default class SearchCard extends Component {
                     </div>
                     <SmallButton text={"Follow"} onClick={this.handleChange} />
                 </div>
-            </section>
+            </article>
         );
     }
 }
