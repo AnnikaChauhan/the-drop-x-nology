@@ -8,7 +8,7 @@ const mockData = {
     link: "google.com"
 };
 
-describe("Large Buttons Test", () => {
+describe("Large Button Test", () => {
     let component;
 
     beforeEach(() => {
