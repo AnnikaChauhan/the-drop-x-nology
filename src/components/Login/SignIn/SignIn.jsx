@@ -3,6 +3,7 @@ import styles from "./SignIn.module.scss";
 import LargeButton from "../../Utility/Buttons/LargeButton";
 import { Link } from "@reach/router";
 import { gsap } from 'gsap';
+import EmailSignIn from "../EmailSignIn";
 
 class SignIn extends Component {
     constructor(props) {
@@ -29,6 +30,11 @@ class SignIn extends Component {
                             <LargeButton text={`Sign up with Google`} />
                         </Link>
                     </div>
+                    <EmailSignIn 
+                         signInWithEmailAndPassword={this.signInWithEmailAndPassword}
+                         setEmail={this.props.email}
+                         setPassword={this.props.password}
+                     />
                 </div>
             </section>
         );

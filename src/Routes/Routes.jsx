@@ -10,7 +10,11 @@ import firebase, { providers } from "../firebase";
 
 export default class Routes extends Component {
     state = {
-        user: null
+        user: null,
+        loginFormData: {
+            email: "",
+            password: ""
+        }
     };
 
     signIn = () => {
@@ -23,12 +27,37 @@ export default class Routes extends Component {
             });
     };
 
+    setEmail = (event) => {
+        const email = event.target.value;
+        this.setState({ email });
+    }
+
+    setPassword = (event) => {
+        const password = event.target.value;
+        this.setState({ password });
+    }
+
+    signInWithEmail = () => {
+        firebase
+            .auth()
+            .signInWithEmailAndPassword(this.state.loginFormData.email, this.state.loginFormData.password)
+            .then(result => {
+                this.setState({ loginFormData: result.loginFormData})
+                console.log(result);
+            })
+    }
+
     signOut = () => {};
 
     render() {
+        // console.log(this.state.email);
         return (
             <Router>
-                <LoginPage path="/" />
+                <LoginPage path="/" 
+                    signInWithEmailAndPassword={this.signInWithEmailAndPassword}
+                    setEmail={this.state.email}
+                    setPassword={this.state.password}
+                />
                 <LandingPage path="initial-login" />
                 <Fan path="fan/*" />
                 <Artist path="artist/*" />
