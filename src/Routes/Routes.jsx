@@ -32,7 +32,7 @@ export default class Routes extends Component {
             <Router>
                 <LoginPage path="/" signIn={this.signIn} />
                 <PrivateRoutes path="private" user={this.state.user}>
-                    <LandingPage path="initial-login" />
+                    <LandingPage user={this.state.user} path="initial-login" />
                     <Fan path="fan/*" />
                     <Artist path="artist/*" />
                 </PrivateRoutes>
