@@ -11,7 +11,7 @@ import PrivateRoutes from "./PrivateRoutes.jsx";
 
 export default class Routes extends Component {
     state = {
-        user: null
+        user: "testing"
     };
 
     signIn = () => {

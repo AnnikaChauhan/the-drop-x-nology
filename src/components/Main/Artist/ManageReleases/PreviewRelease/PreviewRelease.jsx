@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styles from "./PreviewRelease.module.scss";
 import Header from "../../../../Utility/Header";
-import LoadDots from "../../../../Utility/LoadDots";
+import LoadingAnimation from "../../../../Utility/LoadingAnimation";
 import { firestore } from "../../../../../firebase";
 
 export default class PreviewRelease extends Component {
@@ -23,7 +23,7 @@ export default class PreviewRelease extends Component {
     }
 
     render() {
-        if (!this.state.data) return <LoadDots />;
+        if (!this.state.data) return <LoadingAnimation />;
         return (
             <section className={styles.PreviewRelease}>
                 <Header title={"Preview Release"} />
