@@ -17,6 +17,7 @@ class SignIn extends Component {
     }
 
     render() {
+        // console.log(this.props.email)
         return (
             <section className={styles.SignInContainer}>
                 <div className={styles.wrapper}>

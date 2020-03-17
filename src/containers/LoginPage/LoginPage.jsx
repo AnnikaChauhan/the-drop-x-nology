@@ -30,7 +30,8 @@ export default class LoginPage extends Component {
                             <div className="section">
                                 <section className={styles.pagewrapper}>
                                     <SignIn
-                                         signInWithEmailAndPassword={this.signInWithEmailAndPassword}
+                                        //this.signInWithEmailAndPassword?
+                                         signInWithEmailAndPassword={this.props.signInWithEmailAndPassword}
                                          setEmail={this.props.email}
                                          setPassword={this.props.password}
                                      />

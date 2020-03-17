@@ -56,8 +56,8 @@ export default class Routes extends Component {
             <Router>
                 <LoginPage path="/" 
                     signInWithEmailAndPassword={this.signInWithEmailAndPassword}
-                    setEmail={this.state.email}
-                    setPassword={this.state.password}
+                    setEmail={this.state.loginFormData.email}
+                    setPassword={this.state.loginFormData.password}
                 />
                 <LandingPage path="initial-login" />
                 <Fan path="fan/*" />
