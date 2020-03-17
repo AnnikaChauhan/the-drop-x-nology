@@ -13,11 +13,11 @@ export default class FanRoutes extends Component {
     render() {
         return (
             <Router className={styles.Router}>
-                <Redirect noThrow from="/" to="dashboard" />
-                <Dashboard path="dashboard" />
-                <DraftRelease path="dashboard/add-release" />
-                <ManageReleases path="dashboard/releases" />
-                <ReleaseArchive path="dashboard/archive" />
+                <Redirect noThrow from="/" to="home" />
+                <Dashboard path="home" />
+                <DraftRelease path="home/add-release" />
+                <ManageReleases path="home/releases" />
+                <ReleaseArchive path="home/archive" />
                 <PreviewRelease path="preview" />
                 <ArtistBio path="profile" />
                 <NotFound default />
