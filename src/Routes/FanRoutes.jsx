@@ -9,8 +9,8 @@ export default class FanRoutes extends Component {
     render() {
         return (
             <Router className={styles.Router}>
-                <Redirect noThrow from="/" to="dashboard" />
-                <Dashboard path="dashboard" />
+                <Redirect noThrow from="/" to="home" />
+                <Dashboard path="home" />
                 <PreviewRelease path="release/*" />
                 <NotFound default />
             </Router>
