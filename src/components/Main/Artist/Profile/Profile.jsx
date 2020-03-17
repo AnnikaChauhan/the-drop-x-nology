@@ -9,7 +9,11 @@ export default class Profile extends Component {
     render() {
         return (
             <section className={styles.Profile}>
-                <Header title={"Dashboard"} className={styles.title} subtitle={"Create, manage & view releases"}/>
+                <Header
+                    title={"Dashboard"}
+                    className={styles.title}
+                    subtitle={"Create, manage & view releases"}
+                />
                 <div className={styles.header}>
                     <img
                         src="https://i.scdn.co/image/07731d62846074c691f9dad6edaf09c271c39fbc"
