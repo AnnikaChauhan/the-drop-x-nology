@@ -11,7 +11,7 @@ import PrivateRoutes from "./PrivateRoutes.jsx";
 
 export default class Routes extends Component {
     state = {
-        user: "testing" //change to null
+        user: null
     };
 
     signIn = () => {
@@ -20,12 +20,22 @@ export default class Routes extends Component {
             .signInWithPopup(providers.google)
             .then(result => {
                 this.setState({ user: result.user });
-                console.log(this.state.user);
                 globalHistory.navigate("/private/initial-login");
-            });
+            })
+            .catch(error => {
+                console.log(error);
+            })
     };
 
-    //signOut = () => {};
+    signOut = () => {
+        firebase
+            .auth()
+            .signOut()
+            .then(() => {
+                this.setState({ user: null });
+                globalHistory.navigate("/");
+            })
+    };
 
     render() {
         return (
