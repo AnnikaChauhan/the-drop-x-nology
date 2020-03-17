@@ -3,6 +3,10 @@ import styles from "./SearchCard.module.scss";
 import SmallButton from "../../../../../Utility/Buttons/SmallButton";
 
 export default class SearchCard extends Component {
+    handleChange = () => {
+        console.log("hello")
+    }
+    
     render() {
         return (
             <article className={styles.searchWrapper}>
@@ -20,7 +24,7 @@ export default class SearchCard extends Component {
                         </div>
                         <div className={styles.Bio}>Small Bio</div>
                     </div>
-                    <SmallButton text={"Follow"} />
+                    <SmallButton text={"Follow"} onClick={this.handleChange} />
                 </div>
             </article>
         );

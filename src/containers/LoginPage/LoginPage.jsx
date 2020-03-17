@@ -29,7 +29,7 @@ export default class LoginPage extends Component {
                         <ReactFullpage.Wrapper>
                             <div className="section">
                                 <section className={styles.pagewrapper}>
-                                    <SignIn />
+                                    <SignIn signIn={this.props.signIn} />
                                     <div
                                         className={styles.footercontainer}
                                         onClick={() =>

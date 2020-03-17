@@ -9,10 +9,10 @@
     transition: 0.4s;
     display: flex;
     flex-direction: column;
-    cursor: pointer;
 
     img {
         max-width: 100%;
+        cursor: pointer;
     }
 
     p {

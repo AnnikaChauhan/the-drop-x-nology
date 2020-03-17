@@ -39,12 +39,17 @@ class Dashboard extends Component {
     };
 
     filteredArtists = () => {
-        let filteredArtists = this.state.Artists.filter(artist => {
-            return artist.Artist.toUpperCase().includes(
-                this.state.searchText.toUpperCase()
-            );
-        });
-        this.setState({ filteredArtists });
+        if (this.state.searchText.length === 0) {
+            let filteredArtists = [];
+            this.setState({ filteredArtists });
+        } else {
+            let filteredArtists = this.state.Artists.filter(artist => {
+                return artist.Artist.toUpperCase().includes(
+                    this.state.searchText.toUpperCase()
+                );
+            });
+            this.setState({ filteredArtists });
+        }
     };
 
     searchFocus = () => {
@@ -52,14 +57,19 @@ class Dashboard extends Component {
     };
 
     searchBlur = () => {
-        this.setState({ searchFocused: false });
+        if (this.state.searchText.length === 0) {
+            this.setState({ searchFocused: false });
+        }
     };
 
     render() {
         if (this.state.searchFocused) {
             return (
                 <section className={styles.Dashboard}>
-                    <Header title={"Search Results"} />
+                    <Header
+                        title={"Search Results"}
+                        subtitle={"Search for Artists to follow"}
+                    />
                     <SearchBar
                         onFocus={this.searchFocus}
                         onBlur={this.searchBlur}
@@ -73,7 +83,10 @@ class Dashboard extends Component {
         } else {
             return (
                 <section className={styles.Dashboard}>
-                    <Header title={"Feed"} />
+                    <Header
+                        title={"Releases"}
+                        subtitle={"Below is a list of upcoming releases"}
+                    />
                     <SearchBar
                         onFocus={this.searchFocus}
                         onBlur={this.searchBlur}
