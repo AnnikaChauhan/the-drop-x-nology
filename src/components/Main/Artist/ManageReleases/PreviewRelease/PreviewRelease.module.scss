@@ -1,103 +1,129 @@
 @import "../../../../../variables";
 
 .PreviewRelease {
-    .media {
-        position: relative;
-        display: flex;
-        justify-content: space-between;
-        height: 400px;
+   
+  .media {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    height: 300px;
+    align-items: center;
+    padding-top: 60px;
 
-        img {
-            height: 100%;
-        }
+  
 
-        .banner {
-            border-top: 1px solid #444444;
-            border-bottom: 1px solid #444444;
-            padding: 25px 25px 25px 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-
-            h2 {
-                font-size: 36px;
-                font-family: "Montserrat Black";
-            }
-
-            h3 {
-                font-size: 18px;
-                color: #888888;
-                font-family: "Montserrat Light";
-                margin-bottom: 25px;
-            }
-
-            p {
-                font-family: "Montserrat Light";
-            }
-        }
-
-        .links {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-
-            p {
-                font-family: "Montserrat Light Italic";
-                font-size: 16px;
-                color: $primary-color;
-                margin-bottom: 0;
-            }
-
-            h2 {
-                font-size: 36px;
-            }
-
-            .buttons {
-                display: flex;
-                justify-content: space-between;
-                text-align: center;
-                width: 400px;
-
-                article {
-                    width: 25%;
-
-                    i {
-                        font-size: 36px;
-                        cursor: pointer;
-                    }
-
-                    p {
-                        font-family: "Montserrat Light";
-                        font-size: 12px;
-                        color: $font-color;
-                        padding: 5px;
-                    }
-                }
-            }
-        }
+    img {
+        width: 25vw;
+    //   height: 100%;
     }
-}
 
-@media screen and (max-width: 600px) {
-    .information {
+    .banner {
+    //   border-top: 1px solid #444444;
+    //   border-bottom: 1px solid #444444;
+      padding: 25px 0px 25px 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      h2 {
+        font-size: 36px;
+        font-family: "Montserrat Black";
+      }
+
+      h3 {
+        font-size: 18px;
+        color: #888888;
+        font-family: "Montserrat Light";
+        margin-bottom: 25px;
+      }
+
+      p {
+        font-family: "Montserrat Light";
+      }
+    }
+
+    .links {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+
+      p {
+        font-family: "Montserrat Light Italic";
+        font-size: 16px;
+        color: $primary-color;
+        margin-bottom: 0;
+      }
+
+      h2 {
+        font-size: 36px;
+      }
+
+      .buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
         text-align: center;
         width: 100%;
-        .links {
-            overflow: hidden;
-            display: flex;
-            flex-direction: column-reverse;
-            align-items: center;
+
+        article {
+         width: 25%;
+
+          i {
+            font-size: 36px;
+            cursor: pointer;
+          }
+
+          p {
+            font-family: "Montserrat Light";
+            font-size: 12px;
+            color: $font-color;
+            padding: 5px;
+          }
         }
-        .description {
-            width: 100%;
-            padding: 0 140px;
-        }
-        .buttons {
-            display: flex;
-            .icon {
-                flex-grow: 1;
-                padding-bottom: 30px;
-            }
-        }
+      }
     }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .PreviewRelease {
+    h1 {
+      text-align: center;
+    }
+    .media {
+      img {
+        height: 300px;
+        width: 300px;
+      }
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      height: unset;
+      .banner {
+        display: flex;
+        text-align: center;
+        padding: 25px 0px 25px 0px;
+        border-top: none;
+        border-bottom: none;
+
+        .links {
+          overflow: hidden;
+          display: flex;
+          flex-direction: column-reverse;
+          align-items: center;
+        }
+
+        .buttons {
+          display: flex;
+          flex-wrap: wrap;
+          width: unset;
+
+          .icon {
+            flex-grow: 1;
+            padding-bottom: 30px;
+          }
+        }
+      }
+    }
+  }
 }

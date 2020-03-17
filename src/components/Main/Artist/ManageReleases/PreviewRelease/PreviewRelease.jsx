@@ -27,7 +27,9 @@ export default class PreviewRelease extends Component {
         return (
             <section className={styles.PreviewRelease}>
                 <Header title={"Preview Release"} />
+              
                 <div className={styles.media}>
+                <img src={this.state.data.Artwork} alt="Artwork" />
                     <div className={styles.banner}>
                         <div>
                             <h2>{this.state.data.ReleaseName}</h2>
@@ -71,7 +73,7 @@ export default class PreviewRelease extends Component {
                             </div>
                         </div>
                     </div>
-                    <img src={this.state.data.Artwork} alt="Artwork" />
+                  
                 </div>
             </section>
         );
