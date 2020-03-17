@@ -1,3 +1,11 @@
+@import "../variables";
+
 .Router {
     width: 100%;
+    padding: 50px;
+    background-color: $background-color;
+
+    @media only screen and (max-width: 768px) {
+        flex-grow: 1;
+    }
 }

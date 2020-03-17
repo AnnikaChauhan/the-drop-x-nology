@@ -1,47 +1,35 @@
-@import '../../../../variables';
+@import "../../../../variables";
 
-.smallbutton {
+.SmallButton {
     display: inline-flex;
-    height: 30px;
-    width: 150px;
-    margin: 5px 5px 5px 5px;
-    background-color: $secondary-color;
-    text-decoration: none;
-    font-size: .8em;
-    letter-spacing: 1.5px;
     align-items: center;
     justify-content: center;
+    width: 150px;
+    height: 30px;
+    border-radius: 15px;
+    margin: 5px;
+    background-color: $primary-color;
+    text-decoration: none;
+    font-size: 0.8em;
+    letter-spacing: 1px;
     overflow: hidden;
-    border-radius: .25rem;
     position: relative;
     cursor: pointer;
 
-    .Btntext{
-        opacity: 0.8;
-        color: white !important;
+    .text {
+        transition: 0.4s;
+        color: white;
         z-index: 2;
         text-decoration: none;
     }
 
     &:hover {
-        color: white;
+        background-color: #cf0168d3;
+        transition: all 0.3s ease-Out;
+        .text {
+            color: white;
+        }
     }
 
-    .translate {
-        width: 100%;
-        height: 250%;
-        transform: rotate(50deg);
-        left: -200px;
-        top: -30px;
-        background: $primary-color;
-        position: absolute;
-        transition: all .3s ease-Out;
-        z-index: 1;
-    }
 }
-
-.smallbutton:hover > .translate { 
-    left: -8px;
-}
-
 //Add this classname to your button to create a small styled button

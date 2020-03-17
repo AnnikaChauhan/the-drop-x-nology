@@ -1,23 +1,29 @@
 import React, { Component } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "./ReleaseCard.module.scss";
-import Card from "react-bootstrap/Card";
-import { Link } from "@reach/router";
+import FollowButton from "../../../../../Utility/Buttons/FollowButton/FollowButton";
 
 class ReleaseCard extends Component {
     render() {
         return (
-            <Card className={styles.cardWrapper}>
-                <Card.Title className={styles.artistName}>
-                    {this.props.cardData.artistName}
-                </Card.Title>
-                <Link to="preview">
-                    <Card.Img variant="top" src={this.props.cardData.picture} />
-                </Link>
-                <Card.Body>
-                    <Card.Text>{this.props.cardData.countDown}</Card.Text>
-                </Card.Body>
-            </Card>
+            <article className={styles.cardWrapper}>
+                <img
+                    src={this.props.Releases.Artwork}
+                    alt={`${this.props.Releases.Artist}'s artwork`}
+                />
+                <div className={styles.cardBody}>
+                    <div className={styles.banner}>
+                        <div>
+                            <h3>{this.props.Releases.Artist}</h3>
+                            <p>{this.props.Releases.ReleaseType}</p>
+                        </div>
+                        <FollowButton />
+                    </div>
+                    <p className={styles.albumName}>
+                        {this.props.Releases.ReleaseName}
+                    </p>
+                    <h4>{"12 days"}</h4>
+                </div>
+            </article>
         );
     }
 }

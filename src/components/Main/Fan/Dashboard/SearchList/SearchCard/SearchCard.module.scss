@@ -1,0 +1,49 @@
+@import "../../../../../../fonts";
+
+.searchWrapper {
+    width: 100%;
+    // height: 150px;
+    display: flex;
+    margin-bottom: 45px;
+    border-bottom: 1px solid #999999;
+    // padding: 20px;
+
+    .infoWrapper {
+        height: 150px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        // padding-left: 20px;
+
+        .textarea {
+            margin-left: 20px;
+
+            .Bio {
+                opacity: 0.5;
+            }
+
+            .artistname {
+                font-size: 20px;
+                font-family: "Montserrat Bold";
+            }
+        }
+    }
+
+    .artistIMG {
+        height: 100%;
+        width: 150px;
+        // overflow: hidden;
+        // display: flex;
+        // justify-content: center;
+        border-radius: 50%;
+        margin-bottom: 20px;
+
+        .image {
+            height: 150px;
+            width: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    }
+}
