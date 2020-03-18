@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import styles from "./PreviewRelease.module.scss";
-import Header from "../../../../Utility/Header";
-import LoadingAnimation from "../../../../Utility/LoadingAnimation";
-import { firestore } from "../../../../../firebase";
+import Header from "../../../Utility/Header";
+import LoadingAnimation from "../../../Utility/LoadingAnimation";
+import { firestore } from "../../../../firebase";
 export default class PreviewRelease extends Component {
     state = {
         data: null
