@@ -38,7 +38,7 @@ export default class Routes extends Component {
         this.setState({ password });
     }
 
-    signInWithEmail = () => {
+    signInWithEmailAndPassword = () => {
         firebase
             .auth()
             .signInWithEmailAndPassword(this.state.loginFormData.email, this.state.loginFormData.password)
@@ -51,11 +51,11 @@ export default class Routes extends Component {
     signOut = () => {};
 
     render() {
-        // console.log(this.state.email);
+       
         return (
             <Router>
                 <LoginPage path="/" 
-                    signInWithEmailAndPassword={this.signInWithEmailAndPassword}
+                    signInWithEmailAndPassword={this.props.signInWithEmailAndPassword}
                     setEmail={this.state.loginFormData.email}
                     setPassword={this.state.loginFormData.password}
                 />

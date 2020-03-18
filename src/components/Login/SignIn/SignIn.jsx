@@ -32,9 +32,7 @@ class SignIn extends Component {
                         </Link>
                     </div>
                     <EmailSignIn 
-                         signInWithEmailAndPassword={this.signInWithEmailAndPassword}
-                         setEmail={this.props.email}
-                         setPassword={this.props.password}
+                         signInWithEmailAndPassword={this.props.signInWithEmailAndPassword}
                      />
                 </div>
             </section>
