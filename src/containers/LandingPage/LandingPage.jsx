@@ -44,7 +44,6 @@ export default class LandingPage extends Component {
     }
 
     render() {
-        console.log(this.props.user);
         return (
             <section className={styles.container}>
                 <div className={styles.mainlogo}>
