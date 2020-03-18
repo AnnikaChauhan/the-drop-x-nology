@@ -8,6 +8,7 @@ import DraftRelease from "../components/Main/Artist/DraftRelease";
 import ReleaseArchive from "../components/Main/Artist/ReleaseArchive";
 import ManageReleases from "../components/Main/Artist/ManageReleases";
 import PreviewRelease from "../components/Main/Artist/ManageReleases/PreviewRelease";
+import Help from "../components/Help";
 
 export default class FanRoutes extends Component {
     render() {
@@ -20,6 +21,7 @@ export default class FanRoutes extends Component {
                 <ReleaseArchive path="home/archive" />
                 <PreviewRelease path="release/*" />
                 <ArtistBio path="profile" />
+                <Help path="help" />
                 <NotFound default />
             </Router>
         );

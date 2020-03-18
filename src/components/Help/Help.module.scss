@@ -1,0 +1,25 @@
+@import "../../variables"; 
+
+span {
+    font-weight: bold;
+    color: $primary-color;
+}
+
+a:link {
+    color: $primary-color;
+    text-decoration: none;
+  }
+  
+a:visited {
+    color: $primary-color;
+    text-decoration: none;
+  }
+
+a:hover {
+    color: $primary-color !important;
+  }
+  
+a:active {
+    color: $primary-color;
+    text-decoration: none;
+  }

@@ -4,6 +4,7 @@ import styles from "./Routes.module.scss";
 import Dashboard from "../containers/Main/Fan/Dashboard";
 import NotFound from "../components/Navbar/NotFound";
 import PreviewRelease from "../components/Main/Artist/ManageReleases/PreviewRelease";
+import Help from "../components/Help";
 
 export default class FanRoutes extends Component {
     render() {
@@ -12,6 +13,7 @@ export default class FanRoutes extends Component {
                 <Redirect noThrow from="/" to="home" />
                 <Dashboard path="home" />
                 <PreviewRelease path="release/*" />
+                <Help path="help" />
                 <NotFound default />
             </Router>
         );

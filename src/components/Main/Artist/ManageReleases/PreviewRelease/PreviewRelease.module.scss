@@ -1,129 +1,101 @@
 @import "../../../../../variables";
 
 .PreviewRelease {
-   
-  .media {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    height: 300px;
-    align-items: center;
-    padding-top: 60px;
-
-  
-
-    img {
-        width: 25vw;
-    //   height: 100%;
-    }
-
-    .banner {
-    //   border-top: 1px solid #444444;
-    //   border-bottom: 1px solid #444444;
-      padding: 25px 0px 25px 25px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-
-      h2 {
-        font-size: 36px;
-        font-family: "Montserrat Black";
-      }
-
-      h3 {
-        font-size: 18px;
-        color: #888888;
-        font-family: "Montserrat Light";
-        margin-bottom: 25px;
-      }
-
-      p {
-        font-family: "Montserrat Light";
-      }
-    }
-
-    .links {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-
-      p {
-        font-family: "Montserrat Light Italic";
-        font-size: 16px;
-        color: $primary-color;
-        margin-bottom: 0;
-      }
-
-      h2 {
-        font-size: 36px;
-      }
-
-      .buttons {
+    .media {
+        position: relative;
         display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        text-align: center;
-        width: 100%;
 
-        article {
-         width: 25%;
-
-          i {
-            font-size: 36px;
-            cursor: pointer;
-          }
-
-          p {
-            font-family: "Montserrat Light";
-            font-size: 12px;
-            color: $font-color;
-            padding: 5px;
-          }
+        .artwork {
+            min-width: 400px;
+            img {
+                width: 100%;
+                max-width: 400px;
+            }
         }
-      }
+
+        .banner {
+            padding-left: 25px;
+            display: flex;
+            flex-direction: column;
+
+            p {
+                font-family: "Montserrat Light";
+                font-size: 14px;
+            }
+
+            .drop {
+                margin-bottom: 25px;
+
+                p {
+                    font-family: $font-stack;
+                    color: #888888;
+                    margin-bottom: 0;
+                }
+
+                h2 {
+                    font-size: 40px;
+                }
+            }
+
+            .links {
+                display: flex;
+                flex-wrap: wrap;
+
+                article {
+                    text-align: center;
+                    width: 75px;
+                    height: 75px;
+                    cursor: pointer;
+
+                    &:hover {
+                        i {
+                            font-size: 26px;
+                        }
+
+                        p {
+                            color: $primary-color;
+                        }
+                    }
+
+                    i {
+                        font-size: 24px;
+                    }
+
+                    p {
+                        font-family: "Montserrat Light";
+                        font-size: 11px;
+                        color: $font-color;
+                        padding-top: 5px;
+                    }
+                }
+            }
+        }
     }
-  }
 }
 
-@media screen and (max-width: 768px) {
-  .PreviewRelease {
-    h1 {
-      text-align: center;
-    }
-    .media {
-      img {
-        height: 300px;
-        width: 300px;
-      }
-      align-items: center;
-      display: flex;
-      flex-direction: column;
-      height: unset;
-      .banner {
-        display: flex;
-        text-align: center;
-        padding: 25px 0px 25px 0px;
-        border-top: none;
-        border-bottom: none;
+@media screen and (max-width: 1024px) {
+    .PreviewRelease {
+        .media {
+            flex-direction: column;
 
-        .links {
-          overflow: hidden;
-          display: flex;
-          flex-direction: column-reverse;
-          align-items: center;
+            .artwork {
+                background-color: $navbar-color;
+                min-width: unset;
+
+                img {
+                    display: block;
+                    margin: 0 auto;
+                }
+            }
+
+            .banner {
+                padding-left: 0;
+                padding-top: 25px;
+
+                .links {
+                    justify-content: center;
+                }
+            }
         }
-
-        .buttons {
-          display: flex;
-          flex-wrap: wrap;
-          width: unset;
-
-          .icon {
-            flex-grow: 1;
-            padding-bottom: 30px;
-          }
-        }
-      }
     }
-  }
 }
