@@ -11,9 +11,7 @@ import PrivateRoutes from "./PrivateRoutes.jsx";
 
 export default class Routes extends Component {
     state = {
-        user: {
-            uid: null
-        },
+        user: null,
         additionalUserInfo: null
     };
 
@@ -39,7 +37,7 @@ export default class Routes extends Component {
                 <PrivateRoutes path="private" user={this.state.user}>
                     <LandingPage user={this.state.user} additionalUserInfo={this.state.additionalUserInfo} path="initial-login" />
                     <Fan path="fan/*" />
-                    <Artist uid={this.state.user.uid} path="artist/*" />
+                    <Artist user={this.state.user} path="artist/*" />
                 </PrivateRoutes>
                 <NotFound default />
             </Router>

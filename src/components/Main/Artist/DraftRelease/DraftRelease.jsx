@@ -1,15 +1,47 @@
 import React, { Component } from "react";
 import styles from "./DraftRelease.module.scss";
+import firebase from '../../../../firebase';
+import FileUploader from "react-firebase-file-uploader";
 import ReleaseDetails from "./ReleaseDetails/ReleaseDetails";
 import PreSaveURIs from "./PreSaveURIs/PreSaveURIs";
 import PhysicalURLs from "./PhysicalURLs/PhysicalURLs";
-import ArtworkMedia from "./ArtworkMedia/ArtworkMedia";
+// import ArtworkMedia from "./ArtworkMedia/ArtworkMedia";
 import SmallButton from "../../../Utility/Buttons/SmallButton";
 import Header from "../../../Utility/Header";
 import { Link } from "@reach/router";
 
 class DraftRelease extends Component {
+    state = {
+        username: "",
+        artwork: "",
+        isUploading: false,
+        progress: 0,
+        artworkURL: ""
+    };
+
+    handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
+
+    handleProgress = (progress) => this.setState({ progress });
+
+    handleUploadError = (error) => {
+        this.setState({ isUploading: false });
+        console.error(error);
+    };
+
+    handleUploadSuccess = (filename) => {
+        this.setState({ artwork: filename, progress: 100, isUploading: false });
+        firebase
+          .storage()
+          .ref("artwork")
+          .child(filename)
+          .getDownloadURL()
+          .then(url => this.setState({ artworkURL: url }));
+      };
+    
+
+
     render() {
+        console.log(this.state.artworkURL)
         return (
             <section className={styles.DraftRelease}>
                 <article className={styles.topPart}>
@@ -27,7 +59,22 @@ class DraftRelease extends Component {
                 <ReleaseDetails />
                 <PreSaveURIs />
                 <PhysicalURLs />
-                <ArtworkMedia />
+                {/* <ArtworkMedia /> */}
+                <h3>Artwork</h3>
+                {this.state.isUploading && <p>Progress: {this.state.progress}</p>}
+                {this.state.artworkURL && (<img alt="artwork" src={this.state.artworkURL}/>)}
+                <FileUploader
+                    accept="image/*"
+                    name="artwork"
+                    randomizeFilename
+                    storageRef={firebase.storage().ref("artwork")}
+                    onUploadStart={this.handleUploadStart}
+                    onUploadError={this.handleUploadError}
+                    onUploadSuccess={this.handleUploadSuccess}
+                    onProgress={this.handleProgress}
+                    maxHeight={500}
+                    maxWidth={500}
+                />
                 {/* Add continue buttons to each component */}
                 {/* Add a back to top button, put the save etc buttons back */}
             </section>
