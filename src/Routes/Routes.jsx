@@ -11,7 +11,9 @@ import PrivateRoutes from "./PrivateRoutes.jsx";
 
 export default class Routes extends Component {
     state = {
-        user: null,
+        user: {
+            uid: null
+        },
         additionalUserInfo: null
     };
 
