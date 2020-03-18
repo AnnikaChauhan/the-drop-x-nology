@@ -28,6 +28,7 @@ export default class PreviewRelease extends Component {
             <section className={styles.PreviewRelease}>
                 <Header title={"Preview Release"} />
                 <div className={styles.media}>
+                    <img src={this.state.data.Artwork} alt="Artwork" />
                     <div className={styles.banner}>
                         <div>
                             <h2>{this.state.data.ReleaseName}</h2>
@@ -35,6 +36,24 @@ export default class PreviewRelease extends Component {
                                 {this.state.data.ReleaseType} by{" "}
                                 {this.state.data.Artist}
                             </h3>
+                        </div>
+                        <div className={styles.links}>
+                            <article>
+                                <i class="fas fa-user-circle"></i>
+                                <p>Go to Artist</p>
+                            </article>
+                            <article>
+                                <i class="fas fa-tshirt"></i>
+                                <p>Merch</p>
+                            </article>
+                            <article>
+                                <i class="fas fa-music"></i>
+                                <p>Music Store</p>
+                            </article>
+                            <article>
+                                <i class="fab fa-spotify"></i>
+                                <p>Pre-save</p>
+                            </article>
                         </div>
                         <div>
                             <p>
@@ -46,32 +65,11 @@ export default class PreviewRelease extends Component {
                                 iste?
                             </p>
                         </div>
-                        <div className={styles.links}>
-                            <div className={styles.drop}>
-                                <p>Drops in</p>
-                                <h2>12 Days</h2>
-                            </div>
-                            <div className={styles.buttons}>
-                                <article>
-                                    <i class="fab fa-spotify"></i>
-                                    <p>Pre-save</p>
-                                </article>
-                                <article>
-                                    <i class="fas fa-tshirt"></i>
-                                    <p>Merch</p>
-                                </article>
-                                <article>
-                                    <i class="fas fa-music"></i>
-                                    <p>Music Store</p>
-                                </article>
-                                <article>
-                                    <i class="fas fa-user-circle"></i>
-                                    <p>Go to Artist</p>
-                                </article>
-                            </div>
+                        <div className={styles.drop}>
+                            <p>Drops in</p>
+                            <h2>12 Days</h2>
                         </div>
                     </div>
-                    <img src={this.state.data.Artwork} alt="Artwork" />
                 </div>
             </section>
         );
