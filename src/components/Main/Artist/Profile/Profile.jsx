@@ -4,8 +4,24 @@ import Header from "../../../Utility/Header";
 import Tabs from "../../../Utility/Tabs";
 import StatusBar from "../../../Utility/StatusBar";
 import { Link } from "@reach/router";
+import { firestore } from "../../../../firebase";
 
 export default class Profile extends Component {
+    state = {
+        Releases: []
+    }
+    componentDidMount() {
+        firestore
+            .collection("Releases")
+            // .where("uid", "==", this.props.userId)
+            .where("Artist", "==", "Archie Hamilton")
+            .get()
+            .then((query) => {
+                const Releases = query.docs.map(doc => doc.data());
+                this.setState({ Releases });
+                
+            })
+    }
     render() {
         return (
             <section className={styles.Profile}>
@@ -24,55 +40,65 @@ export default class Profile extends Component {
                         <p>116 Followers</p>
                     </div>
                 </div>
-
                 <Tabs
                     tabs={["Releases", "Past Releases"]}
                     content={[
                         <>
                             <Link to={"add-release"}>+ Create New Release</Link>
-                            <StatusBar
-                                title={"Release Title 1"}
-                                type={"Single"}
-                                status={"Draft"}
-                            />
-                            <StatusBar
-                                title={"Release Title 2"}
-                                type={"EP"}
-                                status={"Live"}
-                            />
-                            <StatusBar
-                                title={"Release Title 3"}
-                                type={"Album"}
-                                status={"Live"}
-                            />
+                            {this.state.Releases.map((release, index) => {
+                                return (<StatusBar
+                                    title={release.ReleaseName}
+                                    type={release.ReleaseType}
+                                    status={"Draft"}
+                                    Releases={release}
+                                    key={index}
+                                />)
+                                  
+
+                            })}
                         </>,
-                        <>
-                            <StatusBar
-                                title={"Release Title 4"}
-                                type={"Album"}
-                                status={"Released"}
-                            />
-                            <StatusBar
-                                title={"Release Title 5"}
-                                type={"Merch"}
-                                status={"Released"}
-                            />
-                            <StatusBar
-                                title={"Release Title 6"}
-                                type={"EP"}
-                                status={"Released"}
-                            />
-                            <StatusBar
-                                title={"Release Title 7"}
-                                type={"Single"}
-                                status={"Released"}
-                            />
-                        </>
+                        <p>Past Releases</p>
                     ]}
+                           
+                        //     <StatusBar
+                        //         title={"Release Title 3"}
+                        //         type={"Album"}
+                        //         status={"Live"}
+                        //     />
+                        // </>,
+                        // <>
+                        //     <StatusBar
+                        //         title={"Release Title 4"}
+                        //         type={"Album"}
+                        //         status={"Released"}
+                        //     />
+                        //     <StatusBar
+                        //         title={"Release Title 5"}
+                        //         type={"Merch"}
+                        //         status={"Released"}
+                        //     />
+                        //     <StatusBar
+                        //         title={"Release Title 6"}
+                        //         type={"EP"}
+                        //         status={"Released"}
+                        //     />
+                        //     <StatusBar
+                        //         title={"Release Title 7"}
+                        //         type={"Single"}
+                        //         status={"Released"}
+                        //     />
+                        // </>
                 />
             </section>
         );
     }
 }
 
-// add followers and latest releases on upper for more content as suggested
+
+
+
+
+
+                          
+                        
+                            
