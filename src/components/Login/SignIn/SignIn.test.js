@@ -10,11 +10,11 @@ describe("sign in with Google test", () => {
     
     beforeEach(() => {
         testFunction = jest.fn();
-        component = mount(<LargeButton text={`Sign up with Google`} />);
+        component = mount(<SignIn signIn={testFunction} />);
     });
 
     it("should run the signIn function when the button is clicked", () => {
-        component.find("div").simulate("click");
+        component.find(".buttonStyle").simulate("click");
         expect(testFunction).toHaveBeenCalledTimes(1);
     })
 })
