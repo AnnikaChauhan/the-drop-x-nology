@@ -26,32 +26,37 @@ export default class PreviewRelease extends Component {
         if (!this.state.data) return <LoadingAnimation />;
         return (
             <section className={styles.PreviewRelease}>
-                <Header title={"Preview Release"} />
+                <Header
+                    title={this.state.data.ReleaseName}
+                    subtitle={`${this.state.data.ReleaseType} by  ${this.state.data.Artist}`}
+                />
                 <div className={styles.media}>
-                    <img src={this.state.data.Artwork} alt="Artwork" />
+                    <div className={styles.artwork}>
+                        <img
+                            src={this.state.data.Artwork}
+                            alt={`${this.state.data.Artist}'s artwork`}
+                        />
+                    </div>
                     <div className={styles.banner}>
-                        <div>
-                            <h2>{this.state.data.ReleaseName}</h2>
-                            <h3>
-                                {this.state.data.ReleaseType} by{" "}
-                                {this.state.data.Artist}
-                            </h3>
+                        <div className={styles.drop}>
+                            <p>Drops in</p>
+                            <h2>12 Days</h2>
                         </div>
                         <div className={styles.links}>
                             <article>
-                                <i class="fas fa-user-circle"></i>
+                                <i className="fas fa-user-circle"></i>
                                 <p>Go to Artist</p>
                             </article>
                             <article>
-                                <i class="fas fa-tshirt"></i>
+                                <i className="fas fa-tshirt"></i>
                                 <p>Merch</p>
                             </article>
                             <article>
-                                <i class="fas fa-music"></i>
+                                <i className="fas fa-music"></i>
                                 <p>Music Store</p>
                             </article>
                             <article>
-                                <i class="fab fa-spotify"></i>
+                                <i className="fab fa-spotify"></i>
                                 <p>Pre-save</p>
                             </article>
                         </div>
@@ -64,10 +69,6 @@ export default class PreviewRelease extends Component {
                                 architecto vero! Rem consequatur tenetur numquam
                                 iste?
                             </p>
-                        </div>
-                        <div className={styles.drop}>
-                            <p>Drops in</p>
-                            <h2>12 Days</h2>
                         </div>
                     </div>
                 </div>

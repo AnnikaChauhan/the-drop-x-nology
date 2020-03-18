@@ -4,70 +4,92 @@
     .media {
         position: relative;
         display: flex;
-        justify-content: space-between;
-        height: 400px;
 
-        img {
-            max-height: 100%;
+        .artwork {
+            img {
+                width: 400px;
+            }
         }
 
         .banner {
             padding: 25px 0 25px 25px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
 
-            h2 {
-                font-size: 36px;
-                font-family: "Montserrat Black";
+            p {
+                font-family: "Montserrat Light";
+                font-size: 14px;
             }
 
-            h3 {
-                font-size: 18px;
-                color: #888888;
-                font-family: "Montserrat Light";
+            .drop {
                 margin-bottom: 25px;
-            }
-
-            p {
-                font-family: "Montserrat Light";
-                font-size: 15px;
-            }
-        }
-
-        .drop {
-            p {
-                font-family: "Montserrat Light Italic";
-                color: $primary-color;
-                margin-bottom: 0;
-            }
-
-            h2 {
-                font-size: 36px;
-            }
-        }
-
-        .links {
-            display: flex;
-            text-align: center;
-
-            article {
-                width: 75px;
-                i {
-                    font-size: 28px;
-                    cursor: pointer;
-                }
 
                 p {
-                    font-family: "Montserrat Light";
-                    font-size: 11px;
-                    color: $font-color;
-                    padding: 5px;
+                    font-family: $font-stack;
+                    color: #888888;
+                    margin-bottom: 0;
+                }
+
+                h2 {
+                    font-size: 40px;
+                }
+            }
+
+            .links {
+                display: flex;
+                flex-wrap: wrap;
+
+                article {
+                    text-align: center;
+                    width: 75px;
+                    height: 75px;
+                    cursor: pointer;
+
+                    &:hover {
+                        i {
+                            font-size: 26px;
+                        }
+
+                        p {
+                            color: $primary-color;
+                        }
+                    }
+
+                    i {
+                        font-size: 24px;
+                    }
+
+                    p {
+                        font-family: "Montserrat Light";
+                        font-size: 11px;
+                        color: $font-color;
+                        padding-top: 5px;
+                    }
                 }
             }
         }
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
+    .PreviewRelease {
+        .media {
+            flex-direction: column;
+
+            .artwork {
+                background-color: $navbar-color;
+
+                img {
+                    display: block;
+                    margin: 0 auto;
+                }
+            }
+
+            .banner {
+                .links {
+                    justify-content: center;
+                }
+            }
+        }
+    }
 }

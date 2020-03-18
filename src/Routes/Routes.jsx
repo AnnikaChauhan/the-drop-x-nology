@@ -20,13 +20,13 @@ export default class Routes extends Component {
             .auth()
             .signInWithPopup(providers.google)
             .then(result => {
-                this.setState({ user: result.user,
-                                additionalUserInfo: result.additionalUserInfo
-                                });
+                this.setState({
+                    user: result.user,
+                    additionalUserInfo: result.additionalUserInfo
+                });
                 globalHistory.navigate("/private/initial-login");
             });
     };
-
 
     //signOut = () => {};
 
@@ -35,7 +35,11 @@ export default class Routes extends Component {
             <Router>
                 <LoginPage path="/" signIn={this.signIn} />
                 <PrivateRoutes path="private" user={this.state.user}>
-                    <LandingPage user={this.state.user} additionalUserInfo={this.state.additionalUserInfo} path="initial-login" />
+                    <LandingPage
+                        user={this.state.user}
+                        additionalUserInfo={this.state.additionalUserInfo}
+                        path="initial-login"
+                    />
                     <Fan path="fan/*" />
                     <Artist path="artist/*" />
                 </PrivateRoutes>
