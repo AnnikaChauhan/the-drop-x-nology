@@ -25,10 +25,21 @@ export default class Routes extends Component {
                     additionalUserInfo: result.additionalUserInfo
                 });
                 globalHistory.navigate("/private/initial-login");
-            });
+            })
+            .catch(error => {
+                console.log(error);
+            })
     };
 
-    //signOut = () => {};
+    signOut = () => {
+        firebase
+            .auth()
+            .signOut()
+            .then(() => {
+                this.setState({ user: null });
+                globalHistory.navigate("/");
+            })
+    };
 
     render() {
         return (
