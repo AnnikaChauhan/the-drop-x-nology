@@ -6,13 +6,15 @@
         display: flex;
 
         .artwork {
+            min-width: 400px;
             img {
-                width: 400px;
+                width: 100%;
+                max-width: 400px;
             }
         }
 
         .banner {
-            padding: 25px 0 25px 25px;
+            padding-left: 25px;
             display: flex;
             flex-direction: column;
 
@@ -78,6 +80,7 @@
 
             .artwork {
                 background-color: $navbar-color;
+                min-width: unset;
 
                 img {
                     display: block;
@@ -86,6 +89,9 @@
             }
 
             .banner {
+                padding-left: 0;
+                padding-top: 25px;
+
                 .links {
                     justify-content: center;
                 }

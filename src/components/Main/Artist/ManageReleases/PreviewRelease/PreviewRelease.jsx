@@ -3,12 +3,10 @@ import styles from "./PreviewRelease.module.scss";
 import Header from "../../../../Utility/Header";
 import LoadingAnimation from "../../../../Utility/LoadingAnimation";
 import { firestore } from "../../../../../firebase";
-
 export default class PreviewRelease extends Component {
     state = {
         data: null
     };
-
     componentDidMount() {
         const id = window.location.pathname.substring(
             window.location.pathname.lastIndexOf("/") + 1
@@ -21,7 +19,6 @@ export default class PreviewRelease extends Component {
                 this.setState({ data: info.data() });
             });
     }
-
     render() {
         if (!this.state.data) return <LoadingAnimation />;
         return (
