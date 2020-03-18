@@ -7,7 +7,7 @@ function Main() {
     return (
         <div className={styles.Main}>
             <Navbar />
-            <ArtistRoutes />
+            <ArtistRoutes uid={this.props.user.uid}/>
         </div>
     );
 }

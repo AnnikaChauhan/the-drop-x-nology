@@ -16,7 +16,7 @@ export default class FanRoutes extends Component {
             <Router className={styles.Router}>
                 <Redirect noThrow from="/" to="home" />
                 <Dashboard path="home" />
-                <DraftRelease path="home/add-release" />
+                <DraftRelease path="home/add-release" uid={this.props.user.uid}/>
                 <ManageReleases path="home/releases" />
                 <ReleaseArchive path="home/archive" />
                 <PreviewRelease path="preview" />
