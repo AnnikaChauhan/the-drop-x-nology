@@ -13,5 +13,8 @@ export default class Main extends Component {
         );
     }
 }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 5558e87b2ef0c48cc18610ab076ee39cb8e04148

@@ -16,7 +16,7 @@
         "enzyme": "^3.11.0",
         "enzyme-adapter-react-16": "^1.15.2",
         "enzyme-to-json": "^3.4.4",
-        "firebase": "^7.10.0",
+        "firebase": "^7.11.0",
         "firebase-tools": "^7.14.0",
         "global": "^4.4.0",
         "gsap": "^3.2.4",
@@ -25,12 +25,14 @@
         "node-sass": "^4.13.1",
         "react": "^16.13.0",
         "react-bootstrap": "^1.0.0-beta.17",
+        "react-burger-menu": "^2.6.13",
         "react-datepicker": "^2.14.0",
         "react-dom": "^16.13.0",
         "react-draft-wysiwyg": "^1.14.4",
         "react-firebase-file-uploader": "^2.4.3",
         "react-scripts": "3.4.0",
-        "semantic-ui-react": "^0.88.2"
+        "semantic-ui-react": "^0.88.2",
+        "simple-react-validator": "^1.4.5"
     },
     "scripts": {
         "start": "react-scripts start",

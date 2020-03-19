@@ -20,22 +20,37 @@ export default class Routes extends Component {
             .auth()
             .signInWithPopup(providers.google)
             .then(result => {
-                this.setState({ user: result.user,
-                                additionalUserInfo: result.additionalUserInfo
-                                });
+                this.setState({
+                    user: result.user,
+                    additionalUserInfo: result.additionalUserInfo
+                });
                 globalHistory.navigate("/private/initial-login");
-            });
+            })
+            .catch(error => {
+                console.log(error);
+            })
     };
 
-
-    //signOut = () => {};
+    signOut = () => {
+        firebase
+            .auth()
+            .signOut()
+            .then(() => {
+                this.setState({ user: null });
+                globalHistory.navigate("/");
+            })
+    };
 
     render() {
         return (
             <Router>
                 <LoginPage path="/" signIn={this.signIn} />
                 <PrivateRoutes path="private" user={this.state.user}>
-                    <LandingPage user={this.state.user} additionalUserInfo={this.state.additionalUserInfo} path="initial-login" />
+                    <LandingPage
+                        user={this.state.user}
+                        additionalUserInfo={this.state.additionalUserInfo}
+                        path="initial-login"
+                    />
                     <Fan path="fan/*" />
                     <Artist user={this.state.user} path="artist/*" />
                 </PrivateRoutes>
