@@ -9,26 +9,29 @@ class DropdownSelection extends Component {
       <ButtonToolbar>
         <ToggleButtonGroup 
           type="radio" 
-          defaultValue={1} 
+          // defaultValue={1} 
           name="releaseType"
+          
         >
           <ToggleButton 
-            name="releaseType" 
-            onClick={this.props.handleInput}
+            // name="Single" 
+            onChange={this.props.handleInput}
             value={"Single"}
           >
             Single
           </ToggleButton>
           <ToggleButton 
-            name="releaseType" 
-            onClick={this.props.handleInput}
+            // name="EP" 
+            // onClick={this.props.handleInput}
+            onChange={this.props.handleInput}
             value={"EP"}
           >
             EP
           </ToggleButton>
           <ToggleButton 
-            name="releaseType" 
-            onClick={this.props.handleInput}
+            // name="Album" 
+            // onClick={this.props.handleInput}
+            onChange={this.props.handleInput}
             value={"Album"}
           >
             Album

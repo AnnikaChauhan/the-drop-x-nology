@@ -8,11 +8,13 @@ import SmallButton from "../../../Utility/Buttons/SmallButton";
 import Header from "../../../Utility/Header";
 import { Link } from "@reach/router";
 import SimpleReactValidator from 'simple-react-validator';
+import { firestore } from "../../../../firebase";
 
 class DraftRelease extends Component {
     
     state = {
         formData: {
+            uid: this.props.user.uid,
             title: "",
             description: "",
             releaseType: "",
@@ -88,6 +90,17 @@ class DraftRelease extends Component {
         console.log("clicked")
     }
 
+    submitFormData = (event) => {
+        event.preventDefault();
+        firestore
+                .collection("Releases")
+                .add(this.state.formData)
+                .then(() => {
+                    console.log("it works");
+                })
+    }
+    
+
     render() {
         console.log(this.state.formData)
         return (
@@ -99,17 +112,13 @@ class DraftRelease extends Component {
                         <Link to="/artist/preview">
                             <SmallButton text="PREVIEW" />
                         </Link>
-                        <SmallButton text="PUBLISH" />
+                        <SmallButton text="PUBLISH" onClick={this.submitFormData} />
                     </div>
                 </article>
                 {/* progress bar */}
                 {/* add asterisk to boxes which are required to create a release */}
+
                 <ReleaseDetails formData={this.state.formData} handleChange={this.handleChange} handleChangeReleases={this.handleChangeReleases} handleInput={this.handleInput} handleInputPhysicalURLs={this.handleInputPhysicalURLs} handleInputPresaveURIs={this.handleInputPresaveURIs}    />
-                {/* <PreSaveURIs 
-                // preSaveUrl={this.state.preSaveUrl} setPreSaveUrl={this.setPreSaveUrl} 
-                />
-                <PhysicalURLs />
-                <ArtworkMedia /> */}
                
                 {/* Add continue buttons to each component */}
                 {/* Add a back to top button, put the save etc buttons back */}
@@ -119,6 +128,3 @@ class DraftRelease extends Component {
 }
 
 export default DraftRelease;
-
-// pre save url, physical url, artwork media, all in release details
-//

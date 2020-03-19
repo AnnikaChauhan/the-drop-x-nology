@@ -32,13 +32,10 @@ export default class ReleaseDetails extends Component {
                         <textarea rows="8" name="description" required value={this.props.formData.description} onChange={this.props.handleInput} />
                     </form>
                 </article>
-                
-                {/* <ReleaseTimer /> */}
-               
+                               
                 <h3>Announcement Date</h3>
                 <div className={styles.datepickerclass}>
                     <DatePicker
-                        // onSelect={this.handleSelect}
                         selected={this.props.formData.startDate}
                         onChange={this.props.handleChange}
                         timeClassName={handleColor}
@@ -54,10 +51,8 @@ export default class ReleaseDetails extends Component {
                 <div>
                     <WYSIWYG />
                 </div>
-                {/* <WYSIWYG /> */}
                 <h3>Release</h3>
                 <DatePicker
-                        // onSelect={this.handleSelect}
                         selected={this.props.formData.startDateReleases}
                         onChange={this.props.handleChangeReleases}
                         timeClassName={handleColor}

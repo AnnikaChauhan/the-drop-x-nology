@@ -47,7 +47,7 @@ export default class Routes extends Component {
                 <PrivateRoutes path="private" user={this.state.user}>
                     <LandingPage user={this.state.user} additionalUserInfo={this.state.additionalUserInfo} path="initial-login" />
                     <Fan path="fan/*" />
-                    <Artist path="artist/*" />
+                    <Artist user={this.state.user} path="artist/*" />
                 </PrivateRoutes>
                 <NotFound default />
             </Router>
