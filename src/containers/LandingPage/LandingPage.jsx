@@ -53,20 +53,20 @@ export default class LandingPage extends Component {
 
                 <div className={styles.leftArtistWrapper} onClick={this.handleSubmitArtist}>
                     <div className={styles.infoWrapper}>
-                        <h2>Artists</h2>
-                        <h1>Plan your next release.</h1>
-                        <h3>Build anticipation. Timing is everything.</h3>
+                        <h1>Artists</h1>
+                        <h2 className={styles.artistinfo}>Plan your next release.</h2>
+                        <h3 className={styles.artistinfo}>Build anticipation. Timing is everything.</h3>
                         <p className={styles.mobileText}>
                             Tap here if you're an Artist
                         </p>
                     </div>
                 </div>
 
-                <div className={styles.right} onClick={this.handleSubmitFan}>
+                <div className={styles.rightFanWrapper} onClick={this.handleSubmitFan}>
                     <div className={styles.infoWrapper}>
-                        <h2>Fans</h2>
-                        <h1>Be the first to know.</h1>
-                        <h3>Get excited. Share experiences.</h3>
+                        <h1>Fans</h1>
+                        <h2 className={styles.faninfo}>Be the first to know.</h2>
+                        <h3 className={styles.faninfo}>Get excited. Share experiences.</h3>
                         <p className={styles.mobileText}>
                             Tap here if you're a fan
                         </p>

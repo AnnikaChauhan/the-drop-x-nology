@@ -108,8 +108,13 @@ class DraftRelease extends Component {
                 <article className={styles.topPart}>
                     <Header title={"Edit Release"} />
                     <div className={styles.links}>
+<<<<<<< HEAD
                         <SmallButton onClick={this.handleSaveClick} text="SAVE" />
                         <Link to="/artist/preview">
+=======
+                        <SmallButton text="SAVE" />
+                        <Link to="/release">
+>>>>>>> c71cca3b6ecb015efa10ec19dbab177783b73831
                             <SmallButton text="PREVIEW" />
                         </Link>
                         <SmallButton text="PUBLISH" onClick={this.submitFormData} />

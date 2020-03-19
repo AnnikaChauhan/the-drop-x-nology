@@ -14,23 +14,18 @@ class DropdownSelection extends Component {
           
         >
           <ToggleButton 
-            // name="Single" 
             onChange={this.props.handleInput}
             value={"Single"}
           >
             Single
           </ToggleButton>
           <ToggleButton 
-            // name="EP" 
-            // onClick={this.props.handleInput}
             onChange={this.props.handleInput}
             value={"EP"}
           >
             EP
           </ToggleButton>
           <ToggleButton 
-            // name="Album" 
-            // onClick={this.props.handleInput}
             onChange={this.props.handleInput}
             value={"Album"}
           >
