@@ -3,12 +3,16 @@ import styles from "./SearchCard.module.scss";
 import SmallButton from "../../../../../Utility/Buttons/SmallButton";
 
 export default class SearchCard extends Component {
+    handleChange = () => {
+        console.log("hello");
+    };
+
     render() {
         return (
-            <section className={styles.searchWrapper}>
+            <article className={styles.searchWrapper}>
                 <div className={styles.artistIMG}>
                     <img
-                        src={this.props.Releases.ArtistProfileImage}
+                        src={this.props.artist.ArtistProfileImage}
                         className={styles.image}
                         alt="Artist"
                     />
@@ -16,13 +20,13 @@ export default class SearchCard extends Component {
                 <div className={styles.infoWrapper}>
                     <div className={styles.textarea}>
                         <div className={styles.artistname}>
-                            {this.props.Releases.Artist}
+                            {this.props.artist.Artist}
                         </div>
                         <div className={styles.Bio}>Small Bio</div>
                     </div>
-                    <SmallButton text={"Follow"} />
+                    <SmallButton text={"Follow"} onClick={this.handleChange} />
                 </div>
-            </section>
+            </article>
         );
     }
 }

@@ -5,23 +5,26 @@ import Dashboard from "../containers/Main/Artist/Dashboard";
 import NotFound from "../components/Navbar/NotFound";
 import ArtistBio from "../components/Main/Artist/ArtistBio";
 import DraftRelease from "../components/Main/Artist/DraftRelease";
-import ReleaseArchive from "../components/Main/Artist/ReleaseArchive";
-import ManageReleases from "../components/Main/Artist/ManageReleases";
-import PreviewRelease from "../components/Main/Artist/ManageReleases/PreviewReleases";
+import PreviewRelease from "../components/Main/Artist/PreviewRelease";
+import Help from "../components/Help";
 
 export default class FanRoutes extends Component {
     render() {
         return (
             <Router className={styles.Router}>
-                <Redirect noThrow from="/" to="dashboard" />
-                <Dashboard path="dashboard" />
-                <DraftRelease path="dashboard/add-release" />
-                <ManageReleases path="dashboard/releases" />
-                <ReleaseArchive path="dashboard/archive" />
-                <PreviewRelease path="preview" />
+                <Redirect noThrow from="/" to="home" />
+                <Dashboard path="home" />
+                <DraftRelease path="home/add-release" user={this.props.user}/>
+                <PreviewRelease path="release/*" />
                 <ArtistBio path="profile" />
+                <Help path="help" />
                 <NotFound default />
             </Router>
         );
     }
 }
+
+  
+
+
+

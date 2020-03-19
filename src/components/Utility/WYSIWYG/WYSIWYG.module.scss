@@ -8,13 +8,18 @@
 
 // .editor {
 //   background-color: white !important;
-    
-// }
 
-div.ce-inline-toolbar.ce-inline-toolbar--left-oriented.ce-inline-toolbar--showed,
-div.ce-inline-toolbar__buttons {
-    background-color: $background-color !important;
+// }
+.wysWrapper {
+
+  padding-left: -200px;
+  margin-top: 50px;
 }
+
+// div.ce-inline-toolbar.ce-inline-toolbar--left-oriented.ce-inline-toolbar--showed,
+// div.ce-inline-toolbar__buttons {
+//   background-color: $background-color !important;
+// }
 
 // #editor-js {
 //     * {
@@ -36,8 +41,10 @@ div.ce-inline-toolbar__buttons {
 // }
 
 .wysiWrapper {
-    display: flex;
-    flex-direction: row;
-    margin: 10px 0;
-    padding: 5px;
+//   z-index: -999 !important;
+  display: flex;
+  flex-direction: row;
+  margin: 10px 0;
+  padding: 5px;
+//   margin-left: 200px;
 }

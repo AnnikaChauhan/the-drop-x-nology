@@ -8,6 +8,7 @@ export default class NavItem extends Component {
             <p className={styles.NavItem}>
                 <Link
                     to={this.props.path}
+                    onClick={this.props.toggleMenu}
                     getProps={({ isCurrent }) => {
                         return {
                             style: {

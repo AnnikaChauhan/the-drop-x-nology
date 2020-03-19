@@ -1,109 +1,32 @@
 @import "../../../../variables";
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.artistProfileWrapper {
-  //border: 2px solid yellow;
-  height: 100vh;
-  // width: 100%;
-
-  .topContain {
-    //border: 2px solid orange;
-    display: flex;
-    justify-content: space-between;
-    height: 70px;
-
+.Profile {
     .header {
-      //border: 2px solid blue;
-      width: 50%;
-      height: 100%;
-      // padding: 10px 0;
-    }
-
-    .manageContain {
-      //border: 2px solid red;
-      width: 40%;
-      display: flex;
-      padding: 18px;
-      // align-items: center;
-      justify-content: space-around;
-      font-size: 14px;
-
-      p {
-        color: $primary-color;
-        cursor: pointer;
-      }
-    }
-  }
-
-  .midContain {
-    //border: 2px solid pink;
-    height: 150px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    .profileWrapper {
-      //border: 2px solid purple;
-      display: flex;
-      align-items: center;
-      width: 500px;
-
-      .imgContain {
-        //border: 2px solid green;
-        height: 130px;
-        width: 130px;
-        background-size: fill;
-        overflow: hidden;
-        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        margin-bottom: 50px;
 
         img {
-          max-width: 100%;
+            width: 120px;
+            border-radius: 50%;
         }
-      }
-    }
 
-    .nameContain {
-      //border: 2px solid red;
-      height: 100px;
-      width: 70%;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      padding: 15px;
-    }
+        .details {
+            margin-left: 60px;
+            text-align: right;
 
-    .createRelease {
-      //border: 2px solid yellow;
-      height: 100px;
-      width: 200px;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-    }
-  }
+            h2 {
+                font-size: 36px;
+                font-family: "Montserrat Light";
+                text-align: left;
+            }
 
-  .tabContain {
-    //border: 2px solid aqua;
-    height: 60%;
-    margin-top: 20px;
-    background-color: #121417;
-    border-radius: 10px;
-
-    nav {
-      // border: 2px solid purple;
-      height: unset;
-      width: unset;
-      color: unset;
-      background-color: unset;
-      position: unset;
-      font-size: unset;
-      border: unset;
+            p {
+                font-family: $font-stack;
+                font-size: 20px;
+                color: #888888;
+                float: left;
+            }
+        }
     }
-  }
 }

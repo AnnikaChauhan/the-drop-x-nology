@@ -1,29 +1,36 @@
 import React, { Component } from "react";
 import styles from "./ReleaseCard.module.scss";
-import Card from "react-bootstrap/Card";
+import FollowButton from "../../../../../Utility/Buttons/FollowButton/FollowButton";
+import { globalHistory } from "@reach/router";
+
 
 class ReleaseCard extends Component {
+    preview = () => {
+        globalHistory.navigate(`release/${this.props.release.releaseId}`);
+    };
+
     render() {
         return (
-            <Card style={{ border: "none" }} className={styles.cardWrapper}>
-                <Card.Img
-                    className={styles.image}
-                    variant="top"
-                    src={this.props.Releases.Artwork}
+            <article className={styles.Card}>
+                <img
+                    src={this.props.release.Artwork}
+                    alt={`${this.props.release.Artist}'s artwork`}
+                    onClick={this.preview}
                 />
-                <Card.Body className={styles.cardBody}>
-                    <Card.Title className={styles.artistName}>
-                        {this.props.Releases.Artist}
-                    </Card.Title>
-                    <Card.Text className={styles.albumName}>
-                        {this.props.Releases.ReleaseName} <br />
-                        Release Type: {this.props.Releases.ReleaseType}
-                    </Card.Text>
-                    <Card.Text className={styles.countDown}>
-                        {"12 Days"}
-                    </Card.Text>
-                </Card.Body>
-            </Card>
+                <div className={styles.details}>
+                    <div className={styles.banner}>
+                        <div>
+                            <h3>{this.props.release.Artist}</h3>
+                            <p>{this.props.release.ReleaseType}</p>
+                        </div>
+                        <FollowButton />
+                    </div>
+                    <p className={styles.albumName}>
+                        {this.props.release.ReleaseName}
+                    </p>
+                    <h4>{"12 days"}</h4>
+                </div>
+            </article>
         );
     }
 }

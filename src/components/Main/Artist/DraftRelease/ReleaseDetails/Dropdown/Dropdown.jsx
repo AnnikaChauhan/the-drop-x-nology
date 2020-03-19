@@ -7,15 +7,34 @@ class DropdownSelection extends Component {
   render() {
     return (
       <ButtonToolbar>
-        <ToggleButtonGroup type="radio" name="options" defaultValue={1}>
-          <ToggleButton value={1}>Single</ToggleButton>
-          <ToggleButton value={2}>EP</ToggleButton>
-          <ToggleButton value={3}>Album</ToggleButton>
+        <ToggleButtonGroup 
+          type="radio" 
+          // defaultValue={1} 
+          name="releaseType"
+          
+        >
+          <ToggleButton 
+            onChange={this.props.handleInput}
+            value={"Single"}
+          >
+            Single
+          </ToggleButton>
+          <ToggleButton 
+            onChange={this.props.handleInput}
+            value={"EP"}
+          >
+            EP
+          </ToggleButton>
+          <ToggleButton 
+            onChange={this.props.handleInput}
+            value={"Album"}
+          >
+            Album
+          </ToggleButton>
         </ToggleButtonGroup>
       </ButtonToolbar>
     );
   }
-
 }
 
 export default DropdownSelection;

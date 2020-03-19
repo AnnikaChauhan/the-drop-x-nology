@@ -10,8 +10,8 @@ class Dashboard extends Component {
     state = {
         searchFocused: false,
         searchText: "",
-        Releases: [],
-        Artists: [],
+        releases: [],
+        artists: [],
         filteredArtists: []
     };
 
@@ -20,10 +20,12 @@ class Dashboard extends Component {
             .collection("Releases")
             .get()
             .then(query => {
-                const Releases = query.docs.map(doc => doc.data());
+                const releases = query.docs.map(doc => {
+                    return Object.assign(doc.data(), { releaseId: doc.id });
+                });
                 this.setState({
-                    Releases: Releases,
-                    Artists: Releases
+                    releases,
+                    artists: releases
                 });
             });
     }
@@ -34,12 +36,17 @@ class Dashboard extends Component {
     };
 
     filteredArtists = () => {
-        let filteredArtists = this.state.Artists.filter(artist => {
-            return artist.Artist.toUpperCase().includes(
-                this.state.searchText.toUpperCase()
-            );
-        });
-        this.setState({ filteredArtists });
+        if (this.state.searchText.length === 0) {
+            let filteredArtists = [];
+            this.setState({ filteredArtists });
+        } else {
+            let filteredArtists = this.state.artists.filter(artist => {
+                return artist.Artist.toUpperCase().includes(
+                    this.state.searchText.toUpperCase()
+                );
+            });
+            this.setState({ filteredArtists });
+        }
     };
 
     searchFocus = () => {
@@ -47,14 +54,19 @@ class Dashboard extends Component {
     };
 
     searchBlur = () => {
-        this.setState({ searchFocused: false });
+        if (this.state.searchText.length === 0) {
+            this.setState({ searchFocused: false });
+        }
     };
 
     render() {
         if (this.state.searchFocused) {
             return (
                 <section className={styles.Dashboard}>
-                    <Header title={"Search Results"} />
+                    <Header
+                        title={"Search Results"}
+                        subtitle={"Search for Artists to follow"}
+                    />
                     <SearchBar
                         onFocus={this.searchFocus}
                         onBlur={this.searchBlur}
@@ -62,19 +74,22 @@ class Dashboard extends Component {
                         onChange={this.setSearchText}
                         placeHolder={"Search Artists..."}
                     />
-                    <SearchList Releases={this.state.filteredArtists} />
+                    <SearchList artists={this.state.filteredArtists} />
                 </section>
             );
         } else {
             return (
                 <section className={styles.Dashboard}>
-                    <Header title={"Dashboard"} />
+                    <Header
+                        title={"Releases"}
+                        subtitle={"Below is a list of upcoming releases"}
+                    />
                     <SearchBar
                         onFocus={this.searchFocus}
                         onBlur={this.searchBlur}
                         placeHolder={"Search Artists..."}
                     />
-                    <ReleaseCardList Releases={this.state.Releases} />
+                    <ReleaseCardList releases={this.state.releases} />
                 </section>
             );
         }
