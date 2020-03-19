@@ -3,6 +3,7 @@ import styles from "./ReleaseCard.module.scss";
 import FollowButton from "../../../../../Utility/Buttons/FollowButton/FollowButton";
 import { globalHistory } from "@reach/router";
 
+
 class ReleaseCard extends Component {
     preview = () => {
         globalHistory.navigate(`release/${this.props.release.releaseId}`);
