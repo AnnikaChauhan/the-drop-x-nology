@@ -66,7 +66,6 @@
         width: 100%;
         background-color: rgba(0, 0, 0, 0.7);
         background-repeat: no-repeat;
-        // opacity: 0;
         transition: opacity 0.3s;
         display: flex;
         border-radius: 4px;
@@ -118,21 +117,20 @@
     background-size: cover;
     filter: grayscale(100%);
 
+    .artistinfo {
+        opacity: 0;
+    }
+
     &:hover {
         width: 80%;
         filter: grayscale(0%);
         transition: 0.3s;
         box-shadow: 10px 0px 40px grey;
         z-index: 1;
-        
 
-        .leftArtistWrapper:hover > .right {
-            opacity: 0;
+        .artistinfo {
+            opacity: 1;
         }
-
-        // .right, h2, h3 {
-        //         opacity: 0;
-        // }
         
         h1 {
             transition: 0.3s ease-out;
@@ -141,7 +139,7 @@
     }
 }
 
-.right {
+.rightFanWrapper {
     height: 100%;
     width: 50%;
     background-image: url("../../static/images/backgrounds/fan-bg3.jpg");
@@ -149,6 +147,10 @@
     background-size: cover;
     transition: 0.3s;
     filter: grayscale(100%);
+
+    .faninfo {
+        opacity: 0;
+    }
 
     &:hover {
         width: 80%;
@@ -166,9 +168,11 @@
             transition: 0.3s ease-out;
         }
 
-        // h2, h3 {
-        //     opacity: 0;
-        // }
+        .faninfo {
+            opacity: 1;
+        }
+
+        
     }
 }
 
