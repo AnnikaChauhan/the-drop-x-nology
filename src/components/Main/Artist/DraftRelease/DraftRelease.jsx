@@ -7,15 +7,22 @@ import ArtworkMedia from "./ArtworkMedia/ArtworkMedia";
 import SmallButton from "../../../Utility/Buttons/SmallButton";
 import Header from "../../../Utility/Header";
 import { Link } from "@reach/router";
+import SimpleReactValidator from 'simple-react-validator';
 
 class DraftRelease extends Component {
+  
+
+    handleSaveClick = () => {
+        console.log("clicked")
+    }
+
     render() {
         return (
             <section className={styles.DraftRelease}>
                 <article className={styles.topPart}>
                     <Header title={"Edit Release"} />
                     <div className={styles.links}>
-                        <SmallButton text="SAVE" />
+                        <SmallButton onClick={this.handleSaveClick} text="SAVE" />
                         <Link to="/artist/preview">
                             <SmallButton text="PREVIEW" />
                         </Link>
@@ -25,9 +32,12 @@ class DraftRelease extends Component {
                 {/* progress bar */}
                 {/* add asterisk to boxes which are required to create a release */}
                 <ReleaseDetails />
-                <PreSaveURIs />
+                {/* <PreSaveURIs 
+                // preSaveUrl={this.state.preSaveUrl} setPreSaveUrl={this.setPreSaveUrl} 
+                />
                 <PhysicalURLs />
-                <ArtworkMedia />
+                <ArtworkMedia /> */} */}
+               
                 {/* Add continue buttons to each component */}
                 {/* Add a back to top button, put the save etc buttons back */}
             </section>
@@ -36,3 +46,6 @@ class DraftRelease extends Component {
 }
 
 export default DraftRelease;
+
+// pre save url, physical url, artwork media, all in release details
+//
