@@ -9,6 +9,7 @@ import { firestore } from "../../../../firebase";
 export default class Profile extends Component {
     state = {
         Releases: []
+
     }
     componentDidMount() {
         firestore
@@ -47,18 +48,38 @@ export default class Profile extends Component {
                             <Link to={"add-release"}>+ Create New Release</Link>
                             {this.state.Releases.map((release, index) => {
                                 return (<StatusBar
+                                    artwork={release.Artwork}
                                     title={release.ReleaseName}
                                     type={release.ReleaseType}
-                                    status={"Draft"}
+                                    status={release.Status}
                                     Releases={release}
                                     key={index}
                                 />)
-                                  
+                           
+                                
+                                                                
 
                             })}
+                           
                         </>,
-                        <p>Past Releases</p>
+                    //     <>
+                        <p>Coming soon..</p>
+                        // <p>Past Releases</p>
+                    //     {this.state.Releases.map((release, index) => {
+                    //        return(<StatusBar
+                    //      title={release.ReleaseName}
+                    //      type={release.ReleaseType}
+                    //      status={"Draft"}
+                    //      Releases={release}
+                    //      key={index}
+                    //     />)
+                    // })}
+                    //     </>
+                     
                     ]}
+                    
+                  
+                    
                            
                         //     <StatusBar
                         //         title={"Release Title 3"}

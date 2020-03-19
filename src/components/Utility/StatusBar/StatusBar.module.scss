@@ -8,6 +8,8 @@
     .title {
         flex-grow: 1;
         overflow: hidden;
+        // border: 2px solid red;
+        width: 600px;
     }
 
     .type {
@@ -49,4 +51,16 @@
             border-right: 1px solid #333333;
         }
     }
+
+    // @media screen and (max-width: 480px) {
+
+    //     .StatusBar {
+    //         border: 2px solid yellow;
+
+    //         .title {
+    //             border: 2px solid red;
+    //             width: 300px;
+    //         }
+    //     }
+    // }
 }

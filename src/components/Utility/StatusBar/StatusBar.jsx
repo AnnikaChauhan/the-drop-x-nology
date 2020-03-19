@@ -39,6 +39,7 @@ export default class StatusBar extends Component {
     render() {
         return (
             <article className={styles.StatusBar}>
+               
                 <div className={styles.title}>{this.props.title}</div>
                 <div className={styles.type}>{this.props.type}</div>
                 {this.status}
