@@ -48,7 +48,6 @@ export default class Profile extends Component {
                             <Link to={"add-release"}>+ Create New Release</Link>
                             {this.state.Releases.map((release, index) => {
                                 return (<StatusBar
-                                    artwork={release.Artwork}
                                     title={release.ReleaseName}
                                     type={release.ReleaseType}
                                     status={release.Status}
