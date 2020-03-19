@@ -7,16 +7,19 @@ import DropdownSelection from "./Dropdown/Dropdown";
 import PhysicalURLs from "../PhysicalURLs/PhysicalURLs";
 import ArtworkMedia from "../ArtworkMedia/ArtworkMedia";
 import PreSaveURIs from "../PreSaveURIs/PreSaveURIs";
+import "react-datepicker/dist/react-datepicker.css";
+import DatePicker from "react-datepicker";
 
 // import SimpleReactValidator from 'simple-react-validator';
 
 export default class ReleaseDetails extends Component {
 
     state = {
-        formData:{
+        formData: {
             title: "",
-            description:"",
+            description: "",
             releaseType: "",
+            startDate: new Date(),
             physicalURLs: {
                 musicStore: "",
                 merchandise: ""
@@ -25,18 +28,32 @@ export default class ReleaseDetails extends Component {
                 spotify: "",
                 appleMusic: "",
                 soundcloud: "",
-                tidal: ""        
+                tidal: ""
             }
-            // physicalURLs: {},
-            // preSaveURIs: {}
+            // releaseTimer: {
+            //     startDate: new Date()
+            // }
         }
-        // physicalURLs: ["musicStore", "merchandise"],
-        // preSaveURIs: ["spotify", "appleMusic", "soundcloud", "tidal"]
-
-        // ,
-        // physicalURLs: ["musicStore", "merchandise"]
     }
-    
+
+    handleChange = date => {
+        // this.setState({
+        //   formData: {
+        //       releaseTimer: {
+        //         startDate: date
+        //       }
+        //   }  
+        // });
+        console.log(date)
+        this.setState({
+            formData: {
+                ...this.state.formData,
+                startDate: date
+            }
+        });
+    };
+
+
     handleInput = (event) => {
         this.setState({
             formData: {
@@ -49,12 +66,12 @@ export default class ReleaseDetails extends Component {
                 //     ...this.state.formData.preSaveURIs,
                 //     [event.target.name]: event.target.value
                 // }
-                
+
             }
         })
         // console.log(this.state.formData);
         // console.log(this.state.formData.physicalURLs);
-        
+
     };
 
     handleInputPhysicalURLs = (event) => {
@@ -76,18 +93,23 @@ export default class ReleaseDetails extends Component {
                 ...this.state.formData,
                 preSaveURIs: {
                     ...this.state.formData.preSaveURIs,
-                    [event.target.name]: event.target.value   
+                    [event.target.name]: event.target.value
                 }
             }
         })
         // console.log(this.state.formData.preSaveURIs);
     }
-    
-    
+
+
 
     render() {
-        console.log(this.state.formData.physicalURLs);
-        console.log(this.state.formData.preSaveURIs);
+        // console.log(this.state.formData.physicalURLs);
+        // console.log(this.state.formData.preSaveURIs);
+        // console.log(this.state.startDate);
+        // console.log(this.state.formData.releaseTimer.startDate)
+        let handleColor = time => {
+            return "text-success";
+        };       
         return (
             <>
                 <article className={styles.initialDescription}>
@@ -97,14 +119,31 @@ export default class ReleaseDetails extends Component {
                     </div>
                     <form className="myForm">
                         <h3>Title *</h3>
-                        <input type="text" name="title" required value={this.state.formData.title}  onChange={this.handleInput}/>
+                        <input type="text" name="title" required value={this.state.formData.title} onChange={this.handleInput} />
                         <h3>Description *</h3>
-                        <textarea rows="8" name="description" required value={this.state.formData.description} onChange={this.handleInput}/>
+                        <textarea rows="8" name="description" required value={this.state.formData.description} onChange={this.handleInput} />
                     </form>
                 </article>
-                <h3>Announcement</h3>
-                <ReleaseTimer />
-                <WYSIWYG />
+                <h3>Announcement Date</h3>
+                {/* <ReleaseTimer /> */}
+                <div>
+                    <WYSIWYG />
+                </div>
+                <DatePicker
+                    // onSelect={this.handleSelect}
+                    selected={this.state.formData.startDate}
+                    onChange={this.handleChange}
+                    timeClassName={handleColor}
+                    showTimeSelect
+                    timeInputLabel="Time:"
+                    timeFormat="HH:mm"
+                    timeIntervals={15}
+                    timeCaption="time"
+                    dateFormat="MMMM d, yyyy h:mm aa"
+
+                />
+                
+                {/* <WYSIWYG /> */}
                 <h3>Release</h3>
                 <ReleaseTimer />
                 <hr />
