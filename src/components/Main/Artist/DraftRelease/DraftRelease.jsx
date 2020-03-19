@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import styles from "./DraftRelease.module.scss";
+
 import firebase from '../../../../firebase';
 import FileUploader from "react-firebase-file-uploader";
 import ReleaseDetails from "./ReleaseDetails/ReleaseDetails";
@@ -9,6 +9,12 @@ import PhysicalURLs from "./PhysicalURLs/PhysicalURLs";
 import SmallButton from "../../../Utility/Buttons/SmallButton";
 import Header from "../../../Utility/Header";
 import { Link } from "@reach/router";
+import DatePicker from "react-datepicker";
+ 
+import "react-datepicker/dist/react-datepicker.css";
+import styles from "./DraftRelease.module.scss";
+import './datepicker.css'
+
 
 class DraftRelease extends Component {
     state = {
@@ -16,7 +22,8 @@ class DraftRelease extends Component {
         artwork: "",
         isUploading: false,
         progress: 0,
-        artworkURL: ""
+        artworkURL: "",
+        startDate: new Date()
     };
 
     handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
@@ -26,6 +33,12 @@ class DraftRelease extends Component {
     handleUploadError = (error) => {
         this.setState({ isUploading: false });
         console.error(error);
+    };
+
+    handleChange = date => {
+        this.setState({
+          startDate: date
+        });
     };
 
     handleUploadSuccess = (filename) => {
@@ -57,6 +70,11 @@ class DraftRelease extends Component {
                 {/* progress bar */}
                 {/* add asterisk to boxes which are required to create a release */}
                 <ReleaseDetails />
+                <DatePicker
+                    selected={this.state.startDate}
+                    onChange={this.handleChange}
+                    popperClassName="yomama"
+                />
                 <PreSaveURIs />
                 <PhysicalURLs />
                 {/* <ArtworkMedia /> */}
