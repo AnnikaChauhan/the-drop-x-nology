@@ -29,12 +29,16 @@ export default class LoginPage extends Component {
                         <ReactFullpage.Wrapper>
                             <div className="section">
                                 <section className={styles.pagewrapper}>
+<<<<<<< HEAD
                                     <SignIn
                                         //this.signInWithEmailAndPassword?
                                          signInWithEmailAndPassword={this.props.signInWithEmailAndPassword}
                                          setEmail={this.props.email}
                                          setPassword={this.props.password}
                                      />
+=======
+                                    <SignIn signIn={this.props.signIn} />
+>>>>>>> 19585434d5a9b868f6ef9cfe750cd685d09540ef
                                     <div
                                         className={styles.footercontainer}
                                         onClick={() =>

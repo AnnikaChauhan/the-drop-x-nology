@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import { Router, Redirect } from "@reach/router";
+import { Router, globalHistory } from "@reach/router";
 import LandingPage from "../containers/LandingPage";
-// import LoginPage from "../containers/LoginPage";
+// import LoginPage from "../containers/LoginPage/LoginPage";
 import Fan from "../containers/Main/Fan";
 import Artist from "../containers/Main/Artist";
 import NotFound from "../components/Navbar/NotFound";
-import StreamingLogin from "../containers/StreamingLogin/StreamingLogin";
 
 import firebase, { providers } from "../firebase";
+import PrivateRoutes from "./PrivateRoutes.jsx";
 
 export default class Routes extends Component {
     // state = {
