@@ -26,7 +26,7 @@ export default class Profile extends Component {
                 <Header
                     title={"Dashboard"}
                     className={styles.title}
-                    subtitle={"Create, manage & view releases"}
+                    subtitle={"Create, edit, preview and publish releases"}
                 />
                 <div className={styles.header}>
                     <img

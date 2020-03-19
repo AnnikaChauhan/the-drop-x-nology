@@ -5,17 +5,6 @@
     align-items: center;
     height: 60px;
 
-    .image {
-        display: flex;
-        align-items: center;
-        padding: 20px;
-        text-align: center;
-        justify-content: center;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-image: url(../../../static//images/album1.png);
-    }
-
     .title {
         flex-grow: 1;
         overflow: hidden;
@@ -60,8 +49,4 @@
             border-right: 1px solid #333333;
         }
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 9b8466604734d2be2cf70e1545f76af34f21960f
