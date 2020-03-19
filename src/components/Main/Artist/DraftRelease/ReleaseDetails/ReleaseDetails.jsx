@@ -67,7 +67,6 @@ export default class ReleaseDetails extends Component {
                 <hr />
                 <PhysicalURLs formData={this.props.formData.physicalURLs} handleInput={this.props.handleInputPhysicalURLs} />
                 <PreSaveURIs formData={this.props.formData.preSaveURIs} handleInput={this.props.handleInputPresaveURIs} />
-                <ArtworkMedia handleInput={this.props.handleInput} />
             </>
         );
     }

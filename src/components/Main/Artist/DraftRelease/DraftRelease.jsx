@@ -1,19 +1,12 @@
 import React, { Component } from "react";
-
-import firebase from '../../../../firebase';
 import FileUploader from "react-firebase-file-uploader";
 import ReleaseDetails from "./ReleaseDetails/ReleaseDetails";
-import PreSaveURIs from "./PreSaveURIs/PreSaveURIs";
-import PhysicalURLs from "./PhysicalURLs/PhysicalURLs";
-// import ArtworkMedia from "./ArtworkMedia/ArtworkMedia";
 import SmallButton from "../../../Utility/Buttons/SmallButton";
 import Header from "../../../Utility/Header";
 import { Link } from "@reach/router";
-import DatePicker from "react-datepicker";
-import { firestore } from "../../../../firebase";
+import firebase, { firestore } from "../../../../firebase";
 import "react-datepicker/dist/react-datepicker.css";
 import styles from "./DraftRelease.module.scss";
-import './datepicker.css'
 
 
 class DraftRelease extends Component {
@@ -35,41 +28,65 @@ class DraftRelease extends Component {
                 appleMusic: "",
                 soundcloud: "",
                 tidal: ""
-            }
+            },
+            artworkURL: ""
         },
         artwork: {
             artwork: "",
             isUploading: false,
             progress: 0,
-            artworkURL: ""
+            
         }
     }
 
-    handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
+    handleUploadStart = () => this.setState({ 
+        artwork: {
+            isUploading: true, progress: 0 
+        }
+    });
 
-    handleProgress = (progress) => this.setState({ progress });
+    handleProgress = (progress) => this.setState({
+            artwork: {
+                progress
+            }
+        });
 
     handleUploadError = (error) => {
-        this.setState({ isUploading: false });
+        this.setState({ 
+            artwork: {
+                isUploading: false 
+            }
+        });
         console.error(error);
     };
+
+    handleUploadSuccess = (filename) => {
+        this.setState({ 
+            artwork: {
+                    artwork: filename, 
+                    progress: 100, 
+                    isUploading: false 
+                }
+            });
+        firebase
+          .storage()
+          .ref("artwork")
+          .child(filename)
+          .getDownloadURL()
+          .then(url => this.setState({ 
+              formData: {
+                    ...this.state.formData,
+                    artworkURL: url 
+              }
+            }));
+    };
+    
 
     handleChange = date => {
         this.setState({
           startDate: date
         });
     };
-
-    handleUploadSuccess = (filename) => {
-        this.setState({ artwork: filename, progress: 100, isUploading: false });
-        firebase
-          .storage()
-          .ref("artwork")
-          .child(filename)
-          .getDownloadURL()
-          .then(url => this.setState({ artworkURL: url }));
-    };
-    
 
     handleChange = date => {
         console.log(date)
@@ -140,7 +157,6 @@ class DraftRelease extends Component {
     
 
     render() {
-        console.log(this.state.formData)
         return (
             <section className={styles.DraftRelease}>
                 <article className={styles.topPart}>
@@ -155,13 +171,12 @@ class DraftRelease extends Component {
                 </article>
                 {/* progress bar */}
                 {/* add asterisk to boxes which are required to create a release */}
-                {/* <ArtworkMedia /> */}
                 
                 <ReleaseDetails formData={this.state.formData} handleChange={this.handleChange} handleChangeReleases={this.handleChangeReleases} handleInput={this.handleInput} handleInputPhysicalURLs={this.handleInputPhysicalURLs} handleInputPresaveURIs={this.handleInputPresaveURIs}    />
                
                 <h3>Artwork</h3>
-                {this.state.isUploading && <p>Progress: {this.state.progress}</p>}
-                {this.state.artworkURL && (<img alt="artwork" src={this.state.artworkURL}/>)}
+                {this.state.artwork.isUploading && <p>Progress: {this.state.artwork.progress}</p>}
+                {this.state.formData.artworkURL && (<img alt="artwork" src={this.state.formData.artworkURL}/>)}
                 <FileUploader
                     accept="image/*"
                     name="artwork"
