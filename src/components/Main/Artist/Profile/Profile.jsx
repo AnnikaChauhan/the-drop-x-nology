@@ -4,14 +4,34 @@ import Header from "../../../Utility/Header";
 import Tabs from "../../../Utility/Tabs";
 import StatusBar from "../../../Utility/StatusBar";
 import { Link } from "@reach/router";
+import { firestore } from "../../../../firebase";
 
 
 export default class Profile extends Component {
+    state = {
+        Releases: []
+
+    }
+    componentDidMount() {
+        firestore
+            .collection("Releases")
+            // .where("uid", "==", this.props.userId)
+            .where("Artist", "==", "Archie Hamilton")
+            .get()
+            .then((query) => {
+                const Releases = query.docs.map(doc => doc.data());
+                this.setState({ Releases });
+                
+            })
+    }
     render() {
         return (
             <section className={styles.Profile}>
-                <Header title={"Dashboard"} className={styles.title} />
-
+                <Header
+                    title={"Dashboard"}
+                    className={styles.title}
+                    subtitle={"Create, manage & view releases"}
+                />
                 <div className={styles.header}>
                     <img
                         src="https://i.scdn.co/image/07731d62846074c691f9dad6edaf09c271c39fbc"
@@ -24,57 +44,35 @@ export default class Profile extends Component {
                     </div>
 
                 </div>
-
                 <Tabs
                     tabs={["Releases", "Past Releases"]}
                     content={[
                         <>
                             <Link to={"add-release"}>+ Create New Release</Link>
-                            <StatusBar
-                                image={""}
-                                title={"Release Title 1"}
-                                type={"Single"}
-                                status={"Draft"}
-                            />
-                            <StatusBar
-                                image={""}
-                                title={"Release Title 2"}
-                                type={"EP"}
-                                status={"Live"}
-                            />
-                            <StatusBar
-                                image={""}
-                                title={"Release Title 3"}
-                                type={"Album"}
-                                status={"Live"}
-                            />
+                            {this.state.Releases.map((release, index) => {
+                                return (<StatusBar
+                                    title={release.ReleaseName}
+                                    type={release.ReleaseType}
+                                    status={release.Status}
+                                    Releases={release}
+                                    key={index}
+                                />)
+                            })}
+                           
                         </>,
-                        <>
-                            <StatusBar
-                                image={""}
-                                title={"Release Title 4"}
-                                type={"Album"}
-                                status={"Released"}
-                            />
-                            <StatusBar
-                                image={""}
-                                title={"Release Title 5"}
-                                type={"Merch"}
-                                status={"Released"}
-                            />
-                            <StatusBar
-                                image={""}
-                                title={"Release Title 6"}
-                                type={"EP"}
-                                status={"Released"}
-                            />
-                            <StatusBar
-                                image={""}
-                                title={"Release Title 7"}
-                                type={"Single"}
-                                status={"Released"}
-                            />
-                        </>
+                    //     <>
+                        <p>Coming soon..</p>
+                        // <p>Past Releases</p>
+                    //     {this.state.Releases.map((release, index) => {
+                    //        return(<StatusBar
+                    //      title={release.ReleaseName}
+                    //      type={release.ReleaseType}
+                    //      status={"Draft"}
+                    //      Releases={release}
+                    //      key={index}
+                    //     />)
+                    // })}
+                    //     </>
                     ]}
                 />
             </section>
@@ -82,4 +80,11 @@ export default class Profile extends Component {
     }
 }
 
-// add followers and latest releases on upper for more content as suggested
+
+
+
+
+
+                          
+                        
+                            

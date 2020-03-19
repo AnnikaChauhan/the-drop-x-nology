@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import styles from "./StatusBar.module.scss";
 import { globalHistory } from "@reach/router";
-// import image from "../../../static/images/album1.png";
 
 export default class StatusBar extends Component {
     editRelease = () => {
@@ -39,10 +38,7 @@ export default class StatusBar extends Component {
 
     render() {
         return (
-            <article className={styles.StatusBar}>
-                <div className={styles.image}>
-                    <div>{this.props.image}</div>
-                </div>
+            <article className={styles.StatusBar}>               
                 <div className={styles.title}>{this.props.title}</div>
                 <div className={styles.type}>{this.props.type}</div>
                 {this.status}

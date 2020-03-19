@@ -18,32 +18,18 @@
 
     .text {
         transition: 0.4s;
-        color: black;
+        color: white;
         z-index: 2;
         text-decoration: none;
     }
 
     &:hover {
+        background-color: #cf0168d3;
+        transition: all 0.3s ease-Out;
         .text {
             color: white;
         }
     }
 
-    .translate {
-        width: 100%;
-        height: 250%;
-        transform: rotate(50deg);
-        left: -200px;
-        top: -30px;
-        background: $secondary-color;
-        position: absolute;
-        transition: all 0.3s ease-Out;
-        z-index: 1;
-    }
 }
-
-.SmallButton:hover > .translate {
-    left: -8px;
-}
-
 //Add this classname to your button to create a small styled button
