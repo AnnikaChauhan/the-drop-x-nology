@@ -7,7 +7,7 @@ export default class ArtistBio extends Component {
     render() {
         return (
             <section className={styles.Bio}>
-                <Header title={"Artist Bio"} />
+                <Header title={"Artist Bio"} subtitle={"Create your profile bio"}/>
                 <WYSIWYG />
             </section>
         );

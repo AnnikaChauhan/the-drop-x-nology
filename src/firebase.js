@@ -1,4 +1,5 @@
 import firebase from "firebase";
+import 'firebase/analytics';
 
 const firebaseConfig = {
     apiKey: "AIzaSyCqaC-WbYM_23R4sNyQDwEIdiQZrzWcN4I",
@@ -12,10 +13,11 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
+firebase.analytics();
 
 export const providers = {
     google: new firebase.auth.GoogleAuthProvider()
-}
+};
 
 export const firestore = firebase.firestore();
 

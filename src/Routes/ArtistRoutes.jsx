@@ -8,18 +8,20 @@ import DraftRelease from "../components/Main/Artist/DraftRelease";
 import ReleaseArchive from "../components/Main/Artist/ReleaseArchive";
 import ManageReleases from "../components/Main/Artist/ManageReleases";
 import PreviewRelease from "../components/Main/Artist/ManageReleases/PreviewReleases";
+import Help from "../components/Help";
 
 export default class FanRoutes extends Component {
     render() {
         return (
             <Router className={styles.Router}>
-                <Redirect noThrow from="/" to="dashboard" />
-                <Dashboard path="dashboard" />
-                <DraftRelease path="dashboard/add-release" />
-                <ManageReleases path="dashboard/releases" />
-                <ReleaseArchive path="dashboard/archive" />
+                <Redirect noThrow from="/" to="home" />
+                <Dashboard path="home" />
+                <DraftRelease path="home/add-release" />
+                <ManageReleases path="home/releases" />
+                <ReleaseArchive path="home/archive" />
                 <PreviewRelease path="preview" />
                 <ArtistBio path="profile" />
+                <Help path="help" />
                 <NotFound default />
             </Router>
         );
