@@ -1,0 +1,18 @@
+@import "../../../../../variables";
+
+.mainWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h2 {
+        font-family: "Montserrat Light";
+        margin: 25px;
+    }
+
+    .profileImage {
+        width: 120px;
+        border-radius: 50%;
+    }
+}
+

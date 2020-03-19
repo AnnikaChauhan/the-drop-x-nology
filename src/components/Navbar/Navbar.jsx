@@ -9,6 +9,7 @@ const navItems = {
     Account: "account",
     Help: "help",
     Feedback: "feedback",
+    ArtistProfileView: "artistprofileview",
     Logout: "/"
 };
 
