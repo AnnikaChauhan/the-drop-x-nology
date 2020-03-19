@@ -2,41 +2,26 @@ import React, { Component } from "react";
 import LargeButton from "../../Utility/Buttons/LargeButton";
 
 export default class EmailSignIn extends Component {
-  state = {
-    user: null,
-    loginFormData: {
-        email: "",
-        password: ""
-    },
-  };
   
-  handleInputChange = (event) => {
-    this.setState({
-        loginFormData: {
-            ...this.state.loginFormData,
-                [event.target.name]: event.target.value
-          }
-    })
-  }    
 
   render() {
-    console.log(this.state.loginFormData);
+    console.log(this.props);
     return (
       <>
-        <form onSubmit={this.props.signInWithEmailAndPassword}>
+        <form >
           <input 
             type="email"
             name="email"
-            value={this.state.loginFormData.email} 
+            value={this.props.loginFormData.email} 
             placeholder="Your email"
-            onChange={this.handleInputChange}
+            onChange={this.props.handleLoginDetails}
             />
           <input 
             type="password" 
             name="password"
-            value={this.state.loginFormData.password} 
+            value={this.props.loginFormData.password} 
             placeholder="Enter password"
-            onChange={this.handleInputChange}
+            onChange={this.props.handleLoginDetails}
              />
           <LargeButton 
             link="" 

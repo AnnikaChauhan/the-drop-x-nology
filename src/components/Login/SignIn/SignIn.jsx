@@ -6,6 +6,13 @@ import { gsap } from 'gsap';
 import EmailSignIn from "../EmailSignIn";
 
 class SignIn extends Component {
+    state = {
+        user: null,
+        loginFormData: {
+            email: "",
+            password: ""
+        },
+      };
     constructor(props) {
         super(props);
         this.myElement = [];
@@ -15,6 +22,15 @@ class SignIn extends Component {
     componentDidMount() {
         this.myTween = gsap.to(this.myElement, {opacity: 1, duration: 0.5, delay: 0.5} )
     }
+
+    handleLoginDetails = (event) => {
+        this.setState({
+            loginFormData: {
+                ...this.state.loginFormData,
+                    [event.target.name]: event.target.value
+              }
+        })
+      }    
 
     render() {
         // console.log(this.props.email)
@@ -33,6 +49,8 @@ class SignIn extends Component {
                     </div>
                     <EmailSignIn 
                          signInWithEmailAndPassword={this.props.signInWithEmailAndPassword}
+                         handleLoginDetails={this.handleLoginDetails}
+                         loginFormData={this.state.loginFormData}
                      />
                 </div>
             </section>
