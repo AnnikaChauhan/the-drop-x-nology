@@ -52,7 +52,7 @@ export default class Routes extends Component {
                         path="initial-login"
                     />
                     <Fan path="fan/*" />
-                    <Artist path="artist/*" />
+                    <Artist user={this.state.user} path="artist/*" />
                 </PrivateRoutes>
                 <NotFound default />
             </Router>
