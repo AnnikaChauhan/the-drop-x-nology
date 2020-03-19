@@ -10,13 +10,86 @@ import { Link } from "@reach/router";
 import SimpleReactValidator from 'simple-react-validator';
 
 class DraftRelease extends Component {
-  
+    
+    state = {
+        formData: {
+            title: "",
+            description: "",
+            releaseType: "",
+            startDate: new Date(),
+            startDateReleases: new Date(),
+            physicalURLs: {
+                musicStore: "",
+                merchandise: ""
+            },
+            preSaveURIs: {
+                spotify: "",
+                appleMusic: "",
+                soundcloud: "",
+                tidal: ""
+            }
+        }
+    }
+
+    handleChange = date => {
+        console.log(date)
+        this.setState({
+            formData: {
+                ...this.state.formData,
+                startDate: date
+            }
+        });
+    };
+
+    handleChangeReleases = date => {
+        console.log(date)
+        this.setState({
+            formData: {
+                ...this.state.formData,
+                startDateReleases: date
+            }
+        });
+    };
+
+    handleInput = (event) => {
+        this.setState({
+            formData: {
+                ...this.state.formData,
+                [event.target.name]: event.target.value
+            }
+        })
+    };
+
+    handleInputPhysicalURLs = (event) => {
+        this.setState({
+            formData: {
+                ...this.state.formData,
+                physicalURLs: {
+                    ...this.state.formData.physicalURLs,
+                    [event.target.name]: event.target.value
+                }
+            }
+        })
+    }
+
+    handleInputPresaveURIs = (event) => {
+        this.setState({
+            formData: {
+                ...this.state.formData,
+                preSaveURIs: {
+                    ...this.state.formData.preSaveURIs,
+                    [event.target.name]: event.target.value
+                }
+            }
+        })
+    }
 
     handleSaveClick = () => {
         console.log("clicked")
     }
 
     render() {
+        console.log(this.state.formData)
         return (
             <section className={styles.DraftRelease}>
                 <article className={styles.topPart}>
@@ -31,12 +104,12 @@ class DraftRelease extends Component {
                 </article>
                 {/* progress bar */}
                 {/* add asterisk to boxes which are required to create a release */}
-                <ReleaseDetails />
+                <ReleaseDetails formData={this.state.formData} handleChange={this.handleChange} handleChangeReleases={this.handleChangeReleases} handleInput={this.handleInput} handleInputPhysicalURLs={this.handleInputPhysicalURLs} handleInputPresaveURIs={this.handleInputPresaveURIs}    />
                 {/* <PreSaveURIs 
                 // preSaveUrl={this.state.preSaveUrl} setPreSaveUrl={this.setPreSaveUrl} 
                 />
                 <PhysicalURLs />
-                <ArtworkMedia /> */} */}
+                <ArtworkMedia /> */}
                
                 {/* Add continue buttons to each component */}
                 {/* Add a back to top button, put the save etc buttons back */}
