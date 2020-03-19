@@ -9,19 +9,16 @@ import { firestore } from "../../../../firebase";
 export default class Profile extends Component {
     state = {
         Releases: []
-
-    }
+    };
     componentDidMount() {
         firestore
             .collection("Releases")
-            // .where("uid", "==", this.props.userId)
             .where("Artist", "==", "Archie Hamilton")
             .get()
-            .then((query) => {
+            .then(query => {
                 const Releases = query.docs.map(doc => doc.data());
                 this.setState({ Releases });
-                
-            })
+            });
     }
     render() {
         return (
@@ -47,78 +44,33 @@ export default class Profile extends Component {
                         <>
                             <Link to={"add-release"}>+ Create New Release</Link>
                             {this.state.Releases.map((release, index) => {
-                                return (<StatusBar
-                                    title={release.ReleaseName}
-                                    type={release.ReleaseType}
-                                    status={release.Status}
-                                    Releases={release}
-                                    key={index}
-                                />)
-                           
-                                
-                                                                
-
+                                return (
+                                    <StatusBar
+                                        title={release.ReleaseName}
+                                        type={release.ReleaseType}
+                                        status={release.Status}
+                                        Releases={release}
+                                        key={index}
+                                    />
+                                );
                             })}
-                           
                         </>,
-                    //     <>
+                        //     <>
                         <p>Coming soon..</p>
                         // <p>Past Releases</p>
-                    //     {this.state.Releases.map((release, index) => {
-                    //        return(<StatusBar
-                    //      title={release.ReleaseName}
-                    //      type={release.ReleaseType}
-                    //      status={"Draft"}
-                    //      Releases={release}
-                    //      key={index}
-                    //     />)
-                    // })}
-                    //     </>
-                     
+                        //     {this.state.Releases.map((release, index) => {
+                        //        return(<StatusBar
+                        //      title={release.ReleaseName}
+                        //      type={release.ReleaseType}
+                        //      status={"Draft"}
+                        //      Releases={release}
+                        //      key={index}
+                        //     />)
+                        //     })}
+                        //     </>
                     ]}
-                    
-                  
-                    
-                           
-                        //     <StatusBar
-                        //         title={"Release Title 3"}
-                        //         type={"Album"}
-                        //         status={"Live"}
-                        //     />
-                        // </>,
-                        // <>
-                        //     <StatusBar
-                        //         title={"Release Title 4"}
-                        //         type={"Album"}
-                        //         status={"Released"}
-                        //     />
-                        //     <StatusBar
-                        //         title={"Release Title 5"}
-                        //         type={"Merch"}
-                        //         status={"Released"}
-                        //     />
-                        //     <StatusBar
-                        //         title={"Release Title 6"}
-                        //         type={"EP"}
-                        //         status={"Released"}
-                        //     />
-                        //     <StatusBar
-                        //         title={"Release Title 7"}
-                        //         type={"Single"}
-                        //         status={"Released"}
-                        //     />
-                        // </>
                 />
             </section>
         );
     }
 }
-
-
-
-
-
-
-                          
-                        
-                            
