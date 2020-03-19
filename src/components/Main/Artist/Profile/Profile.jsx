@@ -33,6 +33,7 @@ export default class Profile extends Component {
                         src="https://i.scdn.co/image/07731d62846074c691f9dad6edaf09c271c39fbc"
                         alt="Artist Profile"
                     />
+
                     <div className={styles.details}>
                         <h2>Archie Hamilton</h2>
                         <p>116 Followers</p>
