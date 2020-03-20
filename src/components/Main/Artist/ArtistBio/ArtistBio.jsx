@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styles from "./ArtistBio.module.scss";
-import WYSIWYG from "../../../Utility/WYSIWYG";
 import Header from "../../../Utility/Header";
+import WYSIWYG from "../../../Utility/WYSIWYG";
 
 export default class ArtistBio extends Component {
     render() {
