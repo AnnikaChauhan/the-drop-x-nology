@@ -5,7 +5,7 @@ import "./index.scss";
 import App from "./containers/App";
 import * as serviceWorker from "./serviceWorker";
 
-import "@fontawesome/fontawesome-free/css/all.min.css";
+// import "@fontawesome/fontawesome-free/css/all.min.css";
 import "bootstrap-css-only/css/bootstrap.min.css";
 
 ReactDOM.render(<App />, document.getElementById("root"));
