@@ -11,20 +11,14 @@ export default class PhysicalURLs extends Component {
                     <input type="url"
                         name="musicStore"
                         // value={this.props.formData.physicalURLs.musicStore}
-<<<<<<< HEAD
-=======
                         value = {this.props.formData.musicStore}
->>>>>>> 030e699178044334852d6ebe5e703d88a58bdef3
                         onChange={this.props.handleInput} />
                     <h4>Merchandise</h4>
                     <input
                         type="url"
                         name="merchandise"
                         // value={this.props.formData.physicalURLs.merchandise}
-<<<<<<< HEAD
-=======
                         value={this.props.formData.merchandise}
->>>>>>> 030e699178044334852d6ebe5e703d88a58bdef3
                         onChange={this.props.handleInput}
 
                     />

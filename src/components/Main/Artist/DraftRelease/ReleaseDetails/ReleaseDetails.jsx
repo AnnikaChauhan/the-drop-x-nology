@@ -6,13 +6,10 @@ import DropdownSelection from "./Dropdown/Dropdown";
 import PhysicalURLs from "../PhysicalURLs/PhysicalURLs";
 import ArtworkMedia from "../ArtworkMedia/ArtworkMedia";
 import PreSaveURIs from "../PreSaveURIs/PreSaveURIs";
-<<<<<<< HEAD
-=======
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import styles from "./ReleaseDetails.module.scss";
 import "./datecss.css";
->>>>>>> 030e699178044334852d6ebe5e703d88a58bdef3
 
 // import SimpleReactValidator from 'simple-react-validator';
 
@@ -62,15 +59,6 @@ export default class ReleaseDetails extends Component {
                 <article className={styles.initialDescription}>
                     <h3>Type</h3>
                     <div className={styles.Dropdown}>
-<<<<<<< HEAD
-                        <DropdownSelection handleInput={this.handleInput} />
-                    </div>
-                    <form className="myForm">
-                        <h3>Title *</h3>
-                        <input type="text" name="title" required value={this.state.formData.title}  onChange={this.handleInput}/>
-                        <h3>Description *</h3>
-                        <textarea rows="8" name="description" required value={this.state.formData.description} onChange={this.handleInput}/>
-=======
                         <DropdownSelection handleInput={this.props.handleInput} />
                     </div>
                     <form className="myForm">
@@ -78,7 +66,6 @@ export default class ReleaseDetails extends Component {
                         <input type="text" name="title" required value={this.props.formData.title} onChange={this.props.handleInput} />
                         <h3>Description *</h3>
                         <textarea rows="8" name="description" required value={this.props.formData.description} onChange={this.props.handleInput} />
->>>>>>> 030e699178044334852d6ebe5e703d88a58bdef3
                     </form>
                 </article>
                                
@@ -114,14 +101,8 @@ export default class ReleaseDetails extends Component {
                 />
                 <ReleaseTimer />
                 <hr />
-<<<<<<< HEAD
-                <PreSaveURIs handleInput={this.handleInput} />
-                <PhysicalURLs handleInput={this.handleInput} />
-                <ArtworkMedia handleInput={this.handleInput} />
-=======
                 <PhysicalURLs formData={this.props.formData.physicalURLs} handleInput={this.props.handleInputPhysicalURLs} />
                 <PreSaveURIs formData={this.props.formData.preSaveURIs} handleInput={this.props.handleInputPresaveURIs} />
->>>>>>> 030e699178044334852d6ebe5e703d88a58bdef3
             </>
         );
     }
