@@ -12,6 +12,12 @@
     }
 }
 
+.react-datepicker__tab-loop{
+    .react-datepicker-popper{
+        z-index: -100 !important;
+    }
+}
+
 .DraftRelease {
     h3,
     form {
@@ -32,6 +38,10 @@
 
     .links {
         flex-wrap: wrap;
+    }
+
+    .yomama {
+        z-index: -100 !important;
     }
 }
 

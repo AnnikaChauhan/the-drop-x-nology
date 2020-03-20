@@ -28,9 +28,15 @@ export default class WYSIWYG extends Component {
 
     render() {
         return (
-            <>
+            <section className={styles.wysWrapper}>
                 <EditorJs
-                
+                    // style={{
+                    //         zIndex: -999
+                    //     }
+                    // }
+                    // class={styles.wysWrapper}
+                    
+                    placeholder="Start typing..."
                     ref={this.editor}
                     onChange={() => this.handleChange()}
                     data={this.state.data}
@@ -46,7 +52,7 @@ export default class WYSIWYG extends Component {
                     <SmallButton className={styles.wysiButton} text="Save" />
                     <SmallButton className={styles.wysiButton} text="Cancel" />
                 </div>
-            </>
+            </section>
 
         );
     }
