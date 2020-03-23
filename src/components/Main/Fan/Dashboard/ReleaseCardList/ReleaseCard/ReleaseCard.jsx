@@ -2,14 +2,26 @@ import React, { Component } from "react";
 import styles from "./ReleaseCard.module.scss";
 import FollowButton from "../../../../../Utility/Buttons/FollowButton/FollowButton";
 import { globalHistory } from "@reach/router";
+import Countdown from 'react-countdown';
 
 
 class ReleaseCard extends Component {
+    state = {
+        startDateReleases: "Wed Apr 15 2020 15:30:45 GMT+0100 (British Summer Time)"
+    }
+
     preview = () => {
         globalHistory.navigate(`release/${this.props.release.releaseId}`);
     };
 
+    
+
     render() {
+        const renderer = ({ days, hours, minutes, seconds }) => {
+              return <span>{days}d {hours}h {minutes}min and {seconds}s</span>;
+        };
+          
+        console.log(this.props.release.startDateReleases)
         return (
             <article className={styles.Card}>
                 <img
@@ -28,7 +40,7 @@ class ReleaseCard extends Component {
                     <p className={styles.albumName}>
                         {this.props.release.ReleaseName}
                     </p>
-                    <h4>{"12 days"}</h4>
+                    <h4><Countdown date={Date.now() + ((this.props.release.startDateReleases.seconds * 1000) - Date.now())} renderer={renderer} /></h4>
                 </div>
             </article>
         );
