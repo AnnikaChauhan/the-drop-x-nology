@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import styles from "./ReleaseCardList.module.scss";
 import ReleaseCard from "./ReleaseCard";
 
-class ReleaseCardList extends Component {
+
+
+class ReleaseCardList extends Component {   
     render() {
         return (
             <section className={styles.cardListWrapper}>
