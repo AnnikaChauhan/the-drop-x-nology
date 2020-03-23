@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Router, globalHistory } from "@reach/router";
 import LandingPage from "../containers/LandingPage";
-// import LoginPage from "../containers/LoginPage/LoginPage";
+import LoginPage from "../containers/LoginPage/LoginPage";
 import Fan from "../containers/Main/Fan";
 import Artist from "../containers/Main/Artist";
 import NotFound from "../components/Navbar/NotFound";
@@ -12,8 +12,16 @@ import PrivateRoutes from "./PrivateRoutes.jsx";
 export default class Routes extends Component {
     state = {
         user: null,
-        additionalUserInfo: null
+        additionalUserInfo: null,
+        loginFormData: {
+            email: "",
+            password: ""
+        }
     };
+
+    componentDidMount() {
+        // If there is a user in the session, set them to the state otherwise state.user = null;
+    }
 
     signIn = () => {
         firebase
@@ -24,6 +32,8 @@ export default class Routes extends Component {
                     user: result.user,
                     additionalUserInfo: result.additionalUserInfo
                 });
+                // Add something to session so that user is logged in
+                //localStorage/sessionStorage
                 globalHistory.navigate("/private/initial-login");
             })
             .catch(error => {
@@ -32,6 +42,7 @@ export default class Routes extends Component {
     };   
     
     signInWithEmailAndPassword = (event) => {
+        // DONT RELOAD THE PAGE
             event.preventDefault()
             firebase
                 .auth()
@@ -39,13 +50,13 @@ export default class Routes extends Component {
                 .then(result => {
                     console.log(result);
                     this.setState({ user: result.user})
+                    // Add something to session so that user is logged in
                 })
                 .catch(error => {
                     console.error(error);
                 })
         }
     
-
     signOut = () => {
         firebase
             .auth()
@@ -56,15 +67,14 @@ export default class Routes extends Component {
             })
     };
 
-    setEmail = (event) => {
-        const email = event.target.value;
-        this.setState({ email });
-    }
-
-    setPassword = (event) => {
-        const password = event.target.value;
-        this.setState({ password });
-    }
+    handleLoginDetails = (event) => {
+        this.setState({
+            loginFormData: {
+                ...this.state.loginFormData,
+                    [event.target.name]: event.target.value
+              }
+        })
+    }    
 
     render() {
         return (
@@ -73,8 +83,8 @@ export default class Routes extends Component {
                     path="/" 
                     signIn={this.signIn} 
                     signInWithEmailAndPassword={this.signInWithEmailAndPassword}
-                    setEmail={this.state.loginFormData.email}
-                    setPassword={this.state.loginFormData.password}
+                    handleLoginDetails={this.handleLoginDetails}
+                    loginFormData={this.state.loginFormData}
                 />
                 <PrivateRoutes path="private" user={this.state.user}>
                     <LandingPage

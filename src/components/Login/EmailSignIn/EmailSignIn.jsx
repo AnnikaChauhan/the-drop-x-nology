@@ -2,13 +2,10 @@ import React, { Component } from "react";
 import LargeButton from "../../Utility/Buttons/LargeButton";
 
 export default class EmailSignIn extends Component {
-  
-
   render() {
-    console.log(this.props);
     return (
       <>
-        <form >
+        <form onSubmit={this.props.signInWithEmailAndPassword}>
           <input 
             type="email"
             name="email"

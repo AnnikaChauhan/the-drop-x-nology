@@ -12,7 +12,7 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 export default class LoginPage extends Component {
     constructor(props) {
         super(props);
-        this.myElement = null;
+        this.myElement = [];
         this.myTween = gsap.timeline({delay:1.5});
     }
 
@@ -29,16 +29,12 @@ export default class LoginPage extends Component {
                         <ReactFullpage.Wrapper>
                             <div className="section">
                                 <section className={styles.pagewrapper}>
-<<<<<<< HEAD
                                     <SignIn
-                                        //this.signInWithEmailAndPassword?
-                                         signInWithEmailAndPassword={this.props.signInWithEmailAndPassword}
-                                         setEmail={this.props.email}
-                                         setPassword={this.props.password}
-                                     />
-=======
-                                    <SignIn signIn={this.props.signIn} />
->>>>>>> 19585434d5a9b868f6ef9cfe750cd685d09540ef
+                                            signIn={this.props.signIn}
+                                            signInWithEmailAndPassword={this.props.signInWithEmailAndPassword}
+                                            handleLoginDetails={this.props.handleLoginDetails}
+                                            loginFormData={this.props.loginFormData}
+                                    />
                                     <div
                                         className={styles.footercontainer}
                                         onClick={() =>

@@ -1,21 +1,13 @@
 import React, { Component } from "react";
 import styles from "./SignIn.module.scss";
 import LargeButton from "../../Utility/Buttons/LargeButton";
-<<<<<<< HEAD
-import { Link } from "@reach/router";
+import Tabs from "../../Utility/Tabs";
 import { gsap } from 'gsap';
 import EmailSignIn from "../EmailSignIn";
-=======
-import { gsap } from "gsap";
->>>>>>> 19585434d5a9b868f6ef9cfe750cd685d09540ef
 
 class SignIn extends Component {
     state = {
-        user: null,
-        loginFormData: {
-            email: "",
-            password: ""
-        },
+        user: null
       };
     constructor(props) {
         super(props);
@@ -31,17 +23,8 @@ class SignIn extends Component {
         });
     }
 
-    handleLoginDetails = (event) => {
-        this.setState({
-            loginFormData: {
-                ...this.state.loginFormData,
-                    [event.target.name]: event.target.value
-              }
-        })
-      }    
 
     render() {
-        // console.log(this.props.email)
         return (
             <section className={styles.SignInContainer}>
                 <div className={styles.wrapper}>
@@ -51,16 +34,24 @@ class SignIn extends Component {
                     ></div>
                     <div
                         className={styles.buttonStyle}
-                        onClick={this.props.signIn}
                         ref={div => this.myElement.push(div)}
-                    >
-                        <LargeButton text={`Sign up with Google`} />
+                    >     
+                        <Tabs
+                            tabs={["Sign in with Google", "Sign in with Email"]}
+                            content={[      
+                                <LargeButton 
+                                    onClick={this.props.signIn}
+                                    text={`Sign up with Google`} 
+                                />         
+                            ,            
+                                <EmailSignIn 
+                                    signInWithEmailAndPassword={this.props.signInWithEmailAndPassword}
+                                    handleLoginDetails={this.props.handleLoginDetails}
+                                    loginFormData={this.props.loginFormData}
+                                />
+                            ]}
+                        />
                     </div>
-                    <EmailSignIn 
-                         signInWithEmailAndPassword={this.props.signInWithEmailAndPassword}
-                         handleLoginDetails={this.handleLoginDetails}
-                         loginFormData={this.state.loginFormData}
-                     />
                 </div>
             </section>
         );
