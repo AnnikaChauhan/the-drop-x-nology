@@ -10,8 +10,8 @@ class Dashboard extends Component {
     state = {
         searchFocused: false,
         searchText: "",
-        Releases: [],
-        Artists: [],
+        releases: [],
+        artists: [],
         filteredArtists: []
     };
 
@@ -20,10 +20,12 @@ class Dashboard extends Component {
             .collection("Releases")
             .get()
             .then(query => {
-                const Releases = query.docs.map(doc => doc.data());
+                const releases = query.docs.map(doc => {
+                    return Object.assign(doc.data(), { releaseId: doc.id });
+                });
                 this.setState({
-                    Releases: Releases,
-                    Artists: Releases
+                    releases,
+                    artists: releases
                 });
             });
     }
@@ -38,7 +40,7 @@ class Dashboard extends Component {
             let filteredArtists = [];
             this.setState({ filteredArtists });
         } else {
-            let filteredArtists = this.state.Artists.filter(artist => {
+            let filteredArtists = this.state.artists.filter(artist => {
                 return artist.Artist.toUpperCase().includes(
                     this.state.searchText.toUpperCase()
                 );
@@ -72,7 +74,7 @@ class Dashboard extends Component {
                         onChange={this.setSearchText}
                         placeHolder={"Search Artists..."}
                     />
-                    <SearchList Releases={this.state.filteredArtists} />
+                    <SearchList artists={this.state.filteredArtists} />
                 </section>
             );
         } else {
@@ -87,7 +89,7 @@ class Dashboard extends Component {
                         onBlur={this.searchBlur}
                         placeHolder={"Search Artists..."}
                     />
-                    <ReleaseCardList Releases={this.state.Releases} />
+                    <ReleaseCardList releases={this.state.releases} />
                 </section>
             );
         }

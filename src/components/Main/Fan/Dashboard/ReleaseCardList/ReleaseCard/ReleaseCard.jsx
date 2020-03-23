@@ -1,25 +1,32 @@
 import React, { Component } from "react";
 import styles from "./ReleaseCard.module.scss";
 import FollowButton from "../../../../../Utility/Buttons/FollowButton/FollowButton";
+import { globalHistory } from "@reach/router";
+
 
 class ReleaseCard extends Component {
+    preview = () => {
+        globalHistory.navigate(`release/${this.props.release.releaseId}`);
+    };
+
     render() {
         return (
-            <article className={styles.cardWrapper}>
+            <article className={styles.Card}>
                 <img
-                    src={this.props.Releases.Artwork}
-                    alt={`${this.props.Releases.Artist}'s artwork`}
+                    src={this.props.release.Artwork}
+                    alt={`${this.props.release.Artist}'s artwork`}
+                    onClick={this.preview}
                 />
-                <div className={styles.cardBody}>
+                <div className={styles.details}>
                     <div className={styles.banner}>
                         <div>
-                            <h3>{this.props.Releases.Artist}</h3>
-                            <p>{this.props.Releases.ReleaseType}</p>
+                            <h3>{this.props.release.Artist}</h3>
+                            <p>{this.props.release.ReleaseType}</p>
                         </div>
                         <FollowButton />
                     </div>
                     <p className={styles.albumName}>
-                        {this.props.Releases.ReleaseName}
+                        {this.props.release.ReleaseName}
                     </p>
                     <h4>{"12 days"}</h4>
                 </div>

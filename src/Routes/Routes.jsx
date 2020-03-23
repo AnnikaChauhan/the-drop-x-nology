@@ -10,63 +10,81 @@ import firebase, { providers } from "../firebase";
 import PrivateRoutes from "./PrivateRoutes.jsx";
 
 export default class Routes extends Component {
-    // state = {
-    //     user: null,
-    //     loginFormData: {
-    //         email: "",
-    //         password: ""
-    //     }
-    // };
+    state = {
+        user: null,
+        additionalUserInfo: null
+    };
 
-    // signIn = () => {
-    //     firebase
-    //         .auth()
-    //         .signInWithPopUp(providers.google)
-    //         .then(result => {
-    //             this.setState({ user: result.user });
-    //             console.log(this.state.user);
-    //         });
-    // };
+    signIn = () => {
+        firebase
+            .auth()
+            .signInWithPopup(providers.google)
+            .then(result => {
+                this.setState({
+                    user: result.user,
+                    additionalUserInfo: result.additionalUserInfo
+                });
+                globalHistory.navigate("/private/initial-login");
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    };   
+    
+    signInWithEmailAndPassword = (event) => {
+            event.preventDefault()
+            firebase
+                .auth()
+                .signInWithEmailAndPassword(this.state.loginFormData.email, this.state.loginFormData.password)
+                .then(result => {
+                    console.log(result);
+                    this.setState({ user: result.user})
+                })
+                .catch(error => {
+                    console.error(error);
+                })
+        }
+    
 
-    // setEmail = (event) => {
-    //     const email = event.target.value;
-    //     this.setState({ email });
-    // }
+    signOut = () => {
+        firebase
+            .auth()
+            .signOut()
+            .then(() => {
+                this.setState({ user: null });
+                globalHistory.navigate("/");
+            })
+    };
 
-    // setPassword = (event) => {
-    //     const password = event.target.value;
-    //     this.setState({ password });
-    // }
+    setEmail = (event) => {
+        const email = event.target.value;
+        this.setState({ email });
+    }
 
-    // signInWithEmailAndPassword = (event) => {
-    //     event.preventDefault()
-    //     firebase
-    //         .auth()
-    //         .signInWithEmailAndPassword(this.state.loginFormData.email, this.state.loginFormData.password)
-    //         .then(result => {
-    //             console.log(result);
-    //             this.setState({ user: result.user})
-    //         })
-    //         .catch(error => {
-    //             console.error(error);
-    //         })
-    // }
-
-    // signOut = () => {};
+    setPassword = (event) => {
+        const password = event.target.value;
+        this.setState({ password });
+    }
 
     render() {
-    //    console.log(this.state);
         return (
             <Router>
-                {/* <LoginPage path="/" 
+                <LoginPage 
+                    path="/" 
+                    signIn={this.signIn} 
                     signInWithEmailAndPassword={this.signInWithEmailAndPassword}
                     setEmail={this.state.loginFormData.email}
                     setPassword={this.state.loginFormData.password}
-                /> */}
-                <LandingPage path="initial-login" />
-                <Fan path="fan/*" />
-                <Artist path="artist/*" />
-                <StreamingLogin path="stream-login" />
+                />
+                <PrivateRoutes path="private" user={this.state.user}>
+                    <LandingPage
+                        user={this.state.user}
+                        additionalUserInfo={this.state.additionalUserInfo}
+                        path="initial-login"
+                    />
+                    <Fan path="fan/*" />
+                    <Artist user={this.state.user} path="artist/*" />
+                </PrivateRoutes>
                 <NotFound default />
             </Router>
         );
