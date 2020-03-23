@@ -28,17 +28,21 @@ export default class Profile extends Component {
                     className={styles.title}
                     subtitle={"Create, edit, preview and publish releases"}
                 />
-                <div className={styles.header}>
+                <div className={styles.wrapper}>
+                    <div className={styles.header}>
                     <img
                         src="https://i.scdn.co/image/07731d62846074c691f9dad6edaf09c271c39fbc"
                         alt="Artist Profile"
                     />
-
+                    <div className={styles.bio}>Edit Bio</div>
+                </div>
+                <div className={styles.header2}>
                     <div className={styles.details}>
                         <h2>Archie Hamilton</h2>
                         <p>116 Followers</p>
                     </div>
                 </div>
+               </div>
                 <Tabs
                     tabs={["Releases", "Past Releases"]}
                     content={[
