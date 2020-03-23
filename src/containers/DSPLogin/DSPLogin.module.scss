@@ -1,17 +1,11 @@
 @import "../../variables";
 
-.mainWrapper {
-    min-height: 100vh;
-    width: 100%;
+.DSPLogin {
     background-color: $background-color;
+    min-height: 100vh;
 
-    .imageWrapper {
-        display: flex;
-        justify-content: center;
-        width: 175px;
-    }
     .dropLogo {
-        max-width: 200px;
+        max-width: 175px;
         margin: 25px;
     }
 

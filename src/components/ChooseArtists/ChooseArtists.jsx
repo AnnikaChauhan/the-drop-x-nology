@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import styles from "./ChooseArtists.module.scss";
 import comet from "../../static/images/comet.png";
-import LargeButton from "../Utility/Buttons/LargeButton/LargeButton";
-import SmallButton from "../Utility/Buttons/SmallButton/SmallButton";
-import TickButton from "../Utility/Buttons/TickButton/TickButton";
+import LargeButton from "../Utility/Buttons/LargeButton";
+import SmallButton from "../Utility/Buttons/SmallButton";
+import TickButton from "../Utility/Buttons/TickButton";
 
 class ChooseArtists extends Component {
     render() {

@@ -5,6 +5,7 @@ import LoginPage from "../containers/LoginPage/LoginPage";
 import Fan from "../containers/Main/Fan";
 import Artist from "../containers/Main/Artist";
 import NotFound from "../components/Navbar/NotFound";
+import DSPLogin from '../containers/DSPLogin';
 
 import firebase, { providers } from "../firebase";
 import PrivateRoutes from "./PrivateRoutes.jsx";
@@ -24,7 +25,7 @@ export default class Routes extends Component {
                     user: result.user,
                     additionalUserInfo: result.additionalUserInfo
                 });
-                globalHistory.navigate("/private/initial-login");
+                globalHistory.navigate("/connect-music");
             })
             .catch(error => {
                 console.log(error);
@@ -45,6 +46,7 @@ export default class Routes extends Component {
         return (
             <Router>
                 <LoginPage path="/" signIn={this.signIn} />
+                <DSPLogin path="connect-music" />
                 <PrivateRoutes path="private" user={this.state.user}>
                     <LandingPage
                         user={this.state.user}
