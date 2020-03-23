@@ -17,11 +17,19 @@ class ReleaseCard extends Component {
     
 
     render() {
-        const renderer = ({ days, hours, minutes, seconds }) => {
-              return <span>{days}d {hours}h {minutes}min and {seconds}s</span>;
+        const renderer = ({ days, hours, minutes, seconds, completed }) => {
+            let months = Math.floor(days/31);
+            let newDays = days - (31*months);
+            if (completed) {
+                return <span>Released</span>
+            } else if (days > 31) {
+                return <span>{months} Months and {newDays} Days</span>
+            } else if (days > 1) {
+                return <span>{days} Days</span>
+            } else {
+                return <span>{hours}h {minutes}min and {seconds}s</span>;
+            }
         };
-          
-        console.log(this.props.release.startDateReleases)
         return (
             <article className={styles.Card}>
                 <img
