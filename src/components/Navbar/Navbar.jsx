@@ -8,8 +8,7 @@ const navItems = {
     Home: "home",
     Account: "account",
     Help: "help",
-    Feedback: "feedback",
-    Logout: "/"
+    Feedback: "feedback"
 };
 
 class Navbar extends Component {
@@ -39,7 +38,7 @@ class Navbar extends Component {
         return Object.entries(this.state.navItems).map((item, index) => {
             return (
                 <NavItem
-                    onClick={ item[0] === "Logout" ? this.props.signOut() : this.highlightNavItem }
+                    onClick={this.highlightNavItem}
                     name={item[0]}
                     path={item[1]}
                     toggleMenu={this.toggleMenu}
@@ -80,7 +79,15 @@ class Navbar extends Component {
                         <img src={logo} alt="The Drop" />
                     </div>
                     <div className={styles.menu}>
-                        <ul className={styles.links}>{this.links}</ul>
+                        <ul className={styles.links}>
+                            {this.links}
+                            <NavItem 
+                                signOut={this.props.signOut}
+                                name="Logout"
+                                path=""
+                                disabled={true}
+                            />
+                        </ul>
                         {this.footer}
                     </div>
                 </nav>

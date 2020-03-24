@@ -38,9 +38,6 @@ export default class Routes extends Component {
             .then(() => {
                 this.setState({ user: null });
                 globalHistory.navigate("/");
-                console.log(this.state.user);
-                console.log("User null");
-
             })
     };
 
