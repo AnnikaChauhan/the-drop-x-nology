@@ -27,8 +27,10 @@ export default class ReleaseDetails extends Component {
                     </div>
                     <form className="myForm">
                         <h3>Title *</h3>
+                        {this.props.errorTitle && <p>{"This section is required"}</p>}
                         <input type="text" name="title" required value={this.props.formData.title} onChange={this.props.handleInput} />
                         <h3>Description *</h3>
+                        {this.props.errorDesc && <p>{"This section is required"}</p>}
                         <textarea rows="8" name="description" required value={this.props.formData.description} onChange={this.props.handleInput} />
                     </form>
                 </article>
@@ -45,13 +47,13 @@ export default class ReleaseDetails extends Component {
                         timeIntervals={15}
                         timeCaption="time"
                         dateFormat="MMMM d, yyyy h:mm aa"
-                        popperClassName="fuckingwork"
                     />
                 </div>
                 <div>
                     <WYSIWYG />
                 </div>
-                <h3>Release</h3>
+                <h3>Release *</h3>
+                {this.props.errorTime && <p>{"The date must be greater than the current date"}</p>}
                 <DatePicker
                         selected={this.props.formData.startDateReleases}
                         onChange={this.props.handleChangeReleases}
