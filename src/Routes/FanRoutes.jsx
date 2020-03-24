@@ -15,7 +15,7 @@ export default class FanRoutes extends Component {
                 <Dashboard path="home" />
                 <PreviewRelease path="release/*" />
                 <Help path="help" />
-                <ArtistProfileView path="artistprofileview" />
+                <ArtistProfileView path="artist/*" />
                 <NotFound default />
             </Router>
         );

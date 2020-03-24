@@ -41,6 +41,7 @@ class Dashboard extends Component {
             this.setState({ filteredArtists });
         } else {
             let filteredArtists = this.state.artists.filter(artist => {
+                if (!artist.Artist) return false;
                 return artist.Artist.toUpperCase().includes(
                     this.state.searchText.toUpperCase()
                 );

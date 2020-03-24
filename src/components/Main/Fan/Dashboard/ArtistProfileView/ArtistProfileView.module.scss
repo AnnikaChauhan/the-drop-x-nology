@@ -10,9 +10,196 @@
         margin: 25px;
     }
 
+    .lineThrough {
+        margin-top: 20px;
+    }
+
     .profileImage {
         width: 120px;
         border-radius: 50%;
     }
+    .lineThrough {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .lineThrough:before,
+    .lineThrough:after {
+        content: '';
+        border-top: 2px solid $font-color;
+        margin: 0 20px 0 0;
+        flex: 1 0 20px;
+    }
+    
+    .lineThrough:after {
+        margin: 0 0 0 20px;
+    }
+
+    // h3 {
+    //     position: relative;
+    //     font-size: 30px;
+    //     z-index: 1;
+    //     overflow: hidden;
+    //     text-align: center;
+        
+    // }
+    // h3:before, h3:after {
+    //     position: absolute;
+    //     top: 40%;
+    //     overflow: hidden;
+    //     width: 50%;
+    //     height: 4px;
+    //     content: '\a0';
+    // border-bottom: 3px solid white;
+    //     border-top: 1px solid white;
+    // }
+    // h3::before {
+    //     margin-left: -52%;
+    //     text-align: right;
+    //     color: red;
+    //     z-index: 2;
+    // }
+    // h3::after {
+    //     margin-left:2%;
+    //     text-align:left;
+    // }
+    // .color {
+    //     background-color: #ccc;
+    // }
+    
+    // hr{
+    //     color: white;
+    //     border: white 10px solid;
+    // }
+
+    // h3 {
+    //     border: red solid 2px;
+    //     position: relative;
+    //     z-index: 1;
+    //     overflow: hidden;
+    //     text-align: center;
+    // }
+    // h3:before,
+    // h3:after {
+    //     position: absolute;
+    //     top: 51%;
+    //     overflow: hidden;
+    //     width: 50%;
+    //     height: 1px;
+    //     // content: "\a0";
+    //     background-color: grey;
+    // }
+    // h3:before {
+    //     margin-left: -50%;
+    //     text-align: right;
+    // }
+
+    // .lineMiddle {
+    //     display: flex;
+    //     flex-wrap: nowrap;
+    //     margin: 10px 0 18px 0;
+    // }
+    // .lineMiddle span {
+    //     flex-basis: 10%;
+    //     font-size: 13px;
+    //     font-weight: bold;
+    //     margin: 0 18px;
+    // }
+    // .pseudoline {
+    //     flex-grow: 1;
+    //     margin-top: 8px;
+    //     height: 1px;
+    //     background-color: #dbdbdb;
+    // }
 }
+
+//     .lineMiddle {
+//         display: inline-block;
+//     }
+   
+//     .lineMiddle h3 {
+//        overflow: hidden;
+//        text-align: center;
+//        color: #d3d0d0;
+//        overflow: hidden;
+//        text-align: center;
+//    }
+   
+//     .lineMiddle h3:before,
+//     .lineMiddle h3:after {
+//      background-color: #d3d0d0;
+//      content: "";
+//      display: inline-block;
+//      height: 1px;
+//      position: relative;
+//      vertical-align: middle;
+//      width: 50%;
+//    }
+   
+//     .lineMiddle h3:before {
+//      right: 0.5em;
+//      margin-left: -50%;
+//    }
+   
+//     .lineMiddle h3:after {
+//      left: 0.5em;
+//      margin-right: -50%;
+//    } 
+//      }
+     
+//      .lineMiddle h3:before,
+//      .lineMiddle h3:after {
+//        background-color: grey;
+//        content: "";
+//        display: inline-block;
+//        height: 1px;
+//        position: relative;
+//        vertical-align: middle;
+//        width: 50%;
+//      }
+     
+//      .lineMiddle h3:before {
+//        right: 0.5em;
+//        margin-left: -50%;
+//      }
+     
+//      .lineMiddle h3:after {
+//        left: 0.5em;
+//        margin-right: -50%;
+//      }
+//         h3 {
+//             line-height: 0.5;
+//             text-align: center;
+//             margin-top: 30px;
+//           }
+//           h3 span {
+//             display: inline-block;
+//             position: relative;  
+//           }
+//           h3 span:before,
+//           h3 span:after {
+//             content: "";
+//             position: absolute;
+//             height: 5px;
+//             // border-bottom: 1px solid white;
+//             border-top: 1px solid white;
+//             top: 0;
+//             width: 200px;
+//             vertical-align: middle;
+//           }
+//           h3 span:before {
+//             right: 100%;
+//             margin-right: 15px;
+//           }
+//           h3 span:after {
+//             left: 100%;
+//             margin-left: 15px;
+//           }
+    
+// }
+
+
 
