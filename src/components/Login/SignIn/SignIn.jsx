@@ -4,11 +4,12 @@ import LargeButton from "../../Utility/Buttons/LargeButton";
 import Tabs from "../../Utility/Tabs";
 import { gsap } from 'gsap';
 import EmailSignIn from "../EmailSignIn";
+import EmailSignUp from "../../SignUp/EmailSignUp/EmailSignUp";
 
 class SignIn extends Component {
     state = {
         user: null
-      };
+    };
     constructor(props) {
         super(props);
         this.myElement = [];
@@ -25,6 +26,7 @@ class SignIn extends Component {
 
 
     render() {
+        console.log(this.props);
         return (
             <section className={styles.SignInContainer}>
                 <div className={styles.wrapper}>
@@ -35,12 +37,49 @@ class SignIn extends Component {
                     <div
                         className={styles.buttonStyle}
                         ref={div => this.myElement.push(div)}
-                    >     
+                    >
+
                         <Tabs
+                            tabs={["Login", "Signup"]}
+                            content={[
+                                <div>
+                                    <LargeButton
+                                        handleClick={this.props.signIn}
+                                        // onClick={this.props.signIn}
+                                        text={`Login with Google`}
+                                    />
+                                    <br/>
+                                    <h6>or</h6>
+                                    <EmailSignIn
+                                        signInWithEmailAndPassword={this.props.signInWithEmailAndPassword}
+                                        handleLoginDetails={this.props.handleLoginDetails}
+                                        loginFormData={this.props.loginFormData}
+                                    />
+                                </div>
+                                ,
+                                // <EmailSignIn 
+                                //     signInWithEmailAndPassword={this.props.signInWithEmailAndPassword}
+                                //     handleLoginDetails={this.props.handleLoginDetails}
+                                //     loginFormData={this.props.loginFormData}
+                                // />
+                                <EmailSignUp 
+                                    signUp={this.props.signUp}
+                                    loginFormData={this.props.loginFormData}
+                                />
+                            ]}
+                        />
+
+
+
+
+
+
+                        {/* <Tabs
                             tabs={["Sign in with Google", "Sign in with Email"]}
                             content={[      
-                                <LargeButton 
-                                    onClick={this.props.signIn}
+                                <LargeButton
+                                    handleClick={this.props.signIn}
+                                    // onClick={this.props.signIn}
                                     text={`Sign up with Google`} 
                                 />         
                             ,            
@@ -50,7 +89,7 @@ class SignIn extends Component {
                                     loginFormData={this.props.loginFormData}
                                 />
                             ]}
-                        />
+                        /> */}
                     </div>
                 </div>
             </section>

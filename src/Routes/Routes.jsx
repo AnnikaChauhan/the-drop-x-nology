@@ -20,10 +20,25 @@ export default class Routes extends Component {
     };
 
     componentDidMount() {
-        // If there is a user in the session, set them to the state otherwise state.user = null;
+        this.authListener();
+    }
+
+    authListener() {
+        firebase.auth().onAuthStateChanged((user) => {
+            console.log(user);
+            if (user) {
+                this.setState({ user });
+                //retrives the uid
+                localStorage.setItem('user', user.uid);
+            } else {
+                this.setState({ user: null });
+                localStorage.removeItem('user');
+            }
+        })
     }
 
     signIn = () => {
+        console.log("signing in")
         firebase
             .auth()
             .signInWithPopup(providers.google)
@@ -39,24 +54,24 @@ export default class Routes extends Component {
             .catch(error => {
                 console.log(error);
             })
-    };   
-    
+    };
+
     signInWithEmailAndPassword = (event) => {
         // DONT RELOAD THE PAGE
-            event.preventDefault()
-            firebase
-                .auth()
-                .signInWithEmailAndPassword(this.state.loginFormData.email, this.state.loginFormData.password)
-                .then(result => {
-                    console.log(result);
-                    this.setState({ user: result.user})
-                    // Add something to session so that user is logged in
-                })
-                .catch(error => {
-                    console.error(error);
-                })
-        }
-    
+        event.preventDefault()
+        firebase
+            .auth()
+            .signInWithEmailAndPassword(this.state.loginFormData.email, this.state.loginFormData.password)
+            .then(result => {
+                console.log(result);
+                this.setState({ user: result.user })
+                // Add something to session so that user is logged in
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
     signOut = () => {
         firebase
             .auth()
@@ -71,20 +86,31 @@ export default class Routes extends Component {
         this.setState({
             loginFormData: {
                 ...this.state.loginFormData,
-                    [event.target.name]: event.target.value
-              }
+                [event.target.name]: event.target.value
+            }
         })
-    }    
+    }
+
+    signUp = (event) => {
+        event.preventDefault();
+        firebase
+            .auth()
+            .createUserWithEmailAndPassword(this.state.loginFormData.email, this.state.loginFormData.password)
+            .catch((error) => {
+                console.log(error);
+            })
+    }
 
     render() {
         return (
             <Router>
-                <LoginPage 
-                    path="/" 
-                    signIn={this.signIn} 
+                <LoginPage
+                    path="/"
+                    signIn={this.signIn}
                     signInWithEmailAndPassword={this.signInWithEmailAndPassword}
                     handleLoginDetails={this.handleLoginDetails}
                     loginFormData={this.state.loginFormData}
+                    signUp={this.signUp}
                 />
                 <PrivateRoutes path="private" user={this.state.user}>
                     <LandingPage

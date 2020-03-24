@@ -10,8 +10,9 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
 
 export default class LoginPage extends Component {
+
     constructor(props) {
-        super(props);
+        super(props); 
         this.myElement = [];
         this.myTween = gsap.timeline({delay:1.5});
     }
@@ -34,6 +35,7 @@ export default class LoginPage extends Component {
                                             signInWithEmailAndPassword={this.props.signInWithEmailAndPassword}
                                             handleLoginDetails={this.props.handleLoginDetails}
                                             loginFormData={this.props.loginFormData}
+                                            signUp={this.props.signUp}
                                     />
                                     <div
                                         className={styles.footercontainer}
