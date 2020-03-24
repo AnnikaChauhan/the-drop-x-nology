@@ -6,10 +6,6 @@ import Countdown from 'react-countdown';
 
 
 class ReleaseCard extends Component {
-    state = {
-        startDateReleases: "Wed Apr 15 2020 15:30:45 GMT+0100 (British Summer Time)"
-    }
-
     preview = () => {
         globalHistory.navigate(`release/${this.props.release.releaseId}`);
     };

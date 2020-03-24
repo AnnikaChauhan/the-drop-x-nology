@@ -3,7 +3,7 @@ import FileUploader from "react-firebase-file-uploader";
 import ReleaseDetails from "./ReleaseDetails/ReleaseDetails";
 import SmallButton from "../../../Utility/Buttons/SmallButton";
 import Header from "../../../Utility/Header";
-import { Link } from "@reach/router";
+import { Link, navigate } from "@reach/router";
 import firebase, { firestore } from "../../../../firebase";
 import "react-datepicker/dist/react-datepicker.css";
 import styles from "./DraftRelease.module.scss";
@@ -36,8 +36,15 @@ class DraftRelease extends Component {
             isUploading: false,
             progress: 0,
             
-        }
+        },
+        errorTitle: undefined,
+        errorDesc: undefined,
+        errorTime: undefined
     }
+
+    
+
+    
 
     handleUploadStart = () => this.setState({ 
         artwork: {
@@ -82,11 +89,11 @@ class DraftRelease extends Component {
     };
     
 
-    handleChange = date => {
-        this.setState({
-          startDate: date
-        });
-    };
+    // handleChange = date => {
+    //     this.setState({
+    //       startDate: date
+    //     });
+    // };
 
     handleChange = date => {
         console.log(date)
@@ -145,14 +152,38 @@ class DraftRelease extends Component {
         console.log("clicked")
     }
 
-    submitFormData = (event) => {
-        event.preventDefault();
-        firestore
+    submitFormData = () => {
+        const currentDate = new Date()
+        if (this.state.formData.title && this.state.formData.description && this.state.formData.startDateReleases.getTime() > currentDate.getTime()) {
+            firestore
                 .collection("Releases")
                 .add(this.state.formData)
                 .then(() => {
-                    console.log("it works");
+                    navigate("/private/artist/home")
                 })
+        } else {
+            this.setState({
+                errorTitle: false,
+                errorDesc: false,
+                errorTime: false
+            })
+            if (!this.state.formData.title) {
+                this.setState({
+                    errorTitle: true
+                })
+            } 
+            if (!this.state.formData.description) {
+                this.setState({
+                    errorDesc: true
+                })
+            }
+            if (this.state.formData.startDateReleases.getTime() < currentDate.getTime()){
+                this.setState({
+                    errorTime: true
+                })
+            }
+        }
+        
     }
     
 
@@ -172,7 +203,7 @@ class DraftRelease extends Component {
                 {/* progress bar */}
                 {/* add asterisk to boxes which are required to create a release */}
                 
-                <ReleaseDetails formData={this.state.formData} handleChange={this.handleChange} handleChangeReleases={this.handleChangeReleases} handleInput={this.handleInput} handleInputPhysicalURLs={this.handleInputPhysicalURLs} handleInputPresaveURIs={this.handleInputPresaveURIs}    />
+                <ReleaseDetails errorTitle={this.state.errorTitle} errorDesc={this.state.errorDesc} errorTime={this.state.errorTime} formData={this.state.formData} handleChange={this.handleChange} handleChangeReleases={this.handleChangeReleases} handleInput={this.handleInput} handleInputPhysicalURLs={this.handleInputPhysicalURLs} handleInputPresaveURIs={this.handleInputPresaveURIs}    />
                
                 <h3>Artwork</h3>
                 {this.state.artwork.isUploading && <p>Progress: {this.state.artwork.progress}</p>}

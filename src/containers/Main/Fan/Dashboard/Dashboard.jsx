@@ -22,12 +22,20 @@ class Dashboard extends Component {
             .then(query => {
                 const releases = query.docs.map(doc => {
                     return Object.assign(doc.data(), { releaseId: doc.id });
+                    
                 });
+                releases.sort((a,b) => a.startDateReleases.seconds - b.startDateReleases.seconds)
                 this.setState({
-                    releases,
-                    artists: releases
+                    releases
                 });
             });
+        firestore
+            .collection("Artists")
+            .get()
+            .then(query => {
+                const artists = query.docs.map(doc => doc.data())
+                this.setState({artists})
+            })
     }
 
     setSearchText = event => {
@@ -41,7 +49,7 @@ class Dashboard extends Component {
             this.setState({ filteredArtists });
         } else {
             let filteredArtists = this.state.artists.filter(artist => {
-                return artist.Artist.toUpperCase().includes(
+                return artist.artistName.toUpperCase().includes(
                     this.state.searchText.toUpperCase()
                 );
             });
