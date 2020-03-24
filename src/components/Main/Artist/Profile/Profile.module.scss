@@ -1,20 +1,40 @@
 @import "../../../../variables";
 
 .Profile {
+    .wrapper {
+        display:flex;
+        height:200px;
+        align-items:center;    
+    }
+
     .header {
         display: flex;
         align-items: center;
-        margin-bottom: 50px;
+        flex-direction:column;
 
         img {
             width: 120px;
-            border-radius: 50%;
+            border-radius: 50%; 
         }
 
-        .details {
-            margin-left: 60px;
-            text-align: right;
+        .bio {
+            font-size:11px;
+            margin-top:5px;
+            transition:0.5s;
+            color: grey;
 
+            &:hover {
+                color:$primary-color;
+                cursor:pointer;
+                transition:0.5s;
+            }
+        }
+    }
+    
+    .header2 {
+        margin-left:20px;
+
+        .details {
             h2 {
                 font-size: 36px;
                 font-family: "Montserrat Light";
@@ -27,6 +47,6 @@
                 color: #888888;
                 float: left;
             }
-        }
+        } 
     }
 }
