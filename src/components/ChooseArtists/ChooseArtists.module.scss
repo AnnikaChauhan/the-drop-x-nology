@@ -7,22 +7,13 @@
     height: 550px;
     width: 100%;
 
-    .comet {
-        margin-top: 20px;
-    }
-
     h2 {
-        font-weight: bold;
         text-align: center;
-        font-size: 30px;
+        font-size: 28px;
         margin: 40px;
     }
 
-    .wrapperLargeButton {
-        margin: 30px;
-    }
-
-    .Artist {
+    .artist {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -31,45 +22,12 @@
         width: 40vw;
         padding: 10px;
         font-weight: bold;
-
-        button {
-            font-weight: bold;
-            background-color: grey;
-            color: white;
-            padding: 5px;
-            border-radius: 5px;
-            width: 100px;
-            margin-left: 20%;
-        }
     }
     
-    .RemoveBorder {
-        border-bottom: none;
-        border-top: none;
-    }
-
-    .followAll {
-        font-weight: bold;
-        background-color: grey;
-        color: white;
-        padding: 5px;
-        border-radius: 5px;
-        width: 150px;
-        margin-bottom: 40px;
-    
-        .signUpButton{
-            margin: 30px;
-        }
-    }
-
-    .comet {
-        height: 80px;
-        width: 45px;
-    }
 }
 
 @media screen and (max-width: 768px) {
-    .Artist {
+    .artist {
         min-width: 70vh;
     }
 }

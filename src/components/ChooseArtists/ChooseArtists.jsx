@@ -1,36 +1,30 @@
 import React, { Component } from "react";
 import styles from "./ChooseArtists.module.scss";
-import comet from "../../static/images/comet.png";
 import LargeButton from "../Utility/Buttons/LargeButton";
-import SmallButton from "../Utility/Buttons/SmallButton";
-import TickButton from "../Utility/Buttons/TickButton";
+import FollowButton from '../Utility/Buttons/FollowButton';
 
 class ChooseArtists extends Component {
     render() {
         return (
             <section className={styles.ChooseArtists}>
-                <img className={styles.comet} src={comet} alt="The Drop Logo" />
                 <h2>We found these artists in your music library!</h2>
-                <div className={styles.wrapperLargeButton}>
-                    <LargeButton className={styles.followAll} text = {"Follow ALL"}/>
-                </div>
-                <div className={styles.Artist}>
+                <LargeButton className={styles.followAll} text = {"Follow ALL"}/>
+                <div className={styles.artist}>
                     <div>Artist 1</div>
-                    <SmallButton text={"Follow"} />
+                    <FollowButton />
                 </div>
-                <div className={`${styles.Artist} ${styles.RemoveBorder}`}>
+                <div className={styles.artist}>
                     <div>Artist 2</div>
-                    <SmallButton text={"Follow"} />
+                    <FollowButton />
                 </div>
-                <div className={styles.Artist}>
+                <div className={styles.artist}>
                     <div>Artist 3</div>
-                    <TickButton />
+                    <FollowButton />
                 </div>
-                <div className= {styles.wrapperLargeButton}>
-                    <LargeButton text = {"Sign Up"} />
-                </div>
+                <LargeButton text={"Continue"} />
             </section>
         );
     }
 }
+
 export default ChooseArtists;
