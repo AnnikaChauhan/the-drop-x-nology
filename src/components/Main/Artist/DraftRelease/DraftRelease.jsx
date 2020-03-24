@@ -8,12 +8,11 @@ import firebase, { firestore } from "../../../../firebase";
 import "react-datepicker/dist/react-datepicker.css";
 import styles from "./DraftRelease.module.scss";
 
-
 class DraftRelease extends Component {
-    
     state = {
         formData: {
             uid: this.props.user.uid,
+            status: "Draft",
             title: "",
             description: "",
             releaseType: "",
@@ -34,60 +33,59 @@ class DraftRelease extends Component {
         artwork: {
             artwork: "",
             isUploading: false,
-            progress: 0,
-            
+            progress: 0
         },
         errorTitle: undefined,
         errorDesc: undefined,
         errorTime: undefined
-    }
+    };
 
-    
+    handleUploadStart = () =>
+        this.setState({
+            artwork: {
+                isUploading: true,
+                progress: 0
+            }
+        });
 
-    
-
-    handleUploadStart = () => this.setState({ 
-        artwork: {
-            isUploading: true, progress: 0 
-        }
-    });
-
-    handleProgress = (progress) => this.setState({
+    handleProgress = progress =>
+        this.setState({
             artwork: {
                 progress
             }
         });
 
-    handleUploadError = (error) => {
-        this.setState({ 
+    handleUploadError = error => {
+        this.setState({
             artwork: {
-                isUploading: false 
+                isUploading: false
             }
         });
         console.error(error);
     };
 
-    handleUploadSuccess = (filename) => {
-        this.setState({ 
+    handleUploadSuccess = filename => {
+        this.setState({
             artwork: {
-                    artwork: filename, 
-                    progress: 100, 
-                    isUploading: false 
-                }
-            });
+                artwork: filename,
+                progress: 100,
+                isUploading: false
+            }
+        });
         firebase
-          .storage()
-          .ref("artwork")
-          .child(filename)
-          .getDownloadURL()
-          .then(url => this.setState({ 
-              formData: {
-                    ...this.state.formData,
-                    artworkURL: url 
-              }
-            }));
+            .storage()
+            .ref("artwork")
+            .child(filename)
+            .getDownloadURL()
+            .then(url =>
+                this.setState({
+                    formData: {
+                        ...this.state.formData,
+                        artworkURL: url
+                    }
+                })
+            );
     };
-    
 
     // handleChange = date => {
     //     this.setState({
@@ -96,7 +94,6 @@ class DraftRelease extends Component {
     // };
 
     handleChange = date => {
-        console.log(date)
         this.setState({
             formData: {
                 ...this.state.formData,
@@ -106,7 +103,6 @@ class DraftRelease extends Component {
     };
 
     handleChangeReleases = date => {
-        console.log(date)
         this.setState({
             formData: {
                 ...this.state.formData,
@@ -115,16 +111,16 @@ class DraftRelease extends Component {
         });
     };
 
-    handleInput = (event) => {
+    handleInput = event => {
         this.setState({
             formData: {
                 ...this.state.formData,
                 [event.target.name]: event.target.value
             }
-        })
+        });
     };
 
-    handleInputPhysicalURLs = (event) => {
+    handleInputPhysicalURLs = event => {
         this.setState({
             formData: {
                 ...this.state.formData,
@@ -133,10 +129,10 @@ class DraftRelease extends Component {
                     [event.target.name]: event.target.value
                 }
             }
-        })
-    }
+        });
+    };
 
-    handleInputPresaveURIs = (event) => {
+    handleInputPresaveURIs = event => {
         this.setState({
             formData: {
                 ...this.state.formData,
@@ -145,47 +141,53 @@ class DraftRelease extends Component {
                     [event.target.name]: event.target.value
                 }
             }
-        })
-    }
+        });
+    };
 
     handleSaveClick = () => {
-        console.log("clicked")
-    }
+        console.log("clicked");
+    };
 
     submitFormData = () => {
-        const currentDate = new Date()
-        if (this.state.formData.title && this.state.formData.description && this.state.formData.startDateReleases.getTime() > currentDate.getTime()) {
+        const currentDate = new Date();
+        if (
+            this.state.formData.title &&
+            this.state.formData.description &&
+            this.state.formData.startDateReleases.getTime() >
+                currentDate.getTime()
+        ) {
             firestore
                 .collection("Releases")
                 .add(this.state.formData)
                 .then(() => {
-                    navigate("/private/artist/home")
-                })
+                    navigate("/private/artist/home");
+                });
         } else {
             this.setState({
                 errorTitle: false,
                 errorDesc: false,
                 errorTime: false
-            })
+            });
             if (!this.state.formData.title) {
                 this.setState({
                     errorTitle: true
-                })
-            } 
+                });
+            }
             if (!this.state.formData.description) {
                 this.setState({
                     errorDesc: true
-                })
+                });
             }
-            if (this.state.formData.startDateReleases.getTime() < currentDate.getTime()){
+            if (
+                this.state.formData.startDateReleases.getTime() <
+                currentDate.getTime()
+            ) {
                 this.setState({
                     errorTime: true
-                })
+                });
             }
         }
-        
-    }
-    
+    };
 
     render() {
         return (
@@ -197,17 +199,34 @@ class DraftRelease extends Component {
                         <Link to="/release">
                             <SmallButton text="PREVIEW" />
                         </Link>
-                        <SmallButton text="PUBLISH" onClick={this.submitFormData} />
+                        <SmallButton
+                            text="PUBLISH"
+                            onClick={this.submitFormData}
+                        />
                     </div>
                 </article>
                 {/* progress bar */}
                 {/* add asterisk to boxes which are required to create a release */}
-                
-                <ReleaseDetails errorTitle={this.state.errorTitle} errorDesc={this.state.errorDesc} errorTime={this.state.errorTime} formData={this.state.formData} handleChange={this.handleChange} handleChangeReleases={this.handleChangeReleases} handleInput={this.handleInput} handleInputPhysicalURLs={this.handleInputPhysicalURLs} handleInputPresaveURIs={this.handleInputPresaveURIs}    />
-               
+
+                <ReleaseDetails
+                    errorTitle={this.state.errorTitle}
+                    errorDesc={this.state.errorDesc}
+                    errorTime={this.state.errorTime}
+                    formData={this.state.formData}
+                    handleChange={this.handleChange}
+                    handleChangeReleases={this.handleChangeReleases}
+                    handleInput={this.handleInput}
+                    handleInputPhysicalURLs={this.handleInputPhysicalURLs}
+                    handleInputPresaveURIs={this.handleInputPresaveURIs}
+                />
+
                 <h3>Artwork</h3>
-                {this.state.artwork.isUploading && <p>Progress: {this.state.artwork.progress}</p>}
-                {this.state.formData.artworkURL && (<img alt="artwork" src={this.state.formData.artworkURL}/>)}
+                {this.state.artwork.isUploading && (
+                    <p>Progress: {this.state.artwork.progress}</p>
+                )}
+                {this.state.formData.artworkURL && (
+                    <img alt="artwork" src={this.state.formData.artworkURL} />
+                )}
                 <FileUploader
                     accept="image/*"
                     name="artwork"

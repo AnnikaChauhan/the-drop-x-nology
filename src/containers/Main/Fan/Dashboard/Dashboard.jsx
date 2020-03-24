@@ -17,25 +17,35 @@ class Dashboard extends Component {
 
     componentDidMount() {
         firestore
+            .collection("Artists")
+            .get()
+            .then(query => {
+                const artists = query.docs.map(doc => doc.data());
+                this.setState({ artists });
+            });
+
+        firestore
             .collection("Releases")
             .get()
             .then(query => {
                 const releases = query.docs.map(doc => {
-                    return Object.assign(doc.data(), { releaseId: doc.id });
-                    
+                    const artist = this.state.artists.find(
+                        artist => artist.uid === doc.data().uid
+                    );
+                    return Object.assign(doc.data(), {
+                        artistName: artist.artistName,
+                        releaseId: doc.id
+                    });
                 });
-                releases.sort((a,b) => a.startDateReleases.seconds - b.startDateReleases.seconds)
+                releases.sort(
+                    (a, b) =>
+                        a.startDateReleases.seconds -
+                        b.startDateReleases.seconds
+                );
                 this.setState({
                     releases
                 });
             });
-        firestore
-            .collection("Artists")
-            .get()
-            .then(query => {
-                const artists = query.docs.map(doc => doc.data())
-                this.setState({artists})
-            })
     }
 
     setSearchText = event => {
@@ -49,9 +59,9 @@ class Dashboard extends Component {
             this.setState({ filteredArtists });
         } else {
             let filteredArtists = this.state.artists.filter(artist => {
-                return artist.artistName.toUpperCase().includes(
-                    this.state.searchText.toUpperCase()
-                );
+                return artist.artistName
+                    .toUpperCase()
+                    .includes(this.state.searchText.toUpperCase());
             });
             this.setState({ filteredArtists });
         }
