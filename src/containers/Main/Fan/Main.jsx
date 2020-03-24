@@ -6,7 +6,7 @@ import Navbar from "../../../components/Navbar";
 function Main() {
     return (
         <div className={styles.Main}>
-            <Navbar />
+            <Navbar signOut={this.props.signOut}/>
             <FanRoutes />
         </div>
     );

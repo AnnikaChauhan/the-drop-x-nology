@@ -39,11 +39,12 @@ class Navbar extends Component {
         return Object.entries(this.state.navItems).map((item, index) => {
             return (
                 <NavItem
-                    onClick={this.highlightNavItem}
+                    onClick={ item[0] === "Logout" ? this.props.signOut() : this.highlightNavItem }
                     name={item[0]}
                     path={item[1]}
                     toggleMenu={this.toggleMenu}
                     key={index}
+
                 />
             );
         });
