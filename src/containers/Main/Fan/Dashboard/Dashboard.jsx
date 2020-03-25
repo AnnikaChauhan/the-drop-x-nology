@@ -10,6 +10,7 @@ class Dashboard extends Component {
     state = {
         searchFocused: false,
         searchText: "",
+        userinfo: null,
         releases: [],
         artists: [],
         filteredArtists: []
@@ -17,35 +18,52 @@ class Dashboard extends Component {
 
     componentDidMount() {
         firestore
+            .collection("Fans")
+            .where("uid", "==", this.props.user.uid)
+            .get()
+            .then(query => {
+                const userinfo = query.docs.map(doc => doc.data())
+                this.setState({ userinfo : userinfo[0] })
+            })
+            .then(() => this.dataRetreiver())
+
+        firestore
             .collection("Artists")
             .get()
             .then(query => {
                 const artists = query.docs.map(doc => doc.data());
                 this.setState({ artists });
-            });
+        });
+    }
 
-        firestore
-            .collection("Releases")
-            .get()
-            .then(query => {
-                const releases = query.docs.map(doc => {
-                    const artist = this.state.artists.find(
-                        artist => artist.uid === doc.data().uid
-                    );
-                    return Object.assign(doc.data(), {
-                        artistName: artist.artistName,
-                        releaseId: doc.id
-                    });
-                });
-                releases.sort(
-                    (a, b) =>
-                        a.startDateReleases.seconds -
-                        b.startDateReleases.seconds
+    dataRetreiver = () => {
+        let followedArtistsObject = this.state.userinfo.followedArtists;
+        let releases = [];
+        for (let key in followedArtistsObject) {
+            releases.push(
+            firestore
+                .collection("Releases")
+                .where("uid", "==", followedArtistsObject[key])
+                .get())
+        }
+        Promise.all(releases)
+        .then((querySnapshots) => {
+            return querySnapshots.map(qs => qs.docs)
+        })
+        .then((matchingReleases) => {
+            let releaseArray = []
+            matchingReleases.forEach(item => item.forEach(item => {
+                const artist = this.state.artists.find(
+                    artist => artist.uid === item.data().uid
                 );
-                this.setState({
-                    releases
-                });
-            });
+                releaseArray.push(Object.assign(item.data(), {
+                    artistName: artist.artistName,
+                    releaseId: item.id
+                }))
+            }))
+            return releaseArray
+        })
+        .then((releaseArray) => this.setState({ releases : releaseArray }))
     }
 
     setSearchText = event => {

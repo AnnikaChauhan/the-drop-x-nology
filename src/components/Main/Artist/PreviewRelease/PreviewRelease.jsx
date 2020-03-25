@@ -20,10 +20,14 @@ export default class PreviewRelease extends Component {
             .get()
             .then(info => {
                 this.setState({ data: info.data() });
+            })
+            .then(() => {
+                console.log(this.state.data.uid)
             });
     }
 
     render() {
+        
         const renderer = ({ days, hours, minutes, seconds, completed }) => {
             let months = Math.floor(days / 31);
             let newDays = days - 31 * months;
