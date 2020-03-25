@@ -64,6 +64,7 @@ class SignIn extends Component {
                                 // />
                                 <EmailSignUp 
                                     signUp={this.props.signUp}
+                                    handleLoginDetails={this.props.handleLoginDetails}
                                     loginFormData={this.props.loginFormData}
                                 />
                             ]}

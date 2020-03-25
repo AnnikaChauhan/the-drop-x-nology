@@ -47,8 +47,6 @@ export default class Routes extends Component {
                     user: result.user,
                     additionalUserInfo: result.additionalUserInfo
                 });
-                // Add something to session so that user is logged in
-                //localStorage/sessionStorage
                 globalHistory.navigate("/private/initial-login");
             })
             .catch(error => {
@@ -63,9 +61,11 @@ export default class Routes extends Component {
             .auth()
             .signInWithEmailAndPassword(this.state.loginFormData.email, this.state.loginFormData.password)
             .then(result => {
-                console.log(result);
-                this.setState({ user: result.user })
-                // Add something to session so that user is logged in
+                this.setState({
+                    user: result.user,
+                    additionalUserInfo: result.additionalUserInfo
+                });
+                globalHistory.navigate("/private/initial-login"); 
             })
             .catch(error => {
                 console.log(error);
@@ -96,6 +96,15 @@ export default class Routes extends Component {
         firebase
             .auth()
             .createUserWithEmailAndPassword(this.state.loginFormData.email, this.state.loginFormData.password)
+            .then((result) => {
+                this.setState({
+                    user: result.user,
+                    additionalUserInfo: result.additionalUserInfo
+                });
+                // Add something to session so that user is logged in
+                //localStorage/sessionStorage
+                globalHistory.navigate("/private/initial-login");
+            })
             .catch((error) => {
                 console.log(error);
             })
