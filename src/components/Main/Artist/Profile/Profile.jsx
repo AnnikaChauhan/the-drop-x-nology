@@ -3,24 +3,42 @@ import styles from "./Profile.module.scss";
 import Header from "../../../Utility/Header";
 import Tabs from "../../../Utility/Tabs";
 import StatusBar from "../../../Utility/StatusBar";
-import { Link } from "@reach/router";
+import SmallButton from "../../../Utility/Buttons/SmallButton";
+import LoadingAnimation from "../../../Utility/LoadingAnimation";
 import { firestore } from "../../../../firebase";
+import { Link } from "@reach/router";
 
 export default class Profile extends Component {
     state = {
-        Releases: []
+        artist: null,
+        releases: []
     };
     componentDidMount() {
         firestore
             .collection("Releases")
-            .where("Artist", "==", "Archie Hamilton")
+            .where("uid", "==", this.props.user.uid)
             .get()
             .then(query => {
-                const Releases = query.docs.map(doc => doc.data());
-                this.setState({ Releases });
+                const releases = query.docs.map(doc => {
+                    return Object.assign(doc.data(), {
+                        releaseId: doc.id
+                    });
+                });
+                this.setState({ releases });
+            });
+
+        firestore
+            .collection("Artists")
+            .where("uid", "==", this.props.user.uid)
+            .get()
+            .then(query => {
+                const artist = query.docs[0].data();
+                this.setState({ artist });
             });
     }
+
     render() {
+        if (!this.state.artist) return <LoadingAnimation />;
         return (
             <section className={styles.Profile}>
                 <Header
@@ -28,31 +46,31 @@ export default class Profile extends Component {
                     className={styles.title}
                     subtitle={"Create, edit, preview and publish releases"}
                 />
-                <div className={styles.header}>
-                    <img
-                        src="https://i.scdn.co/image/07731d62846074c691f9dad6edaf09c271c39fbc"
-                        alt="Artist Profile"
-                    />
-
-                    <div className={styles.details}>
-                        <h2>Archie Hamilton</h2>
-                        <p>116 Followers</p>
+                <div className={styles.wrapper}>
+                    <div className={styles.header}>
+                        <img
+                            src={this.state.artist.artistProfileImage}
+                            alt="Artist Profile"
+                        />
+                        <div className={styles.bio}>Edit Bio</div>
+                    </div>
+                    <div className={styles.header2}>
+                        <div className={styles.details}>
+                            <h2>{this.state.artist.artistName}</h2>
+                            <p>116 Followers</p>
+                        </div>
                     </div>
                 </div>
                 <Tabs
                     tabs={["Releases", "Past Releases"]}
                     content={[
                         <>
-                            <Link to={"add-release"}>+ Create New Release</Link>
-                            {this.state.Releases.map((release, index) => {
+                            <Link to="add-release">
+                                <SmallButton text="Create Release" />
+                            </Link>
+                            {this.state.releases.map((release, index) => {
                                 return (
-                                    <StatusBar
-                                        title={release.ReleaseName}
-                                        type={release.ReleaseType}
-                                        status={release.Status}
-                                        Releases={release}
-                                        key={index}
-                                    />
+                                    <StatusBar release={release} key={index} />
                                 );
                             })}
                         </>,

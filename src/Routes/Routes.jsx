@@ -29,7 +29,7 @@ export default class Routes extends Component {
             })
             .catch(error => {
                 console.log(error);
-            })
+            });
     };
 
     signOut = () => {
@@ -39,7 +39,7 @@ export default class Routes extends Component {
             .then(() => {
                 this.setState({ user: null });
                 globalHistory.navigate("/");
-            })
+            });
     };
 
     render() {

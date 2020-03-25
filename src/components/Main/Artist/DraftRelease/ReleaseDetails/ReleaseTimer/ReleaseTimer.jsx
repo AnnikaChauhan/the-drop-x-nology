@@ -1,13 +1,11 @@
 import React, { Component } from "react";
 import styles from "./ReleaseTimer.module.scss";
-import ToggleButtonB from "../ReleaseTimer/Toggle/Toggle";
-
 
 class ReleaseTimer extends Component {
     render() {
         return (
             <div className={styles.announcementDate}>
-{/*                
+                {/*                
                     <DatePicker
                         selected={startDate}
                         onChange={date => setStartDate(date)}
@@ -17,7 +15,7 @@ class ReleaseTimer extends Component {
                         timeCaption="time"
                         dateFormat="MMMM d, yyyy h:mm aa"
                     /> */}
-                    {/* <input
+                {/* <input
                         type="text"
                         id="day1"
                         placeholder="D"
