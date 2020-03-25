@@ -48,7 +48,7 @@ class SignIn extends Component {
                                         // onClick={this.props.signIn}
                                         text={`Login with Google`}
                                     />
-                                    <br/>
+                                    <br />
                                     <h6>or</h6>
                                     <EmailSignIn
                                         signInWithEmailAndPassword={this.props.signInWithEmailAndPassword}
@@ -57,16 +57,20 @@ class SignIn extends Component {
                                     />
                                 </div>
                                 ,
-                                // <EmailSignIn 
-                                //     signInWithEmailAndPassword={this.props.signInWithEmailAndPassword}
-                                //     handleLoginDetails={this.props.handleLoginDetails}
-                                //     loginFormData={this.props.loginFormData}
-                                // />
-                                <EmailSignUp 
-                                    signUp={this.props.signUp}
-                                    handleLoginDetails={this.props.handleLoginDetails}
-                                    loginFormData={this.props.loginFormData}
-                                />
+                                <div>
+                                    <LargeButton
+                                        handleClick={this.props.signIn}
+                                        // onClick={this.props.signIn}
+                                        text={`Sign Up with Google`}
+                                    />
+                                    <br />
+                                    <h6>or</h6>
+                                    <EmailSignUp
+                                        signUp={this.props.signUp}
+                                        handleLoginDetails={this.props.handleLoginDetails}
+                                        loginFormData={this.props.loginFormData}
+                                    />
+                                </div>
                             ]}
                         />
 
