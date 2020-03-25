@@ -22,7 +22,9 @@ class Dashboard extends Component {
             .where("uid", "==", this.props.user.uid)
             .get()
             .then(query => {
-                const userinfo = query.docs.map(doc => doc.data())
+                const userinfo = query.docs.map(doc => Object.assign(doc.data(), {
+                    docID: doc.id
+                }))
                 this.setState({ userinfo : userinfo[0] })
             })
             .then(() => this.dataRetreiver())
@@ -92,6 +94,7 @@ class Dashboard extends Component {
     searchBlur = () => {
         if (this.state.searchText.length === 0) {
             this.setState({ searchFocused: false });
+            this.componentDidMount();
         }
     };
 
@@ -110,7 +113,7 @@ class Dashboard extends Component {
                         onChange={this.setSearchText}
                         placeHolder={"Search Artists..."}
                     />
-                    <SearchList artists={this.state.filteredArtists} />
+                    <SearchList update={this.dataRetreiver} userinfo={this.state.userinfo} artists={this.state.filteredArtists} />
                 </section>
             );
         } else {

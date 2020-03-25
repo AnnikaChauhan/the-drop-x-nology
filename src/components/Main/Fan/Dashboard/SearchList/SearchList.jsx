@@ -7,7 +7,7 @@ export default class SearchList extends Component {
         return (
             <section className={styles.cardWrapper}>
                 {this.props.artists.map((artist, index) => (
-                    <SearchCard key={index} artist={artist} />
+                    <SearchCard update={this.props.update} key={index} userinfo={this.props.userinfo} artist={artist} />
                 ))}
             </section>
         );
