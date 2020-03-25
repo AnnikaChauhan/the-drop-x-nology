@@ -6,7 +6,7 @@ import SmallButton from "../../../../../Utility/Buttons/SmallButton";
 
 export default class SearchCard extends Component {
     followArtist = () => {
-        navigate("/private/fan/artist/" + this.props.artist.UID, {
+        navigate("/private/fan/artist/" + this.props.artist.uid, {
             state: {
                 artist: this.props.artist
             }
@@ -18,7 +18,7 @@ export default class SearchCard extends Component {
             <article className={styles.searchWrapper}>
                 <div className={styles.artistIMG}>
                     <img
-                        src={this.props.artist.ArtistProfileImage}
+                        src={this.props.artist.artistProfileImage}
                         className={styles.image}
                         alt="Artist"
                     />
@@ -26,7 +26,7 @@ export default class SearchCard extends Component {
                 <div className={styles.infoWrapper}>
                     <div className={styles.textarea}>
                         <div className={styles.artistname}>
-                            {this.props.artist.Artist}
+                            {this.props.artist.artistName}
                         </div>
                         <div className={styles.Bio}>Small Bio</div>
                     </div>
