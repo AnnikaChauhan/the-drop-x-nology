@@ -1,13 +1,57 @@
 @import "../../../../../../variables";
 
-.cardWrapper {
-    text-align: center;
-    background-color: $primary-color;
-    font-weight: bold;
-    font-size: 30px;
-}
+.Card {
+    // For flex-based system (+ ReleaseCardList SCSS)
+    // margin: 25px;
+    // width: 300px;
 
-.artistName {
-    font-weight: bold;
-    font-size: 40px;
+    margin: 15px 0;
+    transition: 0.4s;
+    display: flex;
+    flex-direction: column;
+
+    img {
+        max-width: 100%;
+        cursor: pointer;
+    }
+
+    p {
+        font-size: 14px;
+        font-family: "Montserrat Light";
+        color: #aaaaaa;
+        margin: 0;
+    }
+
+    &:hover {
+        transition: 0.4s;
+        box-shadow: 0 9px 18px 0 rgba(128, 128, 128, 0.25),
+            0 9px 30px 0 rgba(128, 128, 128, 0.2);
+    }
+
+    .details {
+        padding: 20px;
+        height: 100%;
+        background-color: black;
+
+        .banner {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+
+            h3 {
+                margin: 0;
+                font-size: 18px;
+            }
+        }
+
+        .albumName {
+            font-size: 18px;
+            color: #aaaaaa;
+        }
+
+        h4 {
+            font-size: 28px;
+        }
+    }
 }

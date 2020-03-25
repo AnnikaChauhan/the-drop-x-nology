@@ -1,13 +1,24 @@
 import React, { Component } from "react";
 import styles from "./SearchBar.module.scss";
-import SmallButton from "../Buttons/SmallButton";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 class SearchBar extends Component {
     render() {
         return (
-            <section className={styles.SearchBar}>
-                <input type="text" placeholder={this.props.placeHolder}></input><SmallButton text={"Search"} />
-            </section>
+            <div className={styles.searchBox}>
+                <input
+                    className={styles.searchInput}
+                    type="text"
+                    name=""
+                    placeholder={this.props.placeHolder}
+                    value={this.props.searchText}
+                    onFocus={this.props.onFocus}
+                    onBlur={this.props.onBlur}
+                    onChange={this.props.onChange} 
+                />
+                <FontAwesomeIcon icon={faSearch} className={styles.icon} />
+            </div>
         );
     }
 }

@@ -1,36 +1,129 @@
 @import "../../variables";
 
-nav {
-    position: fixed;
-    background-color: $secondary-color;
-    width: $navbar-width;
+$navbar-width: 225px;
+$mobile-height: 120px;
+$padding: 25px;
+
+.Nav {
     height: 100vh;
-    padding: 30px;
+    width: $navbar-width;
+    background-color: $navbar-color;
+    padding: $padding;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    overflow: hidden;
+    z-index: 1;
+
+    @media only screen and (max-width: 768px) {
+        width: 100%;
+        max-height: $mobile-height;
+        transition: max-height 0.5s ease-out;
+        text-align: center;
+    }
 
     a {
-        color: $primary-color;
-        font-size: 1.2em;
-        font-weight: 400;
+        color: white;
+        font-size: 16px;
+        font-family: "Montserrat Bold";
         text-decoration: none;
         transition: 0.25s;
 
         &:hover {
-            color: white;
+            color: $primary-color !important;
             text-decoration: none;
+        }
+
+        @media only screen and (max-width: 768px) {
+            font-size: 18px;
         }
     }
 
     img {
         max-width: 100%;
-        padding-bottom: 40px;
+
+        @media only screen and (max-width: 768px) {
+            max-height: $mobile-height - $padding * 2;
+        }
     }
 
-    ul {
-        list-style-type: none;
+    .menu {
+        padding-top: $padding * 2;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        z-index: 2;
+
+        ul {
+            list-style-type: none;
+        }
+
+        .footer {
+            p,
+            span,
+            a {
+                color: grey;
+                font-size: 9px;
+                margin-bottom: 0;
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+            font-size: 12px;
+        }
     }
 }
 
 .overlay {
-    width: $navbar-width;
     height: 100vh;
+    width: $navbar-width;
+
+    @media only screen and (max-width: 768px) {
+        width: 100%;
+        height: $mobile-height;
+    }
+}
+
+.icon {
+    display: none;
+
+    @media only screen and (max-width: 768px) {
+        cursor: pointer;
+        position: fixed;
+        display: block;
+        width: 36px;
+        top: $mobile-height / 2 - 12px;
+        z-index: 2;
+
+        &:before,
+        &:after {
+            background-color: $primary-color;
+            content: "";
+            display: block;
+            height: 3px;
+            border-radius: 3px;
+            transition: all 0.2s ease-in-out;
+        }
+        &:before {
+            box-shadow: 0 10px 0 $primary-color;
+            margin-bottom: 17px;
+        }
+    }
+}
+
+.open {
+    @media only screen and (max-width: 768px) {
+        max-height: 100vh;
+    }
+
+    .icon {
+        &:before {
+            box-shadow: 0 0 0 $primary-color;
+            transform: translateY(10px) rotate(45deg);
+        }
+        &:after {
+            transform: translateY(-10px) rotate(-45deg);
+        }
+    }
 }
