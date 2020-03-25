@@ -1,16 +1,18 @@
 import React, { Component } from "react";
 import styles from "./SearchCard.module.scss";
 import SmallButton from "../../../../../Utility/Buttons/SmallButton";
-import { firestore } from "../../../../../../firebase";
+import firebase, { firestore } from "../../../../../../firebase";
+
+
 
 export default class SearchCard extends Component {
     state = {
-        success: false
+        success: false,
+        array : Object.values(this.props.userinfo.followedArtists)
     }
 
     handleChange = () => {
-        let array = Object.values(this.props.userinfo.followedArtists)
-        if (!array.includes(this.props.artist.uid)) {
+        if (!this.state.array.includes(this.props.artist.uid)) {
             firestore
                 .collection("Fans")
                 .doc(this.props.userinfo.docID)
@@ -18,18 +20,39 @@ export default class SearchCard extends Component {
                     [`followedArtists.${this.props.artist.uid}`] : this.props.artist.uid
                 })
                 .then(() => {
-                    array.push(this.props.uid)
+                    let joined = this.state.array.concat(this.props.artist.uid)
                     this.setState({
-                        success: true
+                        success: true,
+                        array: joined
                     })
-                    console.log("success")
                 })
-        }  
+        } else {
+            firestore
+                .collection("Fans")
+                .doc(this.props.userinfo.docID)
+                .set({
+                    followedArtists : {
+                        [this.props.artist.uid] : firebase.firestore.FieldValue.delete()
+                    }
+                }, { merge : true })
+                .then(() => {
+                    if (this.state.array.includes(this.props.artist.uid)) {
+                        let removed = this.state.array
+                        removed.splice(removed.indexOf(this.props.artist.uid), 1)
+                        this.setState({
+                            success: false,
+                            array : removed
+                        })
+                    } else {
+                        this.setState({
+                            success: !this.state.success
+                        })
+                    }
+                })
+        }
     };
 
     render() {
-        let array = Object.values(this.props.userinfo.followedArtists)
-        
         if (this.state.success) {
             return (
                 <article className={styles.searchWrapper}>
@@ -47,12 +70,11 @@ export default class SearchCard extends Component {
                             </div>
                             <div className={styles.Bio}>Small Bio</div>
                         </div>
-                        <SmallButton text={"Followed"}/>
+                        <SmallButton text={"Followed"} onClick={this.handleChange}/>
                     </div>
                 </article>
             );
         } else {
-            console.log(array.includes(this.props.artist.uid))
             return (
                 <article className={styles.searchWrapper}>
                     <div className={styles.artistIMG}>
@@ -69,7 +91,7 @@ export default class SearchCard extends Component {
                             </div>
                             <div className={styles.Bio}>Small Bio</div>
                         </div>
-                        {array.includes(this.props.artist.uid) ? <SmallButton text={"Followed"}/> : <SmallButton text={"Follow"} onClick={this.handleChange} />}
+                        {this.state.array.includes(this.props.artist.uid) ? <SmallButton text={"Followed"} onClick={this.handleChange}/> : <SmallButton text={"Follow"} onClick={this.handleChange} />}
                     </div>
                 </article>
             );
