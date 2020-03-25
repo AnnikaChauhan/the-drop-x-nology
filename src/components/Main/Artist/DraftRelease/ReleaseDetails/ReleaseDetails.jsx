@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ReleaseTimer from "./ReleaseTimer";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import WYSIWYG from "../../../../Utility/WYSIWYG/WYSIWYG";
+import WYSIWYG from "../../../../Utility/WYSIWYG/WYSIWYG";
 import DropdownSelection from "./Dropdown/Dropdown";
 import PhysicalURLs from "../PhysicalURLs/PhysicalURLs";
 import PreSaveURIs from "../PreSaveURIs/PreSaveURIs";
@@ -49,6 +49,19 @@ export default class ReleaseDetails extends Component {
                             value={this.props.formData.description}
                             onChange={this.props.handleInput}
                         />
+                        <h3>Bio *</h3>
+                        {this.props.errorBio && (
+                            <p>{"This section is required"}</p>
+                        )}
+                        <textarea
+                            rows="8"
+                            name="bio"
+                            required
+                            value={this.props.formData.bio}
+                            onChange={this.props.handleInput}
+                            
+                        />
+                        
                     </form>
                 </article>
 

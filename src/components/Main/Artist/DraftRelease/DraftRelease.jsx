@@ -16,6 +16,7 @@ class DraftRelease extends Component {
             title: "",
             description: "",
             releaseType: "",
+            bio: "",
             startDate: new Date(),
             startDateReleases: new Date(),
             physicalURLs: {
@@ -153,6 +154,7 @@ class DraftRelease extends Component {
         if (
             this.state.formData.title &&
             this.state.formData.description &&
+            this.state.formData.bio &&
             this.state.formData.startDateReleases.getTime() >
                 currentDate.getTime()
         ) {
@@ -166,6 +168,7 @@ class DraftRelease extends Component {
             this.setState({
                 errorTitle: false,
                 errorDesc: false,
+                errorBio: false,
                 errorTime: false
             });
             if (!this.state.formData.title) {
@@ -176,6 +179,11 @@ class DraftRelease extends Component {
             if (!this.state.formData.description) {
                 this.setState({
                     errorDesc: true
+                });
+            }
+            if (!this.state.formData.bio) {
+                this.setState({
+                    errorBio: true
                 });
             }
             if (
@@ -211,6 +219,7 @@ class DraftRelease extends Component {
                 <ReleaseDetails
                     errorTitle={this.state.errorTitle}
                     errorDesc={this.state.errorDesc}
+                    errorBio={this.state.errorBio}
                     errorTime={this.state.errorTime}
                     formData={this.state.formData}
                     handleChange={this.handleChange}

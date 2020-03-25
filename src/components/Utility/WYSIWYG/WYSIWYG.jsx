@@ -27,15 +27,14 @@ export default class WYSIWYG extends Component {
     }
 
     render() {
+        console.log(this.state.data)
         return (
             <section className={styles.wysWrapper}>
                 <EditorJs
-                    // style={{
-                    //         zIndex: -999
-                    //     }
-                    // }
-                    // class={styles.wysWrapper}
                     
+                    // className={styles.ceInlineTool}
+                    // ce-inline-toolbar__buttons= {{color: 'red'}}
+
                     placeholder="Start typing..."
                     ref={this.editor}
                     onChange={() => this.handleChange()}
@@ -48,10 +47,10 @@ export default class WYSIWYG extends Component {
                         delimiter: Delimiter
                     }}
                 />
-                <div className={styles.wysiWrapper}>
+                {/* <div className={styles.wysiWrapper}>
                     <SmallButton className={styles.wysiButton} text="Save" />
                     <SmallButton className={styles.wysiButton} text="Cancel" />
-                </div>
+                </div> */}
             </section>
 
         );
