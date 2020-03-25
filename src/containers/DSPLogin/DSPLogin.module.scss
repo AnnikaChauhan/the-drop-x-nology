@@ -4,32 +4,28 @@
     background-color: $background-color;
     min-height: 100vh;
 
-    .dropLogo {
-        max-width: 175px;
-        margin: 25px;
+    .logo {
+        img {
+            max-width: 175px;
+            margin: 25px;
+        }
     }
 
-    .streamWrapper {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
+    .artistList {
         h2,
         p {
             text-align: center;
         }
 
-        .buttonsWrapper {
+        article:not(:last-child) {
+            border-bottom: 1px solid #444444;
+        }
+
+        .connect {
             display: flex;
             flex-direction: column;
-            justify-content: space-evenly;
+            justify-content: center;
             align-items: center;
-            width: 280px;
-
-            > div {
-                margin: 15px;
-            }
         }
     }
 }

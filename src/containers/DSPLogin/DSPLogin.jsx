@@ -3,7 +3,9 @@ import styles from "./DSPLogin.module.scss";
 import LargeButton from "../../components/Utility/Buttons/LargeButton";
 import ChooseArtists from '../../components/ChooseArtists';
 import logo from "../../static/images/logo-white.png";
+
 import { SpotifyApiContext } from 'react-spotify-api';
+import { UserArtists } from 'react-spotify-api';
 
 export default class DSPLogin extends Component {
     state = {
@@ -33,21 +35,22 @@ export default class DSPLogin extends Component {
                     'Authorization': 'Bearer ' + token
                 }
             })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                // Spotify data that I want on the page
-            })
-            .catch(error => {
-                console.error(error);
-            });
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data)
+                    // Spotify data that I want on the page
+                })
+                .catch(error => {
+                    console.error(error);
+                });
         }
     }
 
     connectToSpotify() {
         const client_id = '881eaf8069764468a22b14061c72d4e8';
         const redirect_uri = 'http://localhost:3000/connect-music'; // Your redirect uri
-        const scope = 'user-read-private user-read-email';
+        // may need to add scopes depending on Spotify API needs (check src)
+        const scope = 'user-read-private user-read-email user-follow-read';
 
         let url = 'https://accounts.spotify.com/authorize';
         url += '?response_type=token';
@@ -67,16 +70,16 @@ export default class DSPLogin extends Component {
             )
         } else {
             return (
-                <section className={styles.streamWrapper}>
+                <div className={styles.connect}>
                     <h2>Sign up successful!</h2>
                     <p>Connect your account to Spotify to find artists you love on The Drop.</p>
                     <div className={styles.buttonsWrapper}>
-                        <LargeButton 
+                        <LargeButton
                             handleClick={this.connectToSpotify}
-                            text={"CONNECT TO SPOTIFY"} 
+                            text={"CONNECT TO SPOTIFY"}
                         />
                     </div>
-                </section>
+                </div>
             )
         }
 
@@ -85,14 +88,15 @@ export default class DSPLogin extends Component {
     render() {
         return (
             <section className={styles.DSPLogin}>
-                <div className={styles.imageWrapper}>
+                <div className={styles.logo}>
                     <img
-                        className={styles.dropLogo}
                         src={logo}
                         alt="The Drop"
                     />
                 </div>
-                {this.chooseArtists}
+                <div className={styles.artistList}>
+                    {this.chooseArtists}
+                </div>
             </section>
         );
     }
