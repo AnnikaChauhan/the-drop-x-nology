@@ -101,3 +101,25 @@
         }
     }
 }
+
+
+h6 {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    text-align: center;
+}
+h6:before,
+h6:after {
+    position: absolute;
+    top: 51%;
+    overflow: hidden;
+    width: 50%;
+    height: 1px;
+    content: "\a0";
+    background-color: grey;
+}
+h6:before {
+    margin-left: -50%;
+    text-align: right;
+}

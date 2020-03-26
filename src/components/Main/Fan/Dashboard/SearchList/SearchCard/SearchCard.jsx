@@ -1,11 +1,17 @@
 import React, { Component } from "react";
+import { navigate } from "@reach/router";  
+
 import styles from "./SearchCard.module.scss";
 import SmallButton from "../../../../../Utility/Buttons/SmallButton";
 
 export default class SearchCard extends Component {
-    handleChange = () => {
-        console.log("hello");
-    };
+    followArtist = () => {
+        navigate("/private/fan/artist/" + this.props.artist.uid, {
+            state: {
+                artist: this.props.artist
+            }
+        });
+    }
 
     render() {
         return (
@@ -24,7 +30,7 @@ export default class SearchCard extends Component {
                         </div>
                         <div className={styles.Bio}>Small Bio</div>
                     </div>
-                    <SmallButton text={"Follow"} onClick={this.handleChange} />
+                    <SmallButton text={"Follow"} onClick={this.followArtist} />
                 </div>
             </article>
         );
