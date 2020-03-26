@@ -66,7 +66,7 @@ export default class Routes extends Component {
                     user: result.user,
                     additionalUserInfo: result.additionalUserInfo
                 });
-                globalHistory.navigate("/private/initial-login"); 
+                globalHistory.navigate("/app/initial-login"); 
             })
             .catch(error => {
                 console.log(error);
@@ -104,7 +104,7 @@ export default class Routes extends Component {
                 });
                 // Add something to session so that user is logged in
                 //localStorage/sessionStorage
-                globalHistory.navigate("/private/initial-login");
+                globalHistory.navigate("/app/initial-login");
             })
             .catch((error) => {
                 console.log(error);
@@ -114,7 +114,6 @@ export default class Routes extends Component {
     render() {
         return (
             <Router>
-<<<<<<< HEAD
                 <LoginPage
                     path="/"
                     signIn={this.signIn}
@@ -124,11 +123,7 @@ export default class Routes extends Component {
                     signUp={this.signUp}
                 />
                 <DSPLogin path="/connect-music" />
-                <PrivateRoutes path="private" user={this.state.user}>
-=======
-                <LoginPage path="/" signIn={this.signIn} />
                 <PrivateRoutes path="app" user={this.state.user}>
->>>>>>> 203a4931a717aea502eb7a854cd36241e29e7b7f
                     <LandingPage
                         user={this.state.user}
                         additionalUserInfo={this.state.additionalUserInfo}
