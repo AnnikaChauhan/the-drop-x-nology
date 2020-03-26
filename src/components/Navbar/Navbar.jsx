@@ -1,13 +1,22 @@
 import React, { Component } from "react";
 import styles from "./Navbar.module.scss";
 import logo from "../../static/images/logo-white.png";
-import navStyleData from "../../static/data/navStyleData.js";
-import { slide as Menu } from "react-burger-menu";
 import NavItem from "./NavItem";
+import { Link } from "@reach/router";
+
+const navItems = {
+    Home: "home",
+    Account: "account",
+    Help: "help",
+    Feedback: "feedback",
+    Logout: "/"
+};
 
 class Navbar extends Component {
     state = {
-        width: window.innerWidth
+        width: window.innerWidth,
+        navItems,
+        menuOpen: false
     };
 
     componentDidMount() {
@@ -18,47 +27,65 @@ class Navbar extends Component {
         this.setState({ width: window.innerWidth });
     }
 
-    showSettings(event) {
+    showSettings = event => {
         event.preventDefault();
-    }
+    };
+
+    toggleMenu = event => {
+        this.setState({ menuOpen: !this.state.menuOpen });
+    };
 
     get links() {
+        return Object.entries(this.state.navItems).map((item, index) => {
+            return (
+                <NavItem
+                    onClick={this.highlightNavItem}
+                    name={item[0]}
+                    path={item[1]}
+                    toggleMenu={this.toggleMenu}
+                    key={index}
+                />
+            );
+        });
+    }
+
+    get footer() {
         return (
-            <nav>
-                <img src={logo} alt="The Drop" />
-                <ul>
-                    <NavItem path={""} name={"Dashboard"} />
-                    <NavItem path={"profile"} name={"User Profile"} />
-                    <NavItem path={"contact"} name={"Help and Contact"} />
-                    <NavItem path={"legal"} name={"Legal"} />
-                    <NavItem path={"feedback"} name={"Feedback"} />
-                    <NavItem path={"/"} name={"Logout"} />
-                </ul>
-            </nav>
+            <div className={styles.footer}>
+                <Link to="legal">Legal</Link>
+                <span> | </span>
+                <Link to="policy">Privacy Policy</Link>
+                <p>&copy; Copyright 2020 | The Drop Music Ltd.</p>
+            </div>
         );
     }
 
     render() {
-        if (this.state.width <= 768) {
-            return (
-                <Menu
-                    noOverlay
-                    disableOverlayClick
-                    disableAutoFocus
-                    styles={navStyleData}
-                    width={"60%"}
+        return (
+            <div>
+                <nav
+                    className={
+                        this.state.menuOpen
+                            ? `${styles.Nav} ${styles.open}`
+                            : `${styles.Nav}`
+                    }
                 >
-                    {this.links}
-                </Menu>
-            );
-        } else {
-            return (
-                <div className={styles.Nav}>
-                    {this.links}
-                    <div className={styles.overlay} />
-                </div>
-            );
-        }
+                    <div
+                        href="#"
+                        className={styles.icon}
+                        onClick={this.toggleMenu}
+                    />
+                    <div>
+                        <img src={logo} alt="The Drop" />
+                    </div>
+                    <div className={styles.menu}>
+                        <ul className={styles.links}>{this.links}</ul>
+                        {this.footer}
+                    </div>
+                </nav>
+                <div className={styles.overlay} />
+            </div>
+        );
     }
 }
 

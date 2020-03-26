@@ -1,0 +1,57 @@
+@import "../../../../variables";
+
+.FollowButton {
+    width: 30px;
+    margin-left: 5px;
+
+    .inner {
+        transition: all 0.9s cubic-bezier(0.96, 0.01, 0.4, 0.98);
+        transform-origin: center;
+        stroke-dasharray: 75;
+    }
+
+    .outer {
+        transition: all 0.8s cubic-bezier(0.89, 0.01, 0.23, 0.99);
+        stroke-dasharray: 90, 230;
+        stroke-dashoffset: -222;
+    }
+
+    .follow {
+        align-self: center;
+        position: relative;
+        display: inline-block;
+        text-decoration: none;
+        color: $font-color;
+        cursor: pointer;
+
+        svg {
+            stroke: $font-color;
+            stroke-width: 2;
+            width: 100%;
+            fill: none;
+        }
+
+        &.active {
+            transition: all 2s ease;
+
+            .inner {
+                transition: all 0.68s ease;
+                stroke-dasharray: 10, 200;
+                stroke-dashoffset: 20;
+            }
+
+            .outer {
+                stroke-dasharray: 83, 250;
+                stroke-dashoffset: 0;
+                stroke: #00ff00;
+            }
+        }
+    }
+
+    p.label {
+        font-size: 9px;
+        text-align: center;
+        font-family: "Montserrat Light";
+        margin: 0;
+    }
+}

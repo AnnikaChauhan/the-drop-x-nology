@@ -1,0 +1,105 @@
+@import "../../../../variables";
+
+.PreviewRelease {
+    .media {
+        position: relative;
+        display: flex;
+
+        .artwork {
+            min-width: 400px;
+            img {
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+
+        .banner {
+            padding-left: 25px;
+            display: flex;
+            flex-direction: column;
+
+            p {
+                font-family: "Montserrat Light";
+                font-size: 14px;
+            }
+
+            .drop {
+                margin-bottom: 25px;
+
+                p {
+                    font-family: $font-stack;
+                    color: #888888;
+                    margin-bottom: 0;
+                }
+
+                h2 {
+                    font-size: 40px;
+                }
+            }
+
+            .links {
+                display: flex;
+                flex-wrap: wrap;
+
+                article {
+                    text-align: center;
+                    width: 75px;
+                    height: 75px;
+                    cursor: pointer;
+
+                    &:hover {
+                        i {
+                            font-size: 26px;
+                        }
+
+                        p {
+                            color: $primary-color;
+                        }
+                    }
+
+                    a:hover {
+                        text-decoration: none;
+                    }
+
+                    i {
+                        font-size: 24px;
+                    }
+
+                    p {
+                        font-family: "Montserrat Light";
+                        font-size: 11px;
+                        color: $font-color;
+                        padding-top: 5px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .PreviewRelease {
+        .media {
+            flex-direction: column;
+
+            .artwork {
+                background-color: $navbar-color;
+                min-width: unset;
+
+                img {
+                    display: block;
+                    margin: 0 auto;
+                }
+            }
+
+            .banner {
+                padding-left: 0;
+                padding-top: 25px;
+
+                .links {
+                    justify-content: center;
+                }
+            }
+        }
+    }
+}

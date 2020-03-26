@@ -1,8 +1,15 @@
 @import "../../../variables";
 
-.DashboardTitle {
-    background-color: $primary-color;
+.Header {
     color: $secondary-color;
-    padding: 20px;
+    margin-bottom: 25px;
     font-weight: bolder;
+    text-align: left;
+    font-size: 28px;
+
+    p {
+        font-size: 16px;
+        font-family: "Montserrat Light";
+        color: #888888;
+    }
 }

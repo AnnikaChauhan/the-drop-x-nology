@@ -1,45 +1,99 @@
 import React, { Component } from "react";
-import styles from "./ReleaseDetails.module.scss";
 import ReleaseTimer from "./ReleaseTimer";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Dropdown from "react-bootstrap/Dropdown";
+import "bootstrap/dist/css/bootstrap.min.css";
+// import WYSIWYG from "../../../../Utility/WYSIWYG/WYSIWYG";
+import DropdownSelection from "./Dropdown/Dropdown";
+import PhysicalURLs from "../PhysicalURLs/PhysicalURLs";
+import PreSaveURIs from "../PreSaveURIs/PreSaveURIs";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import styles from "./ReleaseDetails.module.scss";
+import "./datecss.css";
 
+// import SimpleReactValidator from 'simple-react-validator';
 
 export default class ReleaseDetails extends Component {
     render() {
+        let handleColor = time => {
+            return "text-success";
+        };
         return (
             <>
                 <article className={styles.initialDescription}>
-                    <h4>Type</h4>
+                    <h3>Type</h3>
                     <div className={styles.Dropdown}>
-                        <Dropdown>
-                            <Dropdown.Toggle variant="success" id="dropdown-basic">
-                                select type from below list...
-                        </Dropdown.Toggle>
-
-                            <Dropdown.Menu>
-                                <Dropdown.Item href="#/action-1">Single</Dropdown.Item>
-                                <Dropdown.Item href="#/action-2">EP</Dropdown.Item>
-                                <Dropdown.Item href="#/action-3">Album</Dropdown.Item>
-                            </Dropdown.Menu>
-                        </Dropdown>
+                        <DropdownSelection
+                            handleInput={this.props.handleInput}
+                        />
                     </div>
-                    <form>
-                        <h4>Title</h4>
-                        <input type="text" />
-                        <h4>Description</h4>
-                        <input type="text" />
+                    <form className="myForm">
+                        <h3>Title *</h3>
+                        {this.props.errorTitle && (
+                            <p>{"This section is required"}</p>
+                        )}
+                        <input
+                            type="text"
+                            name="title"
+                            required
+                            value={this.props.formData.title}
+                            onChange={this.props.handleInput}
+                        />
+                        <h3>Description *</h3>
+                        {this.props.errorDesc && (
+                            <p>{"This section is required"}</p>
+                        )}
+                        <textarea
+                            rows="8"
+                            name="description"
+                            required
+                            value={this.props.formData.description}
+                            onChange={this.props.handleInput}
+                        />
                     </form>
-
                 </article>
-                <h4>Announcement</h4>
+
+                <h3>Announcement Date</h3>
+                <div className={styles.datepickerclass}>
+                    <DatePicker
+                        selected={this.props.formData.startDate}
+                        onChange={this.props.handleChange}
+                        timeClassName={handleColor}
+                        showTimeSelect
+                        timeInputLabel="Time:"
+                        timeFormat="HH:mm"
+                        timeIntervals={15}
+                        timeCaption="time"
+                        dateFormat="MMMM d, yyyy h:mm aa"
+                    />
+                </div>
+                {/* <div>
+                    <WYSIWYG />
+                </div> */}
+                <h3>Release *</h3>
+                {this.props.errorTime && (
+                    <p>{"The date must be greater than the current date"}</p>
+                )}
+                <DatePicker
+                    selected={this.props.formData.startDateReleases}
+                    onChange={this.props.handleChangeReleases}
+                    timeClassName={handleColor}
+                    showTimeSelect
+                    timeInputLabel="Time:"
+                    timeFormat="HH:mm"
+                    timeIntervals={15}
+                    timeCaption="time"
+                    dateFormat="MMMM d, yyyy h:mm aa"
+                />
                 <ReleaseTimer />
-                <form className={styles.wysiwyg}>
-                    <input type="text" placeholder="extra info to be added here by artist if required (WYSIWYG)" />
-                </form>
-                <h4>Release</h4>
-                <ReleaseTimer />
-                <hr/>
+                <hr />
+                <PhysicalURLs
+                    formData={this.props.formData.physicalURLs}
+                    handleInput={this.props.handleInputPhysicalURLs}
+                />
+                <PreSaveURIs
+                    formData={this.props.formData.preSaveURIs}
+                    handleInput={this.props.handleInputPresaveURIs}
+                />
             </>
         );
     }
