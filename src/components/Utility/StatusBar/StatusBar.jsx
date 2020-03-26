@@ -11,7 +11,7 @@ export default class StatusBar extends Component {
         let classes = `${styles.status}`;
         let content = ``;
 
-        switch (this.props.status) {
+        switch (this.props.release.status) {
             case "Live":
                 content = <i className={`fas fa-circle ${styles.live}`}></i>;
                 classes += ` ${styles.live}`;
@@ -30,7 +30,7 @@ export default class StatusBar extends Component {
 
         return (
             <div className={classes}>
-                {this.props.status}
+                {this.props.release.status}
                 {content}
             </div>
         );
@@ -39,8 +39,10 @@ export default class StatusBar extends Component {
     render() {
         return (
             <article className={styles.StatusBar}>
-                <div className={styles.title}>{this.props.title}</div>
-                <div className={styles.type}>{this.props.type}</div>
+                <div className={styles.title}>{this.props.release.title}</div>
+                <div className={styles.type}>
+                    {this.props.release.releaseType}
+                </div>
                 {this.status}
             </article>
         );
