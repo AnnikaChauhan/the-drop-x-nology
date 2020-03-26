@@ -30,9 +30,6 @@ export default class PreviewRelease extends Component {
             .then(info => {
                 this.setState({ data: info.data() });
             })
-            .then(() => {
-                console.log(this.state.data.uid)
-            })
     }
 
     render() {

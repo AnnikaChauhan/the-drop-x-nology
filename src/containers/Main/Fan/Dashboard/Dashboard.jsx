@@ -21,9 +21,11 @@ class Dashboard extends Component {
             .get()
             .then(query => {
                 const artists = query.docs.map(doc => doc.data());
-                this.setState({ artists });
+                this.setState({ artists }, this.populateReleases);   
             });
+    }
 
+    populateReleases() {
         firestore
             .collection("Releases")
             .get()
@@ -42,9 +44,7 @@ class Dashboard extends Component {
                         a.startDateReleases.seconds -
                         b.startDateReleases.seconds
                 );
-                this.setState({
-                    releases
-                });
+                this.setState({ releases });
             });
     }
 

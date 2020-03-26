@@ -25,8 +25,7 @@ export default class Routes extends Component {
     }
 
     authListener() {
-        firebase.auth().onAuthStateChanged(user => {
-            console.log(user);
+        firebase.auth().onAuthStateChanged((user) => {
             if (user) {
                 this.setState({ user });
                 //retrives the uid
@@ -39,7 +38,6 @@ export default class Routes extends Component {
     }
 
     signIn = () => {
-        console.log("signing in");
         firebase
             .auth()
             .signInWithPopup(providers.google)
@@ -50,9 +48,6 @@ export default class Routes extends Component {
                 });
                 globalHistory.navigate("/app/initial-login");
             })
-            .catch(error => {
-                console.log(error);
-            });
     };
 
     signInWithEmailAndPassword = event => {
@@ -71,10 +66,7 @@ export default class Routes extends Component {
                 });
                 globalHistory.navigate("/app/initial-login"); 
             })
-            .catch(error => {
-                console.log(error);
-            });
-    };
+    }
 
     signOut = () => {
         firebase
@@ -112,10 +104,7 @@ export default class Routes extends Component {
                 //localStorage/sessionStorage
                 globalHistory.navigate("/app/initial-login");
             })
-            .catch(error => {
-                console.log(error);
-            });
-    };
+    }
 
     render() {
         return (
