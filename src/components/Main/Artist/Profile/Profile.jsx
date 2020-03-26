@@ -62,12 +62,11 @@ export default class Profile extends Component {
                     </div>
                 </div>
                 <Tabs
+                    profileTab={true}
                     tabs={["Releases", "Past Releases"]}
                     content={[
                         <>
-                            <Link to="add-release">
-                                <SmallButton text="Create Release" />
-                            </Link>
+                            <Link to={"add-release"}>+ Create New Release</Link>
                             {this.state.releases.map((release, index) => {
                                 return (
                                     <StatusBar release={release} key={index} />
