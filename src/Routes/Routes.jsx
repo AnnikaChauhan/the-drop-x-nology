@@ -24,7 +24,7 @@ export default class Routes extends Component {
                     user: result.user,
                     additionalUserInfo: result.additionalUserInfo
                 });
-                globalHistory.navigate("/private/initial-login");
+                globalHistory.navigate("/app/initial-login");
             })
             .catch(error => {
                 console.log(error);
@@ -45,7 +45,7 @@ export default class Routes extends Component {
         return (
             <Router>
                 <LoginPage path="/" signIn={this.signIn} />
-                <PrivateRoutes path="private" user={this.state.user}>
+                <PrivateRoutes path="app" user={this.state.user}>
                     <LandingPage
                         user={this.state.user}
                         additionalUserInfo={this.state.additionalUserInfo}
