@@ -15,7 +15,6 @@ export default class ArtistProfileView extends Component {
         const id = window.location.pathname.substring(
             window.location.pathname.lastIndexOf("/") + 1
         );
-        console.log(id)
 
         firestore
             .collection("Releases")

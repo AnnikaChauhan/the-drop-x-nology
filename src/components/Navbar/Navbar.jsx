@@ -82,8 +82,15 @@ class Navbar extends Component {
                       
                     </div>
                     <div className={styles.menu}>
-                        <ul className={styles.links}>{this.links}</ul>
-                            
+                        <ul className={styles.links}>
+                            {this.links}
+                            <NavItem
+                                signOut={this.props.signOut}
+                                name="Logout"
+                                path=""
+                                disabled={true}
+                            />
+                        </ul>
                         {this.footer}
                     </div>
                   
