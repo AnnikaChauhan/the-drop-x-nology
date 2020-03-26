@@ -48,20 +48,7 @@ export default class ReleaseDetails extends Component {
                             required
                             value={this.props.formData.description}
                             onChange={this.props.handleInput}
-                        />
-                        <h3>Bio *</h3>
-                        {this.props.errorBio && (
-                            <p>{"This section is required"}</p>
-                        )}
-                        <textarea
-                            rows="8"
-                            name="bio"
-                            required
-                            value={this.props.formData.bio}
-                            onChange={this.props.handleInput}
-                            
-                        />
-                        
+                        />                       
                     </form>
                 </article>
 
@@ -79,10 +66,24 @@ export default class ReleaseDetails extends Component {
                         dateFormat="MMMM d, yyyy h:mm aa"
                     />
                 </div>
+                <article className={styles.initialDescription}>
+                <h3>Announcement Details *</h3>
+                        {this.props.errorBio && (
+                            <p>{"This section is required"}</p>
+                        )}
+                        <textarea
+                            rows="8"
+                            name="announcementDetails"
+                            required
+                            value={this.props.formData.announcementDetails}
+                            onChange={this.props.handleInput}
+                            
+                        />
+                        </article>
                 {/* <div>
                     <WYSIWYG />
                 </div> */}
-                <h3>Release *</h3>
+                <h3>Release Date *</h3>
                 {this.props.errorTime && (
                     <p>{"The date must be greater than the current date"}</p>
                 )}

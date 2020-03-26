@@ -16,7 +16,7 @@ class DraftRelease extends Component {
             title: "",
             description: "",
             releaseType: "",
-            bio: "",
+            announcementDetails: "",
             startDate: new Date(),
             startDateReleases: new Date(),
             physicalURLs: {
@@ -38,6 +38,7 @@ class DraftRelease extends Component {
         },
         errorTitle: undefined,
         errorDesc: undefined,
+        errorAnnounce: undefined,
         errorTime: undefined
     };
 
@@ -154,7 +155,7 @@ class DraftRelease extends Component {
         if (
             this.state.formData.title &&
             this.state.formData.description &&
-            this.state.formData.bio &&
+            this.state.formData.announcementDetails &&
             this.state.formData.startDateReleases.getTime() >
                 currentDate.getTime()
         ) {
@@ -168,7 +169,7 @@ class DraftRelease extends Component {
             this.setState({
                 errorTitle: false,
                 errorDesc: false,
-                errorBio: false,
+                errorAnnounce: false,
                 errorTime: false
             });
             if (!this.state.formData.title) {
@@ -181,9 +182,9 @@ class DraftRelease extends Component {
                     errorDesc: true
                 });
             }
-            if (!this.state.formData.bio) {
+            if (!this.state.formData.announcementDetails) {
                 this.setState({
-                    errorBio: true
+                    errorAnnounce: true
                 });
             }
             if (
@@ -219,7 +220,7 @@ class DraftRelease extends Component {
                 <ReleaseDetails
                     errorTitle={this.state.errorTitle}
                     errorDesc={this.state.errorDesc}
-                    errorBio={this.state.errorBio}
+                    errorAnnounce={this.state.errorAnnounce}
                     errorTime={this.state.errorTime}
                     formData={this.state.formData}
                     handleChange={this.handleChange}
