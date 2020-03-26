@@ -19,14 +19,6 @@ class Dashboard extends Component {
 
     componentDidMount() {
         firestore
-            .collection("Artists")
-            .get()
-            .then(query => {
-                const artists = query.docs.map(doc => doc.data());
-                this.setState({ artists });
-        });
-
-        firestore
             .collection("Fans")
             .where("uid", "==", this.props.user.uid)
             .get()
@@ -37,16 +29,19 @@ class Dashboard extends Component {
                 this.setState({ userinfo : userinfo[0] })
             })
             .then(() => this.dataRetreiver())
-        }
 
-    // populateReleases() {
-        
-    // }
+        firestore
+            .collection("Artists")
+            .get()
+            .then(query => {
+                const artists = query.docs.map(doc => doc.data());
+                this.setState({ artists });
+        });
+    }
 
     dataRetreiver = () => {
         let followedArtistsObject = this.state.userinfo.followedArtists;
         let releases = [];
-        console.log(followedArtistsObject)
         for (let key in followedArtistsObject) {
             releases.push(
             firestore
@@ -65,14 +60,14 @@ class Dashboard extends Component {
                     artist => artist.uid === item.data().uid
                 );
                 releaseArray.push(Object.assign(item.data(), {
-                    
                     artistName: artist.artistName,
                     releaseId: item.id
                 }))
             }))
             return releaseArray
         })
-        .then((releaseArray) => this.setState({ releases : releaseArray }))
+        .then((releaseArray) => this.setState({ releases : releaseArray.sort((a,b) => a.startDateReleases.seconds - b.startDateReleases.seconds)
+        }))
     }
 
     setSearchText = event => {
@@ -142,7 +137,7 @@ class Dashboard extends Component {
                         onBlur={this.searchBlur}
                         placeHolder={"Search Artists..."}
                     />
-                    <ReleaseCardList releases={this.state.releases} artist={this.state.artists} />
+                    <ReleaseCardList releases={this.state.releases} />
                 </section>
             );
         }

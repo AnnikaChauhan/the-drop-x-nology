@@ -46,7 +46,7 @@ export default class DSPLogin extends Component {
         if (this.state.token) {
             return (
                 <SpotifyApiContext.Provider value={this.state.token}>
-                    <ChooseArtists />
+                    <ChooseArtists user={this.props.user} />
                 </SpotifyApiContext.Provider>
             )
         } else {

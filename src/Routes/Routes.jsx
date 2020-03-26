@@ -117,7 +117,7 @@ export default class Routes extends Component {
                     loginFormData={this.state.loginFormData}
                     signUp={this.signUp}
                 />
-                <DSPLogin path="/connect-music" />
+                <DSPLogin user={this.state.user} path="/connect-music" />
                 <PrivateRoutes path="app" user={this.state.user}>
                     <LandingPage
                         user={this.state.user}

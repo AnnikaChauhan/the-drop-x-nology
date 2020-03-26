@@ -9,7 +9,19 @@ import { firestore } from "../../firebase";
 
 class ChooseArtists extends Component {
     state = {
-        artistsOnFirebase: null
+        artistsOnFirebase: null,
+        userinfo: null
+    }
+
+    handleClick = () => {
+        if (!this.state.userinfo) {
+        firestore
+                .collection("Fans")
+                .doc(this.props.userinfo.docID)
+                .update({
+                    [`followedArtists.${this.props.artist.uid}`] : this.props.artist.uid
+                })
+        }
     }
 
     componentDidMount() {
@@ -21,6 +33,17 @@ class ChooseArtists extends Component {
                     const artistsOnFirebase = query.docs.map(doc => doc.data());
                     this.setState({ artistsOnFirebase });
                 })
+        
+        firestore
+        .collection("Fans")
+        .where("uid", "==", this.props.user.uid)
+        .get()
+        .then(query => {
+            const userinfo = query.docs.map(doc => Object.assign(doc.data(), {
+                docID: doc.id
+            }))
+            this.setState({ userinfo : userinfo[0] })
+        })
     }
 
     followAll() {
@@ -33,6 +56,7 @@ class ChooseArtists extends Component {
     }
 
     render() {
+        console.log(this.state.artistsOnFirebase)
         if (!this.state.artistsOnFirebase) return <h2>No artists were found.</h2>
         return (
             <section className={styles.ChooseArtists}>
