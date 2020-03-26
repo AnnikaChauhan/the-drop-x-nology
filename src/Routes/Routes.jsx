@@ -28,7 +28,7 @@ export default class Routes extends Component {
             })
             .catch(error => {
                 console.log(error);
-            })
+            });
     };
 
     signOut = () => {
@@ -38,7 +38,7 @@ export default class Routes extends Component {
             .then(() => {
                 this.setState({ user: null });
                 globalHistory.navigate("/");
-            })
+            });
     };
 
     render() {
@@ -51,8 +51,12 @@ export default class Routes extends Component {
                         additionalUserInfo={this.state.additionalUserInfo}
                         path="initial-login"
                     />
-                    <Fan path="fan/*" signOut={this.signOut}/>
-                    <Artist user={this.state.user} path="artist/*" signOut={this.signOut}/>
+                    <Fan path="fan/*" signOut={this.signOut} />
+                    <Artist
+                        user={this.state.user}
+                        path="artist/*"
+                        signOut={this.signOut}
+                    />
                 </PrivateRoutes>
                 <NotFound default />
             </Router>
