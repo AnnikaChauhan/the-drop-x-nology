@@ -19,6 +19,14 @@ class Dashboard extends Component {
 
     componentDidMount() {
         firestore
+            .collection("Artists")
+            .get()
+            .then(query => {
+                const artists = query.docs.map(doc => doc.data());
+                this.setState({ artists });
+        });
+
+        firestore
             .collection("Fans")
             .where("uid", "==", this.props.user.uid)
             .get()
@@ -31,19 +39,14 @@ class Dashboard extends Component {
             .then(() => this.dataRetreiver())
         }
 
-    populateReleases() {
-        firestore
-            .collection("Artists")
-            .get()
-            .then(query => {
-                const artists = query.docs.map(doc => doc.data());
-                this.setState({ artists });
-        });
-    }
+    // populateReleases() {
+        
+    // }
 
     dataRetreiver = () => {
         let followedArtistsObject = this.state.userinfo.followedArtists;
         let releases = [];
+        console.log(followedArtistsObject)
         for (let key in followedArtistsObject) {
             releases.push(
             firestore
@@ -62,6 +65,7 @@ class Dashboard extends Component {
                     artist => artist.uid === item.data().uid
                 );
                 releaseArray.push(Object.assign(item.data(), {
+                    
                     artistName: artist.artistName,
                     releaseId: item.id
                 }))

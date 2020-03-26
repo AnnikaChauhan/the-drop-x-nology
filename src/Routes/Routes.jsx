@@ -74,7 +74,7 @@ export default class Routes extends Component {
             .signOut()
             .then(() => {
                 this.setState({ user: null });
-                navigate("/");
+                globalHistory.navigate("/");
             });
     };
 
@@ -124,7 +124,7 @@ export default class Routes extends Component {
                         additionalUserInfo={this.state.additionalUserInfo}
                         path="initial-login"
                     />
-                    <Fan path="fan/*" signOut={this.signOut} />
+                    <Fan path="fan/*" user={this.state.user} signOut={this.signOut} />
                     <Artist
                         user={this.state.user}
                         path="artist/*"

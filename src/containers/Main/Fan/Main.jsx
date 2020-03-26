@@ -8,7 +8,7 @@ export default class Main extends Component {
         return (
             <div className={styles.Main}>
                 <Navbar signOut={this.props.signOut} />
-                <FanRoutes />
+                <FanRoutes user={this.props.user} />
             </div>
         );
     }
