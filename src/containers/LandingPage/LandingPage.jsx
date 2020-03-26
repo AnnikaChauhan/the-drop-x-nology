@@ -68,7 +68,7 @@ export default class LandingPage extends Component {
                         <h2 className={styles.faninfo}>Be the first to know.</h2>
                         <h3 className={styles.faninfo}>Get excited. Share experiences.</h3>
                         <p className={styles.mobileText}>
-                            Tap here if you're a fan
+                            Tap here if you're a Fan
                         </p>
                     </div>
                 </div>
