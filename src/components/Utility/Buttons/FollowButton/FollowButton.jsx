@@ -13,7 +13,7 @@ export default class FollowButton extends Component {
 
     render() {
         return (
-            <div className={styles.FollowButton}>
+            <div onClick={this.props.onClick} className={styles.FollowButton}>
                 <div
                     className={
                         this.state.active

@@ -13,14 +13,19 @@ class ChooseArtists extends Component {
         userinfo: null
     }
 
-    handleClick = () => {
-        if (!this.state.userinfo) {
-        firestore
+    handleClick = (value) => {
+        let artist = this.state.artistsOnFirebase.find(item => item.artistName === value)
+        console.log(artist)
+        console.log(this.state.userinfo)
+        if (this.state.userinfo) {
+            console.log("running")
+            firestore
                 .collection("Fans")
-                .doc(this.props.userinfo.docID)
+                .doc(this.state.userinfo.docID)
                 .update({
-                    [`followedArtists.${this.props.artist.uid}`] : this.props.artist.uid
+                    [`followedArtists.${artist.uid}`] : artist.uid
                 })
+                .then(() => console.log("success"))
         }
     }
 
@@ -33,17 +38,21 @@ class ChooseArtists extends Component {
                     const artistsOnFirebase = query.docs.map(doc => doc.data());
                     this.setState({ artistsOnFirebase });
                 })
-        
-        firestore
-        .collection("Fans")
-        .where("uid", "==", this.props.user.uid)
-        .get()
-        .then(query => {
-            const userinfo = query.docs.map(doc => Object.assign(doc.data(), {
-                docID: doc.id
-            }))
-            this.setState({ userinfo : userinfo[0] })
-        })
+    }
+
+    componentDidUpdate(prevProps) {
+        if(this.props.user !== prevProps.user) {
+            firestore
+            .collection("Fans")
+            .where("uid", "==", this.props.user.uid)
+            .get()
+            .then(query => {
+                const userinfo = query.docs.map(doc => Object.assign(doc.data(), {
+                    docID: doc.id
+                }))
+                this.setState({ userinfo : userinfo[0] })
+            })
+        }
     }
 
     followAll() {
@@ -71,7 +80,7 @@ class ChooseArtists extends Component {
                                     doc.artistName === artist.name
                                 )   ?   <article key={index} className={styles.artist}>
                                             <p>{artist.name}</p>
-                                            <FollowButton /> 
+                                            <FollowButton onClick={() => this.handleClick(artist.name)} /> 
                                         </article>
                                     :   <article key={index} className={`${styles.artist} ${styles.unavailable}`}>
                                             <p>{artist.name}</p>

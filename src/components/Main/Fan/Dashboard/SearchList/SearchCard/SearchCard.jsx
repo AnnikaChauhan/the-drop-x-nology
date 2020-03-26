@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import { navigate } from "@reach/router";  
-
 import styles from "./SearchCard.module.scss";
 import SmallButton from "../../../../../Utility/Buttons/SmallButton";
 import firebase, { firestore } from "../../../../../../firebase";
@@ -27,7 +25,6 @@ export default class SearchCard extends Component {
                         success: true,
                         array: joined
                     })
-                    console.log("colorChanged?")
                 })
         } else {
             firestore
@@ -56,6 +53,7 @@ export default class SearchCard extends Component {
     };
 
     render() {
+        console.log(this.props.artist.artistProfileImage)
         if (this.state.success) {
             return (
                 <article className={styles.searchWrapper}>
@@ -63,7 +61,7 @@ export default class SearchCard extends Component {
                         <img
                             src={this.props.artist.artistProfileImage}
                             className={styles.image}
-                            alt="Artist"
+                            alt="https://firebasestorage.googleapis.com/v0/b/the-drop-x-nology.appspot.com/o/Profile_avatar_placeholder_large.png?alt=media&token=eb157121-631d-43e0-8454-c80335fd15ea"
                         />
                     </div>
                     <div className={styles.infoWrapper}>
