@@ -107,7 +107,7 @@ class Dashboard extends Component {
                         onBlur={this.searchBlur}
                         placeHolder={"Search Artists..."}
                     />
-                    <ReleaseCardList releases={this.state.releases} />
+                    <ReleaseCardList releases={this.state.releases} artist={this.state.artists} />
                 </section>
             );
         }
