@@ -29,7 +29,7 @@ class ChooseArtists extends Component {
     }
 
     continue() {
-        globalHistory.navigate("private/initial-login");
+        globalHistory.navigate("/private/fan/home");
     }
 
     render() {

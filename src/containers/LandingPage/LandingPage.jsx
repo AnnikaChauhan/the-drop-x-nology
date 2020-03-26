@@ -34,7 +34,7 @@ export default class LandingPage extends Component {
                     userName: this.props.user.displayName
                 })
                 .then(() => {
-                    globalHistory.navigate("/private/fan/home");
+                    globalHistory.navigate("/connect-music");
                 });
         } else {
             globalHistory.navigate("/private/fan/home");
