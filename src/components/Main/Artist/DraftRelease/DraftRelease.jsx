@@ -28,11 +28,12 @@ class DraftRelease extends Component {
                 soundcloud: "",
                 tidal: ""
             },
-            artworkURL: ""
+            artworkURL: this.props.user.photoURL
         },
         artwork: {
             artwork: "",
             isUploading: false,
+            artworkUploaded: false,
             progress: 0
         },
         errorTitle: undefined,
@@ -69,7 +70,8 @@ class DraftRelease extends Component {
             artwork: {
                 artwork: filename,
                 progress: 100,
-                isUploading: false
+                isUploading: false,
+                artworkUploaded: true
             }
         });
         firebase
@@ -224,7 +226,7 @@ class DraftRelease extends Component {
                 {this.state.artwork.isUploading && (
                     <p>Progress: {this.state.artwork.progress}</p>
                 )}
-                {this.state.formData.artworkURL && (
+                {this.state.formData.artworkUploaded && (
                     <img alt="artwork" src={this.state.formData.artworkURL} />
                 )}
                 <FileUploader
