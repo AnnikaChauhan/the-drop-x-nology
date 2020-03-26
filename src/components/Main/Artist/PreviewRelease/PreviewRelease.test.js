@@ -4,10 +4,10 @@ import PreviewRelease from "./PreviewRelease";
 import { mount } from "enzyme";
 
 const mockData = {
-    Artwork:
+    artworkURL:
         "https://firebasestorage.googleapis.com/v0/b/the-drop-x-nology.appspot.com/o/Seb-Single-Seven_Dials.jpg?alt=media&token=aec57481-2088-4767-b57a-8fae0849f503",
-    ReleaseName: "Seven Dials",
-    ReleaseType: "Single"
+    title: "Seven Dials",
+    releaseType: "Single"
 };
 
 describe("PreviewRelease test", () => {
@@ -28,6 +28,6 @@ describe("PreviewRelease test", () => {
     });
 
     it("Should render data passed in from database", () => {
-        expect(component.text()).toContain(mockData.ReleaseType);
+        expect(component.text()).toContain(mockData.releaseType);
     });
 });

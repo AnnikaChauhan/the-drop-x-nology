@@ -12,13 +12,57 @@ import PrivateRoutes from "./PrivateRoutes.jsx";
 export default class Routes extends Component {
     state = {
         user: null,
-        additionalUserInfo: null
+        additionalUserInfo: null,
+        loginFormData: {
+            email: "",
+            password: ""
+        }
     };
 
+    componentDidMount() {
+        this.authListener();
+    }
+
+    authListener() {
+        firebase.auth().onAuthStateChanged(user => {
+            console.log(user);
+            if (user) {
+                this.setState({ user });
+                //retrives the uid
+                localStorage.setItem("user", user.uid);
+            } else {
+                this.setState({ user: null });
+                localStorage.removeItem("user");
+            }
+        });
+    }
+
     signIn = () => {
+        console.log("signing in");
         firebase
             .auth()
             .signInWithPopup(providers.google)
+            .then(result => {
+                this.setState({
+                    user: result.user,
+                    additionalUserInfo: result.additionalUserInfo
+                });
+                globalHistory.navigate("/app/initial-login");
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    };
+
+    signInWithEmailAndPassword = event => {
+        // DONT RELOAD THE PAGE
+        event.preventDefault();
+        firebase
+            .auth()
+            .signInWithEmailAndPassword(
+                this.state.loginFormData.email,
+                this.state.loginFormData.password
+            )
             .then(result => {
                 this.setState({
                     user: result.user,
@@ -28,7 +72,7 @@ export default class Routes extends Component {
             })
             .catch(error => {
                 console.log(error);
-            })
+            });
     };
 
     signOut = () => {
@@ -38,21 +82,56 @@ export default class Routes extends Component {
             .then(() => {
                 this.setState({ user: null });
                 globalHistory.navigate("/");
+            });
+    };
+
+    handleLoginDetails = event => {
+        this.setState({
+            loginFormData: {
+                ...this.state.loginFormData,
+                [event.target.name]: event.target.value
+            }
+        });
+    };
+
+    signUp = event => {
+        event.preventDefault();
+        firebase
+            .auth()
+            .createUserWithEmailAndPassword(
+                this.state.loginFormData.email,
+                this.state.loginFormData.password
+            )
+            .then(result => {
+                this.setState({
+                    user: result.user,
+                    additionalUserInfo: result.additionalUserInfo
+                });
+                // Add something to session so that user is logged in
+                //localStorage/sessionStorage
+                globalHistory.navigate("/private/initial-login");
             })
+            .catch(error => {
+                console.log(error);
+            });
     };
 
     render() {
         return (
             <Router>
                 <LoginPage path="/" signIn={this.signIn} />
-                <PrivateRoutes path="private" user={this.state.user}>
+                <PrivateRoutes path="app" user={this.state.user}>
                     <LandingPage
                         user={this.state.user}
                         additionalUserInfo={this.state.additionalUserInfo}
                         path="initial-login"
                     />
-                    <Fan path="fan/*" />
-                    <Artist user={this.state.user} path="artist/*" />
+                    <Fan path="fan/*" signOut={this.signOut} />
+                    <Artist
+                        user={this.state.user}
+                        path="artist/*"
+                        signOut={this.signOut}
+                    />
                 </PrivateRoutes>
                 <NotFound default />
             </Router>
