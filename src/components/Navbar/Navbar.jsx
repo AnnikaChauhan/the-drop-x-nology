@@ -9,7 +9,7 @@ const navItems = {
     Account: "account",
     Help: "help",
     Feedback: "feedback",
-    Logout: "/"
+    // Logout: "/"
 };
 
 class Navbar extends Component {
@@ -78,10 +78,15 @@ class Navbar extends Component {
                     <div>
                         <img src={logo} alt="The Drop" />
                     </div>
+                      <div className={styles.links} onClick={this.props.signOut}>
+                      
+                    </div>
                     <div className={styles.menu}>
                         <ul className={styles.links}>{this.links}</ul>
+                            
                         {this.footer}
                     </div>
+                  
                 </nav>
                 <div className={styles.overlay} />
             </div>
