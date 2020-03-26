@@ -82,7 +82,7 @@ export default class LandingPage extends Component {
                             Get excited. Share experiences.
                         </h3>
                         <p className={styles.mobileText}>
-                            Tap here if you're a fan
+                            Tap here if you're a Fan
                         </p>
                     </div>
                 </div>
