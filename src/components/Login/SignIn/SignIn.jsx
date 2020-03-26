@@ -1,9 +1,15 @@
 import React, { Component } from "react";
 import styles from "./SignIn.module.scss";
 import LargeButton from "../../Utility/Buttons/LargeButton";
-import { gsap } from "gsap";
+import Tabs from "../../Utility/Tabs";
+import { gsap } from 'gsap';
+import EmailSignIn from "../EmailSignIn";
+import EmailSignUp from "../../SignUp/EmailSignUp/EmailSignUp";
 
 class SignIn extends Component {
+    state = {
+        user: null
+    };
     constructor(props) {
         super(props);
         this.myElement = [];
@@ -18,6 +24,7 @@ class SignIn extends Component {
         });
     }
 
+
     render() {
         return (
             <section className={styles.SignInContainer}>
@@ -28,10 +35,65 @@ class SignIn extends Component {
                     ></div>
                     <div
                         className={styles.buttonStyle}
-                        onClick={this.props.signIn}
                         ref={div => this.myElement.push(div)}
                     >
-                        <LargeButton text={`Sign up with Google`} />
+
+                        <Tabs
+                            tabs={["Login", "Signup"]}
+                            content={[
+                                <div>
+                                    <LargeButton
+                                        handleClick={this.props.signIn}
+                                        // onClick={this.props.signIn}
+                                        text={`Login with Google`}
+                                    />
+                                    <br />
+                                    <h6>or</h6>
+                                    <EmailSignIn
+                                        signInWithEmailAndPassword={this.props.signInWithEmailAndPassword}
+                                        handleLoginDetails={this.props.handleLoginDetails}
+                                        loginFormData={this.props.loginFormData}
+                                    />
+                                </div>
+                                ,
+                                <div>
+                                    <LargeButton
+                                        handleClick={this.props.signIn}
+                                        // onClick={this.props.signIn}
+                                        text={`Sign Up with Google`}
+                                    />
+                                    <br />
+                                    <h6>or</h6>
+                                    <EmailSignUp
+                                        signUp={this.props.signUp}
+                                        handleLoginDetails={this.props.handleLoginDetails}
+                                        loginFormData={this.props.loginFormData}
+                                    />
+                                </div>
+                            ]}
+                        />
+
+
+
+
+
+
+                        {/* <Tabs
+                            tabs={["Sign in with Google", "Sign in with Email"]}
+                            content={[      
+                                <LargeButton
+                                    handleClick={this.props.signIn}
+                                    // onClick={this.props.signIn}
+                                    text={`Sign up with Google`} 
+                                />         
+                            ,            
+                                <EmailSignIn 
+                                    signInWithEmailAndPassword={this.props.signInWithEmailAndPassword}
+                                    handleLoginDetails={this.props.handleLoginDetails}
+                                    loginFormData={this.props.loginFormData}
+                                />
+                            ]}
+                        /> */}
                     </div>
                 </div>
             </section>

@@ -11957,6 +11957,11 @@ react-scroll@1.7.16:
     lodash.throttle "^4.1.1"
     prop-types "^15.5.8"
 
+react-spotify-api@^2.6.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/react-spotify-api/-/react-spotify-api-2.6.0.tgz#7b81b5352231787b75d732c59705afe3193f3dac"
+  integrity sha512-zS7rShZUn6udd0OICX8YIG5wtrqjfmY6yvQgjp2FYr26t3MjF2BCpwnm2XNo8yI8GuRc/cKEa/bx8Ag1DjaY8w==
+
 react-test-renderer@^16.0.0-0:
   version "16.13.0"
   resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-16.13.0.tgz#39ba3bf72cedc8210c3f81983f0bb061b14a3014"

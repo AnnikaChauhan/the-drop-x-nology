@@ -3,15 +3,13 @@ import styles from "./Main.module.scss";
 import FanRoutes from "../../../Routes/FanRoutes";
 import Navbar from "../../../components/Navbar";
 
-class Main extends Component {
+export default class Main extends Component {
     render() {
         return (
             <div className={styles.Main}>
-                <Navbar />
-                <FanRoutes user={this.props.user}/>
+                <Navbar signOut={this.props.signOut} />
+                <FanRoutes />
             </div>
         );
     }
 }
-
-export default Main;

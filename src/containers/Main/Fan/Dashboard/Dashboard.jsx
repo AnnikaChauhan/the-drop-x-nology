@@ -29,7 +29,9 @@ class Dashboard extends Component {
                 this.setState({ userinfo : userinfo[0] })
             })
             .then(() => this.dataRetreiver())
+        }
 
+    populateReleases() {
         firestore
             .collection("Artists")
             .get()
@@ -136,7 +138,7 @@ class Dashboard extends Component {
                         onBlur={this.searchBlur}
                         placeHolder={"Search Artists..."}
                     />
-                    <ReleaseCardList releases={this.state.releases} />
+                    <ReleaseCardList releases={this.state.releases} artist={this.state.artists} />
                 </section>
             );
         }

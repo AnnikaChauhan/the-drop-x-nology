@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { navigate } from "@reach/router";  
+
 import styles from "./SearchCard.module.scss";
 import SmallButton from "../../../../../Utility/Buttons/SmallButton";
 import firebase, { firestore } from "../../../../../../firebase";
