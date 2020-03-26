@@ -12,7 +12,7 @@ export default class PreviewRelease extends Component {
     };
 
     goToArtist = () => {
-        navigate("/private/fan/artist/" + this.state.data.uid, {
+        navigate("/app/fan/artist/" + this.state.data.uid, {
             state: {
                 uid: this.state.data.uid
             }
@@ -29,9 +29,6 @@ export default class PreviewRelease extends Component {
             .get()
             .then(info => {
                 this.setState({ data: info.data() });
-            })
-            .then(() => {
-                console.log(this.state.data.uid)
             })
     }
 

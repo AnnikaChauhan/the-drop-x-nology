@@ -144,10 +144,6 @@ class DraftRelease extends Component {
         });
     };
 
-    handleSaveClick = () => {
-        console.log("clicked");
-    };
-
     submitFormData = () => {
         const currentDate = new Date();
         if (

@@ -5,23 +5,30 @@ import { firestore } from "../../firebase";
 
 export default class LandingPage extends Component {
     handleSubmitArtist = () => {
-        if (this.props.additionalUserInfo.isNewUser) {
-            firestore
-                .collection("Artists")
-                .add({
-                    uid: this.props.user.uid,
-                    type: "artist",
-                    artistName: this.props.user.displayName,
-                    artistProfileImage: this.props.user.photoURL,
-                    bio: ""
-                })
-                .then(() => {
+        firestore
+            .collection("Artists")
+            .where("uid", "==", this.props.user.uid)
+            .get()
+            .then((response) => {
+                if (response.length === 1) {
                     globalHistory.navigate("/app/artist/home");
-                });
-        } else {
-            globalHistory.navigate("/app/artist/home");
-        }
-    };
+                } else {
+                    firestore
+                        .collection("Artists")
+                        .add({
+                            uid: this.props.user.uid,
+                            type: "artist",
+                            artistName: this.props.user.displayName,
+                            artistProfileImage: this.props.user.photoURL,
+                            bio: ""
+                        })
+                        .then(() => {
+                            globalHistory.navigate("/app/artist/home");
+                        })
+                }
+            })
+    } 
+
 
     handleSubmitFan = () => {
         if (this.props.additionalUserInfo.isNewUser) {

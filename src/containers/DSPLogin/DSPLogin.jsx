@@ -4,6 +4,8 @@ import LargeButton from "../../components/Utility/Buttons/LargeButton";
 import ChooseArtists from '../../components/ChooseArtists';
 import logo from "../../static/images/logo-white.png";
 
+import { spotify } from "../../static/config";
+
 import { SpotifyApiContext } from 'react-spotify-api';
 import { UserArtists } from 'react-spotify-api';
 
@@ -28,35 +30,14 @@ export default class DSPLogin extends Component {
 
     componentDidMount() {
         this.setHashParams();
-        if (this.state.token) {
-            const token = this.state.token;
-            fetch('https://api.spotify.com/v1/me', {
-                headers: {
-                    'Authorization': 'Bearer ' + token
-                }
-            })
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data)
-                    // Spotify data that I want on the page
-                })
-                .catch(error => {
-                    console.error(error);
-                });
-        }
     }
 
     connectToSpotify() {
-        const client_id = '881eaf8069764468a22b14061c72d4e8';
-        const redirect_uri = 'http://localhost:3000/connect-music'; // Your redirect uri
-        // may need to add scopes depending on Spotify API needs (check src)
-        const scope = 'user-read-private user-read-email user-follow-read';
-
         let url = 'https://accounts.spotify.com/authorize';
         url += '?response_type=token';
-        url += '&client_id=' + encodeURIComponent(client_id);
-        url += '&scope=' + encodeURIComponent(scope);
-        url += '&redirect_uri=' + encodeURIComponent(redirect_uri);
+        url += '&client_id=' + encodeURIComponent(spotify.client_id);
+        url += '&scope=' + encodeURIComponent(spotify.scope);
+        url += '&redirect_uri=' + encodeURIComponent(spotify.redirect_uri);
 
         window.location = url;
     }
