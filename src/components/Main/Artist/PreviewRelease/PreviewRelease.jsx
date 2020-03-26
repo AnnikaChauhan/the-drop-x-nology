@@ -3,12 +3,21 @@ import styles from "./PreviewRelease.module.scss";
 import Header from "../../../Utility/Header";
 import LoadingAnimation from "../../../Utility/LoadingAnimation";
 import { firestore } from "../../../../firebase";
+import { navigate } from "@reach/router";  
 import Countdown from "react-countdown";
 
 export default class PreviewRelease extends Component {
     state = {
         data: null
     };
+
+    goToArtist = () => {
+        navigate("/private/fan/artist/" + this.state.data.uid, {
+            state: {
+                uid: this.state.data.uid
+            }
+        });
+    }
 
     componentDidMount() {
         const id = window.location.pathname.substring(
@@ -20,7 +29,10 @@ export default class PreviewRelease extends Component {
             .get()
             .then(info => {
                 this.setState({ data: info.data() });
-            });
+            })
+            .then(() => {
+                console.log(this.state.data.uid)
+            })
     }
 
     render() {
@@ -79,7 +91,7 @@ export default class PreviewRelease extends Component {
                         <div className={styles.links}>
                             <article>
                                 <i className="fas fa-user-circle"></i>
-                                <p>Go to Artist</p>
+                                <p onClick={this.goToArtist}>Go to Artist</p>
                             </article>
                             <article>
                                 <a
