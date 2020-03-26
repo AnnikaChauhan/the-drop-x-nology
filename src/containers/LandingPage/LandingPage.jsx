@@ -16,10 +16,10 @@ export default class LandingPage extends Component {
                     bio: ""
                 })
                 .then(() => {
-                    globalHistory.navigate("/private/artist/home");
+                    globalHistory.navigate("/app/artist/home");
                 });
         } else {
-            globalHistory.navigate("/private/artist/home");
+            globalHistory.navigate("/app/artist/home");
         }
     };
 
@@ -37,7 +37,7 @@ export default class LandingPage extends Component {
                     globalHistory.navigate("/connect-music");
                 });
         } else {
-            globalHistory.navigate("/private/fan/home");
+            globalHistory.navigate("/app/fan/home");
         }
     };
 

@@ -160,7 +160,7 @@ class DraftRelease extends Component {
                 .collection("Releases")
                 .add(this.state.formData)
                 .then(() => {
-                    navigate("/private/artist/home");
+                    navigate("/app/artist/home");
                 });
         } else {
             this.setState({
