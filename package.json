@@ -33,6 +33,7 @@
         "react-draft-wysiwyg": "^1.14.4",
         "react-firebase-file-uploader": "^2.4.3",
         "react-scripts": "3.4.0",
+        "react-spotify-api": "^2.6.0",
         "semantic-ui-react": "^0.88.2",
         "simple-react-validator": "^1.4.5"
     },
