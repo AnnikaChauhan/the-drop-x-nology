@@ -24,21 +24,21 @@ export default class Routes extends Component {
     }
 
     authListener() {
-        firebase.auth().onAuthStateChanged((user) => {
+        firebase.auth().onAuthStateChanged(user => {
             console.log(user);
             if (user) {
                 this.setState({ user });
                 //retrives the uid
-                localStorage.setItem('user', user.uid);
+                localStorage.setItem("user", user.uid);
             } else {
                 this.setState({ user: null });
-                localStorage.removeItem('user');
+                localStorage.removeItem("user");
             }
-        })
+        });
     }
 
     signIn = () => {
-        console.log("signing in")
+        console.log("signing in");
         firebase
             .auth()
             .signInWithPopup(providers.google)
@@ -54,23 +54,26 @@ export default class Routes extends Component {
             });
     };
 
-    signInWithEmailAndPassword = (event) => {
+    signInWithEmailAndPassword = event => {
         // DONT RELOAD THE PAGE
-        event.preventDefault()
+        event.preventDefault();
         firebase
             .auth()
-            .signInWithEmailAndPassword(this.state.loginFormData.email, this.state.loginFormData.password)
+            .signInWithEmailAndPassword(
+                this.state.loginFormData.email,
+                this.state.loginFormData.password
+            )
             .then(result => {
                 this.setState({
                     user: result.user,
                     additionalUserInfo: result.additionalUserInfo
                 });
-                globalHistory.navigate("/private/initial-login"); 
+                globalHistory.navigate("/private/initial-login");
             })
             .catch(error => {
                 console.log(error);
-            })
-    }
+            });
+    };
 
     signOut = () => {
         firebase
@@ -79,26 +82,27 @@ export default class Routes extends Component {
             .then(() => {
                 this.setState({ user: null });
                 globalHistory.navigate("/");
-                console.log(this.state.user);
-                console.log("good buye");
             });
     };
 
-    handleLoginDetails = (event) => {
+    handleLoginDetails = event => {
         this.setState({
             loginFormData: {
                 ...this.state.loginFormData,
                 [event.target.name]: event.target.value
             }
-        })
-    }
+        });
+    };
 
-    signUp = (event) => {
+    signUp = event => {
         event.preventDefault();
         firebase
             .auth()
-            .createUserWithEmailAndPassword(this.state.loginFormData.email, this.state.loginFormData.password)
-            .then((result) => {
+            .createUserWithEmailAndPassword(
+                this.state.loginFormData.email,
+                this.state.loginFormData.password
+            )
+            .then(result => {
                 this.setState({
                     user: result.user,
                     additionalUserInfo: result.additionalUserInfo
@@ -107,10 +111,10 @@ export default class Routes extends Component {
                 //localStorage/sessionStorage
                 globalHistory.navigate("/private/initial-login");
             })
-            .catch((error) => {
+            .catch(error => {
                 console.log(error);
-            })
-    }
+            });
+    };
 
     render() {
         return (
