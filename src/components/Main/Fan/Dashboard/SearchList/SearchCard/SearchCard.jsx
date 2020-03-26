@@ -61,7 +61,7 @@ export default class SearchCard extends Component {
                         <img
                             src={this.props.artist.artistProfileImage}
                             className={styles.image}
-                            alt="https://firebasestorage.googleapis.com/v0/b/the-drop-x-nology.appspot.com/o/Profile_avatar_placeholder_large.png?alt=media&token=eb157121-631d-43e0-8454-c80335fd15ea"
+                            alt="ArtistImage"
                         />
                     </div>
                     <div className={styles.infoWrapper}>
@@ -71,7 +71,7 @@ export default class SearchCard extends Component {
                             </div>
                             <div className={styles.Bio}>Small Bio</div>
                         </div>
-                        <SmallButton text={"Followed"} followed={this.state.success} onClick={this.handleChange}/>
+                        <SmallButton text={"Unfollow"} followed={this.state.success} onClick={this.handleChange}/>
                     </div>
                 </article>
             );
@@ -92,7 +92,7 @@ export default class SearchCard extends Component {
                             </div>
                             <div className={styles.Bio}>Small Bio</div>
                         </div>
-                        {this.state.array.includes(this.props.artist.uid) ? <SmallButton text={"Followed"} followed={true} onClick={this.handleChange}/> : <SmallButton text={"Follow"} onClick={this.handleChange} />}
+                        {this.state.array.includes(this.props.artist.uid) ? <SmallButton text={"Unfollow"} followed={true} onClick={this.handleChange}/> : <SmallButton text={"Follow"} onClick={this.handleChange} />}
                     </div>
                 </article>
             );
