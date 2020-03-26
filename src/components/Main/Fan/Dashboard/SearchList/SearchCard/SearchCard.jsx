@@ -25,6 +25,7 @@ export default class SearchCard extends Component {
                         success: true,
                         array: joined
                     })
+                    console.log("colorChanged?")
                 })
         } else {
             firestore
@@ -70,7 +71,7 @@ export default class SearchCard extends Component {
                             </div>
                             <div className={styles.Bio}>Small Bio</div>
                         </div>
-                        <SmallButton text={"Followed"} onClick={this.handleChange}/>
+                        <SmallButton text={"Followed"} followed={this.state.success} onClick={this.handleChange}/>
                     </div>
                 </article>
             );
@@ -91,7 +92,7 @@ export default class SearchCard extends Component {
                             </div>
                             <div className={styles.Bio}>Small Bio</div>
                         </div>
-                        {this.state.array.includes(this.props.artist.uid) ? <SmallButton text={"Followed"} onClick={this.handleChange}/> : <SmallButton text={"Follow"} onClick={this.handleChange} />}
+                        {this.state.array.includes(this.props.artist.uid) ? <SmallButton text={"Followed"} followed={true} onClick={this.handleChange}/> : <SmallButton text={"Follow"} onClick={this.handleChange} />}
                     </div>
                 </article>
             );

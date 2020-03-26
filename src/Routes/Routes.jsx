@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Router, globalHistory } from "@reach/router";
+import { Router, navigate } from "@reach/router";
 import LandingPage from "../containers/LandingPage";
 import LoginPage from "../containers/LoginPage/LoginPage";
 import Fan from "../containers/Main/Fan";
@@ -24,7 +24,7 @@ export default class Routes extends Component {
                     user: result.user,
                     additionalUserInfo: result.additionalUserInfo
                 });
-                globalHistory.navigate("/private/initial-login");
+                navigate("/private/initial-login");
             })
             .catch(error => {
                 console.log(error);
@@ -37,7 +37,7 @@ export default class Routes extends Component {
             .signOut()
             .then(() => {
                 this.setState({ user: null });
-                globalHistory.navigate("/");
+                navigate("/");
             });
     };
 

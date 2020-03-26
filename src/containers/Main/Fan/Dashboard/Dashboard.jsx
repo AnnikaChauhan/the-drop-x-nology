@@ -4,6 +4,7 @@ import SearchBar from "../../../../components/Utility/SearchBar";
 import Header from "../../../../components/Utility/Header";
 import ReleaseCardList from "../../../../components/Main/Fan/Dashboard/ReleaseCardList";
 import SearchList from "../../../../components/Main/Fan/Dashboard/SearchList";
+import SmallButton from "../../../../components/Utility/Buttons/SmallButton";
 import { firestore } from "../../../../firebase";
 
 class Dashboard extends Component {
@@ -98,6 +99,11 @@ class Dashboard extends Component {
         }
     };
 
+    searchBlur2 = () => {
+            this.setState({ searchFocused: false });
+            this.componentDidMount();
+    };
+
     render() {
         if (this.state.searchFocused) {
             return (
@@ -113,7 +119,9 @@ class Dashboard extends Component {
                         onChange={this.setSearchText}
                         placeHolder={"Search Artists..."}
                     />
-                    <SearchList update={this.dataRetreiver} userinfo={this.state.userinfo} artists={this.state.filteredArtists} />
+                    <SmallButton text={"Close Results"} onClick={this.searchBlur2}/>
+                    <hr />
+                    <SearchList searchBlur={this.searchBlur} update={this.dataRetreiver} userinfo={this.state.userinfo} artists={this.state.filteredArtists} />
                 </section>
             );
         } else {
