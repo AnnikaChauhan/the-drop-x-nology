@@ -5,23 +5,30 @@ import { firestore } from "../../firebase";
 
 export default class LandingPage extends Component {
     handleSubmitArtist = () => {
-        if (this.props.additionalUserInfo.isNewUser) {
-            firestore
-                .collection("Artists")
-                .add({
-                    uid: this.props.user.uid,
-                    type: "artist",
-                    artistName: this.props.user.displayName,
-                    artistProfileImage: this.props.user.photoURL,
-                    bio: ""
-                })
-                .then(() => {
+        firestore
+            .collection("Artists")
+            .where("uid", "==", this.props.user.uid)
+            .get()
+            .then((query) => {
+                if (query.docs.length === 1) {
                     globalHistory.navigate("/app/artist/home");
-                });
-        } else {
-            globalHistory.navigate("/app/artist/home");
-        }
-    };
+                } else {
+                    firestore
+                        .collection("Artists")
+                        .add({
+                            uid: this.props.user.uid,
+                            type: "artist",
+                            artistName: this.props.user.displayName,
+                            artistProfileImage: this.props.user.photoURL,
+                            bio: ""
+                        })
+                        .then(() => {
+                            globalHistory.navigate("/app/artist/home");
+                        })
+                }
+            })
+    } 
+
 
     handleSubmitFan = () => {
         if (this.props.additionalUserInfo.isNewUser) {
@@ -34,7 +41,7 @@ export default class LandingPage extends Component {
                     userName: this.props.user.displayName
                 })
                 .then(() => {
-                    globalHistory.navigate("/app/fan/home");
+                    globalHistory.navigate("/connect-music");
                 });
         } else {
             globalHistory.navigate("/app/fan/home");
@@ -82,7 +89,7 @@ export default class LandingPage extends Component {
                             Get excited. Share experiences.
                         </h3>
                         <p className={styles.mobileText}>
-                            Tap here if you're a fan
+                            Tap here if you're a Fan
                         </p>
                     </div>
                 </div>

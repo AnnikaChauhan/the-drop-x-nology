@@ -7,9 +7,7 @@ import { Link } from "@reach/router";
 const navItems = {
     Home: "home",
     Account: "account",
-    Help: "help",
-    Feedback: "feedback",
-    // Logout: "/"
+    Help: "help"
 };
 
 class Navbar extends Component {
@@ -82,8 +80,15 @@ class Navbar extends Component {
                       
                     </div>
                     <div className={styles.menu}>
-                        <ul className={styles.links}>{this.links}</ul>
-                            
+                        <ul className={styles.links}>
+                            {this.links}
+                            <NavItem
+                                signOut={this.props.signOut}
+                                name="Logout"
+                                path=""
+                                disabled={true}
+                            />
+                        </ul>
                         {this.footer}
                     </div>
                   

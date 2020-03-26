@@ -6,7 +6,7 @@ import SmallButton from "../../../../../Utility/Buttons/SmallButton";
 
 export default class SearchCard extends Component {
     followArtist = () => {
-        navigate("/private/fan/artist/" + this.props.artist.uid, {
+        navigate("/app/fan/artist/" + this.props.artist.uid, {
             state: {
                 artist: this.props.artist
             }
