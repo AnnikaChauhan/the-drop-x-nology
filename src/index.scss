@@ -8,6 +8,11 @@
     color: $font-color;
 }
 
+body {
+    overscroll-behavior-y: none;
+    overscroll-behavior-x: none;
+  }
+
 h1,
 h2,
 h3,

@@ -50,11 +50,11 @@ class SignIn extends Component {
                                     />
                                     <br />
                                     <h6>or</h6>
-                                    <EmailSignIn
+                                   {/*  <EmailSignIn
                                         signInWithEmailAndPassword={this.props.signInWithEmailAndPassword}
                                         handleLoginDetails={this.props.handleLoginDetails}
                                         loginFormData={this.props.loginFormData}
-                                    />
+                                    /> */}
                                 </div>
                                 ,
                                 <div>
@@ -65,11 +65,11 @@ class SignIn extends Component {
                                     />
                                     <br />
                                     <h6>or</h6>
-                                    <EmailSignUp
+                                 {/*    <EmailSignUp
                                         signUp={this.props.signUp}
                                         handleLoginDetails={this.props.handleLoginDetails}
                                         loginFormData={this.props.loginFormData}
-                                    />
+                                    /> */}
                                 </div>
                             ]}
                         />
