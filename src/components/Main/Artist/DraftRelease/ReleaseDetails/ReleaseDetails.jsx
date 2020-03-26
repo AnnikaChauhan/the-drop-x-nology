@@ -13,42 +13,6 @@ import "./datecss.css";
 // import SimpleReactValidator from 'simple-react-validator';
 
 export default class ReleaseDetails extends Component {
-
-    state = {
-        formData:{
-            title: "",
-            description:"",
-            releaseType: "",
-            physicalURLs: {
-                musicStore: "",
-                merchandise: ""
-            }
-                
-
-        }
-        // ,
-        // physicalURLs: ["musicStore", "merchandise"]
-    }
-    
-    handleInput = ((event) => {
-        this.setState({
-            formData: {
-                ...this.state.formData,
-                physicalURLs: {
-                    ...this.state.formData.physicalURLs,
-                    [event.target.name]: event.target.value
-                }
-                
-            }
-        })
-        console.log(this.state);
-        console.log(this.state.formData.physicalURLs);
-        
-    });
-
-    
-    
-
     render() {
         let handleColor = time => {
             return "text-success";
