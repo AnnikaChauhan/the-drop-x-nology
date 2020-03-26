@@ -9,8 +9,8 @@ export default class LandingPage extends Component {
             .collection("Artists")
             .where("uid", "==", this.props.user.uid)
             .get()
-            .then((response) => {
-                if (response.length === 1) {
+            .then((query) => {
+                if (query.docs.length === 1) {
                     globalHistory.navigate("/app/artist/home");
                 } else {
                     firestore
