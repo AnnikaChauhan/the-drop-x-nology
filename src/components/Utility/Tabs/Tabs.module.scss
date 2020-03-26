@@ -72,15 +72,17 @@
 
 .tabcontent {
     display: none;
-    padding: 35px 50px;
+    padding: 20px 15px;
     background-color: $navbar-color;
     border-radius: 0 25px 0 0;
+    text-align: center;
 
     a {
         text-decoration: none;
         font-family: "Montserrat Light";
         line-height: 45px;
         color: $primary-color;
+        font-size: 0.8em;
         transition: 0.4s;
 
         &:hover {

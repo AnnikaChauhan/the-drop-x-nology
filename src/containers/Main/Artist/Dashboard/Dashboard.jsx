@@ -6,7 +6,7 @@ class Dashboard extends Component {
     render() {
         return (
             <section className={styles.Dashboard}>
-                <Profile />
+                <Profile user={this.props.user} />
             </section>
         );
     }
