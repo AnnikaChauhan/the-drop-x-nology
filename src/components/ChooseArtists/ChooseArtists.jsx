@@ -9,7 +9,24 @@ import { firestore } from "../../firebase";
 
 class ChooseArtists extends Component {
     state = {
-        artistsOnFirebase: null
+        artistsOnFirebase: null,
+        userinfo: null
+    }
+
+    handleClick = (value) => {
+        let artist = this.state.artistsOnFirebase.find(item => item.artistName === value)
+        console.log(artist)
+        console.log(this.state.userinfo)
+        if (this.state.userinfo) {
+            console.log("running")
+            firestore
+                .collection("Fans")
+                .doc(this.state.userinfo.docID)
+                .update({
+                    [`followedArtists.${artist.uid}`] : artist.uid
+                })
+                .then(() => console.log("success"))
+        }
     }
 
     componentDidMount() {
@@ -23,6 +40,21 @@ class ChooseArtists extends Component {
                 })
     }
 
+    componentDidUpdate(prevProps) {
+        if(this.props.user !== prevProps.user) {
+            firestore
+            .collection("Fans")
+            .where("uid", "==", this.props.user.uid)
+            .get()
+            .then(query => {
+                const userinfo = query.docs.map(doc => Object.assign(doc.data(), {
+                    docID: doc.id
+                }))
+                this.setState({ userinfo : userinfo[0] })
+            })
+        }
+    }
+
     followAll() {
         const svgs = document.querySelectorAll('svg');
         svgs.forEach(button => button.parentNode.click());
@@ -33,6 +65,7 @@ class ChooseArtists extends Component {
     }
 
     render() {
+        console.log(this.state.artistsOnFirebase)
         if (!this.state.artistsOnFirebase) return <h2>No artists were found.</h2>
         return (
             <section className={styles.ChooseArtists}>
@@ -47,7 +80,7 @@ class ChooseArtists extends Component {
                                     doc.artistName === artist.name
                                 )   ?   <article key={index} className={styles.artist}>
                                             <p>{artist.name}</p>
-                                            <FollowButton /> 
+                                            <FollowButton onClick={() => this.handleClick(artist.name)} /> 
                                         </article>
                                     :   <article key={index} className={`${styles.artist} ${styles.unavailable}`}>
                                             <p>{artist.name}</p>

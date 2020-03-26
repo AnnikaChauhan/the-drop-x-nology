@@ -29,7 +29,7 @@ class DraftRelease extends Component {
         soundcloud: "",
         tidal: ""
       },
-      artworkURL: ""
+      artworkURL: this.props.user.photoURL
     },
     artwork: {
       artwork: "",
@@ -71,7 +71,8 @@ class DraftRelease extends Component {
       artwork: {
         artwork: filename,
         progress: 100,
-        isUploading: false
+        isUploading: false,
+        artworkUploaded: true
       }
     });
     firebase
@@ -155,7 +156,7 @@ class DraftRelease extends Component {
         .collection("Releases")
         .add(this.state.formData)
         .then(() => {
-          navigate("/private/artist/home");
+          navigate("/app/artist/home");
         });
     } else {
       this.setState({
@@ -191,9 +192,7 @@ class DraftRelease extends Component {
           <Header title={"Edit Release"} />
           <div className={styles.links}>
             <SmallButton text="SAVE" />
-            <Link to="/release">
-              <SmallButton text="PREVIEW" />
-            </Link>
+            <SmallButton text="PREVIEW" />
             <SmallButton text="PUBLISH" onClick={this.submitFormData} />
           </div>
         </article>
@@ -217,7 +216,7 @@ class DraftRelease extends Component {
         {this.state.artwork.isUploading && (
           <p>Progress: {this.state.artwork.progress}</p>
         )}
-        {this.state.formData.artworkURL && (
+        {this.state.formData.artworkUploaded && (
           <img alt="artwork" src={this.state.formData.artworkURL} />
         )}
         <FileUploader

@@ -12,7 +12,8 @@ import { UserArtists } from 'react-spotify-api';
 export default class DSPLogin extends Component {
     state = {
         hashParams: {},
-        token: ""
+        token: "",
+        user: null
     }
 
     // This function turns a query string into an object of those query parameters
@@ -46,7 +47,7 @@ export default class DSPLogin extends Component {
         if (this.state.token) {
             return (
                 <SpotifyApiContext.Provider value={this.state.token}>
-                    <ChooseArtists />
+                    <ChooseArtists user={this.props.user} />
                 </SpotifyApiContext.Provider>
             )
         } else {
