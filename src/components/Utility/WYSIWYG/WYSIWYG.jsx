@@ -7,7 +7,6 @@ import Table from "@editorjs/table";
 import Delimiter from "@editorjs/delimiter";
 import SmallButton from "../Buttons/SmallButton";
 import styles from "./WYSIWYG.module.scss";
-import { globalHistory } from "@reach/router";
 
 export default class WYSIWYG extends Component {
     state = {
@@ -30,32 +29,28 @@ export default class WYSIWYG extends Component {
     render() {
         console.log(this.state.data)
         return (
-            <section>
-                <section className={styles.wysWrapper}>
-                    <EditorJs
-                        
-                        // className={styles.ceInlineTool}
-                        // ce-inline-toolbar__buttons= {{color: 'red'}}
+            <section className={styles.wysWrapper}>
+                <EditorJs
+                    
+                    // className={styles.ceInlineTool}
+                    // ce-inline-toolbar__buttons= {{color: 'red'}}
 
-                        placeholder="Start typing..."
-                        ref={this.editor}
-                        onChange={() => this.handleChange()}
-                        data={this.state.data}
-                        tools={{
-                            marker: Marker,
-                            list: List,
-                            header: Header,
-                            table: Table,
-                            delimiter: Delimiter
-                        }}
-                    />
-                </section>
-                <section>
-                    <div className={styles.wysiWrapper}>
-                        <SmallButton className={styles.wysiButton} text="Save" />
-                        <SmallButton className={styles.wysiButton} text="Cancel" />
-                    </div>
-                </section>
+                    placeholder="Start typing..."
+                    ref={this.editor}
+                    onChange={() => this.handleChange()}
+                    data={this.state.data}
+                    tools={{
+                        marker: Marker,
+                        list: List,
+                        header: Header,
+                        table: Table,
+                        delimiter: Delimiter
+                    }}
+                />
+                {/* <div className={styles.wysiWrapper}>
+                    <SmallButton className={styles.wysiButton} text="Save" />
+                    <SmallButton className={styles.wysiButton} text="Cancel" />
+                </div> */}
             </section>
 
         );

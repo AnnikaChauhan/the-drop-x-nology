@@ -61,7 +61,7 @@ class ChooseArtists extends Component {
     }
 
     continue() {
-        globalHistory.navigate("/app/fan/home", { replace: true });
+        globalHistory.navigate("/app/fan/home");
     }
 
     render() {

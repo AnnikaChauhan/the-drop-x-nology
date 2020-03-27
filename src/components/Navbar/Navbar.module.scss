@@ -13,7 +13,7 @@ $padding: 25px;
     flex-direction: column;
     position: fixed;
     overflow: hidden;
-    z-index: 10;
+    z-index: 1;
 
     @media only screen and (max-width: 768px) {
         width: 100%;

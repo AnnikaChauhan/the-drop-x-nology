@@ -52,9 +52,7 @@ export default class Profile extends Component {
                             src={this.state.artist.artistProfileImage}
                             alt="Artist Profile"
                         />
-                        <div className={styles.bio}>
-                            <Link to={"profile"} className={styles.bio}>Edit Bio</Link>
-                        </div>
+                        <div className={styles.bio}>Edit Bio</div>
                     </div>
                     <div className={styles.header2}>
                         <div className={styles.details}>

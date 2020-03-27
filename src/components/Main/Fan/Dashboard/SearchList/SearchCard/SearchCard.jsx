@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import styles from "./SearchCard.module.scss";
 import SmallButton from "../../../../../Utility/Buttons/SmallButton";
-import { navigate } from "@reach/router";  
 import firebase, { firestore } from "../../../../../../firebase";
 
 
@@ -10,14 +9,6 @@ export default class SearchCard extends Component {
     state = {
         success: false,
         array : Object.values(this.props.userinfo.followedArtists)
-    }
-
-    artistRedirect = () => {
-        navigate("/app/fan/artist/" + this.props.artist.uid, {
-            state: {
-                artist: this.props.artist
-            }
-        });
     }
 
     handleChange = () => {
@@ -68,7 +59,6 @@ export default class SearchCard extends Component {
                 <article className={styles.searchWrapper}>
                     <div className={styles.artistIMG}>
                         <img
-                            onClick={this.artistRedirect}
                             src={this.props.artist.artistProfileImage}
                             className={styles.image}
                             alt="ArtistImage"
@@ -90,7 +80,6 @@ export default class SearchCard extends Component {
                 <article className={styles.searchWrapper}>
                     <div className={styles.artistIMG}>
                         <img
-                            onClick={this.artistRedirect}
                             src={this.props.artist.artistProfileImage}
                             className={styles.image}
                             alt="Artist"
