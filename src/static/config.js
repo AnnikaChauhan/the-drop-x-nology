@@ -4,7 +4,7 @@ const getSpotifyRedirectUri = () => {
         // doesn't appear to every be true - investigate
         redirectUri += "https://the-drop-x-nology.web.app/";
     } else {
-        redirectUri += "https://the-drop-x-nology.web.app/connect-music";
+        redirectUri += "https://the-drop-x-nology.web.app/";
     }
     return (redirectUri += "connect-music");
 };
