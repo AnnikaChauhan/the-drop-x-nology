@@ -87,9 +87,9 @@ export default class PreviewRelease extends Component {
                             </h2>
                         </div>
                         <div className={styles.links}>
-                            <article>
+                            <article onClick={this.goToArtist}>
                                 <i className="fas fa-user-circle"></i>
-                                <p onClick={this.goToArtist}>Go to Artist</p>
+                                <p >Go to Artist</p>
                             </article>
                             <article>
                                 <a
