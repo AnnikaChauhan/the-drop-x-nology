@@ -16,7 +16,7 @@ export default class FanRoutes extends Component {
                 <Dashboard path="home" user={this.props.user} />
                 <DraftRelease path="home/add-release" user={this.props.user} />
                 <PreviewRelease path="release/*" />
-                <ArtistBio path="profile" />
+                <ArtistBio path="home/profile" />
                 <Help path="help" />
                 <NotFound default />
             </Router>
