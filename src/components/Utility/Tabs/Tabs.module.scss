@@ -10,12 +10,12 @@
         // overflow: hidden;
         outline: none;
         cursor: pointer;
-        padding: 10px 50px;
+        padding: 10px 40px;
         border-radius: 25px 25px 0 0;
         transition: 0.4s;
 
         font-family: "Montserrat Bold";
-        font-size: 20px;
+        font-size: 18px;
 
         &:active,
         &:focus {
@@ -39,7 +39,7 @@
             &::before,
             &::after {
                 box-shadow: 0 25px 0 0 $navbar-color;
-                z-index: 0; // 1 is better aesthetic but breaks when collapsing at small widths
+                z-index: 1; // 1 is better aesthetic but breaks when collapsing at small widths
             }
         }
 
@@ -72,7 +72,7 @@
 
 .tabcontent {
     display: none;
-    padding: 20px 15px;
+    padding: 20px 35px;
     background-color: $navbar-color;
     text-align: center;
 
@@ -100,29 +100,29 @@
 }
 
 .tabcontent2 {
-        display: none;
-        padding: 35px 50px;
-        background-color: $navbar-color;
-    
-        a {
+    display: none;
+    padding: 35px 50px;
+    background-color: $navbar-color;
+
+    a {
+        text-decoration: none;
+        font-family: "Montserrat Light";
+        line-height: 45px;
+        color: $primary-color;
+        font-size: 1rem;
+        transition: 0.4s;
+
+        &:hover {
             text-decoration: none;
-            font-family: "Montserrat Light";
-            line-height: 45px;
-            color: $primary-color;
-            font-size: 1rem;
-            transition: 0.4s;
-    
-            &:hover {
-                text-decoration: none;
-                color: #888888;
-            }
+            color: #888888;
         }
-    
-        &.open {
-            display: block;
-        }
-    
-        article:not(:last-child) {
-            border-bottom: 1px solid #333333;
-        }
+    }
+
+    &.open {
+        display: block;
+    }
+
+    article:not(:last-child) {
+        border-bottom: 1px solid #333333;
+    }
 }
