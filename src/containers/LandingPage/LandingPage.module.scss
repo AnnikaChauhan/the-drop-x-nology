@@ -68,7 +68,6 @@
         background-repeat: no-repeat;
         transition: opacity 0.3s;
         display: flex;
-        border-radius: 4px;
 
         h3 {
             letter-spacing: 0;
@@ -171,8 +170,6 @@
         .faninfo {
             opacity: 1;
         }
-
-        
     }
 }
 
@@ -192,29 +189,41 @@
 
         .infoWrapper {
             opacity: 1;
+            width: 100%;
+
+            .artistinfo {
+                font-size: 18px;
+                text-align: center;
+                margin-top: 15px;
+            }
+
+            .faninfo{
+                font-size: 18px;
+                text-align: center;
+                margin-top: 15px;
+            }
 
             .mobileText {
                 display: block;
-                font-size: 20px;
+                font-size: 18px;
+
             }
         }
 
         .leftArtistWrapper {
             width: 100%;
             height: 50%;
-
-            &:hover {
-                box-shadow: none;
-            }
+            border-radius: 0;
         }
-
-        .right {
+        
+        .rightFanWrapper {
             width: 100%;
             height: 50%;
 
-            &:hover {
-                box-shadow: none;
-            }
         }
     }
 }
+
+// @media screen and (max-width: 2160px) {
+
+// }

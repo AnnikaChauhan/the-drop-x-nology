@@ -7,7 +7,7 @@ export default class Main extends Component {
     render() {
         return (
             <div className={styles.Main}>
-                <Navbar />
+                <Navbar signOut={this.props.signOut}/>
                 <ArtistRoutes user={this.props.user}/>
             </div>
         );

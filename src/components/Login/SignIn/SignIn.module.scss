@@ -24,8 +24,8 @@
     }
     .comet1 {
         height: 180px;
-        width: 20%;
-        background-image: url("../../../static/images/logos/logo2.png");
+        width: 30%;
+        background-image: url("../../../static/images/logo-white.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -100,4 +100,26 @@
             }
         }
     }
+}
+
+
+h6 {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    text-align: center;
+}
+h6:before,
+h6:after {
+    position: absolute;
+    top: 51%;
+    overflow: hidden;
+    width: 50%;
+    height: 1px;
+    content: "\a0";
+    background-color: grey;
+}
+h6:before {
+    margin-left: -50%;
+    text-align: right;
 }
