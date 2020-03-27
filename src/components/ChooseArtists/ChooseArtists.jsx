@@ -55,6 +55,7 @@ class ChooseArtists extends Component {
         }
     }
 
+    
     followAll() {
         const svgs = document.querySelectorAll('svg');
         svgs.forEach(button => button.parentNode.click());
