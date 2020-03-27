@@ -3,7 +3,7 @@ import styles from "./PreviewRelease.module.scss";
 import Header from "../../../Utility/Header";
 import LoadingAnimation from "../../../Utility/LoadingAnimation";
 import { firestore } from "../../../../firebase";
-import { navigate } from "@reach/router";  
+import { navigate } from "@reach/router";
 import Countdown from "react-countdown";
 
 export default class PreviewRelease extends Component {
@@ -17,7 +17,7 @@ export default class PreviewRelease extends Component {
                 uid: this.state.data.uid
             }
         });
-    }
+    };
 
     componentDidMount() {
         const id = window.location.pathname.substring(
@@ -28,12 +28,22 @@ export default class PreviewRelease extends Component {
             .doc(id)
             .get()
             .then(info => {
-                this.setState({ data: info.data() });
-            })
+                firestore
+                    .collection("Artists")
+                    .where("uid", "==", info.data().uid)
+                    .get()
+                    .then(artist => {
+                        const artistName = artist.docs[0].data().artistName;
+                        this.setState({
+                            data: Object.assign(info.data(), {
+                                artistName
+                            })
+                        });
+                    });
+            });
     }
 
     render() {
-        
         const renderer = ({ days, hours, minutes, seconds, completed }) => {
             let months = Math.floor(days / 31);
             let newDays = days - 31 * months;
@@ -89,7 +99,7 @@ export default class PreviewRelease extends Component {
                         <div className={styles.links}>
                             <article onClick={this.goToArtist}>
                                 <i className="fas fa-user-circle"></i>
-                                <p >Go to Artist</p>
+                                <p>Go to Artist</p>
                             </article>
                             <article>
                                 <a
