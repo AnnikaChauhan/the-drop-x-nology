@@ -76,6 +76,9 @@ class Navbar extends Component {
                     <div>
                         <img src={logo} alt="The Drop" />
                     </div>
+                      <div className={styles.links} onClick={this.props.signOut}>
+                      
+                    </div>
                     <div className={styles.menu}>
                         <ul className={styles.links}>
                             {this.links}
@@ -88,6 +91,7 @@ class Navbar extends Component {
                         </ul>
                         {this.footer}
                     </div>
+                  
                 </nav>
                 <div className={styles.overlay} />
             </div>
