@@ -18,8 +18,8 @@ export default class LandingPage extends Component {
                         .add({
                             uid: this.props.user.uid,
                             type: "artist",
-                            artistName: this.props.user.displayName,
-                            artistProfileImage: this.props.user.photoURL,
+                            artistName: this.props.user.displayName ? this.props.user.displayName : "Please Edit your Name",
+                            artistProfileImage: this.props.user.photoURL ? this.props.user.photoURL : "https://firebasestorage.googleapis.com/v0/b/the-drop-x-nology.appspot.com/o/Profile_avatar_placeholder_large.png?alt=media&token=eb157121-631d-43e0-8454-c80335fd15ea",
                             bio: ""
                         })
                         .then(() => {
