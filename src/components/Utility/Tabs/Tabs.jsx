@@ -31,7 +31,11 @@ export default class Tabs extends Component {
                 {this.props.content.map((elements, index) => (
                     <div
                         id={this.props.tabs[index]}
-                        className={`${styles.tabcontent} ${
+                        className={this.props.profileTab ? `${styles.tabcontent2} ${
+                            this.state.activeTab === this.props.tabs[index]
+                                ? `${styles.open}`
+                                : null
+                        }` : `${styles.tabcontent} ${
                             this.state.activeTab === this.props.tabs[index]
                                 ? `${styles.open}`
                                 : null

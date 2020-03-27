@@ -8,6 +8,7 @@ export default class EmailSignIn extends Component {
       <>
         <form onSubmit={this.props.signInWithEmailAndPassword}>
           <input
+            className={styles.inputSelector}
             type="email"
             name="email"
             value={this.props.loginFormData.email} 

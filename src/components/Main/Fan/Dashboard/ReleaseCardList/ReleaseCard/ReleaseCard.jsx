@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import styles from "./ReleaseCard.module.scss";
 import FollowButton from "../../../../../Utility/Buttons/FollowButton/FollowButton";
-import { globalHistory } from "@reach/router";
+import { navigate } from "@reach/router";
 import Countdown from "react-countdown";
 
 class ReleaseCard extends Component {
     preview = () => {
-        globalHistory.navigate(`release/${this.props.release.releaseId}`);
+        navigate(`release/${this.props.release.releaseId}`, { state: this.props.release.uid })
     };
 
     render() {

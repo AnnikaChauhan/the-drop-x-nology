@@ -12,7 +12,7 @@ export default class PreviewRelease extends Component {
     };
 
     goToArtist = () => {
-        navigate("/private/fan/artist/" + this.state.data.uid, {
+        navigate("/app/fan/artist/" + this.state.data.uid, {
             state: {
                 uid: this.state.data.uid
             }
@@ -30,12 +30,10 @@ export default class PreviewRelease extends Component {
             .then(info => {
                 this.setState({ data: info.data() });
             })
-            .then(() => {
-                console.log(this.state.data.uid)
-            })
     }
 
     render() {
+        
         const renderer = ({ days, hours, minutes, seconds, completed }) => {
             let months = Math.floor(days / 31);
             let newDays = days - 31 * months;

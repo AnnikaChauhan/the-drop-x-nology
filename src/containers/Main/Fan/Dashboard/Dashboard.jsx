@@ -4,12 +4,14 @@ import SearchBar from "../../../../components/Utility/SearchBar";
 import Header from "../../../../components/Utility/Header";
 import ReleaseCardList from "../../../../components/Main/Fan/Dashboard/ReleaseCardList";
 import SearchList from "../../../../components/Main/Fan/Dashboard/SearchList";
+import SmallButton from "../../../../components/Utility/Buttons/SmallButton";
 import { firestore } from "../../../../firebase";
 
 class Dashboard extends Component {
     state = {
         searchFocused: false,
         searchText: "",
+        userinfo: null,
         releases: [],
         artists: [],
         filteredArtists: []
@@ -17,35 +19,55 @@ class Dashboard extends Component {
 
     componentDidMount() {
         firestore
+            .collection("Fans")
+            .where("uid", "==", this.props.user.uid)
+            .get()
+            .then(query => {
+                const userinfo = query.docs.map(doc => Object.assign(doc.data(), {
+                    docID: doc.id
+                }))
+                this.setState({ userinfo : userinfo[0] })
+            })
+            .then(() => this.dataRetreiver())
+
+        firestore
             .collection("Artists")
             .get()
             .then(query => {
                 const artists = query.docs.map(doc => doc.data());
                 this.setState({ artists });
-            });
+        });
+    }
 
-        firestore
-            .collection("Releases")
-            .get()
-            .then(query => {
-                const releases = query.docs.map(doc => {
-                    const artist = this.state.artists.find(
-                        artist => artist.uid === doc.data().uid
-                    );
-                    return Object.assign(doc.data(), {
-                        artistName: artist.artistName,
-                        releaseId: doc.id
-                    });
-                });
-                releases.sort(
-                    (a, b) =>
-                        a.startDateReleases.seconds -
-                        b.startDateReleases.seconds
+    dataRetreiver = () => {
+        let followedArtistsObject = this.state.userinfo.followedArtists;
+        let releases = [];
+        for (let key in followedArtistsObject) {
+            releases.push(
+            firestore
+                .collection("Releases")
+                .where("uid", "==", followedArtistsObject[key])
+                .get())
+        }
+        Promise.all(releases)
+        .then((querySnapshots) => {
+            return querySnapshots.map(qs => qs.docs)
+        })
+        .then((matchingReleases) => {
+            let releaseArray = []
+            matchingReleases.forEach(item => item.forEach(item => {
+                const artist = this.state.artists.find(
+                    artist => artist.uid === item.data().uid
                 );
-                this.setState({
-                    releases
-                });
-            });
+                releaseArray.push(Object.assign(item.data(), {
+                    artistName: artist.artistName,
+                    releaseId: item.id
+                }))
+            }))
+            return releaseArray
+        })
+        .then((releaseArray) => this.setState({ releases : releaseArray.sort((a,b) => a.startDateReleases.seconds - b.startDateReleases.seconds)
+        }))
     }
 
     setSearchText = event => {
@@ -74,7 +96,13 @@ class Dashboard extends Component {
     searchBlur = () => {
         if (this.state.searchText.length === 0) {
             this.setState({ searchFocused: false });
+            this.componentDidMount();
         }
+    };
+
+    searchBlur2 = () => {
+            this.setState({ searchFocused: false });
+            this.componentDidMount();
     };
 
     render() {
@@ -92,7 +120,9 @@ class Dashboard extends Component {
                         onChange={this.setSearchText}
                         placeHolder={"Search Artists..."}
                     />
-                    <SearchList artists={this.state.filteredArtists} />
+                    <SmallButton text={"Close Results"} onClick={this.searchBlur2}/>
+                    <hr />
+                    <SearchList searchBlur={this.searchBlur} update={this.dataRetreiver} userinfo={this.state.userinfo} artists={this.state.filteredArtists} />
                 </section>
             );
         } else {
@@ -107,7 +137,7 @@ class Dashboard extends Component {
                         onBlur={this.searchBlur}
                         placeHolder={"Search Artists..."}
                     />
-                    <ReleaseCardList releases={this.state.releases} artist={this.state.artists} />
+                    <ReleaseCardList releases={this.state.releases} />
                 </section>
             );
         }

@@ -8,6 +8,7 @@ export default class EmailSignUp extends Component {
             <>
                 <form onSubmit={this.props.signUp}>
                     <input
+                        className={styles.inputSelector}
                         type="email"
                         name="email"
                         value={this.props.loginFormData.email}

@@ -1,0 +1,31 @@
+@import "../../variables";
+
+.DSPLogin {
+    background-color: $background-color;
+    min-height: 100vh;
+
+    .logo {
+        img {
+            max-width: 175px;
+            margin: 25px;
+        }
+    }
+
+    .artistList {
+        h2,
+        p {
+            text-align: center;
+        }
+
+        article:not(:last-child) {
+            border-bottom: 1px solid #444444;
+        }
+
+        .connect {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
