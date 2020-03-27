@@ -28,7 +28,6 @@ export default class PreviewRelease extends Component {
             .doc(id)
             .get()
             .then(info => {
-                console.log(info.data().uid);
                 firestore
                     .collection("Artists")
                     .where("uid", "==", info.data().uid)
@@ -100,7 +99,7 @@ export default class PreviewRelease extends Component {
                         <div className={styles.links}>
                             <article onClick={this.goToArtist}>
                                 <i className="fas fa-user-circle"></i>
-                                <p >Go to Artist</p>
+                                <p>Go to Artist</p>
                             </article>
                             <article>
                                 <a
