@@ -6,7 +6,9 @@ import Countdown from "react-countdown";
 
 class ReleaseCard extends Component {
     preview = () => {
-        navigate(`release/${this.props.release.releaseId}`, { state: this.props.release.uid })
+        navigate(`/app/fan/release/${this.props.release.releaseId}`, {
+            state: this.props.release.uid
+        });
     };
 
     render() {
